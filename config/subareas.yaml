@@ -1,0 +1,35 @@
+subareas:
+  - id: general-communication
+    label: General Communication
+    description: Broad communication theory, empirical communication research, and field-wide journals.
+  - id: political-communication
+    label: Political Communication
+    description: Political media, campaigns, public opinion, institutions, misinformation, and civic communication.
+  - id: journalism-media
+    label: Journalism and Media Studies
+    description: Journalism, news, mass communication, media institutions, audiences, and media industries.
+  - id: digital-communication
+    label: Digital and Computational Communication
+    description: Online platforms, social media, computer-mediated communication, mobile media, and computational media research.
+  - id: health-communication
+    label: Health Communication
+    description: Health messaging, risk communication, patient-provider communication, campaigns, and public health media.
+  - id: interpersonal-family
+    label: Interpersonal and Family Communication
+    description: Interpersonal relationships, family communication, relational processes, and personal networks.
+  - id: critical-cultural
+    label: Critical and Cultural Communication
+    description: Critical, cultural, feminist, rhetorical, performance, and public discourse research.
+  - id: organizational-strategic
+    label: Organizational, Strategic, and PR
+    description: Organizational communication, public relations, advertising, strategic communication, and technical communication.
+  - id: science-environment
+    label: Science, Environment, and Risk
+    description: Science communication, environmental communication, risk, technology, and public understanding of science.
+  - id: methods
+    label: Methods
+    description: Communication methodology, measurement, causal inference, computational methods, and research design.
+  - id: intercultural-international
+    label: Intercultural and International Communication
+    description: Cross-cultural communication, global media, international communication, and comparative media systems.
+

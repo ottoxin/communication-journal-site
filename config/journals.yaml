@@ -1,0 +1,628 @@
+settings:
+  title: Communication Journal Monitor
+  description: A static weekly monitor for new communication research articles and special-issue calls across communication subareas.
+  timezone: America/Chicago
+  state_dir: .state
+  output_dir: site
+  default_lookback_days: 28
+  registry_source_note: Broad seed registry assembled from ICA, NCA, current local digest coverage, and Communication-category source-list targets; expand with audit-journals when a downloaded SJR/Scopus source list is available.
+
+journals:
+  - id: journal-of-communication
+    title: Journal of Communication
+    issns: ["0021-9916", "1460-2466"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/joc
+    latest_articles_url: https://academic.oup.com/joc/advance-articles
+    primary_subarea: general-communication
+    secondary_subareas: ["political-communication", "digital-communication"]
+    associations: ["ICA"]
+    registry_sources: ["current-repo", "ICA"]
+    special_issue_monitor: true
+  - id: journal-of-computer-mediated-communication
+    title: Journal of Computer-Mediated Communication
+    issns: ["1083-6101"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/jcmc
+    latest_articles_url: https://academic.oup.com/jcmc/advance-articles
+    primary_subarea: digital-communication
+    secondary_subareas: ["general-communication"]
+    associations: ["ICA"]
+    registry_sources: ["current-repo", "ICA"]
+    special_issue_monitor: true
+  - id: communication-theory
+    title: Communication Theory
+    issns: ["1050-3293", "1468-2885"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/ct
+    latest_articles_url: https://academic.oup.com/ct/advance-articles
+    primary_subarea: general-communication
+    secondary_subareas: ["critical-cultural"]
+    associations: ["ICA"]
+    registry_sources: ["ICA"]
+    special_issue_monitor: true
+  - id: human-communication-research
+    title: Human Communication Research
+    issns: ["0360-3989", "1468-2958"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/hcr
+    latest_articles_url: https://academic.oup.com/hcr/advance-articles
+    primary_subarea: general-communication
+    secondary_subareas: ["interpersonal-family", "methods"]
+    associations: ["ICA"]
+    registry_sources: ["current-repo", "ICA"]
+    special_issue_monitor: true
+  - id: annals-of-the-international-communication-association
+    title: Annals of the International Communication Association
+    issns: ["2380-8985", "2380-8977"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rica20
+    latest_articles_url: https://www.tandfonline.com/toc/rica20/current
+    primary_subarea: general-communication
+    associations: ["ICA"]
+    registry_sources: ["ICA"]
+    special_issue_monitor: true
+  - id: communication-culture-and-critique
+    title: Communication, Culture and Critique
+    issns: ["1753-9129", "1753-9137"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/ccc
+    latest_articles_url: https://academic.oup.com/ccc/advance-articles
+    primary_subarea: critical-cultural
+    secondary_subareas: ["general-communication"]
+    associations: ["ICA"]
+    registry_sources: ["ICA"]
+  - id: communication-monographs
+    title: Communication Monographs
+    issns: ["0363-7751", "1479-5787"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcmm20
+    latest_articles_url: https://www.tandfonline.com/toc/rcmm20/current
+    primary_subarea: general-communication
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+    special_issue_monitor: true
+  - id: communication-education
+    title: Communication Education
+    issns: ["0363-4523", "1479-5795"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rced20
+    latest_articles_url: https://www.tandfonline.com/toc/rced20/current
+    primary_subarea: general-communication
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: communication-and-critical-cultural-studies
+    title: Communication and Critical/Cultural Studies
+    issns: ["1479-1420", "1479-4233"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rccc20
+    latest_articles_url: https://www.tandfonline.com/toc/rccc20/current
+    primary_subarea: critical-cultural
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: critical-studies-in-media-communication
+    title: Critical Studies in Media Communication
+    issns: ["1529-5036", "1479-5809"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcsm20
+    latest_articles_url: https://www.tandfonline.com/toc/rcsm20/current
+    primary_subarea: critical-cultural
+    secondary_subareas: ["journalism-media"]
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: journal-of-applied-communication-research
+    title: Journal of Applied Communication Research
+    issns: ["0090-9882", "1479-5752"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rjac20
+    latest_articles_url: https://www.tandfonline.com/toc/rjac20/current
+    primary_subarea: general-communication
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: quarterly-journal-of-speech
+    title: Quarterly Journal of Speech
+    issns: ["0033-5630", "1479-5779"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rqjs20
+    latest_articles_url: https://www.tandfonline.com/toc/rqjs20/current
+    primary_subarea: critical-cultural
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: text-and-performance-quarterly
+    title: Text and Performance Quarterly
+    issns: ["1046-2937", "1479-5760"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rtpq20
+    latest_articles_url: https://www.tandfonline.com/toc/rtpq20/current
+    primary_subarea: critical-cultural
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: review-of-communication
+    title: Review of Communication
+    issns: ["1535-8593", "1535-8607"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rroc20
+    latest_articles_url: https://www.tandfonline.com/toc/rroc20/current
+    primary_subarea: general-communication
+    associations: ["NCA"]
+    registry_sources: ["NCA"]
+  - id: political-communication
+    title: Political Communication
+    issns: ["1058-4609", "1091-7675"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/upcp20
+    latest_articles_url: https://www.tandfonline.com/toc/upcp20/current
+    primary_subarea: political-communication
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["current-repo"]
+    special_issue_monitor: true
+  - id: communication-research
+    title: Communication Research
+    issns: ["0093-6502", "1552-3810"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/crx
+    latest_articles_url: https://journals.sagepub.com/toc/crxa/current
+    primary_subarea: general-communication
+    secondary_subareas: ["methods", "political-communication"]
+    registry_sources: ["current-repo"]
+    special_issue_monitor: true
+  - id: communication-methods-and-measures
+    title: Communication Methods and Measures
+    issns: ["1931-2458", "1931-2466"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hcms20
+    latest_articles_url: https://www.tandfonline.com/toc/hcms20/current
+    primary_subarea: methods
+    secondary_subareas: ["general-communication"]
+    registry_sources: ["current-repo"]
+  - id: new-media-and-society
+    title: New Media & Society
+    issns: ["1461-4448", "1461-7315"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/nms
+    latest_articles_url: https://journals.sagepub.com/toc/nmsa/current
+    primary_subarea: digital-communication
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+    special_issue_monitor: true
+  - id: information-communication-and-society
+    title: Information, Communication & Society
+    issns: ["1369-118X", "1468-4462"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rics20
+    latest_articles_url: https://www.tandfonline.com/toc/rics20/current
+    primary_subarea: digital-communication
+    secondary_subareas: ["political-communication"]
+    registry_sources: ["SJR-seed"]
+    special_issue_monitor: true
+  - id: digital-journalism
+    title: Digital Journalism
+    issns: ["2167-0811", "2167-082X"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rdij20
+    latest_articles_url: https://www.tandfonline.com/toc/rdij20/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: journalism
+    title: Journalism
+    issns: ["1464-8849", "1741-3001"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/jou
+    latest_articles_url: https://journals.sagepub.com/toc/joua/current
+    primary_subarea: journalism-media
+    registry_sources: ["SJR-seed"]
+  - id: journalism-studies
+    title: Journalism Studies
+    issns: ["1461-670X", "1469-9699"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rjos20
+    latest_articles_url: https://www.tandfonline.com/toc/rjos20/current
+    primary_subarea: journalism-media
+    registry_sources: ["SJR-seed"]
+  - id: journalism-and-mass-communication-quarterly
+    title: Journalism & Mass Communication Quarterly
+    issns: ["1077-6990", "2161-430X"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/jmq
+    latest_articles_url: https://journals.sagepub.com/toc/jmqc/current
+    primary_subarea: journalism-media
+    registry_sources: ["SJR-seed"]
+  - id: mass-communication-and-society
+    title: Mass Communication and Society
+    issns: ["1520-5436", "1532-7825"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hmcs20
+    latest_articles_url: https://www.tandfonline.com/toc/hmcs20/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["general-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: international-journal-of-press-politics
+    title: The International Journal of Press/Politics
+    issns: ["1940-1612", "1940-1620"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/hij
+    latest_articles_url: https://journals.sagepub.com/toc/hijb/current
+    primary_subarea: political-communication
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: public-opinion-quarterly
+    title: Public Opinion Quarterly
+    issns: ["0033-362X", "1537-5331"]
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/poq
+    latest_articles_url: https://academic.oup.com/poq/advance-articles
+    primary_subarea: political-communication
+    secondary_subareas: ["methods"]
+    registry_sources: ["SJR-seed"]
+  - id: media-culture-and-society
+    title: Media, Culture & Society
+    issns: ["0163-4437", "1460-3675"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/mcs
+    latest_articles_url: https://journals.sagepub.com/toc/mcsa/current
+    primary_subarea: critical-cultural
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: international-journal-of-communication
+    title: International Journal of Communication
+    issns: ["1932-8036"]
+    publisher: USC Annenberg Press
+    homepage_url: https://ijoc.org/index.php/ijoc
+    latest_articles_url: https://ijoc.org/index.php/ijoc/issue/current
+    primary_subarea: general-communication
+    secondary_subareas: ["intercultural-international"]
+    registry_sources: ["SJR-seed"]
+  - id: mobile-media-and-communication
+    title: Mobile Media & Communication
+    issns: ["2050-1579", "2050-1587"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/mmc
+    latest_articles_url: https://journals.sagepub.com/toc/mmca/current
+    primary_subarea: digital-communication
+    registry_sources: ["SJR-seed"]
+  - id: social-media-and-society
+    title: Social Media + Society
+    issns: ["2056-3051"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/sms
+    latest_articles_url: https://journals.sagepub.com/toc/smsa/current
+    primary_subarea: digital-communication
+    secondary_subareas: ["political-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: health-communication
+    title: Health Communication
+    issns: ["1041-0236", "1532-7027"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hhth20
+    latest_articles_url: https://www.tandfonline.com/toc/hhth20/current
+    primary_subarea: health-communication
+    registry_sources: ["SJR-seed"]
+    special_issue_monitor: true
+  - id: journal-of-health-communication
+    title: Journal of Health Communication
+    issns: ["1081-0730", "1087-0415"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/uhcm20
+    latest_articles_url: https://www.tandfonline.com/toc/uhcm20/current
+    primary_subarea: health-communication
+    registry_sources: ["SJR-seed"]
+  - id: science-communication
+    title: Science Communication
+    issns: ["1075-5470", "1552-8545"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/scx
+    latest_articles_url: https://journals.sagepub.com/toc/scxa/current
+    primary_subarea: science-environment
+    registry_sources: ["SJR-seed"]
+  - id: public-understanding-of-science
+    title: Public Understanding of Science
+    issns: ["0963-6625", "1361-6609"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/pus
+    latest_articles_url: https://journals.sagepub.com/toc/pusa/current
+    primary_subarea: science-environment
+    registry_sources: ["SJR-seed"]
+  - id: environmental-communication
+    title: Environmental Communication
+    issns: ["1752-4032", "1752-4040"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/renc20
+    latest_articles_url: https://www.tandfonline.com/toc/renc20/current
+    primary_subarea: science-environment
+    secondary_subareas: ["political-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: media-psychology
+    title: Media Psychology
+    issns: ["1521-3269", "1532-785X"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hmep20
+    latest_articles_url: https://www.tandfonline.com/toc/hmep20/current
+    primary_subarea: general-communication
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-media-psychology
+    title: Journal of Media Psychology
+    issns: ["1864-1105", "2151-2388"]
+    publisher: Hogrefe
+    homepage_url: https://econtent.hogrefe.com/journal/jmp
+    latest_articles_url: https://econtent.hogrefe.com/toc/jmp/current
+    primary_subarea: general-communication
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: cyberpsychology-behavior-and-social-networking
+    title: Cyberpsychology, Behavior, and Social Networking
+    issns: ["2152-2715", "2152-2723"]
+    publisher: Mary Ann Liebert
+    homepage_url: https://www.liebertpub.com/loi/cyber
+    latest_articles_url: https://www.liebertpub.com/toc/cyber/current
+    primary_subarea: digital-communication
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-social-and-personal-relationships
+    title: Journal of Social and Personal Relationships
+    issns: ["0265-4075", "1460-3608"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/spr
+    latest_articles_url: https://journals.sagepub.com/toc/spra/current
+    primary_subarea: interpersonal-family
+    registry_sources: ["SJR-seed"]
+  - id: personal-relationships
+    title: Personal Relationships
+    issns: ["1350-4126", "1475-6811"]
+    publisher: Wiley
+    homepage_url: https://onlinelibrary.wiley.com/journal/14756811
+    latest_articles_url: https://onlinelibrary.wiley.com/toc/14756811/current
+    primary_subarea: interpersonal-family
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-family-communication
+    title: Journal of Family Communication
+    issns: ["1526-7431", "1532-7698"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hjfc20
+    latest_articles_url: https://www.tandfonline.com/toc/hjfc20/current
+    primary_subarea: interpersonal-family
+    registry_sources: ["SJR-seed"]
+  - id: communication-quarterly
+    title: Communication Quarterly
+    issns: ["0146-3373", "1746-4102"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcqu20
+    latest_articles_url: https://www.tandfonline.com/toc/rcqu20/current
+    primary_subarea: general-communication
+    registry_sources: ["SJR-seed"]
+  - id: communication-studies
+    title: Communication Studies
+    issns: ["1051-0974", "1745-1035"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcst20
+    latest_articles_url: https://www.tandfonline.com/toc/rcst20/current
+    primary_subarea: general-communication
+    registry_sources: ["SJR-seed"]
+  - id: western-journal-of-communication
+    title: Western Journal of Communication
+    issns: ["1057-0314", "1745-1027"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rwjc20
+    latest_articles_url: https://www.tandfonline.com/toc/rwjc20/current
+    primary_subarea: general-communication
+    registry_sources: ["SJR-seed"]
+  - id: southern-communication-journal
+    title: Southern Communication Journal
+    issns: ["1041-794X", "1930-3203"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rsjc20
+    latest_articles_url: https://www.tandfonline.com/toc/rsjc20/current
+    primary_subarea: general-communication
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-broadcasting-and-electronic-media
+    title: Journal of Broadcasting & Electronic Media
+    issns: ["0883-8151", "1550-6878"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hbem20
+    latest_articles_url: https://www.tandfonline.com/toc/hbem20/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-advertising
+    title: Journal of Advertising
+    issns: ["0091-3367", "1557-7805"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/ujoa20
+    latest_articles_url: https://www.tandfonline.com/toc/ujoa20/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-advertising-research
+    title: Journal of Advertising Research
+    issns: ["0021-8499"]
+    publisher: WARC
+    homepage_url: https://www.journalofadvertisingresearch.com/
+    latest_articles_url: https://www.journalofadvertisingresearch.com/content/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: public-relations-review
+    title: Public Relations Review
+    issns: ["0363-8111", "1873-4537"]
+    publisher: Elsevier
+    homepage_url: https://www.sciencedirect.com/journal/public-relations-review
+    latest_articles_url: https://www.sciencedirect.com/journal/public-relations-review/issues
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-public-relations-research
+    title: Journal of Public Relations Research
+    issns: ["1062-726X", "1532-754X"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hprr20
+    latest_articles_url: https://www.tandfonline.com/toc/hprr20/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: international-journal-of-strategic-communication
+    title: International Journal of Strategic Communication
+    issns: ["1553-118X", "1553-1198"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hstc20
+    latest_articles_url: https://www.tandfonline.com/toc/hstc20/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: management-communication-quarterly
+    title: Management Communication Quarterly
+    issns: ["0893-3189", "1552-6798"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/mcq
+    latest_articles_url: https://journals.sagepub.com/toc/mcqa/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-business-and-technical-communication
+    title: Journal of Business and Technical Communication
+    issns: ["1050-6519", "1552-4574"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/jbt
+    latest_articles_url: https://journals.sagepub.com/toc/jbta/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: technical-communication-quarterly
+    title: Technical Communication Quarterly
+    issns: ["1057-2252", "1542-7625"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/htcq20
+    latest_articles_url: https://www.tandfonline.com/toc/htcq20/current
+    primary_subarea: organizational-strategic
+    registry_sources: ["SJR-seed"]
+  - id: discourse-and-society
+    title: Discourse & Society
+    issns: ["0957-9265", "1460-3624"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/das
+    latest_articles_url: https://journals.sagepub.com/toc/dasa/current
+    primary_subarea: critical-cultural
+    secondary_subareas: ["political-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: discourse-context-and-media
+    title: Discourse, Context & Media
+    issns: ["2211-6958"]
+    publisher: Elsevier
+    homepage_url: https://www.sciencedirect.com/journal/discourse-context-and-media
+    latest_articles_url: https://www.sciencedirect.com/journal/discourse-context-and-media/issues
+    primary_subarea: critical-cultural
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: language-and-communication
+    title: Language & Communication
+    issns: ["0271-5309"]
+    publisher: Elsevier
+    homepage_url: https://www.sciencedirect.com/journal/language-and-communication
+    latest_articles_url: https://www.sciencedirect.com/journal/language-and-communication/issues
+    primary_subarea: critical-cultural
+    registry_sources: ["SJR-seed"]
+  - id: media-and-communication
+    title: Media and Communication
+    issns: ["2183-2439"]
+    publisher: Cogitatio
+    homepage_url: https://www.cogitatiopress.com/mediaandcommunication
+    latest_articles_url: https://www.cogitatiopress.com/mediaandcommunication/issue/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["general-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: european-journal-of-communication
+    title: European Journal of Communication
+    issns: ["0267-3231", "1460-3705"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/ejc
+    latest_articles_url: https://journals.sagepub.com/toc/ejca/current
+    primary_subarea: intercultural-international
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: global-media-and-communication
+    title: Global Media and Communication
+    issns: ["1742-7665", "1742-7673"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/gmc
+    latest_articles_url: https://journals.sagepub.com/toc/gmca/current
+    primary_subarea: intercultural-international
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: international-communication-gazette
+    title: International Communication Gazette
+    issns: ["1748-0485", "1748-0493"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/gaz
+    latest_articles_url: https://journals.sagepub.com/toc/gazb/current
+    primary_subarea: intercultural-international
+    registry_sources: ["SJR-seed"]
+  - id: chinese-journal-of-communication
+    title: Chinese Journal of Communication
+    issns: ["1754-4750", "1754-4769"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcjc20
+    latest_articles_url: https://www.tandfonline.com/toc/rcjc20/current
+    primary_subarea: intercultural-international
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-intercultural-communication-research
+    title: Journal of Intercultural Communication Research
+    issns: ["1747-5759", "1747-5767"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rjic20
+    latest_articles_url: https://www.tandfonline.com/toc/rjic20/current
+    primary_subarea: intercultural-international
+    registry_sources: ["SJR-seed"]
+  - id: international-journal-of-intercultural-relations
+    title: International Journal of Intercultural Relations
+    issns: ["0147-1767"]
+    publisher: Elsevier
+    homepage_url: https://www.sciencedirect.com/journal/international-journal-of-intercultural-relations
+    latest_articles_url: https://www.sciencedirect.com/journal/international-journal-of-intercultural-relations/issues
+    primary_subarea: intercultural-international
+    registry_sources: ["SJR-seed"]
+  - id: convergence
+    title: Convergence
+    issns: ["1354-8565", "1748-7382"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/con
+    latest_articles_url: https://journals.sagepub.com/toc/cona/current
+    primary_subarea: digital-communication
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: television-and-new-media
+    title: Television & New Media
+    issns: ["1527-4764", "1552-8316"]
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/tvn
+    latest_articles_url: https://journals.sagepub.com/toc/tvna/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["critical-cultural"]
+    registry_sources: ["SJR-seed"]
+  - id: feminist-media-studies
+    title: Feminist Media Studies
+    issns: ["1468-0777", "1471-5902"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rfms20
+    latest_articles_url: https://www.tandfonline.com/toc/rfms20/current
+    primary_subarea: critical-cultural
+    secondary_subareas: ["journalism-media"]
+    registry_sources: ["SJR-seed"]
+  - id: journal-of-children-and-media
+    title: Journal of Children and Media
+    issns: ["1748-2798", "1748-2801"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rchm20
+    latest_articles_url: https://www.tandfonline.com/toc/rchm20/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["digital-communication"]
+    registry_sources: ["SJR-seed"]
+  - id: popular-communication
+    title: Popular Communication
+    issns: ["1540-5702", "1540-5710"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/hppc20
+    latest_articles_url: https://www.tandfonline.com/toc/hppc20/current
+    primary_subarea: journalism-media
+    secondary_subareas: ["critical-cultural"]
+    registry_sources: ["SJR-seed"]
+  - id: communication-reports
+    title: Communication Reports
+    issns: ["0893-4215", "1745-1043"]
+    publisher: Taylor & Francis
+    homepage_url: https://www.tandfonline.com/journals/rcrs20
+    latest_articles_url: https://www.tandfonline.com/toc/rcrs20/current
+    primary_subarea: general-communication
+    registry_sources: ["SJR-seed"]
