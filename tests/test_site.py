@@ -42,9 +42,21 @@ def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:
     written = build_site(config, store, tmp_path / "site")
     assert tmp_path.joinpath("site/index.html").exists()
     assert tmp_path.joinpath("site/subareas/general-communication/index.html").exists()
+    assert tmp_path.joinpath("site/subareas/political-communication/index.html").exists()
+    assert tmp_path.joinpath("site/subareas/health-communication/index.html").exists()
+    assert tmp_path.joinpath("site/subareas/methods/index.html").exists()
     assert tmp_path.joinpath("site/journals/journal-of-communication/index.html").exists()
-    assert tmp_path.joinpath("site/weeks/2026-06-01/index.html").exists()
+    # Weekly-digest archive pages are no longer generated.
+    assert not tmp_path.joinpath("site/weeks").exists()
     assert tmp_path.joinpath("site/special-issues/index.html").exists()
     assert any(path.name == "styles.css" for path in written)
-    assert "Communication futures" in tmp_path.joinpath("site/index.html").read_text(encoding="utf-8")
-
+    home = tmp_path.joinpath("site/index.html").read_text(encoding="utf-8")
+    assert "Communication futures" in home
+    assert "subareas/political-communication/index.html" in home
+    assert "subareas/health-communication/index.html" in home
+    assert "subareas/methods/index.html" in home
+    # The weekly-digest section has been removed from the site.
+    assert "weeks/2026-06-01/index.html" not in home
+    assert "Weekly Digests" not in home
+    # Collection freshness is surfaced as a metric.
+    assert "Latest paper" in home

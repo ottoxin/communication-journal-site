@@ -5,7 +5,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord
-from .normalize import slugify
+from .normalize import clean_abstract, slugify
 from .storage import StateStore
 from .weekly import compute_weekly_windows
 
@@ -57,7 +57,7 @@ def _article_public_dict(article: ArticleRecord, journal: JournalConfig) -> dict
         "published_date": article.published_date,
         "doi": article.doi,
         "link": article.canonical_url or (f"https://doi.org/{article.doi}" if article.doi else None),
-        "abstract": article.abstract or "Abstract unavailable.",
+        "abstract": clean_abstract(article.abstract) or "Abstract unavailable.",
         "authors": article.authors,
         "affiliations": article.affiliations,
         "subjects": article.subjects,

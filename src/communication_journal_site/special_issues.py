@@ -9,13 +9,21 @@ from .http_client import HttpClient
 from .models import JournalConfig, SpecialIssueRecord, SpecialIssueSourceConfig
 from .normalize import normalize_whitespace
 
-KEYWORDS = (
+SPECIAL_ISSUE_PHRASES = (
     "special issue",
-    "call for papers",
-    "call for submissions",
+    "special section",
     "thematic issue",
     "theme issue",
-    "special section",
+)
+CALL_PHRASES = (
+    "call for papers",
+    "call for submissions",
+)
+GENERIC_CALL_TITLES = (
+    "call for papers",
+    "call for submissions",
+    "submissions",
+    "submit",
 )
 
 
@@ -72,15 +80,20 @@ def parse_special_issues_from_html(
     parser.close()
     records: list[SpecialIssueRecord] = []
     seen_titles: set[str] = set()
-    for text, href in parser.blocks:
-        lowered = text.lower()
-        if not any(keyword in lowered for keyword in KEYWORDS):
+    blocks = parser.blocks
+    for index, (text, href) in enumerate(blocks):
+        next_text = blocks[index + 1][0] if index + 1 < len(blocks) else ""
+        combined_text = normalize_whitespace(f"{text} {next_text}")
+        if not _is_special_issue_candidate(text, combined_text):
             continue
         title = _candidate_title(text)
+        if _is_generic_title(title):
+            continue
         key = title.lower()
         if key in seen_titles:
             continue
         seen_titles.add(key)
+        deadline = _extract_deadline(combined_text)
         records.append(
             SpecialIssueRecord(
                 source_id=source.id,
@@ -88,10 +101,10 @@ def parse_special_issues_from_html(
                 journal_title=journal.title,
                 title=title,
                 source_url=urljoin(base_url, href) if href else source.url,
-                status=_status_for_deadline(_extract_deadline(text)),
-                deadline=_extract_deadline(text),
-                confidence=_confidence(text),
-                raw_snippet=text[:500],
+                status=_status_for_deadline(deadline),
+                deadline=deadline,
+                confidence=_confidence(combined_text),
+                raw_snippet=combined_text[:500],
             )
         )
     return records
@@ -136,6 +149,23 @@ def _candidate_title(text: str) -> str:
     return sentence
 
 
+def _is_special_issue_candidate(text: str, combined_text: str) -> bool:
+    lowered_text = text.lower()
+    lowered_combined = combined_text.lower()
+    if any(phrase in lowered_combined for phrase in SPECIAL_ISSUE_PHRASES):
+        return True
+    return any(phrase in lowered_text for phrase in CALL_PHRASES) and any(
+        phrase in lowered_combined for phrase in SPECIAL_ISSUE_PHRASES
+    )
+
+
+def _is_generic_title(title: str) -> bool:
+    normalized = title.strip().lower().rstrip(":")
+    if normalized in GENERIC_CALL_TITLES:
+        return True
+    return normalized.startswith(("deadline", "submissions due", "abstracts due"))
+
+
 def _extract_deadline(text: str) -> str | None:
     patterns = [
         r"(?:deadline|due|submissions? due|abstracts? due)[:\s]+([A-Z][a-z]+ \d{1,2}, \d{4})",
@@ -177,4 +207,3 @@ def _confidence(text: str) -> str:
     if "call for papers" in lowered or "special issue" in lowered:
         return "medium"
     return "low"
-

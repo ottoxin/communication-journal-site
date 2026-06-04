@@ -43,6 +43,11 @@ def build_parser() -> argparse.ArgumentParser:
     collect_parser.add_argument("--lookback-days", type=int, default=None)
     collect_parser.add_argument("--end-date", default=None)
     collect_parser.add_argument("--no-openalex", action="store_true")
+    collect_parser.add_argument(
+        "--journals",
+        default=None,
+        help="Comma-separated journal IDs to collect (default: all active and collectable journals).",
+    )
     collect_parser.set_defaults(func=cmd_collect_papers)
 
     special_parser = subparsers.add_parser("collect-special-issues", help="Screen configured special-issue pages.")
@@ -97,9 +102,13 @@ def cmd_collect_papers(args: argparse.Namespace) -> int:
     }
     stored_total = 0
     errors: list[dict[str, str]] = []
-    for journal in config.journals:
-        if not journal.active or not journal.collect:
-            continue
+    selected_journals = _select_journals(config.journals, getattr(args, "journals", None))
+    if getattr(args, "journals", None):
+        requested = {item.strip() for item in args.journals.split(",") if item.strip()}
+        unknown = sorted(requested - {journal.id for journal in selected_journals})
+        if unknown:
+            print(f"Warning: no active, collectable journal for: {', '.join(unknown)}", file=sys.stderr)
+    for journal in selected_journals:
         try:
             records = client.fetch_journal_records(journal, start_date, end_date)
             if enricher:
@@ -180,6 +189,14 @@ def cmd_run_weekly(args: argparse.Namespace) -> int:
     if rc != 0:
         return rc
     return cmd_build_site(args)
+
+
+def _select_journals(journals, journals_arg):
+    collectable = [journal for journal in journals if journal.active and journal.collect]
+    if not journals_arg:
+        return collectable
+    selected = {item.strip() for item in journals_arg.split(",") if item.strip()}
+    return [journal for journal in collectable if journal.id in selected]
 
 
 def _store(config, args: argparse.Namespace) -> StateStore:

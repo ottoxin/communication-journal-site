@@ -9,6 +9,7 @@ from .models import ArticleRecord, JournalConfig
 from .normalize import (
     canonicalize_url,
     clean_abstract,
+    clean_markup_text,
     compact_list,
     date_from_parts,
     normalize_doi,
@@ -77,7 +78,7 @@ class CrossrefClient:
             cursor = next_cursor
 
     def _item_to_record(self, journal: JournalConfig, issn: str, item: dict[str, Any]) -> ArticleRecord:
-        title = normalize_whitespace((item.get("title") or ["Untitled article"])[0])
+        title = clean_markup_text((item.get("title") or ["Untitled article"])[0]) or "Untitled article"
         published_online = date_from_parts(item.get("published-online", {}).get("date-parts"))
         published_print = date_from_parts(item.get("published-print", {}).get("date-parts"))
         issued = date_from_parts(item.get("issued", {}).get("date-parts"))
@@ -125,4 +126,3 @@ class CrossrefClient:
 def _string_or_none(value: object) -> str | None:
     cleaned = normalize_whitespace(str(value)) if value is not None else ""
     return cleaned or None
-

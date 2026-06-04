@@ -12,7 +12,7 @@ class FakeHttpClient:
             "message": {
                 "items": [
                     {
-                        "title": [" A test article  "],
+                        "title": ["&lt;i&gt;A test article&lt;/i&gt;"],
                         "published-online": {"date-parts": [[2026, 5, 30]]},
                         "type": "journal-article",
                         "DOI": "10.1234/ABC",
@@ -61,4 +61,3 @@ def test_crossref_normalizes_article_metadata() -> None:
     assert record.volume == "12"
     assert record.issue == "3"
     assert record.pages == "1-20"
-

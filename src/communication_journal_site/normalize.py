@@ -37,10 +37,24 @@ def canonicalize_url(value: str | None) -> str | None:
     return urlunsplit((parsed.scheme.lower(), netloc, path, "", ""))
 
 
+# Strips a leading "Abstract" heading left over from JATS/Crossref markup, but only
+# when the next character is uppercase/digit (the real abstract body) so genuine
+# sentences such as "Abstract concepts are..." are preserved.
+_ABSTRACT_LABEL_RE = re.compile(r"^(?i:abstract)\b[\s:.—–-]*(?=[A-Z0-9])")
+
+
 def clean_abstract(value: str | None) -> str | None:
+    cleaned = clean_markup_text(value)
+    if not cleaned:
+        return None
+    return _ABSTRACT_LABEL_RE.sub("", cleaned, count=1) or cleaned
+
+
+def clean_markup_text(value: str | None) -> str | None:
     if not value:
         return None
-    cleaned = re.sub(r"<[^>]+>", " ", value)
+    cleaned = html.unescape(value)
+    cleaned = re.sub(r"<[^>]+>", " ", cleaned)
     cleaned = html.unescape(cleaned)
     return normalize_whitespace(cleaned) or None
 
@@ -95,4 +109,3 @@ def compact_list(values: Iterable[str | None]) -> list[str]:
             seen.add(cleaned.lower())
             compacted.append(cleaned)
     return compacted
-
