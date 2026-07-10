@@ -37,3 +37,6 @@ if (!(await exists(resolve(staticSource, "index.html")))) {
   await cp(resolve(root, "worker", "index.js"), resolve(output, "server", "index.js"));
   console.log("Prepared the Sites deployment artifact in dist/.");
 }
+
+await mkdir(resolve(output, ".openai"), { recursive: true });
+await cp(resolve(root, ".openai", "hosting.json"), resolve(output, ".openai", "hosting.json"));
