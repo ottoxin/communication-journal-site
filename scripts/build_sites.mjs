@@ -15,7 +15,13 @@ try {
 await rm(output, { recursive: true, force: true });
 await mkdir(resolve(output, "client"), { recursive: true });
 await mkdir(resolve(output, "server"), { recursive: true });
-await cp(staticSource, resolve(output, "client"), { recursive: true });
+await cp(staticSource, resolve(output, "client"), {
+  recursive: true,
+  filter(source) {
+    const name = source.split("/").pop() || "";
+    return name !== ".DS_Store" && !name.startsWith("verification-");
+  }
+});
 await cp(resolve(root, "worker", "index.js"), resolve(output, "server", "index.js"));
 
 console.log("Prepared the Sites deployment artifact in dist/.");
