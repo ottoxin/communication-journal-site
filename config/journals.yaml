@@ -1,6 +1,7 @@
 settings:
   title: Communication Journal Monitor
   description: Discover new communication research and special-issue calls, organized by field and refreshed every week.
+  site_url: https://communication-journal-monitor.ottoto.chatgpt.site
   timezone: America/Chicago
   state_dir: .state
   output_dir: site
