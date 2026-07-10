@@ -13,6 +13,13 @@ class SiteSettings:
     output_dir: str
     default_lookback_days: int
     registry_source_note: str
+    featured_subareas: list[str] = field(
+        default_factory=lambda: ["political-communication", "health-communication", "methods"]
+    )
+    article_page_limit: int = 250
+    freshness_warning_days: int = 10
+    special_issue_verification_days: int = 10
+    site_url: str = ""
 
 
 @dataclass(frozen=True, slots=True)
@@ -129,4 +136,3 @@ class WeeklyWindows:
 
     def to_dict(self) -> dict[str, str]:
         return asdict(self)
-

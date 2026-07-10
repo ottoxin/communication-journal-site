@@ -9,13 +9,19 @@ from pathlib import Path
 
 from .audit import audit_journal_registry
 from .config import DEFAULT_CONFIG_DIR, load_config, resolve_project_path
+from .covers import collect_covers, load_cover_sources
 from .crossref import CrossrefClient
 from .enrichment import MetadataEnricher, OpenAlexClient
 from .exporter import export_public_data
 from .http_client import HttpClient
+from .health import local_today, write_last_run
+from .normalize import slugify
 from .site import build_site
 from .special_issues import SpecialIssueCollector
 from .storage import StateStore
+
+
+MAX_CONSECUTIVE_JOURNAL_FAILURES = 2
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -65,12 +71,39 @@ def build_parser() -> argparse.ArgumentParser:
     build_parser_.add_argument("--output-dir", default=None)
     build_parser_.set_defaults(func=cmd_build_site)
 
+    covers_parser = subparsers.add_parser(
+        "fetch-covers",
+        help="Collect and audit real journal cover images.",
+    )
+    covers_parser.add_argument("--state-dir", default=None)
+    covers_parser.add_argument(
+        "--sources",
+        default=None,
+        help="YAML file of curated direct image URLs (default: cover_sources.yaml in --config-dir).",
+    )
+    covers_parser.add_argument(
+        "--import-dir",
+        default=None,
+        help="Directory of local covers named JOURNAL_ID.(jpg|png|webp|svg|gif).",
+    )
+    covers_parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Return a failure status unless every configured journal has a real cover.",
+    )
+    covers_parser.set_defaults(func=cmd_fetch_covers)
+
     weekly_parser = subparsers.add_parser("run-weekly", help="Run collection, exports, and static-site build.")
     weekly_parser.add_argument("--state-dir", default=None)
     weekly_parser.add_argument("--output-dir", default=None)
     weekly_parser.add_argument("--digest-date", default=None)
     weekly_parser.add_argument("--lookback-days", type=int, default=None)
     weekly_parser.add_argument("--no-openalex", action="store_true")
+    weekly_parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Return a failure status after publishing if any source failed.",
+    )
     weekly_parser.set_defaults(func=cmd_run_weekly)
 
     return parser
@@ -88,12 +121,20 @@ def cmd_audit_journals(args: argparse.Namespace) -> int:
 def cmd_collect_papers(args: argparse.Namespace) -> int:
     config = load_config(args.config_dir)
     store = _store(config, args)
-    end_date = date.fromisoformat(args.end_date) if args.end_date else date.today()
+    end_date = date.fromisoformat(args.end_date) if args.end_date else local_today(config.settings.timezone)
     lookback_days = args.lookback_days or config.settings.default_lookback_days
     start_date = end_date - timedelta(days=lookback_days - 1)
     seen_at = utc_now().isoformat()
-    client = CrossrefClient(mailto=os.environ.get("CJS_CROSSREF_MAILTO"))
-    enricher = None if args.no_openalex else MetadataEnricher(OpenAlexClient(mailto=os.environ.get("CJS_OPENALEX_MAILTO")))
+    client = CrossrefClient(
+        http_client=HttpClient(timeout=12, max_attempts=2),
+        mailto=os.environ.get("CJS_CROSSREF_MAILTO"),
+    )
+    enricher = None if args.no_openalex else MetadataEnricher(
+        OpenAlexClient(
+            http_client=HttpClient(timeout=10, max_attempts=1),
+            mailto=os.environ.get("CJS_OPENALEX_MAILTO"),
+        )
+    )
     archive = {
         "run_started_at": seen_at,
         "start_date": start_date.isoformat(),
@@ -101,14 +142,15 @@ def cmd_collect_papers(args: argparse.Namespace) -> int:
         "journals": [],
     }
     stored_total = 0
-    errors: list[dict[str, str]] = []
+    errors: list[dict[str, object]] = []
     selected_journals = _select_journals(config.journals, getattr(args, "journals", None))
     if getattr(args, "journals", None):
         requested = {item.strip() for item in args.journals.split(",") if item.strip()}
         unknown = sorted(requested - {journal.id for journal in selected_journals})
         if unknown:
             print(f"Warning: no active, collectable journal for: {', '.join(unknown)}", file=sys.stderr)
-    for journal in selected_journals:
+    consecutive_failures = 0
+    for index, journal in enumerate(selected_journals):
         try:
             records = client.fetch_journal_records(journal, start_date, end_date)
             if enricher:
@@ -118,15 +160,44 @@ def cmd_collect_papers(args: argparse.Namespace) -> int:
             archive["journals"].append(
                 {"journal_id": journal.id, "title": journal.title, "retrieved": len(records), "stored": stored}
             )
+            consecutive_failures = 0
         except Exception as exc:
+            error_text = str(exc)
+            if _counts_toward_crossref_circuit(error_text):
+                consecutive_failures += 1
+            else:
+                consecutive_failures = 0
             errors.append({"journal_id": journal.id, "error": str(exc)})
             archive["journals"].append(
                 {"journal_id": journal.id, "title": journal.title, "retrieved": 0, "stored": 0, "error": str(exc)}
             )
+            if consecutive_failures >= MAX_CONSECUTIVE_JOURNAL_FAILURES:
+                skipped_reason = (
+                    f"Skipped after {consecutive_failures} consecutive Crossref failures; "
+                    "the upstream service may be unavailable."
+                )
+                for skipped in selected_journals[index + 1 :]:
+                    errors.append({"journal_id": skipped.id, "error": skipped_reason, "skipped": True})
+                    archive["journals"].append(
+                        {
+                            "journal_id": skipped.id,
+                            "title": skipped.title,
+                            "retrieved": 0,
+                            "stored": 0,
+                            "skipped": True,
+                            "error": skipped_reason,
+                        }
+                    )
+                break
     _write_archive(args.config_dir, config, f"collect-papers-{seen_at.replace(':', '-')}.json", archive)
     print(f"Collected {stored_total} articles from {len(archive['journals'])} configured journals.")
     if errors:
-        print(f"{len(errors)} journal(s) failed. See .state/archives for details.", file=sys.stderr)
+        skipped_count = sum(1 for error in errors if error.get("skipped"))
+        failed_count = len(errors) - skipped_count
+        summary = f"{failed_count} journal request(s) failed"
+        if skipped_count:
+            summary += f"; {skipped_count} skipped after the circuit breaker opened"
+        print(f"{summary}. See .state/archives for details.", file=sys.stderr)
         return 1
     return 0
 
@@ -135,15 +206,19 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
     config = load_config(args.config_dir)
     store = _store(config, args)
     seen_at = utc_now().isoformat()
-    records, errors = SpecialIssueCollector().collect(
+    collector = SpecialIssueCollector()
+    records, errors = collector.collect(
         config.special_issue_sources,
         config.journal_by_id,
     )
     stored = store.upsert_special_issues(records, seen_at=seen_at)
+    unverified = store.reconcile_special_issues(records, collector.successful_source_ids)
     archive = {
         "run_started_at": seen_at,
         "retrieved": len(records),
         "stored": stored,
+        "marked_unverified": unverified,
+        "successful_source_ids": sorted(collector.successful_source_ids),
         "errors": errors,
     }
     _write_archive(args.config_dir, config, f"collect-special-issues-{seen_at.replace(':', '-')}.json", archive)
@@ -174,21 +249,75 @@ def cmd_build_site(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_fetch_covers(args: argparse.Namespace) -> int:
+    config = load_config(args.config_dir)
+    configured = args.state_dir or config.settings.state_dir
+    cache_dir = resolve_project_path(args.config_dir, configured) / "covers"
+    sources_path = (
+        resolve_project_path(args.config_dir, args.sources)
+        if getattr(args, "sources", None)
+        else Path(args.config_dir) / "cover_sources.yaml"
+    )
+    import_dir = (
+        resolve_project_path(args.config_dir, args.import_dir)
+        if getattr(args, "import_dir", None)
+        else None
+    )
+    sources = load_cover_sources(sources_path)
+    known_source_keys = {
+        key
+        for journal in config.journals
+        for key in (journal.id, slugify(journal.title))
+    }
+    unknown_sources = sorted(set(sources) - known_source_keys)
+    if unknown_sources:
+        print(
+            f"Warning: cover sources contain unknown journal ids: {', '.join(unknown_sources)}",
+            file=sys.stderr,
+        )
+    result = collect_covers(
+        config.journals,
+        cache_dir,
+        sources=sources,
+        import_dir=import_dir,
+    )
+    total = len(config.journals)
+    print(
+        f"Cached {len(result.covers)}/{total} real journal cover(s) in {cache_dir} "
+        f"({len(result.imported)} imported, {len(result.downloaded)} URL, "
+        f"{len(result.wikidata)} Wikidata this run)."
+    )
+    for journal_id, error in sorted(result.errors.items()):
+        print(f"Cover error [{journal_id}]: {error}", file=sys.stderr)
+    if result.missing:
+        print(f"Missing {len(result.missing)} cover(s): {', '.join(result.missing)}", file=sys.stderr)
+    return 1 if getattr(args, "strict", False) and result.missing else 0
+
+
 def cmd_run_weekly(args: argparse.Namespace) -> int:
     config = load_config(args.config_dir)
-    digest_date = date.fromisoformat(args.digest_date) if args.digest_date else date.today()
+    digest_date = date.fromisoformat(args.digest_date) if args.digest_date else local_today(config.settings.timezone)
     collect_args = argparse.Namespace(**vars(args), end_date=digest_date.isoformat())
-    rc = cmd_collect_papers(collect_args)
-    if rc != 0:
-        return rc
-    rc = cmd_collect_special_issues(args)
-    if rc != 0:
-        return rc
-    export_args = argparse.Namespace(**vars(args), digest_date=digest_date.isoformat())
-    rc = cmd_export_public_data(export_args)
-    if rc != 0:
-        return rc
-    return cmd_build_site(args)
+    papers_rc = cmd_collect_papers(collect_args)
+    special_rc = cmd_collect_special_issues(args)
+    state_dir = _store(config, args).db_path.parent
+    partial = papers_rc != 0 or special_rc != 0
+    write_last_run(
+        state_dir,
+        {
+            "digest_date": digest_date.isoformat(),
+            "status": "partial" if partial else "complete",
+            "paper_collection": "partial" if papers_rc else "complete",
+            "special_issue_collection": "partial" if special_rc else "complete",
+        },
+    )
+    export_args = argparse.Namespace(**{**vars(args), "digest_date": digest_date.isoformat()})
+    export_rc = cmd_export_public_data(export_args)
+    build_rc = cmd_build_site(args)
+    failed = any(code != 0 for code in (papers_rc, special_rc, export_rc, build_rc))
+    if failed and getattr(args, "strict", False):
+        return 1
+    return 0
 
 
 def _select_journals(journals, journals_arg):
@@ -197,6 +326,16 @@ def _select_journals(journals, journals_arg):
         return collectable
     selected = {item.strip() for item in journals_arg.split(",") if item.strip()}
     return [journal for journal in collectable if journal.id in selected]
+
+
+def _counts_toward_crossref_circuit(error_text: str) -> bool:
+    """Return whether a collection failure likely means Crossref is broadly down."""
+
+    # Crossref returns 404 for some ISSN/date windows or deprecated journal ISSNs.
+    # Those are journal-specific failures; do not skip unrelated later journals.
+    if "HTTP Error 404" in error_text:
+        return False
+    return True
 
 
 def _store(config, args: argparse.Namespace) -> StateStore:
@@ -236,4 +375,3 @@ def utc_now() -> datetime:
 
 if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(main())
-

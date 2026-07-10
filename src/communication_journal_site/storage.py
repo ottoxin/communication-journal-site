@@ -2,10 +2,12 @@ from __future__ import annotations
 
 import json
 import sqlite3
+from datetime import date
 from pathlib import Path
 
 from .models import ArticleRecord, SpecialIssueRecord
 from .normalize import make_dedupe_key, sha256_text
+from .special_issues import is_plausible_special_issue_title
 
 
 class StateStore:
@@ -152,16 +154,7 @@ class StateStore:
             for record in records:
                 discovered_at = record.discovered_at or seen_at
                 last_seen_at = record.last_seen_at or seen_at
-                dedupe_key = sha256_text(
-                    "|".join(
-                        [
-                            record.source_id.lower(),
-                            record.journal_id.lower(),
-                            record.title.lower(),
-                            record.source_url.lower(),
-                        ]
-                    )
-                )
+                dedupe_key = _special_issue_dedupe_key(record)
                 connection.execute(
                     """
                     INSERT INTO special_issues (
@@ -195,6 +188,40 @@ class StateStore:
                 )
         return len(records)
 
+    def reconcile_special_issues(
+        self,
+        records: list[SpecialIssueRecord],
+        successful_source_ids: set[str],
+    ) -> int:
+        """Mark previously active calls missing from a successful source as unverified.
+
+        Failed sources are deliberately excluded: a publisher outage must not make
+        all of its calls disappear. A later successful run can reactivate a record
+        through the normal upsert path.
+        """
+        seen_by_source: dict[str, set[str]] = {}
+        for record in records:
+            seen_by_source.setdefault(record.source_id, set()).add(_special_issue_dedupe_key(record))
+
+        changed = 0
+        with self._connect() as connection:
+            for source_id in successful_source_ids:
+                seen_keys = seen_by_source.get(source_id, set())
+                rows = connection.execute(
+                    "SELECT dedupe_key FROM special_issues WHERE source_id = ? AND status = 'active'",
+                    (source_id,),
+                ).fetchall()
+                missing = [row["dedupe_key"] for row in rows if row["dedupe_key"] not in seen_keys]
+                if not missing:
+                    continue
+                placeholders = ",".join("?" for _ in missing)
+                cursor = connection.execute(
+                    f"UPDATE special_issues SET status = 'unverified' WHERE dedupe_key IN ({placeholders})",
+                    missing,
+                )
+                changed += cursor.rowcount
+        return changed
+
     def get_articles_between(self, start_date: str, end_exclusive: str) -> list[ArticleRecord]:
         with self._connect() as connection:
             rows = connection.execute(
@@ -217,7 +244,11 @@ class StateStore:
             ).fetchall()
         return [self._row_to_article(row) for row in rows]
 
-    def get_special_issues(self) -> list[SpecialIssueRecord]:
+    def get_special_issues(
+        self,
+        verification_days: int | None = None,
+        today: date | None = None,
+    ) -> list[SpecialIssueRecord]:
         with self._connect() as connection:
             rows = connection.execute(
                 """
@@ -229,7 +260,20 @@ class StateStore:
                     title ASC
                 """
             ).fetchall()
-        return [self._row_to_special_issue(row) for row in rows]
+        records = [self._row_to_special_issue(row) for row in rows]
+        records = [record for record in records if is_plausible_special_issue_title(record.title)]
+        if verification_days is not None:
+            today = today or date.today()
+            for record in records:
+                if record.status != "active" or not record.last_seen_at:
+                    continue
+                try:
+                    last_seen = date.fromisoformat(record.last_seen_at[:10])
+                except ValueError:
+                    continue
+                if (today - last_seen).days > verification_days:
+                    record.status = "unverified"
+        return records
 
     def _row_to_article(self, row: sqlite3.Row) -> ArticleRecord:
         return ArticleRecord(
@@ -255,17 +299,37 @@ class StateStore:
         )
 
     def _row_to_special_issue(self, row: sqlite3.Row) -> SpecialIssueRecord:
+        status = row["status"]
+        deadline = row["deadline"]
+        if status == "active" and deadline:
+            try:
+                if date.fromisoformat(deadline) < date.today():
+                    status = "closed"
+            except ValueError:
+                pass
         return SpecialIssueRecord(
             source_id=row["source_id"],
             journal_id=row["journal_id"],
             journal_title=row["journal_title"],
             title=row["title"],
             source_url=row["source_url"],
-            status=row["status"],
-            deadline=row["deadline"],
+            status=status,
+            deadline=deadline,
             discovered_at=row["discovered_at"],
             last_seen_at=row["last_seen_at"],
             confidence=row["confidence"],
             raw_snippet=row["raw_snippet"],
         )
 
+
+def _special_issue_dedupe_key(record: SpecialIssueRecord) -> str:
+    return sha256_text(
+        "|".join(
+            [
+                record.source_id.lower(),
+                record.journal_id.lower(),
+                record.title.lower(),
+                record.source_url.lower(),
+            ]
+        )
+    )

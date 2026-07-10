@@ -1,10 +1,14 @@
 settings:
   title: Communication Journal Monitor
-  description: A static weekly monitor for new communication research articles and special-issue calls across communication subareas.
+  description: Discover new communication research and special-issue calls, organized by field and refreshed every week.
   timezone: America/Chicago
   state_dir: .state
   output_dir: site
   default_lookback_days: 28
+  featured_subareas: ["political-communication", "health-communication", "methods"]
+  article_page_limit: 250
+  freshness_warning_days: 10
+  special_issue_verification_days: 10
   registry_source_note: Broad seed registry assembled from ICA, NCA, current local digest coverage, and Communication-category source-list targets; expand with audit-journals when a downloaded SJR/Scopus source list is available.
 
 journals:
@@ -55,9 +59,9 @@ journals:
   - id: annals-of-the-international-communication-association
     title: Annals of the International Communication Association
     issns: ["2380-8985", "2380-8977"]
-    publisher: Taylor & Francis
-    homepage_url: https://www.tandfonline.com/journals/rica20
-    latest_articles_url: https://www.tandfonline.com/toc/rica20/current
+    publisher: Oxford University Press
+    homepage_url: https://academic.oup.com/anncom
+    latest_articles_url: https://academic.oup.com/anncom/advance-articles
     primary_subarea: general-communication
     associations: ["ICA"]
     registry_sources: ["ICA"]

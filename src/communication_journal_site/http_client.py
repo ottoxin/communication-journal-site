@@ -19,21 +19,34 @@ class HttpResponse:
 
 
 class HttpClient:
+    # A browser-like User-Agent + Accept headers. Many publisher sites (e.g. SAGE)
+    # return 403 to a bare tool UA but serve normally to this; Crossref/OpenAlex
+    # are unaffected (they key the polite pool off the mailto query param).
+    default_user_agent = (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+
     def __init__(
         self,
         timeout: int = 30,
-        user_agent: str = "communication-journal-site/0.1",
+        user_agent: str | None = None,
         max_attempts: int = 3,
     ):
         self.timeout = timeout
-        self.user_agent = user_agent
+        self.user_agent = user_agent or self.default_user_agent
         self.max_attempts = max_attempts
 
     def get_text(self, url: str) -> HttpResponse:
         last_error: Exception | None = None
+        headers = {
+            "User-Agent": self.user_agent,
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9",
+        }
         for attempt in range(1, self.max_attempts + 1):
             try:
-                request = Request(url, headers={"User-Agent": self.user_agent})
+                request = Request(url, headers=headers)
                 with urlopen(request, timeout=self.timeout) as response:
                     raw = response.read()
                     content_type = response.headers.get("content-type", "")

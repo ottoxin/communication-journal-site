@@ -1,0 +1,11 @@
+{
+  "name": "communication-journal-monitor-hosting",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build_sites.mjs"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

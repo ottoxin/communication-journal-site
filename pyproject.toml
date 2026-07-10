@@ -16,6 +16,9 @@ dependencies = [
 dev = [
   "pytest>=8.0",
 ]
+render = [
+  "playwright>=1.40",
+]
 
 [project.scripts]
 communication-journal-site = "communication_journal_site.cli:main"

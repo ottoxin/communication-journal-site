@@ -3,7 +3,8 @@ from __future__ import annotations
 from datetime import date
 
 from communication_journal_site.crossref import CrossrefClient
-from communication_journal_site.models import JournalConfig
+from communication_journal_site.enrichment import MetadataEnricher
+from communication_journal_site.models import ArticleRecord, JournalConfig
 
 
 class FakeHttpClient:
@@ -61,3 +62,30 @@ def test_crossref_normalizes_article_metadata() -> None:
     assert record.volume == "12"
     assert record.issue == "3"
     assert record.pages == "1-20"
+
+
+def test_openalex_enrichment_stops_after_repeated_service_failures() -> None:
+    class FailingOpenAlex:
+        def __init__(self):
+            self.calls = 0
+
+        def abstract_for_doi(self, doi: str):
+            self.calls += 1
+            raise RuntimeError("OpenAlex unavailable")
+
+    client = FailingOpenAlex()
+    records = [
+        ArticleRecord(
+            journal_id="test-journal",
+            journal_title="Test Journal",
+            title=f"Article {index}",
+            published_date="2026-06-20",
+            doi=f"10.1234/{index}",
+        )
+        for index in range(6)
+    ]
+
+    enriched = MetadataEnricher(client).enrich_records(records)
+
+    assert client.calls == 3
+    assert enriched[-1].provenance["abstract_source"] == "openalex_unavailable"

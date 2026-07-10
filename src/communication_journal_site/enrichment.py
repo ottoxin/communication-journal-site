@@ -42,17 +42,27 @@ class MetadataEnricher:
 
     def enrich_records(self, records: list[ArticleRecord]) -> list[ArticleRecord]:
         enriched: list[ArticleRecord] = []
+        consecutive_failures = 0
+        service_available = True
         for record in records:
             if record.abstract or not record.doi:
+                enriched.append(record)
+                continue
+            if not service_available:
+                record.provenance["abstract_source"] = "openalex_unavailable"
                 enriched.append(record)
                 continue
             try:
                 abstract = self.openalex.abstract_for_doi(record.doi)
             except Exception:
                 abstract = None
+                consecutive_failures += 1
+                if consecutive_failures >= 3:
+                    service_available = False
+            else:
+                consecutive_failures = 0
             if abstract:
                 record.abstract = abstract
                 record.provenance["abstract_source"] = "openalex"
             enriched.append(record)
         return enriched
-

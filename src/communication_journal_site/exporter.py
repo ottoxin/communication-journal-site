@@ -5,7 +5,14 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord
-from .normalize import clean_abstract, slugify
+from .health import collection_health, local_today, read_last_run
+from .normalize import slugify
+from .publication import (
+    PUBLIC_ARTICLE_POLICY,
+    local_only_article_count,
+    public_abstract,
+    public_articles,
+)
 from .storage import StateStore
 from .weekly import compute_weekly_windows
 
@@ -18,8 +25,14 @@ def export_public_data(
 ) -> dict[str, Path]:
     data_dir = Path(output_dir) / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
-    articles = store.get_all_articles()
-    special_issues = store.get_special_issues()
+    all_articles = store.get_all_articles()
+    articles = public_articles(all_articles)
+    hidden_article_count = local_only_article_count(all_articles)
+    today = local_today(config.settings.timezone)
+    special_issues = store.get_special_issues(
+        verification_days=config.settings.special_issue_verification_days,
+        today=today,
+    )
     journal_by_id = config.journal_by_id
     article_dicts = [_article_public_dict(article, journal_by_id[article.journal_id]) for article in articles]
     special_dicts = [_special_issue_public_dict(record) for record in special_issues]
@@ -29,6 +42,7 @@ def export_public_data(
         "journals": data_dir / "journals.json",
         "special_issues": data_dir / "special_issues.jsonl",
         "latest": data_dir / "latest.json",
+        "health": data_dir / "health.json",
     }
     _write_jsonl(paths["articles"], article_dicts)
     _write_json(paths["journals"], journal_dicts)
@@ -37,6 +51,8 @@ def export_public_data(
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "site_title": config.settings.title,
         "article_count": len(article_dicts),
+        "local_only_article_count": hidden_article_count,
+        "public_article_policy": PUBLIC_ARTICLE_POLICY,
         "journal_count": len(config.journals),
         "active_special_issue_count": sum(1 for item in special_dicts if item["status"] == "active"),
         "digest_date": digest_date.isoformat() if digest_date else None,
@@ -45,10 +61,23 @@ def export_public_data(
         "active_special_issues": [item for item in special_dicts if item["status"] == "active"][:25],
     }
     _write_json(paths["latest"], latest_payload)
+    health_payload = collection_health(
+        articles,
+        special_issues,
+        config.settings.freshness_warning_days,
+        today=today,
+    )
+    health_payload["local_only_article_count"] = hidden_article_count
+    health_payload["public_article_policy"] = PUBLIC_ARTICLE_POLICY
+    health_payload["last_run"] = read_last_run(store.db_path.parent)
+    _write_json(paths["health"], health_payload)
     return paths
 
 
 def _article_public_dict(article: ArticleRecord, journal: JournalConfig) -> dict:
+    abstract = public_abstract(article)
+    if abstract is None:
+        raise ValueError(f"Article {article.title!r} is not eligible for public export.")
     return {
         "journal_id": article.journal_id,
         "journal_slug": slugify(article.journal_title),
@@ -57,7 +86,7 @@ def _article_public_dict(article: ArticleRecord, journal: JournalConfig) -> dict
         "published_date": article.published_date,
         "doi": article.doi,
         "link": article.canonical_url or (f"https://doi.org/{article.doi}" if article.doi else None),
-        "abstract": clean_abstract(article.abstract) or "Abstract unavailable.",
+        "abstract": abstract,
         "authors": article.authors,
         "affiliations": article.affiliations,
         "subjects": article.subjects,
@@ -123,4 +152,3 @@ def _write_jsonl(path: Path, rows: list[dict]) -> None:
         "\n".join(json.dumps(row, ensure_ascii=True, sort_keys=True) for row in rows) + ("\n" if rows else ""),
         encoding="utf-8",
     )
-

@@ -47,4 +47,31 @@ sources:
     url: https://www.natcom.org/publications/nca-journals
     source_type: association-page
     active: true
+  # Rendered hub sources use a headless browser (Playwright, the "render" extra)
+  # to load JS/anti-bot CFP index pages spanning many journals; findings are
+  # filtered to communication relevance. NOTE: left INACTIVE because SAGE serves
+  # an empty list to headless Chromium (bot mitigation) after initial access, so
+  # results are unreliable. The mechanism is retained for non-protected hubs.
+  - id: sage-special-issue-hub
+    journal_id: aggregator-sage
+    label: SAGE special-issue calls (all journals)
+    url: https://journals.sagepub.com/special-issue-calls-for-papers
+    source_type: rendered
+    active: false
+  - id: sage-open-call-hub
+    journal_id: aggregator-sage
+    label: SAGE open calls for papers (all journals)
+    url: https://journals.sagepub.com/open-call-for-papers
+    source_type: rendered
+    active: false
+  # Feed sources use source_type: rss and are parsed deterministically as XML.
+  # NOTE: WikiCFP's "communication" category is mostly telecom/networking
+  # conferences, not communication-studies journals, so it is left inactive
+  # until a relevant comm-studies feed (e.g. a society/H-Net feed) is found.
+  - id: wikicfp-communication
+    journal_id: aggregator-communication
+    label: WikiCFP communication calls (telecom-heavy; inactive)
+    url: http://www.wikicfp.com/cfp/rss?cat=communication
+    source_type: rss
+    active: false
 

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import yaml
 
@@ -12,6 +13,7 @@ from .models import (
     SpecialIssueSourceConfig,
     SubareaConfig,
 )
+from .special_issues import AGGREGATOR_SOURCE_TYPES
 
 
 DEFAULT_CONFIG_DIR = Path(__file__).resolve().parents[2] / "config"
@@ -63,11 +65,24 @@ def _validate_config(
     subareas: list[SubareaConfig],
     special_sources: list[SpecialIssueSourceConfig],
 ) -> None:
+    try:
+        ZoneInfo(settings.timezone)
+    except ZoneInfoNotFoundError as exc:
+        raise ValueError(f"Unknown timezone: {settings.timezone}") from exc
     if settings.default_lookback_days < 7:
         raise ValueError("default_lookback_days must be at least 7.")
+    if settings.article_page_limit < 25:
+        raise ValueError("article_page_limit must be at least 25.")
+    if settings.freshness_warning_days < 1:
+        raise ValueError("freshness_warning_days must be positive.")
+    if settings.special_issue_verification_days < 1:
+        raise ValueError("special_issue_verification_days must be positive.")
     subarea_ids = {subarea.id for subarea in subareas}
     if len(subarea_ids) != len(subareas):
         raise ValueError("Subarea ids must be unique.")
+    unknown_featured = [item for item in settings.featured_subareas if item not in subarea_ids]
+    if unknown_featured:
+        raise ValueError(f"Unknown featured subarea(s): {', '.join(unknown_featured)}")
     journal_ids = {journal.id for journal in journals}
     if len(journal_ids) != len(journals):
         raise ValueError("Journal ids must be unique.")
@@ -78,6 +93,9 @@ def _validate_config(
         if missing:
             raise ValueError(f"{journal.id} uses unknown subarea(s): {', '.join(missing)}")
     for source in special_sources:
+        # Feed/aggregator/hub sources span multiple journals, so they are not
+        # required to map to a registry journal; page sources still must.
+        if source.source_type in AGGREGATOR_SOURCE_TYPES:
+            continue
         if source.journal_id not in journal_ids:
             raise ValueError(f"{source.id} refers to unknown journal_id {source.journal_id}.")
-

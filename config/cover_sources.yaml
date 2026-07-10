@@ -1,0 +1,34 @@
+# Curated direct image URLs for journal covers that Wikidata cannot supply.
+#
+# Use a publisher or journal-owned source when possible. `source_page` is sent
+# as the HTTP Referer and records where a human verified the image. String URL
+# shorthand is also accepted:
+#
+# covers:
+#   journal-of-communication:
+#     image_url: https://publisher.example/cover.jpg
+#     source_page: https://publisher.example/journal
+#   communication-theory: https://publisher.example/cover.png
+
+covers:
+  communication-methods-and-measures:
+    image_url: https://imagepphcloud.thepaper.cn/pph/image/81/767/586.jpg
+    source_page: https://www.thepaper.cn/newsDetail_forward_8612164
+  international-journal-of-communication:
+    image_url: https://ijoc.org/public/journals/1/journalThumbnail_en.jpg
+    source_page: https://ijoc.org/index.php/ijoc
+  journal-of-broadcasting-and-electronic-media:
+    image_url: https://www.tandfonline.com/cms/asset/9daf3469-2c96-4c93-bfa4-48f60684929b/hbem20.v070.i02.cover.jpg
+    source_page: https://www.tandfonline.com/journals/hbem20
+  journal-of-family-communication:
+    image_url: https://www.tandfonline.com/cms/asset/13332a2b-004c-42e0-bf31-022f6b578ec1/hjfc20.v026.i02.cover.jpg
+    source_page: https://www.tandfonline.com/journals/hjfc20
+  journal-of-public-relations-research:
+    image_url: https://www.tandfonline.com/cms/asset/c9e51e6f-2ca4-49ca-89f2-0c72b475e24c/hprr20.v037.i01-02.cover.jpg
+    source_page: https://www.tandfonline.com/journals/hprr20
+  # Direct Taylor & Francis access to the current Western Journal cover returns
+  # a network-level 403 here, so this pins Bing's cached copy of the current
+  # image-search result for the official T&F cover.
+  western-journal-of-communication:
+    image_url: https://ts2.mm.bing.net/th?id=OIP.QdISlE243k6QK4yDCvuPMAAAAA&pid=15.1
+    source_page: https://www.tandfonline.com/journals/rwjc20
