@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import json
 from datetime import date
 from pathlib import Path
@@ -41,6 +42,12 @@ def test_storage_dedupes_articles_and_export_uses_journal_subareas(tmp_path: Pat
         for line in paths["articles"].read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
+    compressed_rows = [
+        json.loads(line)
+        for line in gzip.decompress(paths["articles_gzip"].read_bytes()).decode("utf-8").splitlines()
+        if line.strip()
+    ]
+    assert compressed_rows == rows
     assert len(rows) == 1
     assert rows[0]["subareas"] == ["political-communication", "journalism-media"]
     assert rows[0]["journal_slug"] == "political-communication"

@@ -629,7 +629,7 @@ def _article_limit_notice(total: int, shown: int) -> str:
     return (
         '<p class="listing-note">'
         f"Showing the newest {shown:,} of {total:,} papers to keep this page fast. "
-        '<a href="../../data/articles.jsonl">Download the complete dataset</a>.'
+        '<a href="../../data/articles.jsonl.gz">Download the complete dataset</a>.'
         "</p>"
     )
 

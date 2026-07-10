@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import gzip
 import json
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -39,12 +40,14 @@ def export_public_data(
     journal_dicts = _journal_public_dicts(config.journals, articles)
     paths = {
         "articles": data_dir / "articles.jsonl",
+        "articles_gzip": data_dir / "articles.jsonl.gz",
         "journals": data_dir / "journals.json",
         "special_issues": data_dir / "special_issues.jsonl",
         "latest": data_dir / "latest.json",
         "health": data_dir / "health.json",
     }
     _write_jsonl(paths["articles"], article_dicts)
+    paths["articles_gzip"].write_bytes(gzip.compress(paths["articles"].read_bytes(), mtime=0))
     _write_json(paths["journals"], journal_dicts)
     _write_jsonl(paths["special_issues"], special_dicts)
     latest_payload = {

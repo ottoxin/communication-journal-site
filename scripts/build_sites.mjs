@@ -19,7 +19,7 @@ await cp(staticSource, resolve(output, "client"), {
   recursive: true,
   filter(source) {
     const name = source.split("/").pop() || "";
-    return name !== ".DS_Store" && !name.startsWith("verification-");
+    return name !== ".DS_Store" && name !== "articles.jsonl" && !name.startsWith("verification-");
   }
 });
 await cp(resolve(root, "worker", "index.js"), resolve(output, "server", "index.js"));

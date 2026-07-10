@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/build_sites.mjs"
+    "build": "node scripts/build_sites.mjs && sh scripts/optimize_deployment_covers.sh"
   },
   "engines": {
     "node": ">=22.13.0"
