@@ -21,7 +21,7 @@ from .storage import StateStore
 
 
 BUILD_MANIFEST = ".build-manifest.json"
-ASSET_VERSION = "20260710-publish"
+ASSET_VERSION = "20260713-monochrome"
 
 
 def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> list[Path]:
@@ -55,7 +55,7 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
         for journal in config.journals
     }
     special_issues_page = _special_issues_page(config, special_issues)
-    social_source = Path(__file__).resolve().parents[2] / "assets" / "og.png"
+    social_source = Path(__file__).resolve().parents[2] / "assets" / "og-monochrome.png"
     written = [
         _write(output_path / "assets" / "styles.css", _styles()),
         _write(output_path / "assets" / "search.js", _search_js()),
@@ -66,7 +66,7 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
         _write(output_path / "status" / "index.html", _status_page(config, health, last_run)),
     ]
     if social_source.exists():
-        written.append(_copy(social_source, output_path / "assets" / "og.png"))
+        written.append(_copy(social_source, output_path / "assets" / "og-monochrome.png"))
     for subarea in config.subareas:
         subarea_articles = [
             article
@@ -149,7 +149,7 @@ def _home_page(
     hero_links = "".join(_hero_link(subarea, prefix="") for subarea in featured_subareas)
     if active_special:
         calls_html = f'<div class="calls-row">{"".join(_special_issue_compact(issue) for issue in active_special)}</div>'
-        calls_all_link = '<a href="special-issues/index.html">All calls &rarr;</a>'
+        calls_all_link = '<a href="special-issues/index.html">View all special issues &rarr;</a>'
     else:
         calls_all_link = ""
         calls_html = """
@@ -188,7 +188,7 @@ def _home_page(
     <section class="calls-band">
       <div class="section-heading">
         <div>
-          <p class="section-kicker">Opportunities</p>
+          <p class="section-kicker">Special-issue calls</p>
           <h2>Active special issues</h2>
         </div>
         {calls_all_link}
@@ -248,7 +248,7 @@ def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dic
     body = f"""
     <section class="page-header">
       <p class="eyebrow">Registry</p>
-      <h1>Journals by Area</h1>
+      <h1>Journals by area</h1>
       <p>{escape(config.settings.registry_source_note)}</p>
       <label class="search-label search-label--page"><span>Find a journal</span><input class="search-input" data-search-input data-search-kind="journal card" placeholder="Search by title, publisher, or area" aria-label="Filter journals"></label>
       <p class="search-status" data-search-status aria-live="polite"></p>
@@ -393,8 +393,8 @@ def _layout(
     script_tag = f'<script src="{prefix}assets/search.js?v={ASSET_VERSION}"></script>' if script else ""
     site_url = config.settings.site_url.rstrip("/")
     social_image = (
-        f'<meta property="og:image" content="{escape(site_url)}/assets/og.png">\n'
-        f'  <meta name="twitter:image" content="{escape(site_url)}/assets/og.png">'
+        f'<meta property="og:image" content="{escape(site_url)}/assets/og-monochrome.png">\n'
+        f'  <meta name="twitter:image" content="{escape(site_url)}/assets/og-monochrome.png">'
         if site_url
         else ""
     )
@@ -404,7 +404,7 @@ def _layout(
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{escape(config.settings.description)}">
-  <meta name="theme-color" content="#faf6ef">
+  <meta name="theme-color" content="#ffffff">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{escape(title)} · {escape(config.settings.title)}">
   <meta property="og:description" content="{escape(config.settings.description)}">
@@ -422,7 +422,7 @@ def _layout(
       {_nav_link("Political", f"{prefix}subareas/political-communication/index.html", section == "political-communication")}
       {_nav_link("Health", f"{prefix}subareas/health-communication/index.html", section == "health-communication")}
       {_nav_link("Methods", f"{prefix}subareas/methods/index.html", section == "methods")}
-      {_nav_link("Calls", f"{prefix}special-issues/index.html", section == "calls")}
+      {_nav_link("Special issues", f"{prefix}special-issues/index.html", section == "calls")}
       {_nav_link("Status", f"{prefix}status/index.html", section == "status")}
     </nav>
   </header>
@@ -614,6 +614,15 @@ def _health_banner(health: dict, link: str = "status/index.html") -> str:
     if status == "empty":
         message = "The collection is ready but does not contain papers yet."
         tone = "neutral"
+    elif status == "degraded":
+        call_status = health.get("special_issue_status")
+        if call_status == "empty":
+            message = "Special-issue coverage has no verified findings yet. Article collection is current."
+        else:
+            age = health.get("special_issue_sync_age_days")
+            age_label = f"{age} days ago" if isinstance(age, int) else "on an unknown date"
+            message = f"Special-issue collection last produced a verified finding {age_label}. Calls may be incomplete."
+        tone = "warning"
     else:
         age = health.get("article_sync_age_days")
         age_label = f"{age} days ago" if isinstance(age, int) else "on an unknown date"
@@ -727,19 +736,20 @@ def _write_build_manifest(output_path: Path, paths: list[Path]) -> Path:
 def _styles() -> str:
     return """
 :root {
-  --bg:#fbf7f0; --ink:#1b1714; --muted:#655d54; --line:#e4d8c9; --panel:#fffdf9;
-  --accent:#8a2b2b; --accent-ink:#7c2222; --accent-soft:#f8eeee;
-  --radius:8px; --radius-lg:14px; --radius-pill:999px;
-  --shadow:0 18px 50px rgba(58, 38, 24, .08); --shadow-card:0 10px 28px rgba(58, 38, 24, .06);
-  --font:Charter,Georgia,'Iowan Old Style','Times New Roman',serif;
-  --font-head:Charter,Georgia,'Iowan Old Style',serif;
-  --head-weight:700; --head-tracking:-0.01em;
-  --header-bg:rgba(255, 253, 249, .92); --header-blur:saturate(1.15) blur(12px);
-  --band-bg:linear-gradient(135deg, #fffaf2 0%, #f5ecdf 100%); --band-border:1px solid rgba(138, 43, 43, .14);
-  --tag-bg:#fff9f6; --tag-ink:#7c2222; --tag-border:#ead3d0; --input-bg:#fff;
-  --focus-1:#fff7ed; --focus-2:#f6f0e7; --focus-3:#fff5f5; --nav-ink:#1b1714;
+  --bg:#fff; --ink:#0d0d0d; --muted:#5f5f5f; --line:#d9d9d9; --panel:#fff;
+  --line-strong:#0d0d0d; --subtle:#f5f5f5;
+  --accent:#0d0d0d; --accent-ink:#0d0d0d; --accent-soft:#f2f2f2;
+  --radius:0; --radius-lg:0; --radius-pill:0;
+  --shadow:none; --shadow-card:none;
+  --font:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  --font-head:var(--font);
+  --head-weight:500; --head-tracking:-.035em;
+  --header-bg:rgba(255,255,255,.96); --header-blur:blur(12px);
+  --band-bg:#fff; --band-border:1px solid var(--line-strong);
+  --tag-bg:#f5f5f5; --tag-ink:#242424; --tag-border:#d9d9d9; --input-bg:#fff;
+  --nav-ink:#0d0d0d;
 }
-.eyebrow { font-family:var(--font); font-style:italic; text-transform:none; letter-spacing:0; font-weight:400; color:var(--accent); font-size:15px; }
+.eyebrow { font-family:var(--font); font-style:normal; text-transform:uppercase; letter-spacing:.06em; font-weight:600; color:var(--ink); font-size:12px; }
 .focus-card { border-top:3px solid var(--accent); }
 .lede { font-size:19px; }
 
@@ -749,15 +759,13 @@ body {
   margin: 0;
   font-family: var(--font);
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(138, 43, 43, .08), transparent 28rem),
-    linear-gradient(180deg, #fffdf9 0%, var(--bg) 42rem);
+  background: var(--bg);
   line-height: 1.5;
   overflow-x: hidden;
 }
 a { color: var(--accent-ink); text-decoration: none; }
 a:hover { text-decoration: underline; }
-a:focus-visible, input:focus-visible { outline: 3px solid #d6a35f; outline-offset: 3px; }
+a:focus-visible, input:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .skip-link { position: fixed; left: 12px; top: -80px; z-index: 10; padding: 9px 12px; background: var(--ink); color: #fff; }
 .skip-link:focus { top: 12px; }
 .site-header {
@@ -776,8 +784,8 @@ a:focus-visible, input:focus-visible { outline: 3px solid #d6a35f; outline-offse
 .brand:hover { text-decoration: none; color: var(--accent-ink); }
 .brand-mark {
   display: inline-grid; place-items: center; flex: 0 0 auto;
-  width: 36px; height: 36px; border-radius: 50%;
-  background: var(--ink); color: #fffaf2; font-size: 13px; letter-spacing: .04em;
+  width: 36px; height: 36px; border: 1px solid var(--ink); border-radius: 0;
+  background: #fff; color: var(--ink); font-size: 13px; letter-spacing: .04em;
 }
 .primary-nav { display: flex; gap: 4px; flex-wrap: nowrap; justify-content: flex-end; overflow-x: auto; scrollbar-width: none; }
 .primary-nav::-webkit-scrollbar { display: none; }
@@ -786,8 +794,8 @@ a:focus-visible, input:focus-visible { outline: 3px solid #d6a35f; outline-offse
   border-radius: var(--radius-pill); padding: 7px 10px; font-size: 14px;
   white-space: nowrap;
 }
-.primary-nav a:hover { background: #fff; border-color: var(--line); text-decoration: none; }
-.primary-nav a[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: #fffaf2; }
+.primary-nav a:hover { background: #fff; border-color: transparent; text-decoration: underline; text-underline-offset: 4px; }
+.primary-nav a[aria-current="page"] { background: #fff; border-color: transparent; border-bottom-color: var(--ink); color: var(--ink); }
 main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 56px; }
 .overview-band {
   display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(260px, 360px);
@@ -802,25 +810,25 @@ main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 30px 0 56
   margin: 0 0 8px; text-transform: uppercase; font-size: 12px;
   font-weight: 700; letter-spacing: .08em; color: var(--accent-ink);
 }
-h1 { margin: 0; font-size: clamp(32px, 5vw, 54px); line-height: 1.05; font-family: var(--font-head); font-weight: var(--head-weight, 800); letter-spacing: var(--head-tracking, 0); }
-h2 { margin: 0 0 14px; font-size: 21px; font-family: var(--font-head); }
+h1 { margin: 0; font-size: clamp(40px, 6vw, 72px); line-height: .98; font-family: var(--font-head); font-weight: var(--head-weight, 500); letter-spacing: var(--head-tracking, 0); }
+h2 { margin: 0 0 14px; font-size: 28px; line-height:1.1; font-family: var(--font-head); font-weight:500; letter-spacing:-.02em; }
 h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height: 1.25; }
 .lede { max-width: 760px; color: var(--muted); font-size: 18px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 22px; }
 .hero-link {
   display: inline-flex; align-items: center; border: 1px solid var(--line);
   background: var(--panel); color: var(--ink); border-radius: var(--radius-pill);
-  padding: 9px 14px; font-weight: 700; box-shadow: 0 4px 12px rgba(58, 38, 24, .04);
+  padding: 9px 14px; font-weight: 600; box-shadow: none;
 }
-.hero-link:hover { border-color: var(--accent); color: var(--accent-ink); text-decoration: none; transform: translateY(-1px); }
+.hero-link:hover { border-color: var(--ink); color: var(--ink); text-decoration: underline; transform: none; }
 .metrics { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; align-content: end; }
-.metrics div, .row-stat { border: 1px solid var(--line); background: rgba(255,255,255,.76); border-radius: var(--radius); padding: 16px; }
+.metrics div, .row-stat { border: 0; border-top: 1px solid var(--line-strong); background: #fff; border-radius: 0; padding: 16px 0; }
 .metrics strong, .row-stat strong { display: block; font-size: clamp(20px, 2vw, 28px); line-height: 1.05; font-family: var(--font-head); text-wrap: balance; }
 .metrics span, .row-stat span, .muted { color: var(--muted); font-size: 13px; }
 .trust-strip {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
   margin: 16px 0 0; border: 1px solid var(--line); border-radius: var(--radius);
-  background: rgba(255, 253, 249, .78); box-shadow: var(--shadow-card);
+  background: #fff; box-shadow: none;
 }
 .trust-strip span { padding: 13px 15px; color: var(--muted); font-size: 12px; }
 .trust-strip span + span { border-left: 1px solid var(--line); }
@@ -835,23 +843,21 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .focus-card strong { font-size: 44px; line-height: 1; font-family: var(--font-head); }
 .focus-card span:last-child { color: var(--muted); font-size: 14px; }
 .focus-card__label { font-size: 12px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-.focus-card--political-communication { background: var(--focus-1); }
-.focus-card--health-communication { background: var(--focus-2); }
-.focus-card--methods { background: var(--focus-3); }
+.focus-card--political-communication, .focus-card--health-communication, .focus-card--methods { background: #fff; }
 .section-grid { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: 28px; margin-top: 30px; }
 .section-heading { display: flex; justify-content: space-between; gap: 16px; align-items: end; margin-bottom: 14px; }
 .section-kicker { margin: 0 0 4px; color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .search-label { display: grid; gap: 5px; width: min(100%, 440px); color: var(--muted); font-size: 12px; font-weight: 700; }
 .search-label--page { margin-top: 18px; }
-.search-input { width: 100%; border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 11px 15px; background: var(--input-bg); color: var(--ink); font: inherit; font-weight: 400; box-shadow: inset 0 1px 2px rgba(58,38,24,.04); }
-.search-input::placeholder { color: #8d8378; }
+.search-input { width: 100%; border: 1px solid #8c8c8c; border-radius: 0; padding: 11px 15px; background: var(--input-bg); color: var(--ink); font: inherit; font-weight: 400; box-shadow: none; }
+.search-input::placeholder { color: #6b6b6b; }
 .search-status { min-height: 1.3em; margin: 5px 0 0; color: var(--muted); font-size: 12px; }
 .search-empty { margin-top: 18px; border: 1px dashed var(--line); border-radius: var(--radius); padding: 22px; text-align: center; color: var(--muted); background: var(--panel); }
 [hidden] { display: none !important; }
 .article-list, .issue-section, .directory { display: grid; gap: 12px; }
 .article-card, .issue-card, .journal-row, .side-panel { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-card); }
 .article-card, .issue-card { padding: 18px; transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; }
-.article-card:hover, .issue-card:hover, .journal-row:hover { border-color: rgba(138,43,43,.45); box-shadow: 0 14px 34px rgba(58,38,24,.08); transform: translateY(-1px); }
+.article-card:hover, .issue-card:hover, .journal-row:hover { border-color: var(--ink); box-shadow: none; transform: none; }
 .article-card p, .issue-card p, .journal-row p { margin: 8px 0; color: var(--muted); }
 .article-meta { display: flex; gap: 10px; flex-wrap: wrap; color: var(--muted); font-size: 13px; }
 .authors { color: var(--ink) !important; font-size: 14px; }
@@ -868,15 +874,15 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .journal-hero { display: grid; grid-template-columns: minmax(0,1fr) 156px; gap: clamp(20px, 4vw, 38px); align-items: center; }
 .journal-cover-large {
   justify-self: end; width: 138px; min-height: 180px; display: grid; place-items: center;
-  padding: 10px; border: 1px solid rgba(138,43,43,.18); border-radius: 10px;
-  background: rgba(255,255,255,.72); box-shadow: 0 18px 32px rgba(58,38,24,.12);
+  padding: 10px; border: 1px solid var(--line); border-radius: 0;
+  background: #fff; box-shadow: none;
 }
 .journal-cover-large img { width: 100%; max-height: 184px; object-fit: cover; display: block; border-radius: 4px; }
 .journal-row { display: grid; grid-template-columns: minmax(0,1fr) 140px; gap: 20px; align-items: center; padding: 16px 18px; }
 .row-stat { text-align: right; }
 .action-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
-.button-link { display: inline-flex; align-items: center; border: 1px solid rgba(138,43,43,.45); border-radius: var(--radius-pill); padding: 8px 13px; color: var(--accent-ink); background: var(--accent-soft); font-weight: 700; }
-.button-link:hover { text-decoration: none; background: #fff6f6; border-color: var(--accent); }
+.button-link { display: inline-flex; align-items: center; border: 1px solid var(--ink); border-radius: 0; padding: 9px 14px; color: #fff; background: var(--ink); font-weight: 600; }
+.button-link:hover { text-decoration: none; background: #fff; color: var(--ink); border-color: var(--ink); }
 .empty, .empty-state { border: 1px dashed var(--line); padding: 20px; border-radius: var(--radius); color: var(--muted); background: var(--panel); }
 .empty-state code { display: inline-block; margin-top: 8px; max-width: 100%; overflow-wrap: anywhere; border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); padding: 8px 10px; color: var(--accent-ink); font-family: ui-monospace, Menlo, monospace; }
 .site-footer { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 26px 0 34px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1.1fr 1.4fr .8fr; gap: clamp(24px, 5vw, 60px); color: var(--muted); font-size: 13px; }
@@ -896,9 +902,9 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .subarea-group > .section-heading { margin-bottom: 12px; }
 .journal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 14px; }
 .journal-card { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; padding: 14px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-card); transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease; min-width: 0; }
-.journal-card:hover { border-color: rgba(138,43,43,.45); box-shadow: 0 16px 36px rgba(58,38,24,.08); transform: translateY(-1px); }
+.journal-card:hover { border-color: var(--ink); box-shadow: none; transform: none; }
 .journal-card .cover { display: block; }
-.journal-card .cover img { width: 88px; height: 117px; object-fit: cover; border: 1px solid var(--line); display: block; background: var(--band-bg); border-radius: 3px; box-shadow: 0 8px 18px rgba(58,38,24,.10); }
+.journal-card .cover img { width: 88px; height: 117px; object-fit: cover; border: 1px solid var(--line); display: block; background: var(--band-bg); border-radius: 0; box-shadow: none; }
 .journal-card__body { min-width: 0; }
 .journal-card__body h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.2; }
 .journal-card__body .muted { margin: 0; font-size: 12px; }
@@ -911,7 +917,7 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .area-nav a { border: 1px solid var(--line); border-radius: var(--radius-pill); padding: 5px 11px; font-size: 13px; color: var(--ink); }
 .area-nav a:hover { border-color: var(--accent); color: var(--accent-ink); text-decoration: none; }
 .status-banner { margin: 16px 0 0; padding: 13px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--panel); }
-.status-banner--warning { border-color: #d6a35f; background: #fff8e8; }
+.status-banner--warning { border: 1px solid var(--ink); border-left-width: 3px; background: var(--subtle); }
 .status-banner a { font-weight: 700; }
 .listing-note { margin: -8px 0 18px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--band-bg); color: var(--muted); }
 .status-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
@@ -937,7 +943,8 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 }
 @media (max-width: 680px) {
   .site-header { grid-template-columns: 1fr; align-items: start; }
-  .primary-nav { justify-content: flex-start; max-width: 100%; padding-bottom: 2px; }
+  .primary-nav { justify-content: flex-start; max-width: 100%; padding-bottom: 2px; flex-wrap: wrap; }
+  .primary-nav a { padding: 5px 8px; }
   .brand span:last-child { white-space: normal; }
 }
 @media (max-width: 560px) {

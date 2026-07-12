@@ -89,6 +89,28 @@ def test_special_issue_reconciliation_only_expires_successful_sources(tmp_path: 
     assert issues["source-b"].status == "active"
 
 
+def test_special_issue_url_change_keeps_one_stable_record(tmp_path: Path) -> None:
+    store = StateStore(tmp_path / "site.db")
+    first = SpecialIssueRecord(
+        source_id="source-a", journal_id="journal-a", journal_title="Journal A",
+        title="Call for Papers: Special Issue on Platform Governance",
+        source_url="https://example.org/old",
+    )
+    revised = SpecialIssueRecord(
+        source_id="source-a", journal_id="journal-a", journal_title="Journal A",
+        title="Special Issue: Platform Governance",
+        source_url="https://example.org/new",
+    )
+
+    store.upsert_special_issues([first], seen_at="2026-06-01T00:00:00+00:00")
+    store.upsert_special_issues([revised], seen_at="2026-06-08T00:00:00+00:00")
+    issues = store.get_special_issues()
+
+    assert len(issues) == 1
+    assert issues[0].source_url == "https://example.org/new"
+    assert issues[0].discovered_at == "2026-06-01T00:00:00+00:00"
+
+
 def test_old_unverified_call_is_not_presented_as_active(tmp_path: Path) -> None:
     store = StateStore(tmp_path / "site.db")
     store.upsert_special_issues(

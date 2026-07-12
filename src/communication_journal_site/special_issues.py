@@ -14,8 +14,14 @@ from .render import RenderedFetcher
 
 FEED_SOURCE_TYPES = ("rss", "atom", "feed")
 RENDERED_SOURCE_TYPE = "rendered"
+MANUAL_SOURCE_TYPE = "manual"
 # Source types whose journal_id need not map to a registry journal (they span journals).
-AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (RENDERED_SOURCE_TYPE,)
+AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (
+    RENDERED_SOURCE_TYPE,
+    "publisher-index",
+    "association-page",
+)
+SOURCE_TYPES = ("publisher-page", MANUAL_SOURCE_TYPE, *AGGREGATOR_SOURCE_TYPES)
 _ATOM_NS = "{http://www.w3.org/2005/Atom}"
 # Used to keep cross-journal hub findings on-topic for a communication site.
 COMMUNICATION_TERMS = (
@@ -46,7 +52,7 @@ class TextBlockParser(HTMLParser):
 
     def __init__(self):
         super().__init__()
-        self.blocks: list[tuple[str, str | None]] = []
+        self.blocks: list[tuple[str, str, str | None]] = []
         self._active_tag: str | None = None
         self._active_href: str | None = None
         self._buffer: list[str] = []
@@ -77,7 +83,7 @@ class TextBlockParser(HTMLParser):
             return
         text = normalize_whitespace(" ".join(self._buffer))
         if text:
-            self.blocks.append((text, self._active_href))
+            self.blocks.append((self._active_tag, text, self._active_href))
         self._active_tag = None
         self._active_href = None
         self._buffer = []
@@ -88,6 +94,7 @@ def parse_special_issues_from_html(
     source: SpecialIssueSourceConfig,
     journal: JournalConfig,
     base_url: str,
+    today: date | None = None,
 ) -> list[SpecialIssueRecord]:
     parser = TextBlockParser()
     parser.feed(html)
@@ -95,10 +102,11 @@ def parse_special_issues_from_html(
     records: list[SpecialIssueRecord] = []
     seen_titles: set[str] = set()
     blocks = parser.blocks
-    for index, (text, href) in enumerate(blocks):
-        next_text = blocks[index + 1][0] if index + 1 < len(blocks) else ""
-        combined_text = normalize_whitespace(f"{text} {next_text}")
-        if not _is_special_issue_candidate(text, combined_text):
+    for index, (tag, text, href) in enumerate(blocks):
+        combined_text, context_href = _html_candidate_context(blocks, index)
+        if not _is_special_issue_candidate(text, combined_text) and not _is_contextual_heading_candidate(
+            tag, text, combined_text, journal.title
+        ):
             continue
         title = _candidate_title(text)
         if _is_generic_title(title):
@@ -114,8 +122,8 @@ def parse_special_issues_from_html(
                 journal_id=journal.id,
                 journal_title=journal.title,
                 title=title,
-                source_url=urljoin(base_url, href) if href else source.url,
-                status=_status_for_deadline(deadline),
+                source_url=urljoin(base_url, href or context_href) if (href or context_href) else source.url,
+                status=_status_for_deadline(deadline, today=today),
                 deadline=deadline,
                 confidence=_confidence(combined_text),
                 raw_snippet=combined_text[:500],
@@ -129,6 +137,7 @@ def parse_special_issues_from_feed(
     source: SpecialIssueSourceConfig,
     journal: JournalConfig,
     base_url: str,
+    today: date | None = None,
 ) -> list[SpecialIssueRecord]:
     try:
         root = ET.fromstring(feed_xml)
@@ -171,7 +180,7 @@ def parse_special_issues_from_feed(
                 journal_title=journal.title,
                 title=title,
                 source_url=urljoin(base_url, link) if link else source.url,
-                status=_status_for_deadline(deadline),
+                status=_status_for_deadline(deadline, today=today),
                 deadline=deadline,
                 confidence=_confidence(combined_text),
                 raw_snippet=combined_text[:500],
@@ -198,15 +207,18 @@ class SpecialIssueCollector:
         self.http_client = http_client or HttpClient(timeout=12, max_attempts=1)
         self._rendered_fetcher = rendered_fetcher
         self.successful_source_ids: set[str] = set()
+        self.authoritative_source_ids: set[str] = set()
 
     def collect(
         self,
         sources: list[SpecialIssueSourceConfig],
         journal_by_id: dict[str, JournalConfig],
+        today: date | None = None,
     ) -> tuple[list[SpecialIssueRecord], list[dict[str, str]]]:
         records: list[SpecialIssueRecord] = []
         errors: list[dict[str, str]] = []
         self.successful_source_ids = set()
+        self.authoritative_source_ids = set()
         journal_titles = {j.title.lower() for j in journal_by_id.values() if j.title}
         owns_fetcher = False
         try:
@@ -217,14 +229,19 @@ class SpecialIssueCollector:
                 worker_count = min(4, len(http_sources))
                 with ThreadPoolExecutor(max_workers=worker_count) as executor:
                     futures = {
-                        executor.submit(self._collect_source, source, journal_by_id, journal_titles): source
+                        executor.submit(
+                            self._collect_source, source, journal_by_id, journal_titles, today
+                        ): source
                         for source in http_sources
                     }
                     for future in as_completed(futures):
                         source = futures[future]
                         try:
-                            records.extend(future.result())
+                            source_records = future.result()
+                            records.extend(source_records)
                             self.successful_source_ids.add(source.id)
+                            if source_records:
+                                self.authoritative_source_ids.add(source.id)
                         except Exception as exc:
                             errors.append({"source_id": source.id, "error": str(exc)})
             for source in rendered_sources:
@@ -232,8 +249,13 @@ class SpecialIssueCollector:
                     if self._rendered_fetcher is None:
                         self._rendered_fetcher = RenderedFetcher()
                         owns_fetcher = True
-                    records.extend(self._collect_source(source, journal_by_id, journal_titles))
+                    source_records = self._collect_source(
+                        source, journal_by_id, journal_titles, today
+                    )
+                    records.extend(source_records)
                     self.successful_source_ids.add(source.id)
+                    if source_records:
+                        self.authoritative_source_ids.add(source.id)
                 except Exception as exc:
                     errors.append({"source_id": source.id, "error": str(exc)})
         finally:
@@ -249,6 +271,7 @@ class SpecialIssueCollector:
         source: SpecialIssueSourceConfig,
         journal_by_id: dict[str, JournalConfig],
         journal_titles: set[str],
+        today: date | None,
     ) -> list[SpecialIssueRecord]:
         is_aggregator = source.journal_id not in journal_by_id
         journal = journal_by_id.get(source.journal_id) or JournalConfig(
@@ -256,6 +279,20 @@ class SpecialIssueCollector:
             title=source.label or source.journal_id or "Various sources",
             issns=[],
         )
+        if source.source_type == MANUAL_SOURCE_TYPE:
+            return [
+                SpecialIssueRecord(
+                    source_id=source.id,
+                    journal_id=journal.id,
+                    journal_title=journal.title,
+                    title=source.title,
+                    source_url=source.url,
+                    status=_status_for_deadline(source.deadline, today=today),
+                    deadline=source.deadline,
+                    confidence="high",
+                    raw_snippet="Manually verified official publisher call.",
+                )
+            ]
         if source.source_type == RENDERED_SOURCE_TYPE:
             if self._rendered_fetcher is None:
                 raise RuntimeError("Rendered fetcher is not initialized.")
@@ -265,13 +302,15 @@ class SpecialIssueCollector:
             response = self.http_client.get_text(source.url)
             body = response.body
             base_url = response.url or source.url
+        if _looks_like_block_page(body):
+            raise RuntimeError("publisher returned an access or bot-challenge page")
         if source.source_type in FEED_SOURCE_TYPES:
             parsed = parse_special_issues_from_feed(
-                body, source=source, journal=journal, base_url=base_url
+                body, source=source, journal=journal, base_url=base_url, today=today
             )
         else:
             parsed = parse_special_issues_from_html(
-                body, source=source, journal=journal, base_url=base_url
+                body, source=source, journal=journal, base_url=base_url, today=today
             )
         if is_aggregator:
             parsed = [record for record in parsed if _is_communication_relevant(record, journal_titles)]
@@ -285,6 +324,42 @@ def _candidate_title(text: str) -> str:
     if len(sentence) > 180:
         sentence = sentence[:177].rstrip() + "..."
     return sentence
+
+
+def _html_candidate_context(
+    blocks: list[tuple[str, str, str | None]],
+    index: int,
+    max_following: int = 4,
+) -> tuple[str, str | None]:
+    _, text, href = blocks[index]
+    context = [text]
+    context_href = href
+    for next_tag, next_text, next_href in blocks[index + 1 : index + 1 + max_following]:
+        if next_tag in {"h1", "h2", "h3", "h4"}:
+            break
+        context.append(next_text)
+        if context_href is None and next_href:
+            context_href = next_href
+    return normalize_whitespace(" ".join(context)), context_href
+
+
+def _is_contextual_heading_candidate(
+    tag: str,
+    text: str,
+    combined_text: str,
+    journal_title: str,
+) -> bool:
+    if tag not in {"h1", "h2", "h3", "h4", "a"}:
+        return False
+    normalized = normalize_whitespace(text).lower().rstrip(":")
+    if not normalized or normalized == normalize_whitespace(journal_title).lower().rstrip(":"):
+        return False
+    if _is_generic_title(text) or len(text) > 180:
+        return False
+    lowered = combined_text.lower()
+    return any(phrase in lowered for phrase in SPECIAL_ISSUE_PHRASES) and any(
+        phrase in lowered for phrase in CALL_PHRASES
+    )
 
 
 def _is_special_issue_candidate(text: str, combined_text: str) -> bool:
@@ -328,13 +403,26 @@ def is_plausible_special_issue_title(title: str) -> bool:
     return _is_special_issue_candidate(title, title) and not _is_generic_title(title)
 
 
+def special_issue_identity_title(title: str) -> str:
+    """Normalize presentational CFP wording into a stable topic identity."""
+    normalized = normalize_whitespace(title).lower()
+    normalized = re.sub(r"^(open )?call for (papers|submissions)[:\-\s]+", "", normalized)
+    normalized = re.sub(
+        r"\b(call for papers|call for submissions|special issue|special section|thematic issue|theme issue)\b",
+        " ",
+        normalized,
+    )
+    normalized = re.sub(r"[^a-z0-9]+", " ", normalized)
+    normalized = re.sub(r"^(?:on|for)\s+", "", normalize_whitespace(normalized))
+    return normalize_whitespace(normalized) or normalize_whitespace(title).lower()
+
+
 def _extract_deadline(text: str) -> str | None:
     patterns = [
-        r"(?:deadline|due|submissions? due|abstracts? due)[:\s]+([A-Z][a-z]+ \d{1,2}, \d{4})",
+        r"(?:deadline|due|submissions? due|abstracts? due|submit by)[:\s]+([A-Z][a-z]+ \d{1,2}(?:st|nd|rd|th)?,? \d{4})",
         r"(?:deadline|due|submissions? due|abstracts? due)[:\s]+(\d{1,2}/\d{1,2}/\d{4})",
         r"(?:deadline|due|submissions? due|abstracts? due)[:\s]+(\d{4}-\d{2}-\d{2})",
-        r"(?:deadline|due|submissions? due|abstracts? due)[:\s]+(\d{1,2} [A-Z][a-z]+ \d{4})",
-        r"\b([A-Z][a-z]+ \d{1,2}, \d{4})\b",
+        r"(?:deadline|due|submissions? due|abstracts? due|submit by)[:\s]+(\d{1,2}(?:st|nd|rd|th)? [A-Z][a-z]+ \d{4})",
     ]
     for pattern in patterns:
         match = re.search(pattern, text, flags=re.I)
@@ -347,7 +435,11 @@ def _extract_deadline(text: str) -> str | None:
 
 
 def _parse_date(value: str) -> str | None:
-    for fmt in ("%B %d, %Y", "%b %d, %Y", "%m/%d/%Y", "%Y-%m-%d", "%d %B %Y", "%d %b %Y"):
+    value = re.sub(r"(?<=\d)(st|nd|rd|th)\b", "", value, flags=re.I)
+    for fmt in (
+        "%B %d, %Y", "%B %d %Y", "%b %d, %Y", "%b %d %Y",
+        "%m/%d/%Y", "%Y-%m-%d", "%d %B %Y", "%d %b %Y",
+    ):
         try:
             return datetime.strptime(value, fmt).date().isoformat()
         except ValueError:
@@ -355,11 +447,12 @@ def _parse_date(value: str) -> str | None:
     return None
 
 
-def _status_for_deadline(deadline: str | None) -> str:
+def _status_for_deadline(deadline: str | None, today: date | None = None) -> str:
     if not deadline:
         return "active"
+    today = today or date.today()
     try:
-        return "closed" if date.fromisoformat(deadline) < date.today() else "active"
+        return "closed" if date.fromisoformat(deadline) < today else "active"
     except ValueError:
         return "active"
 
@@ -371,3 +464,16 @@ def _confidence(text: str) -> str:
     if "call for papers" in lowered or "special issue" in lowered:
         return "medium"
     return "low"
+
+
+def _looks_like_block_page(body: str) -> bool:
+    lowered = body.lower()
+    markers = (
+        "attention required! | cloudflare",
+        "access denied",
+        "enable javascript and cookies to continue",
+        "verify you are human",
+        "captcha",
+        "cloudflare ray id",
+    )
+    return any(marker in lowered for marker in markers)

@@ -210,15 +210,20 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
     records, errors = collector.collect(
         config.special_issue_sources,
         config.journal_by_id,
+        today=local_today(config.settings.timezone),
     )
     stored = store.upsert_special_issues(records, seen_at=seen_at)
-    unverified = store.reconcile_special_issues(records, collector.successful_source_ids)
+    unverified = store.reconcile_special_issues(records, collector.authoritative_source_ids)
     archive = {
         "run_started_at": seen_at,
         "retrieved": len(records),
         "stored": stored,
         "marked_unverified": unverified,
         "successful_source_ids": sorted(collector.successful_source_ids),
+        "authoritative_source_ids": sorted(collector.authoritative_source_ids),
+        "empty_source_ids": sorted(
+            collector.successful_source_ids - collector.authoritative_source_ids
+        ),
         "errors": errors,
     }
     _write_archive(args.config_dir, config, f"collect-special-issues-{seen_at.replace(':', '-')}.json", archive)

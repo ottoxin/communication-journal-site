@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 from pathlib import Path
+from datetime import date
 from typing import Any
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 import yaml
@@ -13,7 +15,7 @@ from .models import (
     SpecialIssueSourceConfig,
     SubareaConfig,
 )
-from .special_issues import AGGREGATOR_SOURCE_TYPES
+from .special_issues import AGGREGATOR_SOURCE_TYPES, SOURCE_TYPES
 
 
 DEFAULT_CONFIG_DIR = Path(__file__).resolve().parents[2] / "config"
@@ -92,7 +94,27 @@ def _validate_config(
         missing = [subarea for subarea in journal.subareas if subarea not in subarea_ids]
         if missing:
             raise ValueError(f"{journal.id} uses unknown subarea(s): {', '.join(missing)}")
+    source_ids = {source.id for source in special_sources}
+    if len(source_ids) != len(special_sources):
+        raise ValueError("Special-issue source ids must be unique.")
     for source in special_sources:
+        if source.source_type not in SOURCE_TYPES:
+            raise ValueError(
+                f"{source.id} uses unsupported source_type {source.source_type!r}."
+            )
+        parsed_url = urlparse(source.url)
+        if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+            raise ValueError(f"{source.id} must use a valid HTTP(S) URL.")
+        if source.source_type == "manual":
+            if not source.title.strip():
+                raise ValueError(f"{source.id} manual source must define a title.")
+            if source.deadline:
+                try:
+                    date.fromisoformat(source.deadline)
+                except ValueError as exc:
+                    raise ValueError(
+                        f"{source.id} manual source deadline must use YYYY-MM-DD."
+                    ) from exc
         # Feed/aggregator/hub sources span multiple journals, so they are not
         # required to map to a registry journal; page sources still must.
         if source.source_type in AGGREGATOR_SOURCE_TYPES:

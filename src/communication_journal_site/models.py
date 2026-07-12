@@ -62,6 +62,8 @@ class SpecialIssueSourceConfig:
     source_type: str = "publisher-page"
     active: bool = True
     selectors_hint: str = ""
+    title: str = ""
+    deadline: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

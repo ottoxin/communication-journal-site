@@ -10,12 +10,14 @@ sources:
     label: Journal of Communication special issue page
     url: https://academic.oup.com/joc/pages/cfp-time-in-communication
     source_type: publisher-page
-    active: true
+    active: false
   - id: hcr-oup-calls
     journal_id: human-communication-research
-    label: Human Communication Research Oxford Academic calls
-    url: https://academic.oup.com/hcr/pages/call-for-papers
-    source_type: publisher-page
+    label: Human Communication Research 2026 special issue
+    url: https://academic.oup.com/hcr/pages/special-issue-call-for-papers-2026
+    source_type: manual
+    title: "Special Issue: Who Are We Studying in Communication Research? Revisiting Audience in a Transforming Media Environment"
+    deadline: "2026-08-31"
     active: true
   - id: communication-theory-oup-calls
     journal_id: communication-theory
@@ -24,7 +26,7 @@ sources:
     source_type: publisher-page
     active: true
   - id: sage-calls-communication
-    journal_id: communication-research
+    journal_id: aggregator-sage
     label: SAGE communication calls
     url: https://journals.sagepub.com/ctp/call-for-papers
     source_type: publisher-index
@@ -34,15 +36,15 @@ sources:
     label: Taylor and Francis Political Communication special issues
     url: https://think.taylorandfrancis.com/special_issues/political-communication/
     source_type: publisher-page
-    active: true
+    active: false
   - id: health-communication-taylor-special
     journal_id: health-communication
     label: Taylor and Francis Health Communication special issues
     url: https://think.taylorandfrancis.com/special_issues/health-communication/
     source_type: publisher-page
-    active: true
+    active: false
   - id: nca-calls
-    journal_id: communication-monographs
+    journal_id: aggregator-nca
     label: National Communication Association calls and announcements
     url: https://www.natcom.org/publications/nca-journals
     source_type: association-page
@@ -74,4 +76,3 @@ sources:
     url: http://www.wikicfp.com/cfp/rss?cat=communication
     source_type: rss
     active: false
-

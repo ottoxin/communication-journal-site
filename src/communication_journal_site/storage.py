@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .models import ArticleRecord, SpecialIssueRecord
 from .normalize import make_dedupe_key, sha256_text
-from .special_issues import is_plausible_special_issue_title
+from .special_issues import is_plausible_special_issue_title, special_issue_identity_title
 
 
 class StateStore:
@@ -155,6 +155,22 @@ class StateStore:
                 discovered_at = record.discovered_at or seen_at
                 last_seen_at = record.last_seen_at or seen_at
                 dedupe_key = _special_issue_dedupe_key(record)
+                legacy_rows = connection.execute(
+                    """
+                    SELECT dedupe_key, discovered_at FROM special_issues
+                    WHERE source_id = ? AND journal_id = ? AND lower(title) = lower(?)
+                      AND dedupe_key != ?
+                    """,
+                    (record.source_id, record.journal_id, record.title, dedupe_key),
+                ).fetchall()
+                if legacy_rows:
+                    legacy_dates = [row["discovered_at"] for row in legacy_rows if row["discovered_at"]]
+                    if legacy_dates:
+                        discovered_at = min([discovered_at, *legacy_dates])
+                    connection.executemany(
+                        "DELETE FROM special_issues WHERE dedupe_key = ?",
+                        [(row["dedupe_key"],) for row in legacy_rows],
+                    )
                 connection.execute(
                     """
                     INSERT INTO special_issues (
@@ -328,8 +344,7 @@ def _special_issue_dedupe_key(record: SpecialIssueRecord) -> str:
             [
                 record.source_id.lower(),
                 record.journal_id.lower(),
-                record.title.lower(),
-                record.source_url.lower(),
+                special_issue_identity_title(record.title),
             ]
         )
     )

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from datetime import date
+
 from communication_journal_site.models import (
     JournalConfig,
     SpecialIssueRecord,
@@ -77,6 +79,50 @@ def test_parse_special_issue_rejects_page_prose_and_adjacent_journal_name() -> N
         "Special Issue Call for Papers: Time in Communication Research"
     ]
     assert records[0].deadline == "2026-10-15"
+
+
+def test_parse_topic_heading_with_multiblock_call_context_and_link() -> None:
+    html = """
+    <h2>Platform Power and Climate</h2>
+    <p>We invite submissions to a special issue.</p>
+    <p>This call for papers welcomes communication research.</p>
+    <p>Submit by 31st August 2026.</p>
+    <a href="/submit/platform-power">Submission details</a>
+    """
+    source = SpecialIssueSourceConfig(
+        id="test-source", journal_id="test-journal", label="Test source",
+        url="https://example.org/calls",
+    )
+    journal = JournalConfig(id="test-journal", title="Test Journal", issns=["0000-0000"])
+
+    records = parse_special_issues_from_html(
+        html, source, journal, source.url, today=date(2026, 7, 13)
+    )
+
+    assert len(records) == 1
+    assert records[0].title == "Platform Power and Climate"
+    assert records[0].deadline == "2026-08-31"
+    assert records[0].source_url == "https://example.org/submit/platform-power"
+    assert records[0].status == "active"
+
+
+def test_deadline_status_is_deterministic() -> None:
+    html = """
+    <h2>Special Issue: Trust and News</h2>
+    <p>Call for papers. Deadline: June 30 2026.</p>
+    """
+    source = SpecialIssueSourceConfig(
+        id="test-source", journal_id="test-journal", label="Test source",
+        url="https://example.org/calls",
+    )
+    journal = JournalConfig(id="test-journal", title="Test Journal", issns=["0000-0000"])
+
+    records = parse_special_issues_from_html(
+        html, source, journal, source.url, today=date(2026, 7, 13)
+    )
+
+    assert records[0].deadline == "2026-06-30"
+    assert records[0].status == "closed"
 
 
 def test_parse_special_issues_from_feed_keeps_special_issue_drops_conference() -> None:
@@ -169,4 +215,57 @@ def test_collector_tracks_successes_without_dropping_other_source_errors() -> No
 
     assert [record.title for record in records] == ["Special Issue on Platform Governance"]
     assert collector.successful_source_ids == {"working"}
+    assert collector.authoritative_source_ids == {"working"}
     assert errors == [{"source_id": "broken", "error": "publisher unavailable"}]
+
+
+def test_collector_does_not_treat_empty_or_blocked_pages_as_authoritative() -> None:
+    class FakeHttpClient:
+        def get_text(self, url: str) -> HttpResponse:
+            if url.endswith("/blocked"):
+                return HttpResponse(url=url, body="<title>Attention Required! | Cloudflare</title>")
+            return HttpResponse(url=url, body="<h1>Journal homepage</h1>")
+
+    journal = JournalConfig(id="test-journal", title="Test Journal", issns=["0000-0000"])
+    sources = [
+        SpecialIssueSourceConfig(
+            id="empty", journal_id=journal.id, label="Empty", url="https://example.org/empty"
+        ),
+        SpecialIssueSourceConfig(
+            id="blocked", journal_id=journal.id, label="Blocked", url="https://example.org/blocked"
+        ),
+    ]
+    collector = SpecialIssueCollector(http_client=FakeHttpClient())
+
+    records, errors = collector.collect(sources, {journal.id: journal})
+
+    assert records == []
+    assert collector.successful_source_ids == {"empty"}
+    assert collector.authoritative_source_ids == set()
+    assert errors == [{
+        "source_id": "blocked",
+        "error": "publisher returned an access or bot-challenge page",
+    }]
+
+
+def test_manual_verified_source_is_collected_without_http() -> None:
+    class NoHttpClient:
+        def get_text(self, url: str) -> HttpResponse:
+            raise AssertionError("manual sources must not make an HTTP request")
+
+    journal = JournalConfig(id="hcr", title="Human Communication Research", issns=["0000-0000"])
+    source = SpecialIssueSourceConfig(
+        id="hcr-2026", journal_id=journal.id, label="HCR 2026",
+        url="https://example.org/hcr-2026", source_type="manual",
+        title="Special Issue: Group and Network Processes in Communication",
+        deadline="2026-08-31",
+    )
+    collector = SpecialIssueCollector(http_client=NoHttpClient())
+
+    records, errors = collector.collect([source], {journal.id: journal}, today=date(2026, 7, 13))
+
+    assert errors == []
+    assert len(records) == 1
+    assert records[0].status == "active"
+    assert records[0].deadline == "2026-08-31"
+    assert collector.authoritative_source_ids == {"hcr-2026"}
