@@ -10,6 +10,7 @@ from .models import ArticleRecord, SpecialIssueRecord
 
 
 LAST_RUN_FILENAME = "last_run.json"
+SPECIAL_ISSUE_RUN_FILENAME = "special_issue_last_run.json"
 
 
 def local_today(timezone_name: str) -> date:
@@ -79,6 +80,25 @@ def write_last_run(state_dir: Path, payload: dict[str, Any]) -> Path:
 
 def read_last_run(state_dir: Path) -> dict[str, Any] | None:
     path = state_dir / LAST_RUN_FILENAME
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return payload if isinstance(payload, dict) else None
+
+
+def write_special_issue_run(state_dir: Path, payload: dict[str, Any]) -> Path:
+    state_dir.mkdir(parents=True, exist_ok=True)
+    path = state_dir / SPECIAL_ISSUE_RUN_FILENAME
+    body = {"recorded_at": datetime.now(timezone.utc).isoformat(), **payload}
+    path.write_text(json.dumps(body, indent=2, ensure_ascii=True), encoding="utf-8")
+    return path
+
+
+def read_special_issue_run(state_dir: Path) -> dict[str, Any] | None:
+    path = state_dir / SPECIAL_ISSUE_RUN_FILENAME
     if not path.exists():
         return None
     try:

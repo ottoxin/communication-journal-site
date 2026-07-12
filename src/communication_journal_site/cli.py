@@ -14,7 +14,7 @@ from .crossref import CrossrefClient
 from .enrichment import MetadataEnricher, OpenAlexClient
 from .exporter import export_public_data
 from .http_client import HttpClient
-from .health import local_today, write_last_run
+from .health import local_today, write_last_run, write_special_issue_run
 from .normalize import slugify
 from .site import build_site
 from .special_issues import SpecialIssueCollector
@@ -227,6 +227,29 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
         "errors": errors,
     }
     _write_archive(args.config_dir, config, f"collect-special-issues-{seen_at.replace(':', '-')}.json", archive)
+    active_sources = [source for source in config.special_issue_sources if source.active]
+    manual_review_dates = [
+        source.review_after
+        for source in active_sources
+        if source.source_type == "manual" and source.review_after
+    ]
+    write_special_issue_run(
+        store.db_path.parent,
+        {
+            "status": "partial" if errors else "complete",
+            "active_source_count": len(active_sources),
+            "automated_source_count": sum(
+                source.source_type != "manual" for source in active_sources
+            ),
+            "verified_source_count": sum(
+                source.source_type == "manual" for source in active_sources
+            ),
+            "successful_source_count": len(collector.successful_source_ids),
+            "failed_source_count": len(errors),
+            "finding_count": len(records),
+            "next_verified_review_on": min(manual_review_dates) if manual_review_dates else None,
+        },
+    )
     print(f"Collected {stored} special-issue finding(s).")
     if errors:
         print(f"{len(errors)} special-issue source(s) failed. See .state/archives for details.", file=sys.stderr)

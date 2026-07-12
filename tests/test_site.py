@@ -5,8 +5,17 @@ import json
 
 from communication_journal_site.config import load_config
 from communication_journal_site.models import ArticleRecord, SpecialIssueRecord
-from communication_journal_site.site import build_site
+from communication_journal_site.site import _health_banner, build_site
 from communication_journal_site.storage import StateStore
+
+
+def test_health_banner_discloses_partial_special_issue_sources() -> None:
+    banner = _health_banner({
+        "status": "current",
+        "special_issue_run": {"status": "partial"},
+    })
+
+    assert "some automated publisher sources failed" in banner
 
 
 def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:

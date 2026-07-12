@@ -71,7 +71,7 @@ The command writes `data/audit/journal_registry_audit.csv` and marks registry is
 
 - `config/journals.yaml`: site settings and journal registry.
 - `config/subareas.yaml`: subarea labels and descriptions.
-- `config/special_issue_sources.yaml`: pages to scrape for calls/special issues.
+- `config/special_issue_sources.yaml`: layered special-issue sources. Automated publisher pages and feeds are preferred; source-linked manual records cover official pages or PDFs blocked by publisher anti-bot systems. Manual records require `verified_on` and `review_after` dates so they cannot remain current indefinitely.
 
 Reusable presentation settings—including featured subareas, maximum papers per page, and article/call freshness thresholds—live in the `settings` block of `config/journals.yaml`.
 

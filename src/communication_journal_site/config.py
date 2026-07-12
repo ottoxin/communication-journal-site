@@ -108,13 +108,25 @@ def _validate_config(
         if source.source_type == "manual":
             if not source.title.strip():
                 raise ValueError(f"{source.id} manual source must define a title.")
-            if source.deadline:
+            if not source.verified_on or not source.review_after:
+                raise ValueError(
+                    f"{source.id} manual source must define verified_on and review_after."
+                )
+            for field_name, value in (
+                ("deadline", source.deadline),
+                ("verified_on", source.verified_on),
+                ("review_after", source.review_after),
+            ):
+                if not value:
+                    continue
                 try:
-                    date.fromisoformat(source.deadline)
+                    date.fromisoformat(value)
                 except ValueError as exc:
                     raise ValueError(
-                        f"{source.id} manual source deadline must use YYYY-MM-DD."
+                        f"{source.id} manual source {field_name} must use YYYY-MM-DD."
                     ) from exc
+            if date.fromisoformat(source.review_after) < date.fromisoformat(source.verified_on):
+                raise ValueError(f"{source.id} review_after cannot precede verified_on.")
         # Feed/aggregator/hub sources span multiple journals, so they are not
         # required to map to a registry journal; page sources still must.
         if source.source_type in AGGREGATOR_SOURCE_TYPES:

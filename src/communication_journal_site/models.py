@@ -64,6 +64,9 @@ class SpecialIssueSourceConfig:
     selectors_hint: str = ""
     title: str = ""
     deadline: str | None = None
+    verified_on: str | None = None
+    review_after: str | None = None
+    summary: str = ""
 
 
 @dataclass(frozen=True, slots=True)

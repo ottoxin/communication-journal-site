@@ -4,6 +4,7 @@ import json
 import sqlite3
 from datetime import date
 from pathlib import Path
+from urllib.parse import unquote
 
 from .models import ArticleRecord, SpecialIssueRecord
 from .normalize import make_dedupe_key, sha256_text
@@ -289,7 +290,23 @@ class StateStore:
                     continue
                 if (today - last_seen).days > verification_days:
                     record.status = "unverified"
-        return records
+        # The same publisher document may be discovered through both an
+        # automated hub and a verified fallback. Prefer the current record and
+        # suppress the stale duplicate without merging unrelated journals that
+        # happen to use a generic title such as "Call for proposals".
+        by_source_url: dict[str, SpecialIssueRecord] = {}
+        for record in records:
+            key = unquote(record.source_url).strip().rstrip("/")
+            current = by_source_url.get(key)
+            record_rank = (record.status == "active", record.last_seen_at or "")
+            current_rank = (
+                (current.status == "active", current.last_seen_at or "")
+                if current
+                else (False, "")
+            )
+            if current is None or record_rank > current_rank:
+                by_source_url[key] = record
+        return list(by_source_url.values())
 
     def _row_to_article(self, row: sqlite3.Row) -> ArticleRecord:
         return ArticleRecord(

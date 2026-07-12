@@ -20,8 +20,9 @@ AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (
     RENDERED_SOURCE_TYPE,
     "publisher-index",
     "association-page",
+    MANUAL_SOURCE_TYPE,
 )
-SOURCE_TYPES = ("publisher-page", MANUAL_SOURCE_TYPE, *AGGREGATOR_SOURCE_TYPES)
+SOURCE_TYPES = ("publisher-page", *AGGREGATOR_SOURCE_TYPES)
 _ATOM_NS = "{http://www.w3.org/2005/Atom}"
 # Used to keep cross-journal hub findings on-topic for a communication site.
 COMMUNICATION_TERMS = (
@@ -280,6 +281,10 @@ class SpecialIssueCollector:
             issns=[],
         )
         if source.source_type == MANUAL_SOURCE_TYPE:
+            review_expired = bool(
+                source.review_after
+                and date.fromisoformat(source.review_after) < (today or date.today())
+            )
             return [
                 SpecialIssueRecord(
                     source_id=source.id,
@@ -287,10 +292,17 @@ class SpecialIssueCollector:
                     journal_title=journal.title,
                     title=source.title,
                     source_url=source.url,
-                    status=_status_for_deadline(source.deadline, today=today),
+                    status=(
+                        "unverified"
+                        if review_expired
+                        else _status_for_deadline(source.deadline, today=today)
+                    ),
                     deadline=source.deadline,
                     confidence="high",
-                    raw_snippet="Manually verified official publisher call.",
+                    raw_snippet=(
+                        source.summary
+                        or f"Verified against the official source on {source.verified_on}."
+                    ),
                 )
             ]
         if source.source_type == RENDERED_SOURCE_TYPE:
@@ -415,6 +427,13 @@ def special_issue_identity_title(title: str) -> str:
     normalized = re.sub(r"[^a-z0-9]+", " ", normalized)
     normalized = re.sub(r"^(?:on|for)\s+", "", normalize_whitespace(normalized))
     return normalize_whitespace(normalized) or normalize_whitespace(title).lower()
+
+
+def special_issue_opportunity_type(title: str) -> str:
+    lowered = title.lower()
+    if "proposal" in lowered:
+        return "special-issue-proposal"
+    return "call-for-papers"
 
 
 def _extract_deadline(text: str) -> str | None:

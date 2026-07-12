@@ -8,7 +8,7 @@ from pathlib import Path
 from shutil import copyfile
 
 from .covers import ensure_cover_asset
-from .health import collection_health, local_today, read_last_run
+from .health import collection_health, local_today, read_last_run, read_special_issue_run
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord, SubareaConfig
 from .normalize import slugify
 from .publication import (
@@ -17,6 +17,7 @@ from .publication import (
     public_abstract,
     public_articles,
 )
+from .special_issues import special_issue_opportunity_type
 from .storage import StateStore
 
 
@@ -49,6 +50,8 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
     health["local_only_article_count"] = hidden_article_count
     health["public_article_policy"] = PUBLIC_ARTICLE_POLICY
     last_run = read_last_run(store.db_path.parent)
+    health["last_run"] = last_run
+    health["special_issue_run"] = read_special_issue_run(store.db_path.parent)
     cover_cache = store.db_path.parent / "covers"
     covers = {
         journal.id: ensure_cover_asset(journal, cover_cache, assets_dir)
@@ -366,6 +369,10 @@ def _status_page(config: AppConfig, health: dict, last_run: dict | None) -> str:
       {_metric("Last article sync", _short_date(health.get('latest_article_sync')))}
       {_metric("Active calls", str(health.get('active_special_issue_count', 0)))}
       {_metric("Calls to verify", str(health.get('unverified_special_issue_count', 0)))}
+      {_metric("Source collection", str((health.get('special_issue_run') or {}).get('status', (last_run or {}).get('special_issue_collection', 'unknown'))).title())}
+      {_metric("Automated sources", str((health.get('special_issue_run') or {}).get('automated_source_count', 0)))}
+      {_metric("Verified fallbacks", str((health.get('special_issue_run') or {}).get('verified_source_count', 0)))}
+      {_metric("Next source review", str((health.get('special_issue_run') or {}).get('next_verified_review_on') or '—'))}
       {_metric("Local-only records", str(health.get('local_only_article_count', 0)))}
     </section>
     <section class="run-panel">
@@ -483,12 +490,17 @@ def _article_card(
 
 
 def _special_issue_card(issue: SpecialIssueRecord) -> str:
-    search = escape(" ".join([issue.title, issue.journal_title, issue.status, issue.confidence]).lower())
+    opportunity_type = special_issue_opportunity_type(issue.title)
+    opportunity_label = (
+        "Special-issue proposal" if opportunity_type == "special-issue-proposal" else "Call for papers"
+    )
+    search = escape(" ".join([issue.title, issue.journal_title, issue.status, issue.confidence, opportunity_label]).lower())
     deadline = f"<span>Deadline: {escape(issue.deadline)}</span>" if issue.deadline else "<span>Deadline unavailable</span>"
     return f"""
     <article class="issue-card" data-search-item data-search-text="{search}">
       <div class="article-meta">
         <span>{escape(issue.journal_title)}</span>
+        <span>{escape(opportunity_label)}</span>
         <span>{escape(issue.status)} · {escape(issue.confidence)} confidence</span>
       </div>
       <h3><a href="{escape(issue.source_url)}">{escape(issue.title)}</a></h3>
@@ -499,10 +511,15 @@ def _special_issue_card(issue: SpecialIssueRecord) -> str:
 
 
 def _special_issue_compact(issue: SpecialIssueRecord) -> str:
+    opportunity_label = (
+        "proposal"
+        if special_issue_opportunity_type(issue.title) == "special-issue-proposal"
+        else "call for papers"
+    )
     return f"""
     <a class="mini-item" href="{escape(issue.source_url)}">
       <strong>{escape(issue.title)}</strong>
-      <span>{escape(issue.journal_title)} · {escape(issue.deadline or 'no deadline')}</span>
+      <span>{escape(issue.journal_title)} · {escape(opportunity_label)} · {escape(issue.deadline or 'no deadline')}</span>
     </a>
     """
 
@@ -609,9 +626,19 @@ def _empty_latest_state() -> str:
 
 def _health_banner(health: dict, link: str = "status/index.html") -> str:
     status = health.get("status")
-    if status == "current":
+    last_run = health.get("last_run") or {}
+    special_issue_run = health.get("special_issue_run") or {}
+    source_partial = (
+        special_issue_run.get("status") == "partial"
+        if special_issue_run
+        else last_run.get("special_issue_collection") == "partial"
+    )
+    if status == "current" and not source_partial:
         return ""
-    if status == "empty":
+    if source_partial and status == "current":
+        message = "Verified opportunities are available, but some automated publisher sources failed in the latest run."
+        tone = "warning"
+    elif status == "empty":
         message = "The collection is ready but does not contain papers yet."
         tone = "neutral"
     elif status == "degraded":

@@ -6,8 +6,9 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord
-from .health import collection_health, local_today, read_last_run
+from .health import collection_health, local_today, read_last_run, read_special_issue_run
 from .normalize import slugify
+from .special_issues import special_issue_opportunity_type
 from .publication import (
     PUBLIC_ARTICLE_POLICY,
     local_only_article_count,
@@ -73,6 +74,7 @@ def export_public_data(
     health_payload["local_only_article_count"] = hidden_article_count
     health_payload["public_article_policy"] = PUBLIC_ARTICLE_POLICY
     health_payload["last_run"] = read_last_run(store.db_path.parent)
+    health_payload["special_issue_run"] = read_special_issue_run(store.db_path.parent)
     _write_json(paths["health"], health_payload)
     return paths
 
@@ -109,6 +111,7 @@ def _special_issue_public_dict(record: SpecialIssueRecord) -> dict:
         "journal_id": record.journal_id,
         "journal": record.journal_title,
         "title": record.title,
+        "opportunity_type": special_issue_opportunity_type(record.title),
         "source_url": record.source_url,
         "status": record.status,
         "deadline": record.deadline,

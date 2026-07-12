@@ -111,6 +111,32 @@ def test_special_issue_url_change_keeps_one_stable_record(tmp_path: Path) -> Non
     assert issues[0].discovered_at == "2026-06-01T00:00:00+00:00"
 
 
+def test_special_issue_same_document_prefers_active_verified_record(tmp_path: Path) -> None:
+    store = StateStore(tmp_path / "site.db")
+    shared_url_encoded = "https://example.org/Call%20for%20Proposals.pdf"
+    shared_url_plain = "https://example.org/Call for Proposals.pdf"
+    store.upsert_special_issues(
+        [
+            SpecialIssueRecord(
+                source_id="old-hub", journal_id="wrong-journal", journal_title="Wrong Journal",
+                title="Call for Special Issue Proposals", source_url=shared_url_plain,
+                status="unverified",
+            ),
+            SpecialIssueRecord(
+                source_id="verified", journal_id="publisher", journal_title="Correct Journal",
+                title="Call for Special Issue Proposals", source_url=shared_url_encoded,
+                status="active",
+            ),
+        ],
+        seen_at="2026-07-12T00:00:00+00:00",
+    )
+
+    issues = store.get_special_issues()
+
+    assert len(issues) == 1
+    assert issues[0].source_id == "verified"
+
+
 def test_old_unverified_call_is_not_presented_as_active(tmp_path: Path) -> None:
     store = StateStore(tmp_path / "site.db")
     store.upsert_special_issues(

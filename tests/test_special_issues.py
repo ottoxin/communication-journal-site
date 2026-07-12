@@ -14,6 +14,7 @@ from communication_journal_site.special_issues import (
     is_plausible_special_issue_title,
     parse_special_issues_from_feed,
     parse_special_issues_from_html,
+    special_issue_opportunity_type,
 )
 
 
@@ -259,6 +260,7 @@ def test_manual_verified_source_is_collected_without_http() -> None:
         url="https://example.org/hcr-2026", source_type="manual",
         title="Special Issue: Group and Network Processes in Communication",
         deadline="2026-08-31",
+        verified_on="2026-07-13", review_after="2026-08-31",
     )
     collector = SpecialIssueCollector(http_client=NoHttpClient())
 
@@ -269,3 +271,24 @@ def test_manual_verified_source_is_collected_without_http() -> None:
     assert records[0].status == "active"
     assert records[0].deadline == "2026-08-31"
     assert collector.authoritative_source_ids == {"hcr-2026"}
+
+
+def test_manual_source_expires_when_its_review_date_passes() -> None:
+    journal = JournalConfig(id="hcr", title="Human Communication Research", issns=["0000-0000"])
+    source = SpecialIssueSourceConfig(
+        id="manual", journal_id=journal.id, label="Manual", url="https://example.org/call",
+        source_type="manual", title="Special Issue: Audiences", verified_on="2026-07-01",
+        review_after="2026-07-10",
+    )
+
+    records, errors = SpecialIssueCollector().collect(
+        [source], {journal.id: journal}, today=date(2026, 7, 13)
+    )
+
+    assert errors == []
+    assert records[0].status == "unverified"
+
+
+def test_special_issue_proposal_is_classified_separately() -> None:
+    assert special_issue_opportunity_type("Call for Special Issue Proposals") == "special-issue-proposal"
+    assert special_issue_opportunity_type("Special Issue: Audiences") == "call-for-papers"
