@@ -13,7 +13,7 @@ Dataset status: **Current**
 | Current priority-journal CFP audits | 12/12 |
 | Automated CFP sources | 4 |
 | Failed CFP sources | 0 |
-| Last weekly run | complete |
+| Last weekly run | partial |
 
 [Browse the public data](data/public/README.md) · [Open the deployed monitor](https://communication-journal-monitor.ottoto.chatgpt.site/)
 
