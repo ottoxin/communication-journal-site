@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-07-31T04:37:35.102481+00:00",
+  "generated_at": "2026-07-31T04:42:41.366454+00:00",
   "site_title": "Communication Journal Monitor",
-  "article_count": 3979,
-  "local_only_article_count": 17,
+  "article_count": 3980,
+  "local_only_article_count": 50,
   "public_article_policy": "requires_clean_abstract",
   "journal_count": 70,
   "active_special_issue_count": 12,
@@ -207,6 +207,34 @@
       ],
       "primary_subarea": "journalism-media",
       "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
+    },
+    {
+      "journal_id": "public-understanding-of-science",
+      "journal_slug": "public-understanding-of-science",
+      "journal": "Public Understanding of Science",
+      "title": "When scientists \u2018Tok: Memetic communication and scientific information engagement in short video-based social media",
+      "published_date": "2026-07-30",
+      "doi": "10.1177/09636625261469057",
+      "link": "https://doi.org/10.1177/09636625261469057",
+      "abstract": "TikTok has rapidly emerged as an influential platform for science communication, particularly among younger audiences. Its affordances encourage memetic communication\u2014characterized by imitation, humor, and participatory storytelling\u2014offering scientists novel ways to engage publics. Our study explores scientists\u2019 use of memetic elements on TikTok and their associations with audience engagement. Drawing on social media logic and platform vernacular theories, we conducted a quantitative content analysis of 1025 science-related videos from 113 TikTok creators. Findings revealed widespread use of emotional and conversational language, but fewer videos incorporated reappropriated media or collectivist storytelling. Multilevel models showed that imitation and humor positively predicted likes, shares, comments, and views, whereas reappropriation negatively predicted engagement metrics. These results underscore the importance of aligning science communication strategies with platform-specific vernaculars. We discuss implications for public science engagement in digital, algorithmically driven environments, where visibility and audience trust increasingly depend on culturally resonant and participatory content.",
+      "authors": [
+        "Jon Benedik Bunquin",
+        "Alex Segr\u00e8 Cohen"
+      ],
+      "affiliations": [
+        "Center for Science Communication Research, School of Journalism and Communication, University of Oregon, Eugene, USA",
+        "Communication Research, College of Media and Communication, University of the Philippines Diliman, Quezon City, Philippines"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "science-environment"
+      ],
+      "primary_subarea": "science-environment",
+      "first_seen_at": "2026-07-31T04:39:40.392185+00:00"
     },
     {
       "journal_id": "communication-education",
@@ -1387,34 +1415,6 @@
       ],
       "primary_subarea": "health-communication",
       "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "\u201cIs This Supposed to Happen?\u201d: The Interplay of Uncertainty and Memorable Messages in Formative Sex Discussions",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2708972",
-      "link": "https://doi.org/10.1080/10410236.2026.2708972",
-      "abstract": "This study explores the interplay between uncertainty and memorable messages (MM) in formative sex discussions. Utilizing the theory of memorable messages (ToMM) and Brashers\u2019 uncertainty, we analyzed interviews with 22 young adults to identify memorable message types, sources of uncertainty, and their co-occurrence(s). We identified (a) five types of uncertainty across two main themes of context and content uncertainty, (b) five memorable message types, and (c) four co-occurring relationships and one inverse relationship between uncertainty and memorable messages. Our study advances the ToMM by (a) illuminating a potential relationship between uncertainty and MMs, (b) exploring how message gaps might play a role in uncertainty, and (c) discussing the potential for memorable messages to strategically reduce uncertainty.",
-      "authors": [
-        "Haley Nolan-Cody",
-        "Braidyn Lazenby"
-      ],
-      "affiliations": [
-        "Fairfield University",
-        "Florida State University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-14",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
     }
   ],
   "active_special_issues": [
@@ -1429,7 +1429,7 @@
       "deadline": "2026-07-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "For a Special Issue on Digital Mental Health: The Intersection of Information, Media Technology, Mental Health, and Communicative Processes Manuscript deadline 31 July 2026 Special Issue Editor(s) Dr. Prof. Wang Jianmin , College of Arts and Media, Tongji University, China Dr. Prof. Robert A. Logan , U.S. National Library of Medicine (National Institutes of Health) retired; Professor emeritus, School of Journalism, U. of Missouri-Columbia U.S. Dr. Prof. Chien-Tu jeff Lai , Shih Hsin University, "
     },
     {
@@ -1443,7 +1443,7 @@
       "deadline": "2026-07-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Submissions should follow the manuscript format guidelines for JA found at https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=ujoa20 . The word count should be no longer than 12,000 words for Original Research Articles and Literature Reviews, and 6,000 words for Research Notes (including references, tables, figures, and appendices). The submission deadline is July 31, 2026 All manuscripts should be submitted through the JA Submission Site. The link to the submissio"
     },
     {
@@ -1457,7 +1457,7 @@
       "deadline": "2026-08-01",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "All manuscripts should be submitted via the journal\u2019s online submission system. Authors should identify the themed call their paper is responding to by selecting the relevant drop-down option in the system. For formatting and length specifications, please refer to the journal\u2019s instructions for authors."
     },
     {
@@ -1471,7 +1471,7 @@
       "deadline": "2026-08-31",
       "confidence": "high",
       "discovered_at": "2026-07-12T19:00:04.777380+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Human Communication Research invites extended abstracts reconsidering the concept of audience in contemporary communication research."
     },
     {
@@ -1485,7 +1485,7 @@
       "deadline": "2026-09-07",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "The optimal length for JAR submissions is 7,000 words, excluding references. Authors are welcome and encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 June 2026. For any questions or inquiries, please contact the entire Guest Editorial Team at the email addresses provided above."
     },
     {
@@ -1499,7 +1499,7 @@
       "deadline": "2026-10-12",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "The length for JAR submissions is 7,000 words, excluding references and web appendices. Authors are encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 July 2026."
     },
     {
@@ -1513,7 +1513,7 @@
       "deadline": "2026-11-01",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "We invite authors to submit a full draft manuscript of 8,000 words (inclusive of the abstract, tables, references, figure captions, endnotes). Full manuscripts must be submitted via ScholarOne, selecting this Special Issue (\u201cRelational Perspectives in Journalism (Studies)\u201d) on the submission system. The cover letter accompanying the submission (max. 400 words) should clearly address the relevance of the proposed article to the theme of the special issue. Please follow the instructions on the jou"
     },
     {
@@ -1527,7 +1527,7 @@
       "deadline": "2026-11-06",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "For a Special Issue on The Emotional Turn in Public Relations Theorizing Manuscript deadline 06 November 2026 Special Issue Editor(s) W. Timothy Coombs , Centre for Crisis and Risk Communication Yan Jin , University of Georgia Augustine Pang , Singapore Management University An-Sofie Claeys , Ghent University Journal information Read the Instructions for Authors on Journal of Public Relations Research View Journal of Public Relations Research on Taylor & Francis Online Submit an article to Journ"
     },
     {
@@ -1541,7 +1541,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Full manuscripts should be submitted through ScholarOne. During submission, authors must select \u201cIntercultural Communication in the Age of Artificial Intelligence: Negotiating Identity, Culture, and Digital Interaction\u201d as the Special Issue title. The Special Issue welcomes diverse forms of scholarship, including: Original empirical research employing qualitative, quantitative, computational, or mixed methods. Conceptual and theoretical papers advancing intercultural communication scholarship. C"
     },
     {
@@ -1555,7 +1555,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Review and Replication word limits: 9,000 words (inclusively) Report word limit: 4,000 words (inclusively) When you submit your paper, please identify whether the manuscript is a review, replication, or report and list the word count on the cover page"
     },
     {
@@ -1569,7 +1569,7 @@
       "deadline": "2027-10-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Manuscripts should be prepared according to the International Journal of Strategic Communication author guidelines and submitted via the journal\u2019s online submission system. Manuscripts should be submitted by October 31, 2027. The special issue will be published in 2028. Manuscripts accepted will be published online first."
     },
     {
@@ -1583,7 +1583,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-12T19:08:01.400983+00:00",
-      "last_seen_at": "2026-07-31T04:37:11.274530+00:00",
+      "last_seen_at": "2026-07-31T04:42:19.064615+00:00",
       "snippet": "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
     }
   ]

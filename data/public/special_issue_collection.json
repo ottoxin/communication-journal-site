@@ -1,0 +1,25 @@
+{
+  "run_started_at": "2026-07-31T04:42:19.064615+00:00",
+  "retrieved": 15,
+  "stored": 15,
+  "marked_unverified": 0,
+  "successful_source_ids": [
+    "communication-public-special-issue-proposals",
+    "hcr-oup-calls",
+    "health-communication-digital-mental-health-2026",
+    "jprr-emotional-turn-2026",
+    "nca-calls",
+    "tandf-special-issues-api"
+  ],
+  "authoritative_source_ids": [
+    "communication-public-special-issue-proposals",
+    "hcr-oup-calls",
+    "health-communication-digital-mental-health-2026",
+    "jprr-emotional-turn-2026",
+    "tandf-special-issues-api"
+  ],
+  "empty_source_ids": [
+    "nca-calls"
+  ],
+  "errors": []
+}

@@ -1,0 +1,427 @@
+{
+  "run_started_at": "2026-07-31T04:39:40.392185+00:00",
+  "start_date": "2026-07-03",
+  "end_date": "2026-07-30",
+  "journals": [
+    {
+      "journal_id": "journal-of-communication",
+      "title": "Journal of Communication",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "journal-of-computer-mediated-communication",
+      "title": "Journal of Computer-Mediated Communication",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "communication-theory",
+      "title": "Communication Theory",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "human-communication-research",
+      "title": "Human Communication Research",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "annals-of-the-international-communication-association",
+      "title": "Annals of the International Communication Association",
+      "retrieved": 8,
+      "stored": 8
+    },
+    {
+      "journal_id": "communication-culture-and-critique",
+      "title": "Communication, Culture and Critique",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "communication-monographs",
+      "title": "Communication Monographs",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "communication-education",
+      "title": "Communication Education",
+      "retrieved": 5,
+      "stored": 5
+    },
+    {
+      "journal_id": "communication-and-critical-cultural-studies",
+      "title": "Communication and Critical/Cultural Studies",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "critical-studies-in-media-communication",
+      "title": "Critical Studies in Media Communication",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "journal-of-applied-communication-research",
+      "title": "Journal of Applied Communication Research",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "quarterly-journal-of-speech",
+      "title": "Quarterly Journal of Speech",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "text-and-performance-quarterly",
+      "title": "Text and Performance Quarterly",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "review-of-communication",
+      "title": "Review of Communication",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "political-communication",
+      "title": "Political Communication",
+      "retrieved": 9,
+      "stored": 9
+    },
+    {
+      "journal_id": "communication-research",
+      "title": "Communication Research",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "communication-methods-and-measures",
+      "title": "Communication Methods and Measures",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "new-media-and-society",
+      "title": "New Media & Society",
+      "retrieved": 12,
+      "stored": 12
+    },
+    {
+      "journal_id": "information-communication-and-society",
+      "title": "Information, Communication & Society",
+      "retrieved": 16,
+      "stored": 16
+    },
+    {
+      "journal_id": "digital-journalism",
+      "title": "Digital Journalism",
+      "retrieved": 16,
+      "stored": 16
+    },
+    {
+      "journal_id": "journalism",
+      "title": "Journalism",
+      "retrieved": 13,
+      "stored": 13
+    },
+    {
+      "journal_id": "journalism-studies",
+      "title": "Journalism Studies",
+      "retrieved": 19,
+      "stored": 19
+    },
+    {
+      "journal_id": "journalism-and-mass-communication-quarterly",
+      "title": "Journalism & Mass Communication Quarterly",
+      "retrieved": 17,
+      "stored": 17
+    },
+    {
+      "journal_id": "mass-communication-and-society",
+      "title": "Mass Communication and Society",
+      "retrieved": 7,
+      "stored": 7
+    },
+    {
+      "journal_id": "international-journal-of-press-politics",
+      "title": "The International Journal of Press/Politics",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "public-opinion-quarterly",
+      "title": "Public Opinion Quarterly",
+      "retrieved": 6,
+      "stored": 6
+    },
+    {
+      "journal_id": "media-culture-and-society",
+      "title": "Media, Culture & Society",
+      "retrieved": 7,
+      "stored": 7
+    },
+    {
+      "journal_id": "international-journal-of-communication",
+      "title": "International Journal of Communication",
+      "retrieved": 35,
+      "stored": 35
+    },
+    {
+      "journal_id": "mobile-media-and-communication",
+      "title": "Mobile Media & Communication",
+      "retrieved": 6,
+      "stored": 6
+    },
+    {
+      "journal_id": "social-media-and-society",
+      "title": "Social Media + Society",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "health-communication",
+      "title": "Health Communication",
+      "retrieved": 21,
+      "stored": 21
+    },
+    {
+      "journal_id": "journal-of-health-communication",
+      "title": "Journal of Health Communication",
+      "retrieved": 13,
+      "stored": 13
+    },
+    {
+      "journal_id": "science-communication",
+      "title": "Science Communication",
+      "retrieved": 5,
+      "stored": 5
+    },
+    {
+      "journal_id": "public-understanding-of-science",
+      "title": "Public Understanding of Science",
+      "retrieved": 6,
+      "stored": 6
+    },
+    {
+      "journal_id": "environmental-communication",
+      "title": "Environmental Communication",
+      "retrieved": 9,
+      "stored": 9
+    },
+    {
+      "journal_id": "media-psychology",
+      "title": "Media Psychology",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "journal-of-media-psychology",
+      "title": "Journal of Media Psychology",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "cyberpsychology-behavior-and-social-networking",
+      "title": "Cyberpsychology, Behavior, and Social Networking",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "journal-of-social-and-personal-relationships",
+      "title": "Journal of Social and Personal Relationships",
+      "retrieved": 10,
+      "stored": 10
+    },
+    {
+      "journal_id": "personal-relationships",
+      "title": "Personal Relationships",
+      "retrieved": 5,
+      "stored": 5
+    },
+    {
+      "journal_id": "journal-of-family-communication",
+      "title": "Journal of Family Communication",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "communication-quarterly",
+      "title": "Communication Quarterly",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "communication-studies",
+      "title": "Communication Studies",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "western-journal-of-communication",
+      "title": "Western Journal of Communication",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "southern-communication-journal",
+      "title": "Southern Communication Journal",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "journal-of-broadcasting-and-electronic-media",
+      "title": "Journal of Broadcasting & Electronic Media",
+      "retrieved": 7,
+      "stored": 7
+    },
+    {
+      "journal_id": "journal-of-advertising",
+      "title": "Journal of Advertising",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "journal-of-advertising-research",
+      "title": "Journal of Advertising Research",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "public-relations-review",
+      "title": "Public Relations Review",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "journal-of-public-relations-research",
+      "title": "Journal of Public Relations Research",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "international-journal-of-strategic-communication",
+      "title": "International Journal of Strategic Communication",
+      "retrieved": 3,
+      "stored": 3
+    },
+    {
+      "journal_id": "management-communication-quarterly",
+      "title": "Management Communication Quarterly",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "journal-of-business-and-technical-communication",
+      "title": "Journal of Business and Technical Communication",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "technical-communication-quarterly",
+      "title": "Technical Communication Quarterly",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "discourse-and-society",
+      "title": "Discourse & Society",
+      "retrieved": 11,
+      "stored": 11
+    },
+    {
+      "journal_id": "discourse-context-and-media",
+      "title": "Discourse, Context & Media",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "language-and-communication",
+      "title": "Language & Communication",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "media-and-communication",
+      "title": "Media and Communication",
+      "retrieved": 10,
+      "stored": 10
+    },
+    {
+      "journal_id": "european-journal-of-communication",
+      "title": "European Journal of Communication",
+      "retrieved": 9,
+      "stored": 9
+    },
+    {
+      "journal_id": "global-media-and-communication",
+      "title": "Global Media and Communication",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "international-communication-gazette",
+      "title": "International Communication Gazette",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "chinese-journal-of-communication",
+      "title": "Chinese Journal of Communication",
+      "retrieved": 4,
+      "stored": 4
+    },
+    {
+      "journal_id": "journal-of-intercultural-communication-research",
+      "title": "Journal of Intercultural Communication Research",
+      "retrieved": 2,
+      "stored": 2
+    },
+    {
+      "journal_id": "international-journal-of-intercultural-relations",
+      "title": "International Journal of Intercultural Relations",
+      "retrieved": 0,
+      "stored": 0
+    },
+    {
+      "journal_id": "convergence",
+      "title": "Convergence",
+      "retrieved": 13,
+      "stored": 13
+    },
+    {
+      "journal_id": "television-and-new-media",
+      "title": "Television & New Media",
+      "retrieved": 10,
+      "stored": 10
+    },
+    {
+      "journal_id": "feminist-media-studies",
+      "title": "Feminist Media Studies",
+      "retrieved": 17,
+      "stored": 17
+    },
+    {
+      "journal_id": "journal-of-children-and-media",
+      "title": "Journal of Children and Media",
+      "retrieved": 10,
+      "stored": 10
+    },
+    {
+      "journal_id": "popular-communication",
+      "title": "Popular Communication",
+      "retrieved": 1,
+      "stored": 1
+    },
+    {
+      "journal_id": "communication-reports",
+      "title": "Communication Reports",
+      "retrieved": 1,
+      "stored": 1
+    }
+  ]
+}
