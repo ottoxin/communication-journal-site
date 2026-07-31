@@ -172,6 +172,13 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .journal-card__body { min-width: 0; }
 .journal-card__body h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.2; }
 .journal-card__body .muted { margin: 0; font-size: 12px; }
+.impact-metric { margin: 10px 0 0; font-size: 12px; line-height: 1.35; }
+.impact-metric strong { display: block; color: var(--ink); }
+.impact-metric a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.metric-note { max-width: 900px; margin: 18px 0; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--ink); background: #fff; }
+.metric-note p { margin: 0; font-size: 13px; }
+.metric-note p + p { margin-top: 7px; }
+.metric-note .citation-links a { text-decoration: underline; text-underline-offset: 3px; }
 .paper-mini { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; min-width: 0; }
 .paper-mini li { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; align-items: baseline; min-width: 0; }
 .paper-mini li a { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
