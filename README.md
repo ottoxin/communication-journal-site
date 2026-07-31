@@ -1,5 +1,9 @@
 # Communication Journal Monitor
 
+[![Weekly data refresh](https://github.com/ottoxin/communication-journal-site/actions/workflows/weekly-data.yml/badge.svg)](https://github.com/ottoxin/communication-journal-site/actions/workflows/weekly-data.yml)
+
+[Browse the current public data and status](data/public/README.md).
+
 `communication-journal-site` is a reusable weekly collection and static-publishing pipeline for communication research. It collects journal articles, monitors calls for special issues, keeps local history in SQLite, and builds a searchable website plus public JSON exports.
 
 The pipeline is deterministic and non-AI:
@@ -37,6 +41,8 @@ The weekly command:
 4. writes public health/freshness metadata;
 5. builds the static website.
 
+The GitHub `Weekly data refresh` workflow runs this collection every Monday at 14:15 UTC and can also be started manually. It commits the public data/status snapshot under `data/public/`; it does not redeploy the existing private Sites deployment. Because GitHub runners are ephemeral, the workflow bootstraps its SQLite state from the prior public snapshot before collecting the newest window. Local-only records are never included in that bootstrap.
+
 Publisher outages are isolated. Successful journal data is still exported and the site is rebuilt using last-known-good records. Use `make update-strict` when automation should return a failure after publishing partial results.
 
 Public HTML and JSON exports only include articles with a usable abstract. Records without abstracts remain in `.state/site.db` for future enrichment but are not published on the website or in `site/data/*.json*`. The standard weekly commands attempt OpenAlex abstract enrichment by default; set `OPENALEX=0` or pass `--no-openalex` when you need a faster run.
@@ -54,6 +60,32 @@ Example weekly cron entry, running Mondays at 08:00:
 ```
 
 After a successful run, deploy the complete `site/` directory to any static host. Do not deploy `.state/`.
+
+## Article collection versus call-for-papers collection
+
+These are separate pipelines. The article job queries Crossref by ISSN for all 70 active journals in `config/journals.yaml` and optionally uses OpenAlex to fill missing abstracts. Articles without a clean abstract stay in the local SQLite database and are not published. CFP collection does not inherit that 70-journal coverage: it runs only the sources declared active in `config/special_issue_sources.yaml`.
+
+## Call-for-papers coverage
+
+Every weekly run fetches active CFP sources, extracts still-open public-entry opportunities, links each result to the official source, stores history, exports status, and rebuilds the site. Failed sources retain last-known-good records; a call missing after a successful authoritative refresh becomes `unverified`. Manual records and dated journal audits expire under the configured 10-day verification window, so the status output reports reduced coverage instead of silently presenting stale checks as complete.
+
+| Coverage mode | Included | Limitation |
+|---|---|---|
+| Systematic publisher API | All 35 Taylor & Francis journals in the registry are eligible through the official paginated special-issues API. Calls are mapped by publisher journal code/title. | Calls for journals outside the registry, entries without a usable deadline/direct link, closed public-entry stages, and invitation-only manuscript stages are excluded. |
+| Direct publisher pages | Health Communication and Journal of Public Relations Research are checked directly as supplemental Taylor & Francis sources. | Page-layout changes can break extraction; the publisher API remains the broader source. |
+| Association discovery | The National Communication Association journals page is checked and filtered for communication-relevant calls. | It is a discovery page, not a complete publisher inventory. |
+| Verified manual records | Human Communication Research (OUP) and Communication and the Public (SAGE PDF) currently have source-linked, dated records. | They require re-verification by `review_after`; the weekly code run does not itself renew a human audit. |
+| Dated journal audits | Twelve priority journals currently have evidence-linked audit dates: JoC, JCMC, Communication Theory, HCR, Annals, Communication Monographs, Political Communication, Communication Research, New Media & Society, Information, Communication & Society, Health Communication, and JPRR. | Audits expire after 10 days and indicate that an official source was checked, not that the journal has a stable automated feed. |
+
+### Known CFP exclusions
+
+- Oxford University Press is not covered publisher-wide because there is no stable central machine-readable communication-journal CFP feed and individual pages are inconsistent or intermittently unavailable. HCR is included through a dated manual record; JoC, JCMC, Communication Theory, and Annals are audit-only. Communication, Culture & Critique and Public Opinion Quarterly are article-only and are not currently CFP-audited.
+- SAGE is not covered publisher-wide because its central CFP hubs return empty results or bot-mitigation responses to unattended/headless collection. Communication Research and New Media & Society are audit-only. The other 17 configured SAGE journals are article-only for CFP purposes. Communication and the Public is a separately verified PDF proposal call and is not part of the 70-journal article registry.
+- No CFP source is currently configured for Elsevier (Public Relations Review; Discourse, Context & Media; Language & Communication; International Journal of Intercultural Relations), USC Annenberg Press (International Journal of Communication), Hogrefe (Journal of Media Psychology), Mary Ann Liebert (Cyberpsychology, Behavior, and Social Networking), Wiley (Personal Relationships), or Cogitatio (Media and Communication). Their articles are still collected.
+- WikiCFP is intentionally disabled because its “communication” feed is dominated by telecommunications/networking conferences rather than communication-studies journal calls.
+- Calls announced only in email lists, social media, or inaccessible pages are outside current systematic coverage unless a dated official-source record is added.
+
+The weekly program is systematic and reproducible, but it is not a claim of publisher-wide CFP completeness. Human audit dates and manual records must be refreshed separately.
 
 ## Registry Strategy
 

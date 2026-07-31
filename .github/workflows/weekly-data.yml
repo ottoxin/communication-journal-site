@@ -1,0 +1,85 @@
+name: Weekly data refresh
+
+on:
+  schedule:
+    - cron: "15 14 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install collector
+        run: python -m pip install -e .
+
+      - name: Restore public collection history
+        run: communication-journal-site bootstrap-public-data --input-dir data/public
+
+      - name: Run weekly collection
+        id: collect
+        continue-on-error: true
+        run: communication-journal-site run-weekly --strict
+        env:
+          CJS_CROSSREF_MAILTO: ${{ vars.CJS_CROSSREF_MAILTO }}
+          CJS_OPENALEX_MAILTO: ${{ vars.CJS_OPENALEX_MAILTO }}
+
+      - name: Publish data and status snapshot
+        run: |
+          cp site/data/articles.jsonl data/public/articles.jsonl
+          cp site/data/health.json data/public/health.json
+          cp site/data/journals.json data/public/journals.json
+          cp site/data/latest.json data/public/latest.json
+          cp site/data/special_issues.jsonl data/public/special_issues.jsonl
+          python scripts/write_public_status.py data/public/health.json STATUS.md
+
+      - name: Write job summary
+        run: |
+          {
+            echo "## Communication Journal Monitor"
+            echo
+            echo "- Dataset status: $(jq -r '.status' data/public/health.json)"
+            echo "- Articles: $(jq -r '.article_count' data/public/health.json)"
+            echo "- Active calls: $(jq -r '.active_special_issue_count' data/public/health.json)"
+            echo "- Upcoming calls: $(jq -r '.upcoming_special_issue_count' data/public/health.json)"
+            echo "- Current priority-journal audits: $(jq -r '.special_issue_audit_coverage_count' data/public/health.json)/$(jq -r '.special_issue_priority_journal_count' data/public/health.json)"
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          JQ_COLORS: ""
+
+      - name: Commit refreshed snapshot
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/public STATUS.md
+          if git diff --cached --quiet; then
+            echo "No public data changes to commit."
+          else
+            git commit -m "Refresh weekly journal data"
+            git push
+          fi
+
+      - name: Enforce collection and CFP audit health
+        run: |
+          if ! jq -e '.special_issue_coverage_status == "complete"' data/public/health.json >/dev/null; then
+            echo "::error::One or more priority-journal CFP audits require human re-verification. See data/public/health.json."
+            exit 1
+          fi
+          if [[ "${{ steps.collect.outcome }}" != "success" ]]; then
+            echo "::error::The strict collection reported one or more source failures. Partial status was committed for inspection."
+            exit 1
+          fi

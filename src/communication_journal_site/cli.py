@@ -17,6 +17,7 @@ from .http_client import HttpClient
 from .health import local_today, write_last_run, write_special_issue_run
 from .normalize import slugify
 from .site import build_site
+from .snapshots import bootstrap_public_snapshot
 from .special_issues import SpecialIssueCollector
 from .storage import StateStore
 
@@ -59,6 +60,14 @@ def build_parser() -> argparse.ArgumentParser:
     special_parser = subparsers.add_parser("collect-special-issues", help="Screen configured special-issue pages.")
     special_parser.add_argument("--state-dir", default=None)
     special_parser.set_defaults(func=cmd_collect_special_issues)
+
+    bootstrap_parser = subparsers.add_parser(
+        "bootstrap-public-data",
+        help="Restore public article/call history into local state for an ephemeral runner.",
+    )
+    bootstrap_parser.add_argument("--state-dir", default=None)
+    bootstrap_parser.add_argument("--input-dir", default="data/public")
+    bootstrap_parser.set_defaults(func=cmd_bootstrap_public_data)
 
     export_parser = subparsers.add_parser("export-public-data", help="Export public JSON/JSONL data.")
     export_parser.add_argument("--state-dir", default=None)
@@ -255,6 +264,18 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
     if errors:
         print(f"{len(errors)} special-issue source(s) failed. See .state/archives for details.", file=sys.stderr)
         return 1
+    return 0
+
+
+def cmd_bootstrap_public_data(args: argparse.Namespace) -> int:
+    config = load_config(args.config_dir)
+    store = _store(config, args)
+    input_dir = resolve_project_path(args.config_dir, args.input_dir)
+    result = bootstrap_public_snapshot(store, input_dir)
+    print(
+        f"Bootstrapped {result['articles']} public article(s) and "
+        f"{result['special_issues']} special-issue record(s)."
+    )
     return 0
 
 
