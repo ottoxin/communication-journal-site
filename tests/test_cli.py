@@ -84,7 +84,9 @@ def test_paper_collection_stops_after_repeated_upstream_failures(monkeypatch, tm
             default_lookback_days=28,
             state_dir=str(tmp_path / "state"),
         ),
-        journals=[_journal("a"), _journal("b"), _journal("c")],
+        journals=[
+            _journal("a"), _journal("b"), _journal("c"), _journal("d"), _journal("e")
+        ],
     )
     monkeypatch.setattr(cli, "load_config", lambda config_dir: config)
     monkeypatch.setattr(cli, "CrossrefClient", FailingCrossref)
@@ -99,7 +101,7 @@ def test_paper_collection_stops_after_repeated_upstream_failures(monkeypatch, tm
     )
 
     assert cli.cmd_collect_papers(args) == 1
-    assert attempted == ["a", "b"]
+    assert attempted == ["a", "b", "c", "d"]
 
 
 def test_paper_collection_does_not_stop_after_journal_404s(monkeypatch, tmp_path) -> None:

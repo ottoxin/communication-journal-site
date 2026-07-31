@@ -36,6 +36,7 @@ jobs:
         run: communication-journal-site run-weekly --strict
         env:
           CJS_CROSSREF_MAILTO: ${{ vars.CJS_CROSSREF_MAILTO }}
+          CJS_CROSSREF_INTERVAL_SECONDS: "0.75"
           CJS_OPENALEX_MAILTO: ${{ vars.CJS_OPENALEX_MAILTO }}
 
       - name: Publish data and status snapshot
@@ -45,6 +46,8 @@ jobs:
           cp site/data/journals.json data/public/journals.json
           cp site/data/latest.json data/public/latest.json
           cp site/data/special_issues.jsonl data/public/special_issues.jsonl
+          cp "$(ls -1t .state/archives/collect-papers-*.json | head -1)" data/public/paper_collection.json
+          cp "$(ls -1t .state/archives/collect-special-issues-*.json | head -1)" data/public/special_issue_collection.json
           python scripts/write_public_status.py data/public/health.json STATUS.md
 
       - name: Write job summary

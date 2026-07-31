@@ -22,7 +22,7 @@ from .special_issues import SpecialIssueCollector
 from .storage import StateStore
 
 
-MAX_CONSECUTIVE_JOURNAL_FAILURES = 2
+MAX_CONSECUTIVE_JOURNAL_FAILURES = 4
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -135,9 +135,11 @@ def cmd_collect_papers(args: argparse.Namespace) -> int:
     start_date = end_date - timedelta(days=lookback_days - 1)
     seen_at = utc_now().isoformat()
     client = CrossrefClient(
-        http_client=HttpClient(timeout=12, max_attempts=2),
+        http_client=HttpClient(timeout=12, max_attempts=3),
         mailto=os.environ.get("CJS_CROSSREF_MAILTO"),
-        request_interval_seconds=0.15,
+        request_interval_seconds=float(
+            os.environ.get("CJS_CROSSREF_INTERVAL_SECONDS", "0.5")
+        ),
     )
     enricher = None if args.no_openalex else MetadataEnricher(
         OpenAlexClient(

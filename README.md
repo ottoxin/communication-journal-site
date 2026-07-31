@@ -43,6 +43,8 @@ The weekly command:
 
 The GitHub `Weekly data refresh` workflow runs this collection every Monday at 14:15 UTC and can also be started manually. It commits the public data/status snapshot under `data/public/`; it does not redeploy the existing private Sites deployment. Because GitHub runners are ephemeral, the workflow bootstraps its SQLite state from the prior public snapshot before collecting the newest window. Local-only records are never included in that bootstrap.
 
+For more reliable Crossref/OpenAlex polite-pool access, repository owners may set the non-secret Actions variables `CJS_CROSSREF_MAILTO` and `CJS_OPENALEX_MAILTO` to a monitored contact address. The scheduled runner also uses a conservative Crossref request interval and retries rate-limited requests before opening its circuit breaker.
+
 Publisher outages are isolated. Successful journal data is still exported and the site is rebuilt using last-known-good records. Use `make update-strict` when automation should return a failure after publishing partial results.
 
 Public HTML and JSON exports only include articles with a usable abstract. Records without abstracts remain in `.state/site.db` for future enrichment but are not published on the website or in `site/data/*.json*`. The standard weekly commands attempt OpenAlex abstract enrichment by default; set `OPENALEX=0` or pass `--no-openalex` when you need a faster run.

@@ -7,6 +7,8 @@ These files are the latest GitHub-published outputs from Communication Journal M
 - `journals.json`: journal registry metadata and article counts.
 - `latest.json`: compact recent-article and active-call payload.
 - `health.json`: collection freshness, run results, source counts, and CFP audit coverage.
+- `paper_collection.json`: journal-by-journal results and errors from the latest article run.
+- `special_issue_collection.json`: source-by-source results and errors from the latest CFP run.
 
 For a human-readable summary, see the repository-level [`STATUS.md`](../../STATUS.md).
 
