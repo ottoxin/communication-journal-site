@@ -7,7 +7,7 @@ The pipeline is deterministic and non-AI:
 - journal metadata comes from YAML registry files;
 - paper collection uses Crossref, with optional OpenAlex abstract fallback;
 - papers inherit subarea tags from their journal;
-- special-issue monitoring screens configured publisher pages and stores source-linked findings with lifecycle status;
+- special-issue monitoring combines official publisher APIs/pages with time-limited, source-linked verification records;
 - public pages and JSON exports are generated under `site/`.
 
 ## Quick Start
@@ -32,7 +32,7 @@ make update OPENALEX=0             # faster run; fewer abstracts may publish
 The weekly command:
 
 1. collects the 28-day paper window ending on the digest date;
-2. screens configured special-issue pages;
+2. screens configured special-issue sources, including the paginated Taylor & Francis API;
 3. exports public JSON;
 4. writes public health/freshness metadata;
 5. builds the static website.
@@ -69,9 +69,11 @@ The command writes `data/audit/journal_registry_audit.csv` and marks registry is
 
 ## Configuration
 
-- `config/journals.yaml`: site settings and journal registry.
+- `config/journals.yaml`: site settings and journal registry. Priority journals can record `special_issue_checked_on` and an official `special_issue_audit_url`; the status page treats that audit as current only within the configured verification window.
 - `config/subareas.yaml`: subarea labels and descriptions.
 - `config/special_issue_sources.yaml`: layered special-issue sources. Automated publisher pages and feeds are preferred; source-linked manual records cover official pages or PDFs blocked by publisher anti-bot systems. Manual records require `verified_on` and `review_after` dates so they cannot remain current indefinitely.
+
+The Taylor & Francis collector uses the publisher's official WordPress API, maps calls back to journals by publisher code/title, and paginates until the result set is exhausted. When a call has both an abstract/proposal deadline and a later invitation-only manuscript deadline, the collector uses the earliest entry-stage deadline. Page-expiry metadata is never treated as a submission deadline. Publisher hubs remain discovery inputs rather than sole proof: a current call is published only with a direct official source URL and a still-open public-entry deadline.
 
 Reusable presentation settings—including featured subareas, maximum papers per page, and article/call freshness thresholds—live in the `settings` block of `config/journals.yaml`.
 

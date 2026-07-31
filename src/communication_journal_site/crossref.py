@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
+import time
 from typing import Any
 from urllib.parse import urlencode
 
@@ -20,9 +21,16 @@ from .normalize import (
 class CrossrefClient:
     api_url = "https://api.crossref.org/works"
 
-    def __init__(self, http_client: HttpClient | None = None, mailto: str | None = None):
+    def __init__(
+        self,
+        http_client: HttpClient | None = None,
+        mailto: str | None = None,
+        request_interval_seconds: float = 0.0,
+    ):
         self.http_client = http_client or HttpClient()
         self.mailto = mailto
+        self.request_interval_seconds = max(0.0, request_interval_seconds)
+        self._last_request_at = 0.0
 
     def fetch_journal_records(
         self,
@@ -64,7 +72,11 @@ class CrossrefClient:
             }
             if self.mailto:
                 params["mailto"] = self.mailto
+            elapsed = time.monotonic() - self._last_request_at
+            if elapsed < self.request_interval_seconds:
+                time.sleep(self.request_interval_seconds - elapsed)
             payload = self.http_client.get_json(f"{self.api_url}?{urlencode(params)}")
+            self._last_request_at = time.monotonic()
             message = payload.get("message", {})
             items = message.get("items", [])
             if not items:

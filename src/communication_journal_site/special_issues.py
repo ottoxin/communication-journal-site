@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+import json
 import re
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date, datetime
 from html.parser import HTMLParser
-from urllib.parse import urljoin
+from urllib.parse import urlencode, urljoin, urlsplit
 
 from .http_client import HttpClient
 from .models import JournalConfig, SpecialIssueRecord, SpecialIssueSourceConfig
@@ -15,11 +16,13 @@ from .render import RenderedFetcher
 FEED_SOURCE_TYPES = ("rss", "atom", "feed")
 RENDERED_SOURCE_TYPE = "rendered"
 MANUAL_SOURCE_TYPE = "manual"
+TANDF_API_SOURCE_TYPE = "tandf-api"
 # Source types whose journal_id need not map to a registry journal (they span journals).
 AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (
     RENDERED_SOURCE_TYPE,
     "publisher-index",
     "association-page",
+    TANDF_API_SOURCE_TYPE,
     MANUAL_SOURCE_TYPE,
 )
 SOURCE_TYPES = ("publisher-page", *AGGREGATOR_SOURCE_TYPES)
@@ -43,6 +46,9 @@ CALL_PHRASES = (
 GENERIC_CALL_TITLES = (
     "call for papers",
     "call for submissions",
+    "focus of the special issue",
+    "for a special issue on",
+    "special issue editor(s)",
     "submissions",
     "submit",
 )
@@ -103,6 +109,15 @@ def parse_special_issues_from_html(
     records: list[SpecialIssueRecord] = []
     seen_titles: set[str] = set()
     blocks = parser.blocks
+    # Taylor & Francis call pages use a stable labeled layout in which the
+    # topic itself does not contain the words "special issue":
+    #   <p>For a Special Issue on</p><h2>Topic</h2>
+    # Handle that structure explicitly before applying the generic heuristic.
+    labeled_record = _parse_labeled_special_issue_page(
+        html, blocks, source=source, journal=journal, today=today
+    )
+    if labeled_record is not None:
+        return [labeled_record]
     for index, (tag, text, href) in enumerate(blocks):
         combined_text, context_href = _html_candidate_context(blocks, index)
         if not _is_special_issue_candidate(text, combined_text) and not _is_contextual_heading_candidate(
@@ -131,6 +146,51 @@ def parse_special_issues_from_html(
             )
         )
     return records
+
+
+def _parse_labeled_special_issue_page(
+    html: str,
+    blocks: list[tuple[str, str, str | None]],
+    source: SpecialIssueSourceConfig,
+    journal: JournalConfig,
+    today: date | None,
+) -> SpecialIssueRecord | None:
+    marker_index = next(
+        (
+            index
+            for index, (_, text, _) in enumerate(blocks)
+            if normalize_whitespace(text).lower().rstrip(":") == "for a special issue on"
+        ),
+        None,
+    )
+    if marker_index is None:
+        return None
+    topic = next(
+        (
+            text
+            for tag, text, _ in blocks[marker_index + 1 : marker_index + 6]
+            if tag in {"h1", "h2", "h3", "h4"} and not _is_generic_title(text)
+        ),
+        "",
+    )
+    if not topic:
+        return None
+    title = topic if any(phrase in topic.lower() for phrase in SPECIAL_ISSUE_PHRASES) else f"Special Issue: {topic}"
+    full_text = clean_markup_text(html) or ""
+    deadline = _extract_deadline(full_text)
+    marker = full_text.lower().find("for a special issue on")
+    snippet = full_text[marker : marker + 500] if marker >= 0 else full_text[:500]
+    return SpecialIssueRecord(
+        source_id=source.id,
+        journal_id=journal.id,
+        journal_title=journal.title,
+        title=title,
+        source_url=source.url,
+        status=_status_for_deadline(deadline, today=today),
+        deadline=deadline,
+        confidence="high" if deadline else "medium",
+        raw_snippet=snippet,
+    )
 
 
 def parse_special_issues_from_feed(
@@ -241,7 +301,7 @@ class SpecialIssueCollector:
                             source_records = future.result()
                             records.extend(source_records)
                             self.successful_source_ids.add(source.id)
-                            if source_records:
+                            if source_records or source.source_type == TANDF_API_SOURCE_TYPE:
                                 self.authoritative_source_ids.add(source.id)
                         except Exception as exc:
                             errors.append({"source_id": source.id, "error": str(exc)})
@@ -305,6 +365,8 @@ class SpecialIssueCollector:
                     ),
                 )
             ]
+        if source.source_type == TANDF_API_SOURCE_TYPE:
+            return self._collect_tandf_api(source, journal_by_id, today=today)
         if source.source_type == RENDERED_SOURCE_TYPE:
             if self._rendered_fetcher is None:
                 raise RuntimeError("Rendered fetcher is not initialized.")
@@ -327,6 +389,163 @@ class SpecialIssueCollector:
         if is_aggregator:
             parsed = [record for record in parsed if _is_communication_relevant(record, journal_titles)]
         return parsed
+
+    def _collect_tandf_api(
+        self,
+        source: SpecialIssueSourceConfig,
+        journal_by_id: dict[str, JournalConfig],
+        today: date | None,
+    ) -> list[SpecialIssueRecord]:
+        entries: list[dict] = []
+        page_size = 100
+        total_pages: int | None = None
+        for page in range(1, 51):
+            query = urlencode(
+                {
+                    "per_page": page_size,
+                    "page": page,
+                    "_fields": "id,slug,link,title,meta,special_issues",
+                }
+            )
+            separator = "&" if "?" in source.url else "?"
+            response = self.http_client.get_text(f"{source.url}{separator}{query}")
+            if total_pages is None and response.headers:
+                try:
+                    total_pages = int(response.headers.get("x-wp-totalpages", ""))
+                except ValueError:
+                    total_pages = None
+            try:
+                payload = json.loads(response.body)
+            except json.JSONDecodeError as exc:
+                raise RuntimeError(f"Taylor & Francis API returned invalid JSON: {exc}") from exc
+            if not isinstance(payload, list):
+                raise RuntimeError("Taylor & Francis API response was not a list")
+            entries.extend(item for item in payload if isinstance(item, dict))
+            if (total_pages is not None and page >= total_pages) or len(payload) < page_size:
+                break
+        else:
+            raise RuntimeError("Taylor & Francis API exceeded the pagination safety limit")
+        return parse_tandf_api_records(entries, source, journal_by_id, today=today)
+
+
+def parse_tandf_api_records(
+    entries: list[dict],
+    source: SpecialIssueSourceConfig,
+    journal_by_id: dict[str, JournalConfig],
+    today: date | None = None,
+) -> list[SpecialIssueRecord]:
+    today = today or date.today()
+    journals_by_title = {
+        normalize_whitespace(journal.title).lower(): journal
+        for journal in journal_by_id.values()
+    }
+    journals_by_code: dict[str, JournalConfig] = {}
+    for journal in journal_by_id.values():
+        for url in (journal.homepage_url, journal.latest_articles_url):
+            match = re.search(r"/(?:journals|toc)/([a-z0-9]+)", urlsplit(url).path, flags=re.I)
+            if match:
+                journals_by_code[re.sub(r"\d+$", "", match.group(1).lower())] = journal
+
+    records: list[SpecialIssueRecord] = []
+    seen_urls: set[str] = set()
+    for entry in entries:
+        fields = entry.get("special_issues")
+        if not isinstance(fields, dict):
+            continue
+        journal_title = _first_api_value(fields.get("_special_issues_journal_title"))
+        journal_code = re.sub(
+            r"\d+$", "", _first_api_value(fields.get("_special_issues_journal_select")).lower()
+        )
+        journal = journals_by_code.get(journal_code) or journals_by_title.get(
+            normalize_whitespace(journal_title).lower()
+        )
+        if journal is None:
+            continue
+        topic = _first_api_value(fields.get("_special_issues_title"))
+        if not topic:
+            title_payload = entry.get("title")
+            topic = (
+                str(title_payload.get("rendered", ""))
+                if isinstance(title_payload, dict)
+                else str(title_payload or "")
+            )
+        topic = clean_markup_text(topic) or ""
+        link = str(entry.get("link") or "").strip()
+        if not topic or not link or link in seen_urls:
+            continue
+        # T&F can expose an abstract/proposal deadline and a later, invitation-
+        # only manuscript deadline. The earliest configured submission stage is
+        # the conservative public-entry deadline; webpage expiry metadata is not
+        # a submission deadline and is intentionally ignored.
+        deadlines = [
+            _parse_date(value)
+            for key in ("_special_issues_deadline", "_special_issues_deadline2")
+            for value in _api_values(fields.get(key))
+        ]
+        valid_deadlines = sorted(value for value in deadlines if value)
+        if not valid_deadlines:
+            continue
+        deadline = valid_deadlines[0]
+        if _status_for_deadline(deadline, today=today) != "active":
+            continue
+        title = topic if any(phrase in topic.lower() for phrase in SPECIAL_ISSUE_PHRASES) else f"Special Issue: {topic}"
+        instructions = clean_markup_text(
+            " ".join(_api_values(fields.get("_special_issues_submissions_instructions")))
+        ) or ""
+        opens_on = _extract_submission_open_date(instructions)
+        status = "upcoming" if opens_on and date.fromisoformat(opens_on) > today else "active"
+        records.append(
+            SpecialIssueRecord(
+                source_id=source.id,
+                journal_id=journal.id,
+                journal_title=journal.title,
+                title=title,
+                source_url=link,
+                status=status,
+                deadline=deadline,
+                confidence="high",
+                raw_snippet=instructions[:500] or f"Official Taylor & Francis call for {journal.title}.",
+            )
+        )
+        seen_urls.add(link)
+    return records
+
+
+def _api_values(value: object) -> list[str]:
+    if isinstance(value, list):
+        return [normalize_whitespace(str(item)) for item in value if normalize_whitespace(str(item))]
+    normalized = normalize_whitespace(str(value or ""))
+    return [normalized] if normalized else []
+
+
+def _first_api_value(value: object) -> str:
+    values = _api_values(value)
+    return values[0] if values else ""
+
+
+def _extract_submission_open_date(text: str) -> str | None:
+    date_patterns = (
+        r"[A-Z][a-z]+ \d{1,2}(?:st|nd|rd|th)?,? \d{4}",
+        r"\d{1,2}(?:st|nd|rd|th)? [A-Z][a-z]+ \d{4}",
+        r"\d{4}-\d{2}-\d{2}",
+    )
+    labels = (
+        r"special issue submission window opens?",
+        r"submission window opens?",
+        r"submissions? (?:will )?opens?",
+    )
+    for label in labels:
+        for date_pattern in date_patterns:
+            match = re.search(
+                rf"{label}[:\s]+(?:on\s+)?({date_pattern})",
+                text,
+                flags=re.I,
+            )
+            if match:
+                parsed = _parse_date(match.group(1))
+                if parsed:
+                    return parsed
+    return None
 
 
 def _candidate_title(text: str) -> str:

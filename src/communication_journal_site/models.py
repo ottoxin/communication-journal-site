@@ -44,6 +44,8 @@ class JournalConfig:
     active: bool = True
     collect: bool = True
     special_issue_monitor: bool = False
+    special_issue_checked_on: str | None = None
+    special_issue_audit_url: str = ""
     notes: str = ""
 
     @property

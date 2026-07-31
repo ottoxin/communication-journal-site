@@ -128,6 +128,7 @@ def cmd_collect_papers(args: argparse.Namespace) -> int:
     client = CrossrefClient(
         http_client=HttpClient(timeout=12, max_attempts=2),
         mailto=os.environ.get("CJS_CROSSREF_MAILTO"),
+        request_interval_seconds=0.15,
     )
     enricher = None if args.no_openalex else MetadataEnricher(
         OpenAlexClient(

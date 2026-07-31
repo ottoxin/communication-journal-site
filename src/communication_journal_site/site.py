@@ -8,7 +8,13 @@ from pathlib import Path
 from shutil import copyfile
 
 from .covers import ensure_cover_asset
-from .health import collection_health, local_today, read_last_run, read_special_issue_run
+from .health import (
+    apply_special_issue_coverage,
+    collection_health,
+    local_today,
+    read_last_run,
+    read_special_issue_run,
+)
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord, SubareaConfig
 from .normalize import slugify
 from .publication import (
@@ -45,6 +51,13 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
         articles,
         special_issues,
         config.settings.freshness_warning_days,
+        today=today,
+    )
+    apply_special_issue_coverage(
+        health,
+        config.journals,
+        config.special_issue_sources,
+        verification_days=config.settings.special_issue_verification_days,
         today=today,
     )
     health["local_only_article_count"] = hidden_article_count
@@ -329,8 +342,11 @@ def _journal_page(
 
 def _special_issues_page(config: AppConfig, issues: list[SpecialIssueRecord]) -> str:
     active = [issue for issue in issues if issue.status == "active"]
+    upcoming = [issue for issue in issues if issue.status == "upcoming"]
     unverified = [issue for issue in issues if issue.status == "unverified"]
-    closed = [issue for issue in issues if issue.status not in {"active", "unverified"}]
+    closed = [
+        issue for issue in issues if issue.status not in {"active", "upcoming", "unverified"}
+    ]
     body = f"""
     <section class="page-header">
       <p class="eyebrow">Calls and special issues</p>
@@ -342,6 +358,8 @@ def _special_issues_page(config: AppConfig, issues: list[SpecialIssueRecord]) ->
     <section class="issue-section" data-search-list>
       <h2>Active</h2>
       {''.join(_special_issue_card(issue) for issue in active) or '<p class="empty">No active calls collected yet.</p>'}
+      <h2>Upcoming</h2>
+      {''.join(_special_issue_card(issue) for issue in upcoming) or '<p class="empty">No announced calls are waiting for their submission window to open.</p>'}
       <h2>Needs verification</h2>
       {''.join(_special_issue_card(issue) for issue in unverified) or '<p class="empty">No calls awaiting verification.</p>'}
       <h2>Closed</h2>
@@ -368,10 +386,13 @@ def _status_page(config: AppConfig, health: dict, last_run: dict | None) -> str:
       {_metric("Latest paper", health.get('latest_published_date') or '—')}
       {_metric("Last article sync", _short_date(health.get('latest_article_sync')))}
       {_metric("Active calls", str(health.get('active_special_issue_count', 0)))}
+      {_metric("Upcoming calls", str(health.get('upcoming_special_issue_count', 0)))}
       {_metric("Calls to verify", str(health.get('unverified_special_issue_count', 0)))}
       {_metric("Source collection", str((health.get('special_issue_run') or {}).get('status', (last_run or {}).get('special_issue_collection', 'unknown'))).title())}
       {_metric("Automated sources", str((health.get('special_issue_run') or {}).get('automated_source_count', 0)))}
       {_metric("Verified fallbacks", str((health.get('special_issue_run') or {}).get('verified_source_count', 0)))}
+      {_metric("Current journal audits", f"{health.get('special_issue_audit_coverage_count', 0)}/{health.get('special_issue_priority_journal_count', 0)}")}
+      {_metric("Direct active sources", f"{health.get('special_issue_direct_coverage_count', 0)}/{health.get('special_issue_priority_journal_count', 0)}")}
       {_metric("Next source review", str((health.get('special_issue_run') or {}).get('next_verified_review_on') or '—'))}
       {_metric("Local-only records", str(health.get('local_only_article_count', 0)))}
     </section>
@@ -633,15 +654,18 @@ def _health_banner(health: dict, link: str = "status/index.html") -> str:
         if special_issue_run
         else last_run.get("special_issue_collection") == "partial"
     )
-    if status == "current" and not source_partial:
+    coverage_limited = health.get("special_issue_coverage_status") == "limited"
+    if status == "current" and not source_partial and not coverage_limited:
         return ""
-    if source_partial and status == "current":
-        message = "Verified opportunities are available, but some automated publisher sources failed in the latest run."
-        tone = "warning"
-    elif status == "empty":
+    if status == "empty":
         message = "The collection is ready but does not contain papers yet."
         tone = "neutral"
-    elif status == "degraded":
+    elif status == "stale" or health.get("article_status") == "stale":
+        age = health.get("article_sync_age_days")
+        age_label = f"{age} days ago" if isinstance(age, int) else "on an unknown date"
+        message = f"Article collection last ran {age_label}. Some recent papers may be missing."
+        tone = "warning"
+    elif status == "degraded" and health.get("special_issue_status") in {"empty", "stale"}:
         call_status = health.get("special_issue_status")
         if call_status == "empty":
             message = "Special-issue coverage has no verified findings yet. Article collection is current."
@@ -650,10 +674,16 @@ def _health_banner(health: dict, link: str = "status/index.html") -> str:
             age_label = f"{age} days ago" if isinstance(age, int) else "on an unknown date"
             message = f"Special-issue collection last produced a verified finding {age_label}. Calls may be incomplete."
         tone = "warning"
+    elif source_partial:
+        message = "Verified opportunities are available, but some automated publisher sources failed in the latest run."
+        tone = "warning"
+    elif coverage_limited:
+        covered = health.get("special_issue_audit_coverage_count", 0)
+        priority = health.get("special_issue_priority_journal_count", 0)
+        message = f"Special-issue calls were recently audited for {covered} of {priority} priority journals. Coverage is not yet comprehensive."
+        tone = "warning"
     else:
-        age = health.get("article_sync_age_days")
-        age_label = f"{age} days ago" if isinstance(age, int) else "on an unknown date"
-        message = f"Article collection last ran {age_label}. Some recent papers may be missing."
+        message = "Collection status needs review."
         tone = "warning"
     status_link = f' <a href="{escape(link)}">View status</a>' if link else ""
     return f'<aside class="status-banner status-banner--{tone}">{escape(message)}{status_link}</aside>'

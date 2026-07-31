@@ -94,6 +94,21 @@ def _validate_config(
         missing = [subarea for subarea in journal.subareas if subarea not in subarea_ids]
         if missing:
             raise ValueError(f"{journal.id} uses unknown subarea(s): {', '.join(missing)}")
+        if journal.special_issue_checked_on:
+            if not journal.special_issue_audit_url:
+                raise ValueError(
+                    f"{journal.id} special_issue_checked_on requires special_issue_audit_url."
+                )
+            try:
+                date.fromisoformat(journal.special_issue_checked_on)
+            except ValueError as exc:
+                raise ValueError(
+                    f"{journal.id} special_issue_checked_on must use YYYY-MM-DD."
+                ) from exc
+        if journal.special_issue_audit_url:
+            parsed_audit_url = urlparse(journal.special_issue_audit_url)
+            if parsed_audit_url.scheme not in {"http", "https"} or not parsed_audit_url.netloc:
+                raise ValueError(f"{journal.id} must use a valid special_issue_audit_url.")
     source_ids = {source.id for source in special_sources}
     if len(source_ids) != len(special_sources):
         raise ValueError("Special-issue source ids must be unique.")

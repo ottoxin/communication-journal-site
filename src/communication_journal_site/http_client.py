@@ -16,6 +16,7 @@ class HttpResponse:
     url: str
     body: str
     content_type: str = ""
+    headers: dict[str, str] | None = None
 
 
 class HttpClient:
@@ -55,12 +56,19 @@ class HttpClient:
                         url=response.geturl(),
                         body=raw.decode(charset, errors="replace"),
                         content_type=content_type,
+                        headers={key.lower(): value for key, value in response.headers.items()},
                     )
             except (HTTPError, URLError, TimeoutError) as exc:
                 last_error = exc
                 if attempt >= self.max_attempts:
                     break
-                time.sleep(min(2 ** (attempt - 1), 8))
+                retry_after = 0.0
+                if isinstance(exc, HTTPError) and exc.code == 429:
+                    try:
+                        retry_after = float(exc.headers.get("Retry-After", "0"))
+                    except (TypeError, ValueError):
+                        retry_after = 0.0
+                time.sleep(max(min(2 ** (attempt - 1), 8), min(retry_after, 30)))
         raise HttpClientError(f"Could not fetch {url}: {last_error}")
 
     def get_json(self, url: str) -> dict:
@@ -72,4 +80,3 @@ class HttpClient:
         if not isinstance(data, dict):
             raise HttpClientError(f"JSON response from {url} was not an object.")
         return data
-

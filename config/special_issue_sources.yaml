@@ -18,7 +18,7 @@ sources:
     source_type: manual
     title: "Special Issue: Who Are We Studying in Communication Research? Revisiting Audience in a Transforming Media Environment"
     deadline: "2026-08-31"
-    verified_on: "2026-07-13"
+    verified_on: "2026-07-30"
     review_after: "2026-08-31"
     summary: "Human Communication Research invites extended abstracts reconsidering the concept of audience in contemporary communication research."
     active: true
@@ -52,15 +52,33 @@ sources:
     url: https://www.natcom.org/publications/nca-journals
     source_type: association-page
     active: true
+  - id: tandf-special-issues-api
+    journal_id: aggregator-tandf
+    label: Taylor and Francis special-issues API
+    url: https://think.taylorandfrancis.com/wp-json/wp/v2/special_issues
+    source_type: tandf-api
+    active: true
   - id: communication-public-special-issue-proposals
     journal_id: aggregator-sage
     label: Communication and the Public
     url: https://journals.sagepub.com/pb-assets/cmscontent/CTP/20250916%20CAP%E2%80%99s%20Call%20for%20Special%20Issue%20Proposals-1758549680.pdf
     source_type: manual
     title: "Call for Special Issue Proposals"
-    verified_on: "2026-07-13"
+    verified_on: "2026-07-30"
     review_after: "2026-10-13"
     summary: "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
+    active: true
+  - id: health-communication-digital-mental-health-2026
+    journal_id: health-communication
+    label: Health Communication digital mental health special issue
+    url: https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/
+    source_type: publisher-page
+    active: true
+  - id: jprr-emotional-turn-2026
+    journal_id: journal-of-public-relations-research
+    label: Journal of Public Relations Research emotional turn special issue
+    url: https://think.taylorandfrancis.com/special_issues/the-emotional-turn-in-public-relations-theorizing/
+    source_type: publisher-page
     active: true
   # Rendered hub sources use a headless browser (Playwright, the "render" extra)
   # to load JS/anti-bot CFP index pages spanning many journals; findings are

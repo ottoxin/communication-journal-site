@@ -6,7 +6,12 @@ from pathlib import Path
 from typing import Any
 from zoneinfo import ZoneInfo
 
-from .models import ArticleRecord, SpecialIssueRecord
+from .models import (
+    ArticleRecord,
+    JournalConfig,
+    SpecialIssueRecord,
+    SpecialIssueSourceConfig,
+)
 
 
 LAST_RUN_FILENAME = "last_run.json"
@@ -29,17 +34,20 @@ def collection_health(
     latest_call_sync = max((item.last_seen_at or "" for item in special_issues), default="")
     sync_date = _date_prefix(latest_sync)
     call_sync_date = _date_prefix(latest_call_sync)
-    age_days = (today - sync_date).days if sync_date else None
-    call_age_days = (today - call_sync_date).days if call_sync_date else None
+    # Collection timestamps are recorded in UTC and may fall on the following
+    # calendar day relative to the configured site timezone. Freshness ages
+    # should never be negative in that boundary window.
+    age_days = _sync_age_days(today, sync_date)
+    call_age_days = _sync_age_days(today, call_sync_date)
     if not articles:
         article_status = "empty"
-    elif age_days is not None and age_days > warning_days:
+    elif age_days is not None and (age_days > warning_days or age_days < 0):
         article_status = "stale"
     else:
         article_status = "current"
     if not special_issues:
         special_issue_status = "empty"
-    elif call_age_days is None or call_age_days > warning_days:
+    elif call_age_days is None or call_age_days > warning_days or call_age_days < 0:
         special_issue_status = "stale"
     else:
         special_issue_status = "current"
@@ -63,8 +71,70 @@ def collection_health(
         "latest_special_issue_sync": latest_call_sync or None,
         "special_issue_sync_age_days": call_age_days,
         "active_special_issue_count": sum(1 for item in special_issues if item.status == "active"),
+        "upcoming_special_issue_count": sum(
+            1 for item in special_issues if item.status == "upcoming"
+        ),
         "unverified_special_issue_count": sum(1 for item in special_issues if item.status == "unverified"),
     }
+
+
+def apply_special_issue_coverage(
+    health: dict[str, Any],
+    journals: list[JournalConfig],
+    sources: list[SpecialIssueSourceConfig],
+    verification_days: int = 10,
+    today: date | None = None,
+) -> dict[str, Any]:
+    today = today or date.today()
+    priority_ids = {
+        journal.id
+        for journal in journals
+        if journal.active and journal.special_issue_monitor
+    }
+    directly_covered_ids = {
+        source.journal_id
+        for source in sources
+        if source.active and source.journal_id in priority_ids
+    }
+    recently_audited_ids = {
+        journal.id
+        for journal in journals
+        if journal.id in priority_ids
+        and journal.special_issue_checked_on
+        and _date_within_days(journal.special_issue_checked_on, today, verification_days)
+    }
+    # A configured page can fail or silently change structure, so it does not
+    # substitute for a dated, evidence-linked journal audit. Direct sources are
+    # reported separately as an automation metric.
+    covered_ids = recently_audited_ids
+    missing_ids = sorted(priority_ids - covered_ids)
+    health.update(
+        {
+            "special_issue_priority_journal_count": len(priority_ids),
+            "special_issue_direct_coverage_count": len(directly_covered_ids),
+            "special_issue_audit_coverage_count": len(covered_ids),
+            "special_issue_coverage_status": "complete" if not missing_ids else "limited",
+            "special_issue_uncovered_journal_ids": missing_ids,
+        }
+    )
+    if missing_ids and health.get("status") == "current":
+        health["status"] = "degraded"
+    return health
+
+
+def _date_within_days(value: str, today: date, maximum_age_days: int) -> bool:
+    try:
+        checked_on = date.fromisoformat(value)
+    except ValueError:
+        return False
+    return 0 <= (today - checked_on).days <= maximum_age_days
+
+
+def _sync_age_days(today: date, sync_date: date | None) -> int | None:
+    if sync_date is None:
+        return None
+    age = (today - sync_date).days
+    return 0 if age == -1 else age
 
 
 def write_last_run(state_dir: Path, payload: dict[str, Any]) -> Path:

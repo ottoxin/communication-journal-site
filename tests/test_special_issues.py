@@ -14,6 +14,7 @@ from communication_journal_site.special_issues import (
     is_plausible_special_issue_title,
     parse_special_issues_from_feed,
     parse_special_issues_from_html,
+    parse_tandf_api_records,
     special_issue_opportunity_type,
 )
 
@@ -55,6 +56,39 @@ def test_parse_special_issue_skips_generic_submission_page() -> None:
     journal = JournalConfig(id="test-journal", title="Test Journal", issns=["0000-0000"])
     records = parse_special_issues_from_html(html, source, journal, "https://example.org/calls")
     assert records == []
+
+
+def test_parse_labeled_tandf_special_issue_page() -> None:
+    html = """
+    <html><body>
+      <h1>Health Communication</h1>
+      <p>For a Special Issue on</p>
+      <h2>Digital Mental Health and Communication</h2>
+      <h3>Manuscript deadline</h3>
+      <time datetime="2026-07-31">31 July 2026</time>
+      <h3>Special Issue Editor(s)</h3>
+      <p>This special issue welcomes research on digital mental health.</p>
+    </body></html>
+    """
+    source = SpecialIssueSourceConfig(
+        id="tandf-call",
+        journal_id="health-communication",
+        label="Taylor & Francis call",
+        url="https://think.taylorandfrancis.com/special_issues/digital-mental-health/",
+    )
+    journal = JournalConfig(
+        id="health-communication", title="Health Communication", issns=["1041-0236"]
+    )
+
+    records = parse_special_issues_from_html(
+        html, source, journal, source.url, today=date(2026, 7, 30)
+    )
+
+    assert len(records) == 1
+    assert records[0].title == "Special Issue: Digital Mental Health and Communication"
+    assert records[0].deadline == "2026-07-31"
+    assert records[0].status == "active"
+    assert records[0].confidence == "high"
 
 
 def test_parse_special_issue_rejects_page_prose_and_adjacent_journal_name() -> None:
@@ -156,6 +190,73 @@ def test_parse_special_issues_from_feed_keeps_special_issue_drops_conference() -
     assert records[0].deadline == "2027-03-01"
     assert records[0].confidence == "high"
     assert records[0].status == "active"
+
+
+def test_tandf_api_uses_earliest_public_stage_and_maps_journal() -> None:
+    source = SpecialIssueSourceConfig(
+        id="tandf-api",
+        journal_id="aggregator-tandf",
+        label="Taylor & Francis API",
+        url="https://think.taylorandfrancis.com/wp-json/wp/v2/special_issues",
+        source_type="tandf-api",
+    )
+    journal = JournalConfig(
+        id="health-communication",
+        title="Health Communication",
+        issns=["1041-0236"],
+        homepage_url="https://www.tandfonline.com/journals/hhth20",
+    )
+    entries = [
+        {
+            "link": "https://think.taylorandfrancis.com/special_issues/open-call/",
+            "title": {"rendered": "Open call"},
+            "special_issues": {
+                "_special_issues_journal_title": ["Health Communication"],
+                "_special_issues_journal_select": ["HHTH"],
+                "_special_issues_title": ["Digital Mental Health"],
+                "_special_issues_deadline": ["31 July 2026"],
+                "_special_issues_deadline2": [],
+            },
+        },
+        {
+            "link": "https://think.taylorandfrancis.com/special_issues/future-window/",
+            "title": {"rendered": "Future window"},
+            "special_issues": {
+                "_special_issues_journal_title": ["Health Communication"],
+                "_special_issues_journal_select": ["HHTH"],
+                "_special_issues_title": ["Future submission window"],
+                "_special_issues_deadline": ["15 October 2027"],
+                "_special_issues_deadline2": [],
+                "_special_issues_submissions_instructions": [
+                    "Special issue submission window opens: September 1, 2027."
+                ],
+            },
+        },
+        {
+            "link": "https://think.taylorandfrancis.com/special_issues/invitation-stage/",
+            "title": {"rendered": "Invitation stage"},
+            "special_issues": {
+                "_special_issues_journal_title": ["Health Communication"],
+                "_special_issues_journal_select": ["HHTH"],
+                "_special_issues_title": ["Invitation-only manuscript stage"],
+                "_special_issues_deadline": ["15 August 2026"],
+                "_special_issues_deadline2": ["01 March 2026"],
+            },
+        },
+    ]
+
+    records = parse_tandf_api_records(
+        entries, source, {journal.id: journal}, today=date(2026, 7, 30)
+    )
+
+    assert len(records) == 2
+    active = next(record for record in records if record.status == "active")
+    upcoming = next(record for record in records if record.status == "upcoming")
+    assert active.journal_id == "health-communication"
+    assert active.title == "Special Issue: Digital Mental Health"
+    assert active.deadline == "2026-07-31"
+    assert upcoming.title == "Special Issue: Future submission window"
+    assert upcoming.deadline == "2027-10-15"
 
 
 def test_communication_relevance_filter_keeps_comm_drops_offtopic() -> None:

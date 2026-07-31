@@ -6,7 +6,13 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord
-from .health import collection_health, local_today, read_last_run, read_special_issue_run
+from .health import (
+    apply_special_issue_coverage,
+    collection_health,
+    local_today,
+    read_last_run,
+    read_special_issue_run,
+)
 from .normalize import slugify
 from .special_issues import special_issue_opportunity_type
 from .publication import (
@@ -69,6 +75,13 @@ def export_public_data(
         articles,
         special_issues,
         config.settings.freshness_warning_days,
+        today=today,
+    )
+    apply_special_issue_coverage(
+        health_payload,
+        config.journals,
+        config.special_issue_sources,
+        verification_days=config.settings.special_issue_verification_days,
         today=today,
     )
     health_payload["local_only_article_count"] = hidden_article_count
@@ -142,6 +155,9 @@ def _journal_public_dicts(journals: list[JournalConfig], articles: list[ArticleR
             "associations": journal.associations,
             "active": journal.active,
             "collect": journal.collect,
+            "special_issue_monitor": journal.special_issue_monitor,
+            "special_issue_checked_on": journal.special_issue_checked_on,
+            "special_issue_audit_url": journal.special_issue_audit_url,
             "paper_count": counts.get(journal.id, 0),
             "latest_published_date": latest.get(journal.id),
         }
