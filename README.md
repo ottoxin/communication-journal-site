@@ -41,7 +41,7 @@ The weekly command:
 4. writes public health/freshness metadata;
 5. builds the static website.
 
-The GitHub `Weekly data refresh` workflow runs this collection every Monday at 14:15 UTC and can also be started manually. It commits the public data/status snapshot under `data/public/`; it does not redeploy the existing private Sites deployment. Because GitHub runners are ephemeral, the workflow bootstraps its SQLite state from the prior public snapshot before collecting the newest window. Local-only records are never included in that bootstrap.
+The GitHub `Weekly data refresh` workflow runs this collection every Monday at 14:15 UTC and can also be started manually. It commits the public data/status snapshot under `data/public/`; it does not redeploy the existing Sites deployment. Because GitHub runners are ephemeral, the workflow bootstraps its SQLite state from the prior public snapshot before collecting the newest window. Local-only records are never included in that bootstrap.
 
 For more reliable Crossref/OpenAlex polite-pool access, repository owners may set the non-secret Actions variables `CJS_CROSSREF_MAILTO` and `CJS_OPENALEX_MAILTO` to a monitored contact address. The scheduled runner also uses a conservative Crossref request interval and retries rate-limited requests before opening its circuit breaker.
 
