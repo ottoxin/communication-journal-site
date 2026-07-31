@@ -1,0 +1,40 @@
+{
+  "status": "current",
+  "article_status": "current",
+  "special_issue_status": "current",
+  "checked_on": "2026-07-30",
+  "article_count": 3979,
+  "latest_published_date": "2026-07-30",
+  "latest_article_sync": "2026-07-31T03:41:10.282459+00:00",
+  "article_sync_age_days": 0,
+  "latest_special_issue_sync": "2026-07-31T03:57:47.292425+00:00",
+  "special_issue_sync_age_days": 0,
+  "active_special_issue_count": 12,
+  "upcoming_special_issue_count": 1,
+  "unverified_special_issue_count": 0,
+  "special_issue_priority_journal_count": 12,
+  "special_issue_direct_coverage_count": 3,
+  "special_issue_audit_coverage_count": 12,
+  "special_issue_coverage_status": "complete",
+  "special_issue_uncovered_journal_ids": [],
+  "local_only_article_count": 2599,
+  "public_article_policy": "requires_clean_abstract",
+  "last_run": {
+    "recorded_at": "2026-07-31T03:41:38.990857+00:00",
+    "digest_date": "2026-07-30",
+    "status": "complete",
+    "paper_collection": "complete",
+    "special_issue_collection": "complete"
+  },
+  "special_issue_run": {
+    "recorded_at": "2026-07-31T03:58:16.478914+00:00",
+    "status": "complete",
+    "active_source_count": 6,
+    "automated_source_count": 4,
+    "verified_source_count": 2,
+    "successful_source_count": 6,
+    "failed_source_count": 0,
+    "finding_count": 15,
+    "next_verified_review_on": "2026-08-31"
+  }
+}
