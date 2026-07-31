@@ -17,6 +17,9 @@ FEED_SOURCE_TYPES = ("rss", "atom", "feed")
 RENDERED_SOURCE_TYPE = "rendered"
 MANUAL_SOURCE_TYPE = "manual"
 TANDF_API_SOURCE_TYPE = "tandf-api"
+COGITATIO_SOURCE_TYPE = "cogitatio-future-issues"
+SAGE_HUB_SOURCE_TYPE = "sage-cfp-hub"
+WILEY_CFP_SOURCE_TYPE = "wiley-cfp-page"
 # Source types whose journal_id need not map to a registry journal (they span journals).
 AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (
     RENDERED_SOURCE_TYPE,
@@ -24,8 +27,20 @@ AGGREGATOR_SOURCE_TYPES = FEED_SOURCE_TYPES + (
     "association-page",
     TANDF_API_SOURCE_TYPE,
     MANUAL_SOURCE_TYPE,
+    SAGE_HUB_SOURCE_TYPE,
 )
-SOURCE_TYPES = ("publisher-page", *AGGREGATOR_SOURCE_TYPES)
+SOURCE_TYPES = (
+    "publisher-page",
+    COGITATIO_SOURCE_TYPE,
+    WILEY_CFP_SOURCE_TYPE,
+    *AGGREGATOR_SOURCE_TYPES,
+)
+AUTHORITATIVE_EMPTY_SOURCE_TYPES = (
+    TANDF_API_SOURCE_TYPE,
+    SAGE_HUB_SOURCE_TYPE,
+    WILEY_CFP_SOURCE_TYPE,
+    COGITATIO_SOURCE_TYPE,
+)
 _ATOM_NS = "{http://www.w3.org/2005/Atom}"
 # Used to keep cross-journal hub findings on-topic for a communication site.
 COMMUNICATION_TERMS = (
@@ -250,6 +265,179 @@ def parse_special_issues_from_feed(
     return records
 
 
+def parse_cogitatio_future_issues(
+    html: str,
+    source: SpecialIssueSourceConfig,
+    journal: JournalConfig,
+    today: date | None = None,
+) -> list[SpecialIssueRecord]:
+    """Parse Cogitatio's journal-owned future thematic-issues listing."""
+
+    if "issue_container" not in html:
+        raise RuntimeError("Cogitatio future-issues structure was not found")
+    today = today or date.today()
+    records: list[SpecialIssueRecord] = []
+    chunks = re.split(
+        r'(?=<div\s+class=["\']issue_container["\'])',
+        html,
+        flags=re.I,
+    )
+    for chunk in chunks[1:]:
+        issue_id_match = re.search(r'\bid=["\']([^"\']+)["\']', chunk, flags=re.I)
+        title_match = re.search(r"<h3[^>]*>(.*?)</h3>", chunk, flags=re.I | re.S)
+        window_match = re.search(
+            r"Submission of Abstracts:\s*</b>\s*([^<]+)",
+            chunk,
+            flags=re.I,
+        )
+        if not title_match or not window_match:
+            continue
+        title_text = clean_markup_text(title_match.group(1)) or ""
+        window_text = normalize_whitespace(window_match.group(1))
+        dates = _parse_date_range(window_text)
+        if not title_text or dates is None:
+            continue
+        opens_on, deadline = dates
+        if date.fromisoformat(deadline) < today:
+            continue
+        issue_id = issue_id_match.group(1) if issue_id_match else ""
+        full_title = (
+            title_text
+            if any(phrase in title_text.lower() for phrase in SPECIAL_ISSUE_PHRASES)
+            else f"Thematic Issue: {title_text}"
+        )
+        records.append(
+            SpecialIssueRecord(
+                source_id=source.id,
+                journal_id=journal.id,
+                journal_title=journal.title,
+                title=full_title,
+                source_url=f"{source.url}#{issue_id}" if issue_id else source.url,
+                status="upcoming" if date.fromisoformat(opens_on) > today else "active",
+                deadline=deadline,
+                confidence="high",
+                raw_snippet=(
+                    f"Submission of abstracts: {window_text}. "
+                    f"Official future thematic-issue listing for {journal.title}."
+                ),
+            )
+        )
+    return records
+
+
+def parse_wiley_cfp_page(
+    html: str,
+    source: SpecialIssueSourceConfig,
+    journal: JournalConfig,
+    today: date | None = None,
+) -> list[SpecialIssueRecord]:
+    if "DST-CFP-listing-wrap" not in html:
+        raise RuntimeError("Wiley CFP listing structure was not found")
+    today = today or date.today()
+    uncommented = re.sub(r"<!--.*?-->", "", html, flags=re.S)
+    records: list[SpecialIssueRecord] = []
+    for chunk in re.split(
+        r'(?=<div\s+class=["\'][^"\']*DST-CFP-listing-item(?:\s|["\']))',
+        uncommented,
+        flags=re.I,
+    )[1:]:
+        title_match = re.search(
+            r"<h3[^>]*>\s*<a[^>]+href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>\s*</h3>",
+            chunk,
+            flags=re.I | re.S,
+        )
+        deadline_match = re.search(
+            r"Deadline for Submissions\s*</strong>\s*:\s*([^<]+)",
+            chunk,
+            flags=re.I,
+        )
+        if not title_match or not deadline_match:
+            continue
+        topic = clean_markup_text(title_match.group(2)) or ""
+        deadline_text = normalize_whitespace(deadline_match.group(1))
+        deadline = _parse_date(deadline_text)
+        if not topic or not deadline or date.fromisoformat(deadline) < today:
+            continue
+        title = topic if any(p in topic.lower() for p in SPECIAL_ISSUE_PHRASES) else f"Special Issue: {topic}"
+        records.append(
+            SpecialIssueRecord(
+                source_id=source.id,
+                journal_id=journal.id,
+                journal_title=journal.title,
+                title=title,
+                source_url=urljoin(source.url, title_match.group(1)),
+                status=_status_for_deadline(deadline, today=today),
+                deadline=deadline,
+                confidence="high",
+                raw_snippet=f"Deadline for submissions: {deadline_text}. Official Wiley call-for-papers listing.",
+            )
+        )
+    return records
+
+
+def parse_sage_communication_hub(
+    html: str,
+    source: SpecialIssueSourceConfig,
+    journal_by_id: dict[str, JournalConfig],
+    today: date | None = None,
+) -> list[SpecialIssueRecord]:
+    """Parse the official hub but emit only exact configured SAGE journals."""
+
+    if "heading-communication-media-studies-" not in html:
+        raise RuntimeError("SAGE CFP discipline hub was not found")
+
+    journals_by_code: dict[str, JournalConfig] = {}
+    for journal in journal_by_id.values():
+        match = re.search(r"/home/([^/?#]+)", journal.homepage_url, flags=re.I)
+        if match and journal.publisher == "SAGE":
+            journals_by_code[match.group(1).lower()] = journal
+
+    anchors = list(
+        re.finditer(
+            r"<a\b[^>]*href=[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+            html,
+            flags=re.I | re.S,
+        )
+    )
+    records: list[SpecialIssueRecord] = []
+    current_journal: JournalConfig | None = None
+    for index, anchor in enumerate(anchors):
+        href = anchor.group(1)
+        text = clean_markup_text(anchor.group(2)) or ""
+        journal_match = re.search(r"/home/([^/?#]+)", href, flags=re.I)
+        if journal_match:
+            current_journal = journals_by_code.get(journal_match.group(1).lower())
+            continue
+        if current_journal is None or not re.search(
+            r"/(?:page|doi|pb-assets|[^/]+/call-for-papers)/", href, flags=re.I
+        ):
+            continue
+        context_end = anchors[index + 1].start() if index + 1 < len(anchors) else min(len(html), anchor.end() + 1500)
+        following = clean_markup_text(html[anchor.end() : context_end]) or ""
+        context = normalize_whitespace(f"{text} {following}")
+        deadline = _extract_deadline(context) or _extract_last_date_from_submission_window(context)
+        ongoing = "ongoing" in context.lower() or "at any time" in context.lower()
+        if not deadline and not ongoing:
+            continue
+        if deadline and date.fromisoformat(deadline) < (today or date.today()):
+            continue
+        title = text if any(p in text.lower() for p in SPECIAL_ISSUE_PHRASES) else f"Special Issue: {text}"
+        records.append(
+            SpecialIssueRecord(
+                source_id=source.id,
+                journal_id=current_journal.id,
+                journal_title=current_journal.title,
+                title=title,
+                source_url=urljoin(source.url, href),
+                status=_status_for_deadline(deadline, today=today),
+                deadline=deadline,
+                confidence="high",
+                raw_snippet=context[:500],
+            )
+        )
+    return records
+
+
 def _is_communication_relevant(record: SpecialIssueRecord, journal_titles: set[str]) -> bool:
     haystack = f"{record.title} {record.raw_snippet}".lower()
     if any(title and title in haystack for title in journal_titles):
@@ -301,7 +489,7 @@ class SpecialIssueCollector:
                             source_records = future.result()
                             records.extend(source_records)
                             self.successful_source_ids.add(source.id)
-                            if source_records or source.source_type == TANDF_API_SOURCE_TYPE:
+                            if source_records or source.source_type in AUTHORITATIVE_EMPTY_SOURCE_TYPES:
                                 self.authoritative_source_ids.add(source.id)
                         except Exception as exc:
                             errors.append({"source_id": source.id, "error": str(exc)})
@@ -367,6 +555,13 @@ class SpecialIssueCollector:
             ]
         if source.source_type == TANDF_API_SOURCE_TYPE:
             return self._collect_tandf_api(source, journal_by_id, today=today)
+        if source.source_type == SAGE_HUB_SOURCE_TYPE:
+            response = self.http_client.get_text(source.url)
+            if _looks_like_block_page(response.body):
+                raise RuntimeError("publisher returned an access or bot-challenge page")
+            return parse_sage_communication_hub(
+                response.body, source=source, journal_by_id=journal_by_id, today=today
+            )
         if source.source_type == RENDERED_SOURCE_TYPE:
             if self._rendered_fetcher is None:
                 raise RuntimeError("Rendered fetcher is not initialized.")
@@ -376,9 +571,21 @@ class SpecialIssueCollector:
             response = self.http_client.get_text(source.url)
             body = response.body
             base_url = response.url or source.url
-        if _looks_like_block_page(body):
+        wiley_listing_loaded = (
+            source.source_type == WILEY_CFP_SOURCE_TYPE
+            and "DST-CFP-listing-wrap" in body
+        )
+        if _looks_like_block_page(body) and not wiley_listing_loaded:
             raise RuntimeError("publisher returned an access or bot-challenge page")
-        if source.source_type in FEED_SOURCE_TYPES:
+        if source.source_type == COGITATIO_SOURCE_TYPE:
+            parsed = parse_cogitatio_future_issues(
+                body, source=source, journal=journal, today=today
+            )
+        elif source.source_type == WILEY_CFP_SOURCE_TYPE:
+            parsed = parse_wiley_cfp_page(
+                body, source=source, journal=journal, today=today
+            )
+        elif source.source_type in FEED_SOURCE_TYPES:
             parsed = parse_special_issues_from_feed(
                 body, source=source, journal=journal, base_url=base_url, today=today
             )
@@ -683,6 +890,31 @@ def _parse_date(value: str) -> str | None:
         except ValueError:
             continue
     return None
+
+
+def _parse_date_range(value: str) -> tuple[str, str] | None:
+    normalized = normalize_whitespace(value).replace("–", "-").replace("—", "-")
+    match = re.fullmatch(r"(\d{1,2})\s*-\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})", normalized)
+    if not match:
+        return None
+    start_day, end_day, month, year = match.groups()
+    opens_on = _parse_date(f"{start_day} {month} {year}")
+    deadline = _parse_date(f"{end_day} {month} {year}")
+    return (opens_on, deadline) if opens_on and deadline else None
+
+
+def _extract_last_date_from_submission_window(text: str) -> str | None:
+    match = re.search(r"submission window[:\s]+(.{0,100})", text, flags=re.I)
+    if not match:
+        return None
+    candidates = re.findall(
+        r"\d{1,2}(?:st|nd|rd|th)?\s+[A-Z][a-z]+\s+\d{4}",
+        match.group(1),
+        flags=re.I,
+    )
+    parsed = [_parse_date(value) for value in candidates]
+    valid = [value for value in parsed if value]
+    return valid[-1] if valid else None
 
 
 def _status_for_deadline(deadline: str | None, today: date | None = None) -> str:

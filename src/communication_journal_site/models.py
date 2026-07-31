@@ -13,6 +13,7 @@ class SiteSettings:
     output_dir: str
     default_lookback_days: int
     registry_source_note: str
+    journal_metrics_path: str = "data/public/journal_metrics.json"
     featured_subareas: list[str] = field(
         default_factory=lambda: ["political-communication", "health-communication", "methods"]
     )
@@ -72,11 +73,23 @@ class SpecialIssueSourceConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class JournalMetric:
+    journal_id: str
+    value: float
+    source_url: str
+    openalex_id: str
+    source_updated_at: str
+    matched_issns: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
 class AppConfig:
     settings: SiteSettings
     journals: list[JournalConfig]
     subareas: list[SubareaConfig]
     special_issue_sources: list[SpecialIssueSourceConfig]
+    journal_metrics: dict[str, JournalMetric] = field(default_factory=dict)
+    journal_metric_metadata: dict[str, Any] = field(default_factory=dict)
 
     @property
     def journal_by_id(self) -> dict[str, JournalConfig]:

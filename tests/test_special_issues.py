@@ -14,9 +14,95 @@ from communication_journal_site.special_issues import (
     is_plausible_special_issue_title,
     parse_special_issues_from_feed,
     parse_special_issues_from_html,
+    parse_cogitatio_future_issues,
+    parse_sage_communication_hub,
+    parse_wiley_cfp_page,
     parse_tandf_api_records,
     special_issue_opportunity_type,
 )
+
+
+def test_parse_cogitatio_future_issues_uses_abstract_entry_window() -> None:
+    html = """
+    <div class="issue_container" id="i564">
+      <a href="#i564"><h3>Ecosystems of AI</h3></a>
+      <p><b>Academic Editor(s):</b> A. Editor</p>
+      <ul>
+        <li><b>Submission of Abstracts:</b> 1-15 December 2026</li>
+        <li><b>Submission of Full Papers:</b> 15-30 April 2027</li>
+      </ul>
+    </div>
+    <div class="issue_container" id="old">
+      <h3>Old Topic</h3>
+      <li><b>Submission of Abstracts:</b> 1-15 June 2026</li>
+    </div>
+    """
+    source = SpecialIssueSourceConfig(
+        id="cogitatio", journal_id="media-and-communication", label="Future issues",
+        url="https://example.org/future", source_type="cogitatio-future-issues",
+    )
+    journal = JournalConfig(
+        id="media-and-communication", title="Media and Communication", issns=["2183-2439"]
+    )
+
+    records = parse_cogitatio_future_issues(html, source, journal, today=date(2026, 7, 30))
+
+    assert len(records) == 1
+    assert records[0].title == "Thematic Issue: Ecosystems of AI"
+    assert records[0].source_url == "https://example.org/future#i564"
+    assert records[0].status == "upcoming"
+    assert records[0].deadline == "2026-12-15"
+
+
+def test_parse_sage_hub_only_emits_exact_configured_journals() -> None:
+    html = """
+    <h3 id="heading-communication-media-studies-"></h3>
+    <a href="/home/MCS">Media, Culture & Society</a>
+    <a href="/page/mcs/platform-power">Platform Power</a>
+    <strong>Submission deadline: 30 September 2026</strong>
+    <a href="/home/OTHER">Unconfigured Journal</a>
+    <a href="/page/other/unrelated">Special Issue: Unrelated</a>
+    <strong>Submission deadline: 30 December 2026</strong>
+    """
+    source = SpecialIssueSourceConfig(
+        id="sage", journal_id="aggregator-sage", label="SAGE hub",
+        url="https://journals.sagepub.com/special-issue-calls-for-papers",
+        source_type="sage-cfp-hub",
+    )
+    journal = JournalConfig(
+        id="media-culture-and-society", title="Media, Culture & Society",
+        issns=["0163-4437"], publisher="SAGE",
+        homepage_url="https://journals.sagepub.com/home/MCS",
+    )
+
+    records = parse_sage_communication_hub(
+        html, source, {journal.id: journal}, today=date(2026, 7, 30)
+    )
+
+    assert len(records) == 1
+    assert records[0].journal_id == journal.id
+    assert records[0].title == "Special Issue: Platform Power"
+    assert records[0].deadline == "2026-09-30"
+
+
+def test_parse_wiley_page_treats_expired_listing_as_authoritative_empty() -> None:
+    html = """
+    <div class="DST-CFP-listing-wrap">
+    <div class="DST-CFP-listing-item">
+      <h3><a href="/page/call">Relationships in Context</a></h3>
+      <p><strong>Deadline for Submissions</strong>: 1 December 2024</p>
+    </div>
+    </div>
+    """
+    source = SpecialIssueSourceConfig(
+        id="wiley", journal_id="personal-relationships", label="Wiley CFP",
+        url="https://onlinelibrary.wiley.com/page/calls", source_type="wiley-cfp-page",
+    )
+    journal = JournalConfig(
+        id="personal-relationships", title="Personal Relationships", issns=["1350-4126"]
+    )
+
+    assert parse_wiley_cfp_page(html, source, journal, today=date(2026, 7, 30)) == []
 
 
 def test_parse_special_issue_candidates_with_deadline() -> None:

@@ -15,7 +15,14 @@ from .health import (
     read_last_run,
     read_special_issue_run,
 )
-from .models import AppConfig, ArticleRecord, JournalConfig, SpecialIssueRecord, SubareaConfig
+from .models import (
+    AppConfig,
+    ArticleRecord,
+    JournalConfig,
+    JournalMetric,
+    SpecialIssueRecord,
+    SubareaConfig,
+)
 from .normalize import slugify
 from .publication import (
     PUBLIC_ARTICLE_POLICY,
@@ -28,7 +35,7 @@ from .storage import StateStore
 
 
 BUILD_MANIFEST = ".build-manifest.json"
-ASSET_VERSION = "20260713-monochrome"
+ASSET_VERSION = "20260730-dictionary"
 
 
 def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> list[Path]:
@@ -61,6 +68,7 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
         today=today,
     )
     health["local_only_article_count"] = hidden_article_count
+    health["journal_count"] = len([journal for journal in config.journals if journal.active])
     health["public_article_policy"] = PUBLIC_ARTICLE_POLICY
     last_run = read_last_run(store.db_path.parent)
     health["last_run"] = last_run
@@ -75,7 +83,7 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
     written = [
         _write(output_path / "assets" / "styles.css", _styles()),
         _write(output_path / "assets" / "search.js", _search_js()),
-        _write(output_path / "index.html", _home_page(config, articles, special_issues, journal_by_id, subarea_by_id, covers, health)),
+        _write(output_path / "index.html", _home_page(config, articles, special_issues, journal_by_id, subarea_by_id, health)),
         _write(output_path / "journals" / "index.html", _journals_page(config, articles, covers)),
         _write(output_path / "special-issues" / "index.html", special_issues_page),
         _write(output_path / "calls" / "index.html", special_issues_page),
@@ -114,55 +122,12 @@ def _home_page(
     special_issues: list[SpecialIssueRecord],
     journal_by_id: dict[str, JournalConfig],
     subarea_by_id: dict[str, SubareaConfig],
-    covers: dict[str, str],
     health: dict,
 ) -> str:
     all_active_special = [issue for issue in special_issues if issue.status == "active"]
     active_special = all_active_special[:6]
     last_updated = (max((a.last_seen_at for a in articles if a.last_seen_at), default="")[:10]) or "—"
-    by_journal: dict[str, list[ArticleRecord]] = defaultdict(list)
-    for article in articles:
-        by_journal[article.journal_id].append(article)
-    subarea_counts = {
-        subarea.id: sum(1 for article in articles if subarea.id in journal_by_id[article.journal_id].subareas)
-        for subarea in config.subareas
-    }
-    featured_subareas = [
-        subarea_by_id[subarea_id]
-        for subarea_id in config.settings.featured_subareas
-        if subarea_id in subarea_by_id
-    ]
-    groups: list[str] = []
-    for subarea in config.subareas:
-        subarea_journals = [
-            journal
-            for journal in config.journals
-            if subarea.id in journal.subareas and by_journal.get(journal.id)
-        ]
-        if not subarea_journals:
-            continue
-        subarea_journals.sort(key=lambda journal: len(by_journal[journal.id]), reverse=True)
-        shown = subarea_journals[:8]
-        extra = len(subarea_journals) - len(shown)
-        cards = "".join(
-            _journal_cover_card(journal, by_journal[journal.id], covers.get(journal.id, ""), prefix="")
-            for journal in shown
-        )
-        more_label = f"+{extra} more journals" if extra > 0 else f"All {escape(subarea.label)} papers"
-        groups.append(f"""
-    <section class="subarea-group" id="sa-{escape(subarea.id)}">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">Subarea</p>
-          <h2><a href="subareas/{escape(subarea.id)}/index.html">{escape(subarea.label)}</a></h2>
-        </div>
-        <span class="muted">{subarea_counts[subarea.id]} papers</span>
-      </div>
-      <div class="journal-grid">{cards}</div>
-      <a class="group-more" href="subareas/{escape(subarea.id)}/index.html">{more_label} &rarr;</a>
-    </section>""")
-    groups_html = "".join(groups) or _empty_latest_state()
-    hero_links = "".join(_hero_link(subarea, prefix="") for subarea in featured_subareas)
+    shown_articles = articles[:50]
     if active_special:
         calls_html = f'<div class="calls-row">{"".join(_special_issue_compact(issue) for issue in active_special)}</div>'
         calls_all_link = '<a href="special-issues/index.html">View all special issues &rarr;</a>'
@@ -183,9 +148,6 @@ def _home_page(
         <p class="eyebrow">Weekly communication research monitor</p>
         <h1>{escape(config.settings.title)}</h1>
         <p class="lede">{escape(config.settings.description)}</p>
-        <div class="hero-actions" aria-label="Featured subareas">
-          {hero_links}
-        </div>
       </div>
       <div class="metrics" aria-label="Collection metrics">
         {_metric("Journals", str(len([journal for journal in config.journals if journal.active])))}
@@ -213,18 +175,20 @@ def _home_page(
     </section>
     <div class="home-toolbar">
       <div>
-        <p class="section-kicker">Research directory</p>
-        <h2>Browse by subarea &amp; journal</h2>
+        <p class="section-kicker">Latest research</p>
+        <h2>New papers across {len([journal for journal in config.journals if journal.active])} journals</h2>
+        <p class="muted">Full titles, every author supplied by the source metadata, and an abstract excerpt.</p>
         <p class="search-status" data-search-status aria-live="polite"></p>
       </div>
-      <label class="search-label"><span>Find a journal or paper</span><input class="search-input" data-search-input data-search-kind="journal card" placeholder="Try “political” or a journal title" aria-label="Filter journals"></label>
+      <label class="search-label"><span>Find a paper</span><input class="search-input" data-search-input data-search-kind="paper" placeholder="Search title, author, journal, or area" aria-label="Filter papers"></label>
     </div>
-    <div data-search-list>
-      {groups_html}
-    </div>
-    <p class="search-empty" data-search-empty hidden>No journals or paper titles match that search.</p>
+    {_article_limit_notice(len(articles), len(shown_articles), prefix="")}
+    <section class="article-list" data-search-list>
+      {''.join(_article_card(article, journal_by_id[article.journal_id], subarea_by_id, prefix="") for article in shown_articles) or _empty_latest_state()}
+    </section>
+    <p class="search-empty" data-search-empty hidden>No papers match that search.</p>
     """
-    return _layout(config, "Home", body, prefix="", script=True)
+    return _layout(config, "Home", body, prefix="", script=True, section="home")
 
 
 def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dict[str, str]) -> str:
@@ -236,17 +200,27 @@ def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dic
     groups: list[str] = []
     nav_links: list[str] = []
     for subarea in config.subareas:
-        subarea_journals = [journal for journal in config.journals if subarea.id in journal.subareas]
+        subarea_journals = [
+            journal
+            for journal in config.journals
+            if journal.active and journal.primary_subarea == subarea.id
+        ]
         if not subarea_journals:
             continue
-        subarea_journals.sort(key=lambda journal: (-article_counts[journal.id], journal.title))
+        subarea_journals.sort(
+            key=lambda journal: (
+                -(config.journal_metrics[journal.id].value if journal.id in config.journal_metrics else -1),
+                journal.title,
+            )
+        )
         nav_links.append(
             f'<a href="#sa-{escape(subarea.id)}">{escape(subarea.label)} ({len(subarea_journals)})</a>'
         )
         cards = "".join(
             _journal_directory_card(
                 journal, config.subarea_by_id, article_counts[journal.id],
-                latest.get(journal.id), covers.get(journal.id, ""), prefix="../",
+                latest.get(journal.id), covers.get(journal.id, ""),
+                config.journal_metrics.get(journal.id), prefix="../",
             )
             for journal in subarea_journals
         )
@@ -263,9 +237,10 @@ def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dic
     </section>""")
     body = f"""
     <section class="page-header">
-      <p class="eyebrow">Registry</p>
-      <h1>Journals by area</h1>
+      <p class="eyebrow">Journal dictionary</p>
+      <h1>{len([journal for journal in config.journals if journal.active])} journals by primary area</h1>
       <p>{escape(config.settings.registry_source_note)}</p>
+      {_metric_methodology(config)}
       <label class="search-label search-label--page"><span>Find a journal</span><input class="search-input" data-search-input data-search-kind="journal card" placeholder="Search by title, publisher, or area" aria-label="Filter journals"></label>
       <p class="search-status" data-search-status aria-live="polite"></p>
     </section>
@@ -275,7 +250,7 @@ def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dic
     </div>
     <p class="search-empty" data-search-empty hidden>No journals match that search.</p>
     """
-    return _layout(config, "Journals by Area", body, prefix="../", script=True, section="journals")
+    return _layout(config, "Journal Dictionary", body, prefix="../", script=True, section="journals")
 
 
 def _subarea_page(
@@ -293,7 +268,7 @@ def _subarea_page(
       <label class="search-label search-label--page"><span>Find a paper</span><input class="search-input" data-search-input data-search-kind="paper" placeholder="Search title, author, or journal" aria-label="Filter papers"></label>
       <p class="search-status" data-search-status aria-live="polite"></p>
     </section>
-    {_article_limit_notice(len(articles), len(shown))}
+    {_article_limit_notice(len(articles), len(shown), prefix="../../")}
     <section class="article-list" data-search-list>
       {''.join(_article_card(article, journal_by_id[article.journal_id], config.subarea_by_id, prefix="../../") for article in shown) or '<p class="empty">No papers collected for this subarea yet.</p>'}
     </section>
@@ -332,7 +307,7 @@ def _journal_page(
         <div class="journal-cover-large" aria-hidden="true">{cover_img}</div>
       </div>
     </section>
-    {_article_limit_notice(len(articles), len(shown))}
+    {_article_limit_notice(len(articles), len(shown), prefix="../../")}
     <section class="article-list">
       {''.join(_article_card(article, journal, subarea_by_id, prefix="../../") for article in shown) or '<p class="empty">No papers collected for this journal yet.</p>'}
     </section>
@@ -352,6 +327,11 @@ def _special_issues_page(config: AppConfig, issues: list[SpecialIssueRecord]) ->
       <p class="eyebrow">Calls and special issues</p>
       <h1>Special-Issue Monitor</h1>
       <p>Verified calls from monitored publisher pages, with deadlines and source links kept visible.</p>
+      <aside class="metric-note">
+        <p><strong>Separate pipelines:</strong> CFP access limits do not reduce article coverage. Articles are collected independently by ISSN for all {len([journal for journal in config.journals if journal.active])} journals.</p>
+        <p>Automated CFP monitoring now covers all configured Taylor &amp; Francis and SAGE journals, plus the Cogitatio and Wiley titles. OUP and IJoC use dated official-source records; Elsevier and Hogrefe remain qualified gaps.</p>
+        <p class="citation-links"><a href="https://github.com/ottoxin/communication-journal-site#call-for-papers-coverage">Coverage methods and exclusions</a></p>
+      </aside>
       <label class="search-label search-label--page"><span>Find a call</span><input class="search-input" data-search-input data-search-kind="call" placeholder="Search by journal, topic, or status" aria-label="Filter special issues"></label>
       <p class="search-status" data-search-status aria-live="polite"></p>
     </section>
@@ -390,6 +370,7 @@ def _status_page(config: AppConfig, health: dict, last_run: dict | None) -> str:
       {_metric("Calls to verify", str(health.get('unverified_special_issue_count', 0)))}
       {_metric("Source collection", str((health.get('special_issue_run') or {}).get('status', (last_run or {}).get('special_issue_collection', 'unknown'))).title())}
       {_metric("Automated sources", str((health.get('special_issue_run') or {}).get('automated_source_count', 0)))}
+      {_metric("Publisher-automated journals", str((health.get('special_issue_run') or {}).get('automated_publisher_journal_count', 0)))}
       {_metric("Verified fallbacks", str((health.get('special_issue_run') or {}).get('verified_source_count', 0)))}
       {_metric("Current journal audits", f"{health.get('special_issue_audit_coverage_count', 0)}/{health.get('special_issue_priority_journal_count', 0)}")}
       {_metric("Direct active sources", f"{health.get('special_issue_direct_coverage_count', 0)}/{health.get('special_issue_priority_journal_count', 0)}")}
@@ -446,10 +427,8 @@ def _layout(
   <header class="site-header">
     <a class="brand" href="{prefix}index.html"><span class="brand-mark" aria-hidden="true">CJ</span><span>{escape(config.settings.title)}</span></a>
     <nav class="primary-nav" aria-label="Primary navigation">
-      {_nav_link("Journals", f"{prefix}journals/index.html", section == "journals")}
-      {_nav_link("Political", f"{prefix}subareas/political-communication/index.html", section == "political-communication")}
-      {_nav_link("Health", f"{prefix}subareas/health-communication/index.html", section == "health-communication")}
-      {_nav_link("Methods", f"{prefix}subareas/methods/index.html", section == "methods")}
+      {_nav_link("Latest research", f"{prefix}index.html", section == "home")}
+      {_nav_link("Journal dictionary", f"{prefix}journals/index.html", section == "journals")}
       {_nav_link("Special issues", f"{prefix}special-issues/index.html", section == "calls")}
       {_nav_link("Status", f"{prefix}status/index.html", section == "status")}
     </nav>
@@ -488,8 +467,7 @@ def _article_card(
     link = article.canonical_url or (f"https://doi.org/{article.doi}" if article.doi else "")
     subarea_labels = [_subarea_label(subarea_id, subarea_by_id) for subarea_id in journal.subareas]
     search = escape(" ".join([article.title, article.journal_title, " ".join(article.authors), " ".join(subarea_labels)]).lower())
-    authors = "; ".join(article.authors[:6])
-    more_authors = " et al." if len(article.authors) > 6 else ""
+    authors = "; ".join(article.authors)
     issue_bits = [part for part in [article.volume, article.issue, article.pages] if part]
     abstract_text = public_abstract(article)
     if abstract_text is None:
@@ -502,7 +480,7 @@ def _article_card(
         <span>{escape(article.published_date)}</span>
       </div>
       <h3>{_maybe_link(escape(article.title), link)}</h3>
-      <p class="authors">{escape(authors + more_authors) if authors else 'Authors unavailable'}</p>
+      <p class="authors">{escape(authors) if authors else 'Authors unavailable'}</p>
       <p>{abstract}</p>
       <div class="tag-row">{''.join(f'<span>{escape(item)}</span>' for item in subarea_labels)}</div>
       {'<p class="muted">Volume/issue/pages: ' + escape(', '.join(issue_bits)) + '</p>' if issue_bits else ''}
@@ -551,6 +529,7 @@ def _journal_directory_card(
     count: int,
     latest: str | None,
     cover_path: str,
+    metric: JournalMetric | None,
     prefix: str,
 ) -> str:
     slug = slugify(journal.title)
@@ -562,15 +541,37 @@ def _journal_directory_card(
         else ""
     )
     tags = "".join(f"<span>{escape(label)}</span>" for label in subarea_labels)
+    impact = (
+        f'<p class="impact-metric"><strong>2-year mean citedness {metric.value:.2f}</strong>'
+        f' <a href="{escape(metric.source_url)}" rel="noreferrer">OpenAlex source</a></p>'
+        if metric
+        else '<p class="impact-metric"><strong>Impact metric unavailable</strong></p>'
+    )
     return f"""
     <article class="journal-card" data-search-item data-search-text="{search}">
       <a class="cover" href="{prefix}journals/{slug}/index.html">{cover_img}</a>
       <div class="journal-card__body">
         <h3><a href="{prefix}journals/{slug}/index.html">{escape(journal.title)}</a></h3>
         <p class="muted">{escape(journal.publisher or 'Publisher unavailable')} &middot; {count} papers &middot; latest {escape(latest or '—')}</p>
+        {impact}
         <div class="tag-row">{tags}</div>
       </div>
     </article>"""
+
+
+def _metric_methodology(config: AppConfig) -> str:
+    metadata = config.journal_metric_metadata
+    retrieved = escape(str(metadata.get("retrieved_on") or "not yet recorded"))
+    citation_year = escape(str(metadata.get("citation_year") or "—"))
+    years = metadata.get("publication_years") or []
+    publication_years = "–".join(escape(str(year)) for year in years) or "—"
+    definition_url = escape(str(metadata.get("definition_url") or "https://developers.openalex.org/api-reference/sources/get-a-single-source"))
+    license_url = escape(str(metadata.get("license_url") or "https://help.openalex.org/hc/en-us/articles/24397762024087-Pricing"))
+    return f"""
+      <aside class="metric-note">
+        <p><strong>Impact metric:</strong> OpenAlex 2-year mean citedness, retrieved {retrieved}. For this snapshot it measures {citation_year} citations to works published in {publication_years}. It is not the Clarivate Journal Impact Factor.</p>
+        <p class="citation-links"><a href="{definition_url}">Metric definition</a> · <a href="https://doi.org/10.48550/arXiv.2205.01833">OpenAlex scholarly citation</a> · <a href="{license_url}">CC0 data and API terms</a></p>
+      </aside>"""
 
 
 def _journal_cover_card(
@@ -689,13 +690,13 @@ def _health_banner(health: dict, link: str = "status/index.html") -> str:
     return f'<aside class="status-banner status-banner--{tone}">{escape(message)}{status_link}</aside>'
 
 
-def _article_limit_notice(total: int, shown: int) -> str:
+def _article_limit_notice(total: int, shown: int, prefix: str) -> str:
     if total <= shown:
         return ""
     return (
         '<p class="listing-note">'
         f"Showing the newest {shown:,} of {total:,} papers to keep this page fast. "
-        '<a href="../../data/articles.jsonl.gz">Download the complete dataset</a>.'
+        f'<a href="{prefix}data/articles.jsonl.gz">Download the complete dataset</a>.'
         "</p>"
     )
 
@@ -965,6 +966,13 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .journal-card__body { min-width: 0; }
 .journal-card__body h3 { margin: 0 0 4px; font-size: 16px; line-height: 1.2; }
 .journal-card__body .muted { margin: 0; font-size: 12px; }
+.impact-metric { margin: 10px 0 0; font-size: 12px; line-height: 1.35; }
+.impact-metric strong { display: block; color: var(--ink); }
+.impact-metric a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.metric-note { max-width: 900px; margin: 18px 0; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--ink); background: #fff; }
+.metric-note p { margin: 0; font-size: 13px; }
+.metric-note p + p { margin-top: 7px; }
+.metric-note .citation-links a { text-decoration: underline; text-underline-offset: 3px; }
 .paper-mini { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 6px; min-width: 0; }
 .paper-mini li { display: flex; justify-content: space-between; gap: 10px; font-size: 13px; align-items: baseline; min-width: 0; }
 .paper-mini li a { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

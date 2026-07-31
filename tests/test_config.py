@@ -9,6 +9,11 @@ def test_loads_seed_registry() -> None:
     assert len(config.journals) >= 50
     assert "political-communication" in config.subarea_by_id
     assert config.journal_by_id["journal-of-communication"].primary_subarea == "general-communication"
+    assert len(config.journals) == 70
+    assert len(config.journal_metrics) == 70
+    assert config.journal_metrics["journal-of-communication"].source_url.startswith(
+        "https://openalex.org/"
+    )
 
 
 def test_all_journal_subareas_are_configured() -> None:
@@ -16,4 +21,3 @@ def test_all_journal_subareas_are_configured() -> None:
     subareas = set(config.subarea_by_id)
     for journal in config.journals:
         assert set(journal.subareas).issubset(subareas)
-

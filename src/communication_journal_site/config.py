@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 from datetime import date
 from typing import Any
@@ -11,6 +12,7 @@ import yaml
 from .models import (
     AppConfig,
     JournalConfig,
+    JournalMetric,
     SiteSettings,
     SpecialIssueSourceConfig,
     SubareaConfig,
@@ -33,12 +35,16 @@ def load_config(config_dir: str | Path = DEFAULT_CONFIG_DIR) -> AppConfig:
         SpecialIssueSourceConfig(**item)
         for item in special_raw.get("sources", [])
     ]
-    _validate_config(settings, journals, subareas, special_sources)
+    metric_path = resolve_project_path(config_path, settings.journal_metrics_path)
+    journal_metrics, metric_metadata = _load_journal_metrics(metric_path)
+    _validate_config(settings, journals, subareas, special_sources, journal_metrics)
     return AppConfig(
         settings=settings,
         journals=journals,
         subareas=subareas,
         special_issue_sources=special_sources,
+        journal_metrics=journal_metrics,
+        journal_metric_metadata=metric_metadata,
     )
 
 
@@ -61,11 +67,40 @@ def _read_yaml(path: Path) -> dict[str, Any]:
     return data
 
 
+def _load_journal_metrics(path: Path) -> tuple[dict[str, JournalMetric], dict[str, Any]]:
+    if not path.exists():
+        return {}, {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise ValueError(f"Could not read journal metrics from {path}: {exc}") from exc
+    if not isinstance(payload, dict):
+        raise ValueError(f"{path} must contain a JSON object.")
+    rows = payload.get("journals", {})
+    if not isinstance(rows, dict):
+        raise ValueError(f"{path} journals must be a JSON object.")
+    metrics: dict[str, JournalMetric] = {}
+    for journal_id, row in rows.items():
+        if not isinstance(row, dict):
+            raise ValueError(f"Metric for {journal_id} must be a JSON object.")
+        metrics[journal_id] = JournalMetric(
+            journal_id=journal_id,
+            value=float(row["value"]),
+            source_url=str(row["source_url"]),
+            openalex_id=str(row["openalex_id"]),
+            source_updated_at=str(row.get("source_updated_at", "")),
+            matched_issns=[str(item) for item in row.get("matched_issns", [])],
+        )
+    metadata = {key: value for key, value in payload.items() if key != "journals"}
+    return metrics, metadata
+
+
 def _validate_config(
     settings: SiteSettings,
     journals: list[JournalConfig],
     subareas: list[SubareaConfig],
     special_sources: list[SpecialIssueSourceConfig],
+    journal_metrics: dict[str, JournalMetric],
 ) -> None:
     try:
         ZoneInfo(settings.timezone)
@@ -88,6 +123,15 @@ def _validate_config(
     journal_ids = {journal.id for journal in journals}
     if len(journal_ids) != len(journals):
         raise ValueError("Journal ids must be unique.")
+    unknown_metric_ids = sorted(set(journal_metrics) - journal_ids)
+    if unknown_metric_ids:
+        raise ValueError(f"Metrics use unknown journal id(s): {', '.join(unknown_metric_ids)}")
+    for metric in journal_metrics.values():
+        if metric.value < 0:
+            raise ValueError(f"{metric.journal_id} metric value cannot be negative.")
+        parsed_metric_url = urlparse(metric.source_url)
+        if parsed_metric_url.scheme not in {"http", "https"} or not parsed_metric_url.netloc:
+            raise ValueError(f"{metric.journal_id} must use a valid metric source URL.")
     for journal in journals:
         if journal.active and not journal.issns:
             raise ValueError(f"{journal.id} is active but has no ISSNs.")

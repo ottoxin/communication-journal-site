@@ -44,11 +44,12 @@ def export_public_data(
     journal_by_id = config.journal_by_id
     article_dicts = [_article_public_dict(article, journal_by_id[article.journal_id]) for article in articles]
     special_dicts = [_special_issue_public_dict(record) for record in special_issues]
-    journal_dicts = _journal_public_dicts(config.journals, articles)
+    journal_dicts = _journal_public_dicts(config, articles)
     paths = {
         "articles": data_dir / "articles.jsonl",
         "articles_gzip": data_dir / "articles.jsonl.gz",
         "journals": data_dir / "journals.json",
+        "journal_metrics": data_dir / "journal_metrics.json",
         "special_issues": data_dir / "special_issues.jsonl",
         "latest": data_dir / "latest.json",
         "health": data_dir / "health.json",
@@ -56,6 +57,7 @@ def export_public_data(
     _write_jsonl(paths["articles"], article_dicts)
     paths["articles_gzip"].write_bytes(gzip.compress(paths["articles"].read_bytes(), mtime=0))
     _write_json(paths["journals"], journal_dicts)
+    _write_json(paths["journal_metrics"], _journal_metric_snapshot(config))
     _write_jsonl(paths["special_issues"], special_dicts)
     latest_payload = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -85,6 +87,7 @@ def export_public_data(
         today=today,
     )
     health_payload["local_only_article_count"] = hidden_article_count
+    health_payload["journal_count"] = len([journal for journal in config.journals if journal.active])
     health_payload["public_article_policy"] = PUBLIC_ARTICLE_POLICY
     health_payload["last_run"] = read_last_run(store.db_path.parent)
     health_payload["special_issue_run"] = read_special_issue_run(store.db_path.parent)
@@ -135,7 +138,7 @@ def _special_issue_public_dict(record: SpecialIssueRecord) -> dict:
     }
 
 
-def _journal_public_dicts(journals: list[JournalConfig], articles: list[ArticleRecord]) -> list[dict]:
+def _journal_public_dicts(config: AppConfig, articles: list[ArticleRecord]) -> list[dict]:
     counts: dict[str, int] = {}
     latest: dict[str, str] = {}
     for article in articles:
@@ -158,11 +161,41 @@ def _journal_public_dicts(journals: list[JournalConfig], articles: list[ArticleR
             "special_issue_monitor": journal.special_issue_monitor,
             "special_issue_checked_on": journal.special_issue_checked_on,
             "special_issue_audit_url": journal.special_issue_audit_url,
+            "impact_metric": (
+                {
+                    "metric_id": config.journal_metric_metadata.get("metric_id"),
+                    "label": config.journal_metric_metadata.get("metric_label"),
+                    "value": config.journal_metrics[journal.id].value,
+                    "citation_year": config.journal_metric_metadata.get("citation_year"),
+                    "publication_years": config.journal_metric_metadata.get("publication_years"),
+                    "retrieved_on": config.journal_metric_metadata.get("retrieved_on"),
+                    "source_url": config.journal_metrics[journal.id].source_url,
+                    "source_updated_at": config.journal_metrics[journal.id].source_updated_at,
+                }
+                if journal.id in config.journal_metrics
+                else None
+            ),
             "paper_count": counts.get(journal.id, 0),
             "latest_published_date": latest.get(journal.id),
         }
-        for journal in journals
+        for journal in config.journals
     ]
+
+
+def _journal_metric_snapshot(config: AppConfig) -> dict:
+    return {
+        **config.journal_metric_metadata,
+        "journals": {
+            journal_id: {
+                "value": metric.value,
+                "openalex_id": metric.openalex_id,
+                "source_url": metric.source_url,
+                "source_updated_at": metric.source_updated_at,
+                "matched_issns": metric.matched_issns,
+            }
+            for journal_id, metric in sorted(config.journal_metrics.items())
+        },
+    }
 
 
 def _write_json(path: Path, payload: object) -> None:

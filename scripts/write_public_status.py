@@ -25,6 +25,7 @@ Dataset status: **{status}**
 | Calls awaiting verification | {health.get('unverified_special_issue_count', 0)} |
 | Current priority-journal CFP audits | {health.get('special_issue_audit_coverage_count', 0)}/{health.get('special_issue_priority_journal_count', 0)} |
 | Automated CFP sources | {special_run.get('automated_source_count', 0)} |
+| Publisher-automated journals | {special_run.get('automated_publisher_journal_count', 0)}/{health.get('journal_count', 70)} |
 | Failed CFP sources | {special_run.get('failed_source_count', 0)} |
 | Last weekly run | {last_run.get('status') or 'unknown'} |
 

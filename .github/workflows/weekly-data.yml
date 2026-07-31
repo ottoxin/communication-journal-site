@@ -30,6 +30,13 @@ jobs:
       - name: Restore public collection history
         run: communication-journal-site bootstrap-public-data --input-dir data/public
 
+      - name: Refresh public journal impact metrics
+        id: metrics
+        continue-on-error: true
+        run: communication-journal-site collect-journal-metrics
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+
       - name: Run weekly collection
         id: collect
         continue-on-error: true
@@ -44,6 +51,7 @@ jobs:
           cp site/data/articles.jsonl data/public/articles.jsonl
           cp site/data/health.json data/public/health.json
           cp site/data/journals.json data/public/journals.json
+          cp site/data/journal_metrics.json data/public/journal_metrics.json
           cp site/data/latest.json data/public/latest.json
           cp site/data/special_issues.jsonl data/public/special_issues.jsonl
           cp "$(ls -1t .state/archives/collect-papers-*.json | head -1)" data/public/paper_collection.json
@@ -85,4 +93,7 @@ jobs:
           if [[ "${{ steps.collect.outcome }}" != "success" ]]; then
             echo "::error::The strict collection reported one or more source failures. Partial status was committed for inspection."
             exit 1
+          fi
+          if [[ "${{ steps.metrics.outcome }}" != "success" ]]; then
+            echo "::warning::OpenAlex metrics were not refreshed; the last-known-good snapshot remains published."
           fi

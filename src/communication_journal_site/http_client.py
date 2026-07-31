@@ -5,6 +5,7 @@ import time
 from dataclasses import dataclass
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
+from urllib.parse import urlsplit
 
 
 class HttpClientError(RuntimeError):
@@ -45,6 +46,11 @@ class HttpClient:
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language": "en-US,en;q=0.9",
         }
+        host = (urlsplit(url).hostname or "").lower()
+        if host in {"journals.sagepub.com", "onlinelibrary.wiley.com"}:
+            # Atypon uses this first-party cookie to distinguish a supported
+            # non-JavaScript request from its empty "Cookie Absent" shell.
+            headers["Cookie"] = "I2KBRCK=1"
         for attempt in range(1, self.max_attempts + 1):
             try:
                 request = Request(url, headers=headers)

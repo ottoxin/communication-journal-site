@@ -23,14 +23,15 @@ def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:
     store = StateStore(tmp_path / "site.db")
     store.upsert_articles(
         [
-            ArticleRecord(
-                journal_id="journal-of-communication",
-                journal_title="Journal of Communication",
-                title="Communication futures",
-                published_date="2026-05-29",
-                doi="10.1093/example",
-                canonical_url="https://doi.org/10.1093/example",
-                abstract="A test abstract.",
+                ArticleRecord(
+                    journal_id="journal-of-communication",
+                    journal_title="Journal of Communication",
+                    title="Communication futures with a deliberately complete and unshortened research title",
+                    published_date="2026-05-29",
+                    doi="10.1093/example",
+                    canonical_url="https://doi.org/10.1093/example",
+                    abstract="A test abstract. " + "Evidence and explanation. " * 30,
+                    authors=[f"Author {number}" for number in range(1, 9)],
             ),
             ArticleRecord(
                 journal_id="journal-of-communication",
@@ -72,19 +73,29 @@ def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:
     assert tmp_path.joinpath("site/.build-manifest.json").exists()
     assert any(path.name == "styles.css" for path in written)
     home = tmp_path.joinpath("site/index.html").read_text(encoding="utf-8")
-    assert "Communication futures" in home
+    assert "Communication futures with a deliberately complete and unshortened research title" in home
+    assert "Author 1; Author 2; Author 3; Author 4; Author 5; Author 6; Author 7; Author 8" in home
+    assert "Evidence and explanation." in home
+    assert "…" in home
     assert "Hidden paper without abstract" not in home
-    assert "subareas/political-communication/index.html" in home
-    assert "subareas/health-communication/index.html" in home
-    assert "subareas/methods/index.html" in home
+    assert ">Political</a>" not in home
+    assert ">Health</a>" not in home
+    assert ">Methods</a>" not in home
+    assert "Journal dictionary" in home
     # The weekly-digest section has been removed from the site.
     assert "weeks/2026-06-01/index.html" not in home
     assert "Weekly Digests" not in home
     # Collection freshness is surfaced as a metric.
     assert "Last sync" in home
-    # Home groups journals by subarea with cover images.
-    assert "journal-card" in home
-    assert "assets/covers/" in home
+    # Home now presents complete paper metadata rather than journal-cover cards.
+    assert "article-card" in home
+    assert "paper-mini" not in home
+    dictionary = tmp_path.joinpath("site/journals/index.html").read_text(encoding="utf-8")
+    assert dictionary.count('class="journal-card"') == 70
+    assert "OpenAlex 2-year mean citedness" in dictionary
+    assert "not the Clarivate Journal Impact Factor" in dictionary
+    assert "OpenAlex scholarly citation" in dictionary
+    assert "2-year mean citedness 4.81" in dictionary
     journal_page = tmp_path.joinpath("site/journals/journal-of-communication/index.html").read_text(encoding="utf-8")
     assert "journal-cover-large" in journal_page
     assert "Hidden paper without abstract" not in journal_page

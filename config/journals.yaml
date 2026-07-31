@@ -11,6 +11,7 @@ settings:
   freshness_warning_days: 10
   special_issue_verification_days: 10
   registry_source_note: Broad seed registry assembled from ICA, NCA, current local digest coverage, and Communication-category source-list targets; expand with audit-journals when a downloaded SJR/Scopus source list is available.
+  journal_metrics_path: data/public/journal_metrics.json
 
 journals:
   - id: journal-of-communication
@@ -380,9 +381,9 @@ journals:
   - id: cyberpsychology-behavior-and-social-networking
     title: Cyberpsychology, Behavior, and Social Networking
     issns: ["2152-2715", "2152-2723"]
-    publisher: Mary Ann Liebert
-    homepage_url: https://www.liebertpub.com/loi/cyber
-    latest_articles_url: https://www.liebertpub.com/toc/cyber/current
+    publisher: SAGE
+    homepage_url: https://journals.sagepub.com/home/CYB
+    latest_articles_url: https://journals.sagepub.com/toc/CYB/current
     primary_subarea: digital-communication
     registry_sources: ["SJR-seed"]
   - id: journal-of-social-and-personal-relationships

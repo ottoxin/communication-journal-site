@@ -59,6 +59,11 @@ def test_storage_dedupes_articles_and_export_uses_journal_subareas(tmp_path: Pat
     assert health["article_count"] == 1
     assert health["local_only_article_count"] == 1
     assert paths["health"].exists()
+    assert paths["journal_metrics"].exists()
+    journals = json.loads(paths["journals"].read_text(encoding="utf-8"))
+    political = next(item for item in journals if item["id"] == "political-communication")
+    assert political["impact_metric"]["label"] == "OpenAlex 2-year mean citedness"
+    assert political["impact_metric"]["source_url"].startswith("https://openalex.org/")
 
 
 def test_special_issue_reconciliation_only_expires_successful_sources(tmp_path: Path) -> None:

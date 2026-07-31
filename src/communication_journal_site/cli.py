@@ -15,10 +15,18 @@ from .enrichment import MetadataEnricher, OpenAlexClient
 from .exporter import export_public_data
 from .http_client import HttpClient
 from .health import local_today, write_last_run, write_special_issue_run
+from .metrics import collect_openalex_journal_metrics
 from .normalize import slugify
 from .site import build_site
 from .snapshots import bootstrap_public_snapshot
-from .special_issues import SpecialIssueCollector
+from .special_issues import (
+    COGITATIO_SOURCE_TYPE,
+    MANUAL_SOURCE_TYPE,
+    SAGE_HUB_SOURCE_TYPE,
+    TANDF_API_SOURCE_TYPE,
+    WILEY_CFP_SOURCE_TYPE,
+    SpecialIssueCollector,
+)
 from .storage import StateStore
 
 
@@ -60,6 +68,13 @@ def build_parser() -> argparse.ArgumentParser:
     special_parser = subparsers.add_parser("collect-special-issues", help="Screen configured special-issue pages.")
     special_parser.add_argument("--state-dir", default=None)
     special_parser.set_defaults(func=cmd_collect_special_issues)
+
+    metrics_parser = subparsers.add_parser(
+        "collect-journal-metrics",
+        help="Refresh the public OpenAlex journal-impact metric snapshot.",
+    )
+    metrics_parser.add_argument("--output", default=None)
+    metrics_parser.set_defaults(func=cmd_collect_journal_metrics)
 
     bootstrap_parser = subparsers.add_parser(
         "bootstrap-public-data",
@@ -240,6 +255,7 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
     }
     _write_archive(args.config_dir, config, f"collect-special-issues-{seen_at.replace(':', '-')}.json", archive)
     active_sources = [source for source in config.special_issue_sources if source.active]
+    publisher_coverage = _special_issue_publisher_coverage(config)
     manual_review_dates = [
         source.review_after
         for source in active_sources
@@ -259,6 +275,10 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
             "successful_source_count": len(collector.successful_source_ids),
             "failed_source_count": len(errors),
             "finding_count": len(records),
+            "automated_publisher_journal_count": len(publisher_coverage["automated_journal_ids"]),
+            "automated_publisher_journal_ids": publisher_coverage["automated_journal_ids"],
+            "automated_publisher_coverage": publisher_coverage["publishers"],
+            "manual_journal_count": len(publisher_coverage["manual_journal_ids"]),
             "next_verified_review_on": min(manual_review_dates) if manual_review_dates else None,
         },
     )
@@ -266,6 +286,31 @@ def cmd_collect_special_issues(args: argparse.Namespace) -> int:
     if errors:
         print(f"{len(errors)} special-issue source(s) failed. See .state/archives for details.", file=sys.stderr)
         return 1
+    return 0
+
+
+def cmd_collect_journal_metrics(args: argparse.Namespace) -> int:
+    config = load_config(args.config_dir)
+    configured = args.output or config.settings.journal_metrics_path
+    output = resolve_project_path(args.config_dir, configured)
+    try:
+        snapshot = collect_openalex_journal_metrics(
+            config.journals,
+            output,
+            http_client=HttpClient(timeout=30, max_attempts=3),
+            api_key=os.environ.get("OPENALEX_API_KEY"),
+            today=local_today(config.settings.timezone),
+        )
+    except Exception as exc:
+        print(
+            f"Journal metrics were not refreshed; preserving the last-known-good snapshot: {exc}",
+            file=sys.stderr,
+        )
+        return 1
+    print(
+        f"Collected {snapshot['journal_count']} {snapshot['metric_label']} values "
+        f"to {output}."
+    )
     return 0
 
 
@@ -378,6 +423,51 @@ def _select_journals(journals, journals_arg):
         return collectable
     selected = {item.strip() for item in journals_arg.split(",") if item.strip()}
     return [journal for journal in collectable if journal.id in selected]
+
+
+def _special_issue_publisher_coverage(config) -> dict:
+    active_types = {
+        source.source_type
+        for source in config.special_issue_sources
+        if source.active
+    }
+    automated_ids: set[str] = set()
+    publishers: dict[str, int] = {}
+    type_publishers = {
+        TANDF_API_SOURCE_TYPE: "Taylor & Francis",
+        SAGE_HUB_SOURCE_TYPE: "SAGE",
+    }
+    for source_type, publisher in type_publishers.items():
+        if source_type not in active_types:
+            continue
+        ids = {
+            journal.id
+            for journal in config.journals
+            if journal.active and journal.publisher == publisher
+        }
+        automated_ids.update(ids)
+        publishers[publisher] = len(ids)
+    direct_automated_types = {COGITATIO_SOURCE_TYPE, WILEY_CFP_SOURCE_TYPE}
+    for source in config.special_issue_sources:
+        if not source.active or source.source_type not in direct_automated_types:
+            continue
+        journal = config.journal_by_id.get(source.journal_id)
+        if journal is None:
+            continue
+        automated_ids.add(journal.id)
+        publishers[journal.publisher] = publishers.get(journal.publisher, 0) + 1
+    manual_ids = sorted({
+        source.journal_id
+        for source in config.special_issue_sources
+        if source.active
+        and source.source_type == MANUAL_SOURCE_TYPE
+        and source.journal_id in config.journal_by_id
+    })
+    return {
+        "automated_journal_ids": sorted(automated_ids),
+        "manual_journal_ids": manual_ids,
+        "publishers": dict(sorted(publishers.items())),
+    }
 
 
 def _counts_toward_crossref_circuit(error_text: str) -> bool:

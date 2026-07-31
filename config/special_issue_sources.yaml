@@ -28,12 +28,12 @@ sources:
     url: https://academic.oup.com/ct/pages/call-for-papers
     source_type: publisher-page
     active: false
-  - id: sage-calls-communication
+  - id: sage-communication-cfp-hub
     journal_id: aggregator-sage
-    label: SAGE communication calls
-    url: https://journals.sagepub.com/ctp/call-for-papers
-    source_type: publisher-index
-    active: false
+    label: SAGE Communication and Media Studies special-issue calls
+    url: https://journals.sagepub.com/special-issue-calls-for-papers?cookieSet=1
+    source_type: sage-cfp-hub
+    active: true
   - id: political-communication-taylor-special
     journal_id: political-communication
     label: Taylor and Francis Political Communication special issues
@@ -80,23 +80,39 @@ sources:
     url: https://think.taylorandfrancis.com/special_issues/the-emotional-turn-in-public-relations-theorizing/
     source_type: publisher-page
     active: true
-  # Rendered hub sources use a headless browser (Playwright, the "render" extra)
-  # to load JS/anti-bot CFP index pages spanning many journals; findings are
-  # filtered to communication relevance. NOTE: left INACTIVE because SAGE serves
-  # an empty list to headless Chromium (bot mitigation) after initial access, so
-  # results are unreliable. The mechanism is retained for non-protected hubs.
-  - id: sage-special-issue-hub
-    journal_id: aggregator-sage
-    label: SAGE special-issue calls (all journals)
-    url: https://journals.sagepub.com/special-issue-calls-for-papers
-    source_type: rendered
-    active: false
-  - id: sage-open-call-hub
-    journal_id: aggregator-sage
-    label: SAGE open calls for papers (all journals)
-    url: https://journals.sagepub.com/open-call-for-papers
-    source_type: rendered
-    active: false
+  - id: cogitatio-media-communication-future-issues
+    journal_id: media-and-communication
+    label: Media and Communication future thematic issues
+    url: https://www.cogitatiopress.com/mediaandcommunication/issue/futureissues
+    source_type: cogitatio-future-issues
+    active: true
+  - id: ijoc-special-section-proposals
+    journal_id: international-journal-of-communication
+    label: International Journal of Communication special section proposals
+    url: https://ijoc.org/index.php/ijoc/proposes-section
+    source_type: manual
+    title: "Standing Call for Special Section and Forum Proposals"
+    verified_on: "2026-07-30"
+    review_after: "2026-10-30"
+    summary: "The International Journal of Communication accepts proposals for Special Sections and Forums on a standing basis and evaluates them for fit with the journal."
+    active: true
+  - id: wiley-personal-relationships-cfp
+    journal_id: personal-relationships
+    label: Personal Relationships calls for papers
+    url: https://onlinelibrary.wiley.com/page/journal/14756811/homepage/call-for-papers?cookieSet=1
+    source_type: wiley-cfp-page
+    active: true
+  - id: elsevier-public-relations-review-null-findings
+    journal_id: public-relations-review
+    label: Public Relations Review call listed on the official ScienceDirect hub
+    url: https://www.sciencedirect.com/browse/calls-for-papers
+    source_type: manual
+    title: "Special Issue: The value of ‘null’: Advancing corporate social responsibility and corporate social advocacy research through non-findings"
+    deadline: "2027-01-05"
+    verified_on: "2026-07-30"
+    review_after: "2026-10-30"
+    summary: "Public Relations Review invites work using non-findings to advance corporate social responsibility and corporate social advocacy research. Guest editors: Amy O’Connor, Hyejoon Rim, Hao Xu, and Luke Capizzo."
+    active: true
   # Feed sources use source_type: rss and are parsed deterministically as XML.
   # NOTE: WikiCFP's "communication" category is mostly telecom/networking
   # conferences, not communication-studies journals, so it is left inactive

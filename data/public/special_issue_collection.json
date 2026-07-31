@@ -1,22 +1,32 @@
 {
-  "run_started_at": "2026-07-31T04:42:19.064615+00:00",
-  "retrieved": 15,
-  "stored": 15,
+  "run_started_at": "2026-07-31T05:06:42.768813+00:00",
+  "retrieved": 24,
+  "stored": 24,
   "marked_unverified": 0,
   "successful_source_ids": [
+    "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
+    "elsevier-public-relations-review-null-findings",
     "hcr-oup-calls",
     "health-communication-digital-mental-health-2026",
+    "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
     "nca-calls",
-    "tandf-special-issues-api"
+    "sage-communication-cfp-hub",
+    "tandf-special-issues-api",
+    "wiley-personal-relationships-cfp"
   ],
   "authoritative_source_ids": [
+    "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
+    "elsevier-public-relations-review-null-findings",
     "hcr-oup-calls",
     "health-communication-digital-mental-health-2026",
+    "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
-    "tandf-special-issues-api"
+    "sage-communication-cfp-hub",
+    "tandf-special-issues-api",
+    "wiley-personal-relationships-cfp"
   ],
   "empty_source_ids": [
     "nca-calls"

@@ -15,7 +15,11 @@ def test_render_status_includes_core_collection_metrics() -> None:
             "unverified_special_issue_count": 0,
             "special_issue_audit_coverage_count": 12,
             "special_issue_priority_journal_count": 12,
-            "special_issue_run": {"automated_source_count": 4, "failed_source_count": 0},
+            "special_issue_run": {
+                "automated_source_count": 7,
+                "automated_publisher_journal_count": 57,
+                "failed_source_count": 0,
+            },
             "last_run": {"status": "complete"},
         }
     )
@@ -24,3 +28,4 @@ def test_render_status_includes_core_collection_metrics() -> None:
     assert "| Public articles | 3979 |" in rendered
     assert "| Current priority-journal CFP audits | 12/12 |" in rendered
     assert "| Upcoming calls | 1 |" in rendered
+    assert "| Publisher-automated journals | 57/70 |" in rendered

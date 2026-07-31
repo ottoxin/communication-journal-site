@@ -33,13 +33,15 @@ make update OPENALEX=0             # faster run; fewer abstracts may publish
 ./scripts/run_weekly.sh            # suitable for cron/systemd
 ```
 
-The weekly command:
+The weekly collection command:
 
 1. collects the 28-day paper window ending on the digest date;
-2. screens configured special-issue sources, including the paginated Taylor & Francis API;
+2. screens configured special-issue sources, including the Taylor & Francis API, SAGE hub, Cogitatio future-issues page, and Wiley journal page;
 3. exports public JSON;
 4. writes public health/freshness metadata;
 5. builds the static website.
+
+The scheduled GitHub workflow refreshes the OpenAlex journal-impact snapshot immediately before running that collection.
 
 The GitHub `Weekly data refresh` workflow runs this collection every Monday at 14:15 UTC and can also be started manually. It commits the public data/status snapshot under `data/public/`; it does not redeploy the existing Sites deployment. Because GitHub runners are ephemeral, the workflow bootstraps its SQLite state from the prior public snapshot before collecting the newest window. Local-only records are never included in that bootstrap.
 
@@ -74,20 +76,35 @@ Every weekly run fetches active CFP sources, extracts still-open public-entry op
 | Coverage mode | Included | Limitation |
 |---|---|---|
 | Systematic publisher API | All 35 Taylor & Francis journals in the registry are eligible through the official paginated special-issues API. Calls are mapped by publisher journal code/title. | Calls for journals outside the registry, entries without a usable deadline/direct link, closed public-entry stages, and invitation-only manuscript stages are excluded. |
+| Systematic publisher hub | All 20 configured SAGE journals are matched exactly by journal code against the official SAGE CFP hub. A first-party Atypon cookie unlocks the same static page a normal browser receives. | The hub currently reports no live Communication & Media calls and can omit proposal-only opportunities, so the separately verified Communication and the Public proposal remains necessary. |
+| Structured future-issue page | Media and Communication (Cogitatio) is parsed from its official future thematic-issues page. The abstract-submission window is treated as the public entry stage; later invitation-only full-paper windows do not keep a call open. | This covers the one configured Cogitatio journal, not the publisher's other subject areas. |
+| Journal CFP page | Personal Relationships (Wiley) is checked through its official CFP listing with expired deadlines filtered out. | The page currently contains only expired calls; a successful empty result is a valid negative check, not evidence about other Wiley journals. |
 | Direct publisher pages | Health Communication and Journal of Public Relations Research are checked directly as supplemental Taylor & Francis sources. | Page-layout changes can break extraction; the publisher API remains the broader source. |
 | Association discovery | The National Communication Association journals page is checked and filtered for communication-relevant calls. | It is a discovery page, not a complete publisher inventory. |
-| Verified manual records | Human Communication Research (OUP) and Communication and the Public (SAGE PDF) currently have source-linked, dated records. | They require re-verification by `review_after`; the weekly code run does not itself renew a human audit. |
+| Verified manual records | Human Communication Research (OUP), Communication and the Public (SAGE PDF), International Journal of Communication's standing proposal route, and a current Public Relations Review call listed on the official ScienceDirect hub have source-linked, dated records. | They require re-verification by `review_after`; the weekly code run does not itself renew a human audit. IJoC is a proposal route, not a complete article-CFP feed; the Elsevier hub remains blocked to unattended refreshes. |
 | Dated journal audits | Twelve priority journals currently have evidence-linked audit dates: JoC, JCMC, Communication Theory, HCR, Annals, Communication Monographs, Political Communication, Communication Research, New Media & Society, Information, Communication & Society, Health Communication, and JPRR. | Audits expire after 10 days and indicate that an official source was checked, not that the journal has a stable automated feed. |
 
 ### Known CFP exclusions
 
 - Oxford University Press is not covered publisher-wide because there is no stable central machine-readable communication-journal CFP feed and individual pages are inconsistent or intermittently unavailable. HCR is included through a dated manual record; JoC, JCMC, Communication Theory, and Annals are audit-only. Communication, Culture & Critique and Public Opinion Quarterly are article-only and are not currently CFP-audited.
-- SAGE is not covered publisher-wide because its central CFP hubs return empty results or bot-mitigation responses to unattended/headless collection. Communication Research and New Media & Society are audit-only. The other 17 configured SAGE journals are article-only for CFP purposes. Communication and the Public is a separately verified PDF proposal call and is not part of the 70-journal article registry.
-- No CFP source is currently configured for Elsevier (Public Relations Review; Discourse, Context & Media; Language & Communication; International Journal of Intercultural Relations), USC Annenberg Press (International Journal of Communication), Hogrefe (Journal of Media Psychology), Mary Ann Liebert (Cyberpsychology, Behavior, and Social Networking), Wiley (Personal Relationships), or Cogitatio (Media and Communication). Their articles are still collected.
+- SAGE's official CFP hub is now covered systematically for all 20 configured SAGE journals, including Cyberpsychology, Behavior, and Social Networking, which moved from Mary Ann Liebert to SAGE. The hub can still omit proposal-only opportunities; Communication and the Public is therefore retained as a separately verified PDF proposal call and is not part of the 70-journal article registry.
+- Elsevier is not automated for Public Relations Review, Discourse, Context & Media, Language & Communication, or International Journal of Intercultural Relations. Its official ScienceDirect CFP hub returns an Akamai JavaScript challenge to unattended GitHub runners, and no official CFP API was found. One current Public Relations Review call is retained as a dated manual official-hub record; the remaining gap still requires manual CFP audits.
+- Hogrefe's Journal of Media Psychology product page is directly accessible and currently exposes no CFP section, but no publisher-wide official CFP feed was found. It remains a qualified journal-level gap rather than a claim of exhaustive negative coverage.
+- International Journal of Communication is included through its standing official proposal route, but no public current article-CFP inventory or feed was found.
 - WikiCFP is intentionally disabled because its “communication” feed is dominated by telecommunications/networking conferences rather than communication-studies journal calls.
 - Calls announced only in email lists, social media, or inaccessible pages are outside current systematic coverage unless a dated official-source record is added.
 
 The weekly program is systematic and reproducible, but it is not a claim of publisher-wide CFP completeness. Human audit dates and manual records must be refreshed separately.
+
+The latest machine-readable CFP run records its successful, authoritative-empty, and failed source IDs under `data/public/special_issue_collection.json`. `data/public/health.json` reports the automated-source count and how many of the 70 registry journals are covered by publisher-level or official journal-level automation. Last-known-good findings are retained when a source fails; a successful authoritative empty refresh can retire a missing finding to `unverified`.
+
+## Journal dictionary impact metric
+
+The public journal dictionary groups each of the 70 active journals exactly once by its primary area and shows secondary areas as tags. It uses **OpenAlex 2-year mean citedness**, not the Clarivate Journal Impact Factor. For the July 30, 2026 snapshot, the value measures 2025 citations to works published in 2023–2024. Each card links to the matched OpenAlex source, and `data/public/journal_metrics.json` stores the ISSN match, value, source update time, retrieval time, and methodology URLs.
+
+OpenAlex is used because all 70 registry journals matched by ISSN, its data are CC0, and its API supports reproducible refreshes. Clarivate JIF values are not copied because Journal Citation Reports redistribution is restricted and public reproduction requires permission. See the [OpenAlex source schema](https://developers.openalex.org/api-reference/sources/get-a-single-source), [metric definition](https://github.com/ourresearch/openalex-docs/blob/main/api-entities/sources/source-object.md#summary_stats), [OpenAlex citation](https://doi.org/10.48550/arXiv.2205.01833), and [Clarivate use guidance](https://clarivate.com/academia-government/blog/a-quick-refresher-on-journal-citation-reports-use-cases-branding-and-terms-of-use/).
+
+The GitHub workflow refreshes the metric snapshot every Monday before the main collection. If OpenAlex is unavailable, the command leaves the prior file untouched and the workflow publishes a warning rather than deleting known metrics. Current OpenAlex documentation describes a free API key; repository owners can add it as the `OPENALEX_API_KEY` Actions secret.
 
 ## Registry Strategy
 
