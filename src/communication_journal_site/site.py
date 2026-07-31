@@ -35,7 +35,7 @@ from .storage import StateStore
 
 
 BUILD_MANIFEST = ".build-manifest.json"
-ASSET_VERSION = "20260730-dictionary"
+ASSET_VERSION = "20260731-home-covers"
 
 
 def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> list[Path]:
@@ -83,7 +83,10 @@ def build_site(config: AppConfig, store: StateStore, output_dir: str | Path) -> 
     written = [
         _write(output_path / "assets" / "styles.css", _styles()),
         _write(output_path / "assets" / "search.js", _search_js()),
-        _write(output_path / "index.html", _home_page(config, articles, special_issues, journal_by_id, subarea_by_id, health)),
+        _write(
+            output_path / "index.html",
+            _home_page(config, articles, special_issues, journal_by_id, subarea_by_id, covers, health),
+        ),
         _write(output_path / "journals" / "index.html", _journals_page(config, articles, covers)),
         _write(output_path / "special-issues" / "index.html", special_issues_page),
         _write(output_path / "calls" / "index.html", special_issues_page),
@@ -122,6 +125,7 @@ def _home_page(
     special_issues: list[SpecialIssueRecord],
     journal_by_id: dict[str, JournalConfig],
     subarea_by_id: dict[str, SubareaConfig],
+    covers: dict[str, str],
     health: dict,
 ) -> str:
     all_active_special = [issue for issue in special_issues if issue.status == "active"]
@@ -163,6 +167,7 @@ def _home_page(
       <span><strong>Direct source links</strong> to DOI or publisher pages</span>
       <span><strong>Open exports</strong> for reuse and auditing</span>
     </section>
+    {_home_cover_showcase(config, articles, journal_by_id, subarea_by_id, covers)}
     <section class="calls-band">
       <div class="section-heading">
         <div>
@@ -189,6 +194,56 @@ def _home_page(
     <p class="search-empty" data-search-empty hidden>No papers match that search.</p>
     """
     return _layout(config, "Home", body, prefix="", script=True, section="home")
+
+
+def _home_cover_showcase(
+    config: AppConfig,
+    articles: list[ArticleRecord],
+    journal_by_id: dict[str, JournalConfig],
+    subarea_by_id: dict[str, SubareaConfig],
+    covers: dict[str, str],
+) -> str:
+    """Show covers for journals represented in the latest research feed."""
+    journal_ids: list[str] = []
+    for article in articles:
+        if article.journal_id not in journal_ids and covers.get(article.journal_id):
+            journal_ids.append(article.journal_id)
+        if len(journal_ids) == 8:
+            break
+    if len(journal_ids) < 8:
+        for journal in config.journals:
+            if journal.active and journal.id not in journal_ids and covers.get(journal.id):
+                journal_ids.append(journal.id)
+            if len(journal_ids) == 8:
+                break
+
+    items = []
+    for journal_id in journal_ids:
+        journal = journal_by_id[journal_id]
+        area = subarea_by_id.get(journal.primary_subarea)
+        items.append(
+            f"""
+        <a class="cover-showcase__item" href="journals/{slugify(journal.title)}/index.html">
+          <img src="{escape(covers[journal_id])}" alt="{escape(journal.title)} cover" loading="lazy">
+          <strong>{escape(journal.title)}</strong>
+          <span>{escape(area.label if area else _subarea_label(journal.primary_subarea))}</span>
+        </a>"""
+        )
+    if not items:
+        return ""
+    return f"""
+    <section class="cover-showcase" aria-labelledby="cover-showcase-title">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">From the collection</p>
+          <h2 id="cover-showcase-title">Journals publishing new research</h2>
+        </div>
+        <a href="journals/index.html">Open the journal dictionary &rarr;</a>
+      </div>
+      <div class="cover-showcase__grid">
+        {''.join(items)}
+      </div>
+    </section>"""
 
 
 def _journals_page(config: AppConfig, articles: list[ArticleRecord], covers: dict[str, str]) -> str:
@@ -891,6 +946,18 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
 .trust-strip span { padding: 13px 15px; color: var(--muted); font-size: 12px; }
 .trust-strip span + span { border-left: 1px solid var(--line); }
 .trust-strip strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 13px; }
+.cover-showcase { margin-top: 28px; padding: 0 0 24px; border-bottom: 1px solid var(--line); }
+.cover-showcase__grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: clamp(10px, 1.5vw, 18px); }
+.cover-showcase__item { display: grid; grid-template-rows: auto auto 1fr; gap: 7px; min-width: 0; color: var(--ink); }
+.cover-showcase__item:hover { text-decoration: none; }
+.cover-showcase__item img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block;
+  border: 1px solid var(--line); background: var(--band-bg); filter: grayscale(100%);
+  transition: filter .16s ease, border-color .16s ease;
+}
+.cover-showcase__item:hover img { filter: grayscale(0); border-color: var(--ink); }
+.cover-showcase__item strong { font-size: 12px; line-height: 1.25; }
+.cover-showcase__item span { color: var(--muted); font-size: 11px; line-height: 1.25; }
 .focus-strip { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; margin-top: 16px; }
 .focus-card {
   display: grid; gap: 10px; min-height: 170px; padding: 18px;
@@ -1003,6 +1070,7 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
   .trust-strip { grid-template-columns: 1fr 1fr; }
   .trust-strip span:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
   .trust-strip span:nth-child(4) { border-top: 1px solid var(--line); }
+  .cover-showcase__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .site-footer { grid-template-columns: 1fr 1fr; }
   .footer-links { grid-column: 1 / -1; }
 }
@@ -1021,6 +1089,12 @@ h3 { margin: 8px 0; font-size: 18px; font-family: var(--font-head); line-height:
   .home-toolbar { align-items: stretch; flex-direction: column; }
   .trust-strip { grid-template-columns: 1fr; }
   .trust-strip span + span, .trust-strip span:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+  .cover-showcase { overflow: hidden; }
+  .cover-showcase__grid {
+    display: flex; overflow-x: auto; gap: 12px; padding-bottom: 8px;
+    scroll-snap-type: x proximity; scrollbar-width: thin;
+  }
+  .cover-showcase__item { flex: 0 0 118px; scroll-snap-align: start; }
   .calls-empty { align-items: flex-start; flex-direction: column; }
   .site-footer { grid-template-columns: 1fr; }
   .footer-links { grid-column: auto; }

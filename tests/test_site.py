@@ -90,6 +90,8 @@ def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:
     # Home now presents complete paper metadata rather than journal-cover cards.
     assert "article-card" in home
     assert "paper-mini" not in home
+    assert home.count('class="cover-showcase__item"') == 8
+    assert "assets/covers/" in home
     dictionary = tmp_path.joinpath("site/journals/index.html").read_text(encoding="utf-8")
     assert dictionary.count('class="journal-card"') == 70
     assert "OpenAlex 2-year mean citedness" in dictionary
