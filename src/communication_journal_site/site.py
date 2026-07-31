@@ -222,8 +222,7 @@ def _home_cover_showcase(
         journal = journal_by_id[journal_id]
         area = subarea_by_id.get(journal.primary_subarea)
         items.append(
-            f"""
-        <a class="cover-showcase__item" href="journals/{slugify(journal.title)}/index.html">
+            f"""<a class="cover-showcase__item" href="journals/{slugify(journal.title)}/index.html">
           <img src="{escape(covers[journal_id])}" alt="{escape(journal.title)} cover" loading="lazy">
           <strong>{escape(journal.title)}</strong>
           <span>{escape(area.label if area else _subarea_label(journal.primary_subarea))}</span>
@@ -231,8 +230,8 @@ def _home_cover_showcase(
         )
     if not items:
         return ""
-    return f"""
-    <section class="cover-showcase" aria-labelledby="cover-showcase-title">
+    items_html = "\n        ".join(items)
+    return f"""<section class="cover-showcase" aria-labelledby="cover-showcase-title">
       <div class="section-heading">
         <div>
           <p class="section-kicker">From the collection</p>
@@ -241,7 +240,7 @@ def _home_cover_showcase(
         <a href="journals/index.html">Open the journal dictionary &rarr;</a>
       </div>
       <div class="cover-showcase__grid">
-        {''.join(items)}
+        {items_html}
       </div>
     </section>"""
 
