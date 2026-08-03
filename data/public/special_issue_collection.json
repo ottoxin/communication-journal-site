@@ -1,35 +1,43 @@
 {
-  "run_started_at": "2026-07-31T05:06:42.768813+00:00",
-  "retrieved": 24,
-  "stored": 24,
-  "marked_unverified": 0,
+  "run_started_at": "2026-08-03T16:43:41.046327+00:00",
+  "retrieved": 20,
+  "stored": 20,
+  "marked_unverified": 2,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
     "hcr-oup-calls",
-    "health-communication-digital-mental-health-2026",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
-    "nca-calls",
-    "sage-communication-cfp-hub",
-    "tandf-special-issues-api",
-    "wiley-personal-relationships-cfp"
+    "tandf-special-issues-api"
   ],
   "authoritative_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
     "hcr-oup-calls",
-    "health-communication-digital-mental-health-2026",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
-    "sage-communication-cfp-hub",
-    "tandf-special-issues-api",
-    "wiley-personal-relationships-cfp"
+    "tandf-special-issues-api"
   ],
-  "empty_source_ids": [
-    "nca-calls"
-  ],
-  "errors": []
+  "empty_source_ids": [],
+  "errors": [
+    {
+      "source_id": "health-communication-digital-mental-health-2026",
+      "error": "Could not fetch https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/: HTTP Error 404: Not Found"
+    },
+    {
+      "source_id": "nca-calls",
+      "error": "publisher returned an access or bot-challenge page"
+    },
+    {
+      "source_id": "sage-communication-cfp-hub",
+      "error": "Could not fetch https://journals.sagepub.com/special-issue-calls-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
+    },
+    {
+      "source_id": "wiley-personal-relationships-cfp",
+      "error": "Could not fetch https://onlinelibrary.wiley.com/page/journal/14756811/homepage/call-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
+    }
+  ]
 }

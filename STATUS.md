@@ -1,20 +1,20 @@
 # Collection Status
 
-Latest public snapshot: **2026-07-31**<br>
+Latest public snapshot: **2026-08-03**<br>
 Dataset status: **Current**
 
 | Measure | Value |
 |---|---:|
-| Public articles | 3980 |
-| Latest publication date | 2026-07-30 |
-| Active special-issue calls | 14 |
+| Public articles | 4012 |
+| Latest publication date | 2026-08-03 |
+| Active special-issue calls | 11 |
 | Upcoming calls | 8 |
-| Calls awaiting verification | 0 |
+| Calls awaiting verification | 2 |
 | Current priority-journal CFP audits | 12/12 |
 | Automated CFP sources | 7 |
 | Publisher-automated journals | 57/70 |
-| Failed CFP sources | 0 |
-| Last weekly run | complete |
+| Failed CFP sources | 4 |
+| Last weekly run | partial |
 
 [Browse the public data](data/public/README.md) · [Open the deployed monitor](https://communication-journal-monitor.ottoto.chatgpt.site/)
 

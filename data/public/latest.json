@@ -1,22 +1,698 @@
 {
-  "generated_at": "2026-07-31T05:09:52.732825+00:00",
+  "generated_at": "2026-08-03T16:44:10.070750+00:00",
   "site_title": "Communication Journal Monitor",
-  "article_count": 3980,
-  "local_only_article_count": 2599,
+  "article_count": 4012,
+  "local_only_article_count": 52,
   "public_article_policy": "requires_clean_abstract",
   "journal_count": 70,
-  "active_special_issue_count": 14,
-  "digest_date": "2026-07-30",
+  "active_special_issue_count": 11,
+  "digest_date": "2026-08-03",
   "windows": {
-    "digest_date": "2026-07-30",
-    "new_this_week_start": "2026-07-23",
-    "new_this_week_end": "2026-07-29",
-    "previous_week_start": "2026-07-16",
-    "previous_week_end": "2026-07-22",
-    "late_additions_before": "2026-07-16",
-    "late_additions_first_seen_since": "2026-07-23T00:00:00+00:00"
+    "digest_date": "2026-08-03",
+    "new_this_week_start": "2026-07-27",
+    "new_this_week_end": "2026-08-02",
+    "previous_week_start": "2026-07-20",
+    "previous_week_end": "2026-07-26",
+    "late_additions_before": "2026-07-20",
+    "late_additions_first_seen_since": "2026-07-27T00:00:00+00:00"
   },
   "latest_articles": [
+    {
+      "journal_id": "communication-research",
+      "journal_slug": "communication-research",
+      "journal": "Communication Research",
+      "title": "Twitter Conversations: Gendered Issue Publics Among Women",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/00936502261470086",
+      "link": "https://doi.org/10.1177/00936502261470086",
+      "abstract": "We investigate how gender shapes women\u2019s political discussion on Twitter using an issue publics framework. We test whether the conditions for gendered issue publics to form among women around feminine issues exist using data on political discussion via social media in the 2020 and 2022 elections. Our data includes political discussion among political candidates, elites, and non-elites, or regular people. Our results reveal several key findings. First, we find that men elites were more likely to discuss feminine issues, such as health care, compared to women elites, but we found no gender differences between regular Twitter users in our sample. Democratic women elites are more likely to discuss equity-based feminine issues, such as equal pay, than Republican women elites, but we find no partisan differences among non-elite women. We also find no gender or partisan differences at the elite and non-elite levels in the discussion of trait-based feminine issues, such as education. Finally, we show that in 2022, the Dobbs decision that rescinded the constitutional right to an abortion in the U.S. increased the salience of this issue among both women and men. Overall, our research suggests that the conditions for issue publics among women may not strongly exist as we find that non-elite men talk about feminine issues too.",
+      "authors": [
+        "Caley Hewitt",
+        "Ayla Oden",
+        "Nichole M. Bauer"
+      ],
+      "affiliations": [
+        "Louisiana State University, Baton Rouge, USA"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "general-communication",
+        "methods",
+        "political-communication"
+      ],
+      "primary_subarea": "general-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "media-culture-and-society",
+      "journal_slug": "media-culture-society",
+      "journal": "Media, Culture & Society",
+      "title": "Intersectoral capital movement and repositioning of television in the Indian media economy",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/01634437261473477",
+      "link": "https://doi.org/10.1177/01634437261473477",
+      "abstract": "With the growth of digital streaming platforms, the Indian media economy is witnessing widespread changes that challenge the business models of traditional media sectors. The article attempts to trace the overall movement of investment capital between the television sector and other sectors of the economy as a consequence of the digital transition. The study uses a combination of network analysis and qualitative analysis to detail a tectonic shift in the frequency and directionality of capital movement across two concomitant periods of remediation: digitalisation and platformisation. In the first period, television was the centre of capital inflow from other sectors, whereas in the subsequent period there was a repositioning of television as it became a centre of capital resources shifting to other sectors. This article argues that the logic driving these repositioning of capital derives from the perceived limits to growth in established business models and the redirection of advertising spend, a dilemma which arises from the underlying dynamics of revenue streams, competition for resources and a diversified national market.",
+      "authors": [
+        "M. Vyshakh",
+        "Adrian Athique",
+        "P. Vigneswara Ilavarasan"
+      ],
+      "affiliations": [
+        "The University of Queensland-Indian Institute of Technology Delhi Research Academy, New Delhi, India",
+        "The University of Queensland, Saint Lucia, QLD, Australia",
+        "Indian Institute of Technology Delhi, New Delhi, India"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "critical-cultural",
+        "journalism-media"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "media-culture-and-society",
+      "journal_slug": "media-culture-society",
+      "journal": "Media, Culture & Society",
+      "title": "Open justice in the political economy of visibility: Governing the gaze in platform-mediated courtrooms",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/01634437261472357",
+      "link": "https://doi.org/10.1177/01634437261472357",
+      "abstract": "This essay examines how the principle of open justice is reconfigured under conditions of platform-mediated visibility. While openness has long been understood as a democratic safeguard, socio-legal and media scholarship shows that visibility is never neutral but staged, mediated, and institutionally structured. Positioned as a conceptual intervention into debates about media, visibility, and public authority, the essay argues that contemporary open justice operates within a political economy of visibility, in which judicial legitimacy is increasingly shaped by the infrastructures that organise how courtroom images circulate, attract attention, and generate value. Rather than focussing on courtroom access and transparency, the essay examines the conditions under which judicial visibility is produced, circulated, and monetised. Drawing on the 2022 Depp\u2013Heard defamation trial in Fairfax County, Virginia, as an analytically revealing US case, it shows how such trials unfold within platform environments structured by algorithmic ranking, metricisation, and monetisation, where visibility functions as a regulated resource rather than a simple guarantee of transparency. The essay develops a conceptual lens for understanding how judicial authority is co-produced by courts, media institutions, platforms, and networked publics. It concludes that justice today is increasingly governed through the organised conditions of its appearance.",
+      "authors": [
+        "Sarah E. Duffy",
+        "Kirsty E. Blewitt"
+      ],
+      "affiliations": [
+        "Northumbria University, Newcastle-upon-Tyne, UK"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "critical-cultural",
+        "journalism-media"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "new-media-and-society",
+      "journal_slug": "new-media-society",
+      "journal": "New Media & Society",
+      "title": "The role of AI competencies: How do AI knowledge, skills, and attitudes shape users\u2019 understanding and evaluation of explainable news recommendations?",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/14614448261467983",
+      "link": "https://doi.org/10.1177/14614448261467983",
+      "abstract": "This study investigates how explanations in AI-driven news recommender systems (RS) influence user understanding, trust, and attitudes toward the RS, and whether these effects depend on individual differences in AI competence. An online experiment ( N = 754) was conducted in the Netherlands with a no-explanation condition as baseline. Results show that joint explanations significantly improved users\u2019 objective understanding of the RS but had no consistent direct effects on perceived understanding, trust, or attitudes toward the RS. Exploratory structural equation modeling revealed an indirect pathway in which explanations enhanced objective understanding, which increased perceived understanding, subsequently fostering greater trust and more positive attitudes. Moderation analyses showed limited evidence for AI competence conditioning explanation effects, with small benefits concentrated among users with higher AI knowledge. Together, these findings suggest that explanations in news RS are not universally effective: their effects appear to operate primarily through cognitive mechanisms, while competence-related differences remain limited and selective.",
+      "authors": [
+        "Chenyue Wang",
+        "Anne C. Kroon",
+        "Judith M\u00f6ller",
+        "Claes H. de Vreese",
+        "Sophie C. Boerman"
+      ],
+      "affiliations": [
+        "Amsterdam School of Communication Research, University of Amsterdam, The Netherlands",
+        "Empirical Communication Research, Leibniz-Institut f\u00fcr Medienforschung Hans-Bredow-Institut, University of Hamburg, Germany",
+        "Strategic Communication, Wageningen University and Research, The Netherlands"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "digital-communication",
+        "journalism-media"
+      ],
+      "primary_subarea": "digital-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "public-understanding-of-science",
+      "journal_slug": "public-understanding-of-science",
+      "journal": "Public Understanding of Science",
+      "title": "When academic leaders disconnect from social media in Finland: Situational rationality, silent resistance",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/09636625261469511",
+      "link": "https://doi.org/10.1177/09636625261469511",
+      "abstract": "This qualitative study, conducted at Finland\u2019s research universities, analyses high-profile academic leaders who have chosen to be disconnected from social media. We conducted individual interviews with 19 leaders and performed a situational analysis to investigate the rationale for abstaining from social media. Academic leaders rationalised disconnection by reasons related to personality, sociability, critical rationality, and health and security. The leaders\u2019 intensive involvement in three social worlds intensified the individual rationale for disconnection and enabled the leaders to work successfully despite disconnection. These social worlds were research and science, sensitive academia, and insider networks in society. In the context of the managerial neoliberal university, its promotional communication culture, and competition for visibility, the leaders\u2019 disconnection from social media has a dissident, resistant characteristic. The study contributes to prior research through its comprehensive approach to academic leaders\u2019 operational environment. Future research should elaborate on the systemic approach to social media in universities.",
+      "authors": [
+        "Leena Ripatti-Torniainen",
+        "Karoliina Talvitie-Lamberg"
+      ],
+      "affiliations": [
+        "Faculty of Education and Culture, Tampere University, Finland",
+        "Department of Language and Communication Studies, Faculty of Humanities and Social Sciences, University of Jyv\u00e4skyl\u00e4, Finland"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "science-environment"
+      ],
+      "primary_subarea": "science-environment",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "science-communication",
+      "journal_slug": "science-communication",
+      "journal": "Science Communication",
+      "title": "Accuracy and Defense Motives: Exploring Types of Information Insufficiency in the Risk Information Seeking and Processing (RISP) Model",
+      "published_date": "2026-08-03",
+      "doi": "10.1177/10755470261465788",
+      "link": "https://doi.org/10.1177/10755470261465788",
+      "abstract": "This study reconceptualizes information insufficiency as a goal-contingent construct within the Risk Information Seeking and Processing model. In multifaceted risk contexts, individuals confront health threats alongside challenges to deep-seated values and beliefs, producing different judgmental demands within a single risk event. Survey data from 858 Hong Kong adults show two distinct forms of information insufficiency, one oriented toward accurate safety judgments and another toward defending deep-seated values and beliefs. Each form is associated with distinct patterns of information seeking and processing. This study demonstrates how multiple goal-based information insufficiencies operate within the same individual in response to different judgmental demands.",
+      "authors": [
+        "Timothy K. F. Fung",
+        "Ho Man Leung",
+        "Po Yan Lai",
+        "Robert J. Griffin"
+      ],
+      "affiliations": [
+        "Hong Kong Baptist University, Hong Kong, China",
+        "Lingnan University, Hong Kong, China",
+        "Marquette University, Milwaukee, WI, USA"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "science-environment"
+      ],
+      "primary_subarea": "science-environment",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "chinese-journal-of-communication",
+      "journal_slug": "chinese-journal-of-communication",
+      "journal": "Chinese Journal of Communication",
+      "title": "\u201cWho benefits, who is left behind, and who controls the narrative?\u201d: E-commerce livestreaming and digital gentrification in contemporary rural China",
+      "published_date": "2026-08-01",
+      "doi": "10.1080/17544750.2026.2707527",
+      "link": "https://doi.org/10.1080/17544750.2026.2707527",
+      "abstract": "As China\u2019s countryside becomes increasingly entangled with digital technologies, a new form of rural gentrification is emerging\u2014one driven by narrative control, cultural commodification, and algorithmic visibility. This paper examines how e-commerce livestreaming reshapes rural space in contemporary China. Drawing on a multi-site case study approach, this study reveals that gentrification in the digital era is no longer imposed solely by urban elites but is increasingly enacted from within rural communities and mediated by digital platforms. This process arises from the intersection of algorithmic market logics, state-led rural development policies, and the aspirations of rural communities to balance tradition with monetization. We identify this process as \u201cco-constitutive gentrification from within\u201d and trace it through three mutually reinforcing dynamics: the symbolic economy of rural imaginaries, the material remaking of livestreamable space, and the revaluation of earthy rural labor. The findings contribute to a broader theorization of digital rural transformation, demonstrating that gentrification in China\u2019s countryside is as much about who gets to tell the story as it is about who owns the land.",
+      "authors": [
+        "Yilei Wang",
+        "Jieyun Feng"
+      ],
+      "affiliations": [
+        "School of Foreign Studies, Xi\u2019an Jiaotong University",
+        "School of International Studies, University of International Business and Economics"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-19",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "intercultural-international",
+        "journalism-media"
+      ],
+      "primary_subarea": "intercultural-international",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "discourse-context-and-media",
+      "journal_slug": "discourse-context-media",
+      "journal": "Discourse, Context & Media",
+      "title": "Coherence through sedimentation: Temporal organization and emergent interaction in Danmaku",
+      "published_date": "2026-08-01",
+      "doi": "10.1016/j.dcm.2026.101033",
+      "link": "https://doi.org/10.1016/j.dcm.2026.101033",
+      "abstract": "This paper examines how coherence and participation are accomplished in danmaku, a commentary system on Chinese and Japanese video platforms where user comments scroll across the screen and are time-stamped to specific points on the video timeline. Although comments are produced asynchronously, they appear synchronously during playback, creating what has been described as pseudo-synchronicity ( Johnson, 2013 ; Liang, 2021 ). Building on research in computer-mediated communication (CMC), the paper investigates how interaction in danmaku is organized through multiple temporalities: the time of video playback, the time of message production, and the time of subsequent viewing. Drawing on a dataset of educational danmaku videos, we analyze how comments become sequentially and thematically linked through practices such as noticings, choral clustering, and indexical reference. The analysis demonstrates that coherence in danmaku emerges through stigmergic processes of sedimentation: participants leave visible traces that persist and accumulate, gradually transforming the comment stream into an interactional infrastructure that future viewers orient to. Much like graffiti layered across a public wall, danmaku commentary builds into an accumulated record of participation that becomes integral to the video itself. By foregrounding these temporal and stigmergic dimensions, the paper shows how danmaku reconfigures audience roles, blurs distinctions between live and asynchronous participation, and extends participation frameworks, contributing to a more comprehensive understanding of emerging digitally mediated interaction in asynchronous, distributed settings.",
+      "authors": [
+        "Bo Yang",
+        "Oskar Lindwall",
+        "Christian Licoppe"
+      ],
+      "affiliations": [],
+      "subjects": [],
+      "volume": "72",
+      "issue": null,
+      "pages": "101033",
+      "publisher": "Elsevier BV",
+      "subareas": [
+        "critical-cultural",
+        "digital-communication"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "discourse-context-and-media",
+      "journal_slug": "discourse-context-media",
+      "journal": "Discourse, Context & Media",
+      "title": "Divorce stigma on Weibo: A corpus-assisted social media critical discourse analysis of platform-mediated contestation",
+      "published_date": "2026-08-01",
+      "doi": "10.1016/j.dcm.2026.101032",
+      "link": "https://doi.org/10.1016/j.dcm.2026.101032",
+      "abstract": "Despite rising divorce rates in China, the traditional \u201cintact family\u201d ideal remains hegemonic, subjecting children from divorced families (CDF) to courtesy stigma. This study investigates how this stigma is discursively constructed, negotiated, and resisted on Weibo, a leading Chinese microblogging platform. Adopting a mixed-methods approach, we analyzed 2989 comments on Weibo using BERTopic modeling and social media critical discourse analysis (SM-CDA). The findings reveal a deeply paradoxical discursive landscape. Anchored by the ideology of \u201cneofamilism\u201d, a dominant discourse employs predication and intensification strategies to assert the \u201ccomplete\u201d family as a non-negotiable norm. This ideal enables a \u201cdeterministic stigma\u201d wherein CDF are represented as inevitably \u201cdamaged\u201d, \u201cincomplete\u201d, and denied agency. However, these stigmatizing practices are actively contested. A robust counter-discourse utilizes negation and comparative structure to reframe the source of harm from the act of divorce to chronic marital conflicts, while a parallel discourse of empathy fosters affective solidarity and reconstructs positive identities of CDF through personal narratives. As such, we argue that Weibo functions not merely as an amplifier of traditional norms but as a critical site of discursive contestation, where the bottom-up discourse of lived experience leverages the digital democratization of discourse to contest top-down anxieties over family fragmentation. This study contributes to a nuanced understanding of digital discursive stigmatization and destigmatization in non-Western contexts.",
+      "authors": [
+        "Jiapei Gu",
+        "Janet Ho"
+      ],
+      "affiliations": [],
+      "subjects": [],
+      "volume": "72",
+      "issue": null,
+      "pages": "101032",
+      "publisher": "Elsevier BV",
+      "subareas": [
+        "critical-cultural",
+        "digital-communication"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "feminist-media-studies",
+      "journal_slug": "feminist-media-studies",
+      "journal": "Feminist Media Studies",
+      "title": "Sabrina Gonzalez Pasterski: Postfeminism and the representation of Latina scientists",
+      "published_date": "2026-08-01",
+      "doi": "10.1080/14680777.2026.2709385",
+      "link": "https://doi.org/10.1080/14680777.2026.2709385",
+      "abstract": "This study examines news coverage of the physicist Sabrina Gonzalez Pasterski (SGP) through the lens of intersectional feminist critique. Since attaining minor celebrity in 2016, SGP may be the most famous Latinx American scientist to this date, but one whose fame has been dominated by what Rosalind Gill calls the \u201cpostfeminist sensibility.\u201d Performing content analysis on 69 news articles, this study finds that media coverage of SGP has predominantly fixated on her childhood achievements at the expense of her scientific work. Drawing on the work of Anita Harris, this study argues that the media\u2019s double stereotyping of SGP as an \u201cexceptional woman\u201d and as a Latina \u201ccan-do girl\u201d precluded serious interest in her research. Thus, in the case of Latina scientists, the harms of postfeminism go beyond its oft-noted political impotence: postfeminism robs Latina girls of scientific role models by covering Latina scientists frivolously. Considering a recent talk by SGP, I conclude by highlighting the need for intersectionality in academic discussions of justice in science and in representations of women in science.",
+      "authors": [
+        "Seth Simon Davis"
+      ],
+      "affiliations": [
+        "University of Pittsburgh"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-19",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "critical-cultural",
+        "journalism-media"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journal-of-health-communication",
+      "journal_slug": "journal-of-health-communication",
+      "journal": "Journal of Health Communication",
+      "title": "A Unifying Guide for Action: A Practical Synthesis of National Academies Documents on Mis- and Disinformation (2020\u20132025)",
+      "published_date": "2026-08-01",
+      "doi": "10.1080/10810730.2026.2705365",
+      "link": "https://doi.org/10.1080/10810730.2026.2705365",
+      "abstract": "The rapid spread of mis/disinformation has become a threat to public health. In response, the National Academies of Sciences, Engineering, and Medicine (NASEM) produced nine publications on this topic between 2020-2025. This study qualitatively analyzes and synthesizes these publications to examine how approaches to misinformation are articulated across levels and sectors. The most recent, a 2025 Consensus Study Report, served as a reference framework; its 13 formal recommendations guided deductive coding of proposed actions across the remaining publications, with inductive refinement of emergent themes. As a result, seven themes emerged: 1) community engagement, 2) tools and techniques to counter misinformation, 3) communication, 4) social media and online platforms, 5) collaboration, 6) journalism, and 7) other priorities. Across these themes, approaches are distributed, but unevenly developed, across individual, community, institutional, and technological levels, involving a wide range of actors. Taken together, these publications call for practical, audience-specific communication strategies grounded in trust-building efforts, with genuine community involvement. Future work should evaluate the effectiveness of proposed approaches while considering the evolving regulatory, political, and social context in which misinformation persists.",
+      "authors": [
+        "Rachael Piltch-Loeb",
+        "Josefina Nu\u00f1ez Sahr",
+        "Howard Koh",
+        "Vish K. Viswanath",
+        "Elena Savoia"
+      ],
+      "affiliations": [
+        "Harvard T.H. Chan School of Public Health",
+        "City University of New York (CUNY), New York City",
+        "Harvard T. H. Chan School of Public Health",
+        "Dana Farber Cancer Institute"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-7",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "health-communication"
+      ],
+      "primary_subarea": "health-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journalism-and-mass-communication-quarterly",
+      "journal_slug": "journalism-mass-communication-quarterly",
+      "journal": "Journalism & Mass Communication Quarterly",
+      "title": "The Meanings of News: How U.S. Adults Think About the Word \u201cNews\u201d",
+      "published_date": "2026-08-01",
+      "doi": "10.1177/10776990261471546",
+      "link": "https://doi.org/10.1177/10776990261471546",
+      "abstract": "This study explores the immediate, top-of-mind meanings audiences hold about \u201cnews.\u201d Inspired by recent audience-centric approaches in defining news, we adopt a schema framework to investigate mental representations of the news concept. Using a national probability survey of U.S. adults, we employ a thought-listing exercise combined with a network analysis. Our findings paint a complex picture of news and its meaning today. We identify six distinct news schemas (i.e., clusters of co-occurring words) that correspond to different audience demographics, political ideology, and news consumption. The findings underscore that news is a dynamic concept with implications for journalism scholarship and practice.",
+      "authors": [
+        "Stephanie Edgerly",
+        "Ayse D. Lokmanoglu",
+        "Christopher M. Dobmeier",
+        "Nathan Walter"
+      ],
+      "affiliations": [
+        "Northwestern University, Evanston, IL, USA",
+        "Boston University, MA, USA",
+        "University of Virginia, Charlottesville, USA"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "journalism-media"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "communication-studies",
+      "journal_slug": "communication-studies",
+      "journal": "Communication Studies",
+      "title": "Short Episodes but Fast Friends: Examining the Effects of Parasocial Relationship Quality on Mediated Intergenerational Contact in Grace and Frankie",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/10510974.2026.2708678",
+      "link": "https://doi.org/10.1080/10510974.2026.2708678",
+      "abstract": "No scholarly consensus exists on the amount of media exposure necessary to encourage social prejudice reduction; however, drawing on work on cross-group friendships, this study provides evidence that contact quality is instrumental for facilitating parasocial intergroup contact when the length of character exposure is held constant. In an experiment on intergenerational parasocial contact, young adult viewers were assigned to watch either a high or low contact quality version of Grace and Frankie, a sitcom about older adults. The episodes were identical in length. A serial mediation model shows that participants in the high contact quality condition developed a stronger parasocial relationship with one of the characters, Grace, experienced heightened intergroup dissonance, and expressed greater willingness to engage with older adults. However, this parasocial contact process did not occur for the other character, Frankie. These findings contribute to research and theorizing about mediated intergroup contact and the role of media exemplar typicality in the contact process.",
+      "authors": [
+        "Alysse C. Baker",
+        "Elizabeth L. Cohen",
+        "Christine Kunkle"
+      ],
+      "affiliations": [
+        "Roanoke College",
+        "West Virginia University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-20",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "general-communication"
+      ],
+      "primary_subarea": "general-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "environmental-communication",
+      "journal_slug": "environmental-communication",
+      "journal": "Environmental Communication",
+      "title": "Communicating Climate Change in Africa: Role Perception and Role Shifting among Environmental Journalists in Nigeria",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/17524032.2026.2711229",
+      "link": "https://doi.org/10.1080/17524032.2026.2711229",
+      "abstract": "The environmental beat in Nigeria, as in most nations in African nations, is primarily covered by general assignment reporters. The role conception and perception of journalists who cover the environment and strive to communicate climate change issues continually fluctuate as they navigate the tension. To enhance our understanding of how journalists communicate climate change in Nigeria, we conducted a survey of journalists who occasionally cover environmental stories and identify as environmental journalists (N = 50) across various platforms, including print, broadcast, and digital media. Our findings show that environmental journalists in Nigeria use a combination of traditional news reporting techniques, feature writing, and solution-oriented journalism. Journalists utilize visual aids and storytelling to captivate their audiences, believing that their reporting influences public responses or drives policy changes. The use of visual storytelling and advocacy-oriented narratives reflects framing strategies that could make climate change more relatable and actionable. This study asserts that Nigerian environmental journalists, motivated by a duty to inform and inspire action on climate change, employ a hybrid reporting approach that combines advocacy and fact-based dissemination. Nigerian environmental journalists act as mediators, translating and amplifying local environmental knowledge into public discourse by intentionally balancing objectivity with advocacy.",
+      "authors": [
+        "Damilola Oduolowu",
+        "Olasunkanmi Arowolo",
+        "Mariam Ogboye"
+      ],
+      "affiliations": [
+        "University of South Carolina",
+        "University of Kent",
+        "Syracuse University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-21",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "science-environment",
+        "political-communication"
+      ],
+      "primary_subarea": "science-environment",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "environmental-communication",
+      "journal_slug": "environmental-communication",
+      "journal": "Environmental Communication",
+      "title": "Welcome to the Calent\u00f3n: How Puerto Rican Community Leaders Respond to Extreme Heat",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/17524032.2026.2711233",
+      "link": "https://doi.org/10.1080/17524032.2026.2711233",
+      "abstract": "This study examines how community leaders in Puerto Rico respond to the growing threat of extreme heat within the context of colonial inequality and climate vulnerability. As heat events become more frequent and severe, they exacerbate existing challenges, including unreliable energy infrastructure and public health inequities. To explore how leaders understand and address this challenge, two listening sessions were conducted in May 2025 with 17 community leaders. Reflexive thematic analysis revealed three central themes: Narratives of Disillusionment, reflecting frustrations with government inaction; Climate Recommendations that are Misaligned with Puerto Rican Realities, highlighting the disconnect between proposed adaptation strategies and lived conditions; and Filling the Gaps: Community-Led Climate Action, illustrating how leaders mobilize local knowledge, cultural traditions, and natural resources to adapt. Findings demonstrate that community leaders serve not only as advocates but also as communicators and knowledge holders whose perspectives are essential for context-specific climate solutions. This situates Puerto Rico's environmental communication within broader Latin American traditions of community-driven responses to socio-environmental crises while highlighting links between environmental risk and colonial exploitation. Puerto Rico's political subordination to the United States adds a colonial layer shaping resources and governance, making community-driven education a crucial environmental and political strategy for collective action.",
+      "authors": [
+        "Andrea Isabel L\u00f3pez",
+        "M\u00f3nica Ivelisse Feli\u00fa-M\u00f3jer",
+        "Xavier Ortiz Torres",
+        "Ang\u00e9lica Vald\u00e9s Valderrama",
+        "Nathaly Villareal",
+        "Ramdwin Gonz\u00e1lez Otero"
+      ],
+      "affiliations": [
+        "University of Wisconsin",
+        "Ciencia Puerto Rico"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-20",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "science-environment",
+        "political-communication"
+      ],
+      "primary_subarea": "science-environment",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journal-of-public-relations-research",
+      "journal_slug": "journal-of-public-relations-research",
+      "journal": "Journal of Public Relations Research",
+      "title": "Joining Dialogic Stewardship with Relational Engagement: Advancing Donor Relations Theorizing with Faith-Based Nonprofit Organizations",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/1062726x.2026.2708952",
+      "link": "https://doi.org/10.1080/1062726x.2026.2708952",
+      "abstract": "Despite their significant presence in social services and international aid, faith-based nonprofit organizations have been overlooked in public relations scholarship. To bridge this gap, this study integrates dialogic stewardship and the devotional-promotional relational engagement model to examine donor engagement within faith-based nonprofit organizations. Through interviews with communication professionals from faith-based nonprofits, findings confirm dialogic stewardship practices and introduces faith-centered stewardship. This study also identifies a broader relational ecosystem shaping donor engagement, including a relationship with a deity. This study advances public relations theorizing on donor relations and provides practical guidance for nonprofits seeking to foster mutual and ethical donor relationships.",
+      "authors": [
+        "Jordan Morehouse",
+        "Laura Lemon"
+      ],
+      "affiliations": [
+        "University of Colorado Boulder",
+        "University of Alabama"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-19",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "organizational-strategic"
+      ],
+      "primary_subarea": "organizational-strategic",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journalism-studies",
+      "journal_slug": "journalism-studies",
+      "journal": "Journalism Studies",
+      "title": "Is Digitization Turning the Inverted Pyramid Upside Down? A Longitudinal Analysis of a Hundred Years of News Storytelling",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/1461670x.2026.2699782",
+      "link": "https://doi.org/10.1080/1461670x.2026.2699782",
+      "abstract": "The inverted pyramid model for structuring news articles, according to which the most important facts are presented in the lead sentence, can be regarded as a cornerstone of journalism. In this longitudinal study, news articles from various German media were analyzed over a 100-year period. Automated content analysis was applied to a large corpus of German news articles published between 1924 and 2024 to detect whether the so-called 5W1H-questions were answered at the beginning of the news stories. We focused on the prominence of the concrete facts what, who, when, where, without coding for why and how. This was complemented by a qualitative analysis of semistructured interviews with journalists from three generations, to contextualize and interpret the longitudinal quantitative findings. According to the results, the news structure remained stable both in media practice and in journalists\u2019 perceptions of how news should be structured throughout the twentieth century. However, in the digital era this news structure appears to be under pressure. The findings suggest that while the inverted pyramid model remained remarkably resilient across different political regimes of the twentieth century, its dominance has begun to fluctuate in the context of a shifting media ecosystem and probably new business models online.",
+      "authors": [
+        "Thomas Birkner",
+        "Annika Keute"
+      ],
+      "affiliations": [
+        "University of Salzburg"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-22",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "journalism-media"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "mass-communication-and-society",
+      "journal_slug": "mass-communication-and-society",
+      "journal": "Mass Communication and Society",
+      "title": "Rainbow Fatigue: The Effect of LGBTQIA+ Corporate Social Advocacy-Communication on Organizational Legitimacy",
+      "published_date": "2026-07-31",
+      "doi": "10.1080/15205436.2026.2703975",
+      "link": "https://doi.org/10.1080/15205436.2026.2703975",
+      "abstract": "Organizations increasingly communicate about LGBTQIA+ themes, especially during Pride month. However, such corporate social advocacy-communication (CSA-communication) about LGBTQIA+ communities is often received with skepticism, as the public tends to doubt the authenticity of such engagement. This can eventually influence the perceived legitimacy of the communicating organizations negatively. The current study investigates public perceptions of CSA-communication on LGBTQIA+ themes and tests the effects on perceived legitimacy. A 2\u00d72 factorial mixed-method experiment with a CSR control-condition has been conducted among the general Dutch public (N = 895) that compares the effect of timing (during Pride vs. Valentine\u2019s Day) and organization\u2019s effort (words-only support vs. support including a donation) in LGBTQIA+ communication on perceived legitimacy. The legitimacy perceptions were measured both with closed items and an open-ended answer option. Surprisingly, findings indicate that CSA-communication involving low effort caused higher levels of legitimacy than when more effort was invested. Timing of the LGBTQIA+ event did not impact the perceived legitimacy. Notably, generic CSR-communication predicted higher levels of legitimacy compared to CSA-communication on the LGBTQIA+ theme. This effect could be explained by a significant moderation effect of (negative) attitudes towards LGBTQIA+ people. The quantitative findings are contextualized by a qualitative analysis of the answers to an open-ended question about legitimacy.",
+      "authors": [
+        "Anna Berbers",
+        "Mark Boukes"
+      ],
+      "affiliations": [
+        "University of Amsterdam"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-22",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "journalism-media",
+        "general-communication"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "new-media-and-society",
+      "journal_slug": "new-media-society",
+      "journal": "New Media & Society",
+      "title": "Do WhatsApp news channels help users navigate the information environment? A field experiment on information-related attitudes",
+      "published_date": "2026-07-31",
+      "doi": "10.1177/14614448261467150",
+      "link": "https://doi.org/10.1177/14614448261467150",
+      "abstract": "Messaging applications have become central sources of news, especially in the Global South, raising concerns about the quality of information circulating in these spaces. This study examines how receiving news through WhatsApp channels shapes key information-related attitudes in Brazil, including misinformation belief, news fatigue, and media trust. In a pre\u2011registered experiment conducted in November/December 2024, 601 participants from multiple Brazilian states were asked to subscribe to either a regional news channel or a fact\u2011checking channel operated by Globo, the largest media group in Latin America. The results show that accessing news via WhatsApp does not alter more stable attitudes, such as belief in misinformation or trust. However, it does reduce news fatigue and increases engagement with news on WhatsApp. As news consumption shifts toward private messaging platforms, these findings suggest their value lies less in reshaping political attitudes and more in maintaining routine connections between audiences and journalism.",
+      "authors": [
+        "Camila Mont\u2019Alverne",
+        "Patr\u00edcia Rossini",
+        "Antonis Kalogeropoulos"
+      ],
+      "affiliations": [
+        "Department of Humanities, University of Strathclyde, UK",
+        "School of Social and Political Sciences, University of Glasgow, UK",
+        "IMEC-smit, Vrije Universiteit Brussel, Belgium"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "digital-communication",
+        "journalism-media"
+      ],
+      "primary_subarea": "digital-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "television-and-new-media",
+      "journal_slug": "television-new-media",
+      "journal": "Television & New Media",
+      "title": "From Screen to Store: Exploring the Reality TV to Influencer Pipeline on \u201cLove Island\u201d",
+      "published_date": "2026-07-31",
+      "doi": "10.1177/15274764261472870",
+      "link": "https://doi.org/10.1177/15274764261472870",
+      "abstract": "This paper examines how Love Island: USA Season 6 integrates e-commerce, brand partnerships, and influencer practices into its narrative structure and digital infrastructure. Focusing on the shop the villa feature of the show\u2019s app, we analyze how the series synchronizes emotional investment with consumer action. Drawing on qualitative content analysis of episodes, a walkthrough study of the app, and thematic analysis of branded social media campaigns, we argue that Love Island extends and accelerates reality television\u2019s longstanding commercial logics through a coordinated media ecosystem that integrates e-commerce, sponsorships, and post-show influencer pathways. While earlier reality formats cultivated marketable personalities and branded selves, Love Island intensifies these practices through platform infrastructures that transform contestants into commercially viable lifestyle brands and encourage audiences to participate through real-time shopping and social engagement. Ultimately, we show that Love Island operationalizes a reality-TV-to-influencer pipeline.",
+      "authors": [
+        "Krysten Stein",
+        "Zari Taylor"
+      ],
+      "affiliations": [
+        "University of Cincinnati Blue Ash College, USA",
+        "New York University, USA"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "journalism-media",
+        "critical-cultural"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "television-and-new-media",
+      "journal_slug": "television-new-media",
+      "journal": "Television & New Media",
+      "title": "Platform Authority on Prime Time: PBS\u2019s Finding Your Roots and the Televisual Production of Genetic Truth",
+      "published_date": "2026-07-31",
+      "doi": "10.1177/15274764261468216",
+      "link": "https://doi.org/10.1177/15274764261468216",
+      "abstract": "Direct-to-consumer DNA testing has rendered family secrets newly visible through platforms that translate kinship into databases, laboratory-derived genetic profiles, algorithmic relative matching, and quantified displays. This article examines how PBS\u2019s Finding Your Roots imports these genetic profiles and platform outputs into a legacy broadcast format, staging reveal sequences in which probabilistic inference is transformed into publicly authoritative truth. Drawing on a constructionist discourse analysis of four episodes, the article shows how the program assembles genealogical certainty through an evidentiary montage that aligns documents, DNA visualizations, and affective pacing. Page turns, close-ups on percentages or surnames, and host-led narration function as televisual certainty devices, scripting how audiences should interpret and feel about non-paternity events, racial passing, and enslaved ancestry. The analysis positions Finding Your Roots as a convergence text that legitimizes genealogical research and platform authority through television form, while obscuring the infrastructural conditions under which genealogical \u201ctruth\u201d is produced.",
+      "authors": [
+        "Helga Lenart-Cheng"
+      ],
+      "affiliations": [
+        "Saint Mary\u2019s College of California, USA"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "journalism-media",
+        "critical-cultural"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "television-and-new-media",
+      "journal_slug": "television-new-media",
+      "journal": "Television & New Media",
+      "title": "Platforms Reshape Embeddedness? Platformization and Bilateral Embeddedness of the Chinese Audiovisual Industry",
+      "published_date": "2026-07-31",
+      "doi": "10.1177/15274764261472839",
+      "link": "https://doi.org/10.1177/15274764261472839",
+      "abstract": "This study investigates the transformation of embeddedness relationships in China\u2019s audiovisual industry during platformization. Based on interviews with thirty-five audiovisual professionals in the Yangtze River Delta region, the study finds that under the dual administration of both the state and platforms, Chinese audiovisual producers have developed a model of bilateral embeddedness. While they integrate into platform ecosystems for IP and promotion resources, they simultaneously \u201cpretend to\u201d embed in state-led clusters to obtain policy support, without substantive participation inside. This bilateral embeddedness highlights a new configuration of audiovisual production, where audiovisual producers strategically negotiate between the state and platforms to enable a gradual economic transformation during platformization.",
+      "authors": [
+        "Tianchan Mao"
+      ],
+      "affiliations": [
+        "Fudan University, Shanghai, China"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "journalism-media",
+        "critical-cultural"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "communication-reports",
+      "journal_slug": "communication-reports",
+      "journal": "Communication Reports",
+      "title": "Student Athletes and Mental Health: A Social Identity Theory Perspective",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/08934215.2026.2701658",
+      "link": "https://doi.org/10.1080/08934215.2026.2701658",
+      "abstract": "Student athletes face unique stressors in comparison to both non-athlete students, and professional athletes. In light of mental health concerns faced by an increasing number of young adults, we examine the distinctive experiences of student athletes, and how these play a role in mental health issues faced by student athletes. We conducted focus groups with student athletes at two Division I institutions in the United States (n = 25). We analyzed our data through the lens of Social Identity Theory. Our findings highlighted the role of each component of the social identity theory\u2014how they viewed themselves as different from non-athlete students (social categorization and social identification), but still competed with members of their in-groups (social comparison). This social competition suggests a singular experience of concurrently belonging to both in-groups and out-groups simultaneously, thus playing a role in their mental health.",
+      "authors": [
+        "Shaheen Kanthawala",
+        "Jessica Payne",
+        "Bree Holtz",
+        "Scott Parrott"
+      ],
+      "affiliations": [
+        "Shaheen Kanthawala (Michigan State University, 2019) is an associate professor in the department of Journalism &amp; Creative Media at the University of Alabama. She researches health communication, social media, and other technologies",
+        "Jessica Payne (University of Alabama, 2025) is an assistant professor in the School of Communication at Illinois State University. Her research examines the intersection of media effects and sports communication, with a focus on connections among athletes, teams, organizations, and communities",
+        "Bree Holtz (Michigan State University, 2010) is a professor in the Department of Advertising &amp; Public Relations and the Director of the Ethics Institute at Michigan State University. She is also an American Telemedicine Association College Fellow Dr. Holtz\u2019s research explores the adoption, perceptions, and outcomes of telemedicine, mHealth, consumer-grade health sensors, electronic medical records, artificial intelligence (AI), and social media in health communication",
+        "Scott Parrott (University of North Carolina, 2013) is a professor in the School of Journalism &amp; Mass Communications at the University of South Carolina in the USA. He researches the role of the mass media in shaping attitudes, emotions, and behavior related to mental health"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-18",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "general-communication"
+      ],
+      "primary_subarea": "general-communication",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
     {
       "journal_id": "convergence",
       "journal_slug": "convergence",
@@ -74,6 +750,127 @@
       "first_seen_at": "2026-07-31T03:41:10.282459+00:00"
     },
     {
+      "journal_id": "feminist-media-studies",
+      "journal_slug": "feminist-media-studies",
+      "journal": "Feminist Media Studies",
+      "title": "Gendering technology through lines and laughter: a critical analysis of the Turkish cartoon magazine Bayan Yan\u0131",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/14680777.2026.2709387",
+      "link": "https://doi.org/10.1080/14680777.2026.2709387",
+      "abstract": "This article examines representations of gender\u2014technology relations in everyday culture through cartoons in Bayan Yan\u0131, Turkey\u2019s first and only women-led cartoon publication, addressing an understudied intersection of gender, technology, and satirical visual culture in Turkey. It explores how humour-mediated cartoons construct gender\u2014technology relations as a key means of expressing gender, both reinforcing and challenging gendered ideologies embedded in social and cultural structures, while shaping power dynamics within Turkey\u2019s political and cultural context, where freedom of expression\u2014particularly for women\u2014remains limited. Adopting a qualitative case study approach, the study draws on a dataset of 82 images depicting women and technology from a ten-year archive (2011\u20132021) of the publication. The dataset was examined through thematic and visual analysis. The findings show that while traditional gender stereotypes persist, new forms of femininity and related myths are also emerging, reshaping contemporary women\u2019s relationship to digital culture.",
+      "authors": [
+        "Seval Erkul",
+        "Nermin Alkan"
+      ],
+      "affiliations": [
+        "Independent Researcher",
+        "Mersin University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-20",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "critical-cultural",
+        "journalism-media"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "feminist-media-studies",
+      "journal_slug": "feminist-media-studies",
+      "journal": "Feminist Media Studies",
+      "title": "Understanding the Spanish manosphere through youth: an ethnographic study of young men\u2019s engagement with masculinized online spaces",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/14680777.2026.2709389",
+      "link": "https://doi.org/10.1080/14680777.2026.2709389",
+      "abstract": "This article proposes a youth-centred approach to understanding the Spanish manosphere grounded in young men\u2019s perspectives and experiences. Drawing on an ethnographic study with teenagers (between 14 and 18 years old) from Barcelona and its metropolitan area, we develop an analytical proposal that identifies three interconnected types of spaces: Open Hard Spaces, where explicitly anti-feminist and anti-LGBTIQ+ discourses are more visible; Open Soft Spaces, where stereotypically masculine content subtly reinforces gender hierarchies; and Close Peripheral Spaces, consisting of private peer interactions that normalize misogynistic practices and foster male complicity across online and offline contexts. Rather than offering a typology of the manosphere itself, this mapping shows how young men move and experience these fluid environments and how manosphere-related narratives are circulated, reinterpreted and normalized within their everyday social worlds. The findings highlight the need to understand the manosphere as a dynamic, fluid and relational media ecosystem that becomes embedded in youth cultures through peer-based interactions and seemingly non-political content, contributing to the normalization of toxic masculinity practices, perspectives and discourses.",
+      "authors": [
+        "Anna I\u00f1igo",
+        "Maria-Jose Masanet"
+      ],
+      "affiliations": [
+        "Universitat de Barcelona"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-18",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "critical-cultural",
+        "journalism-media"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journal-of-children-and-media",
+      "journal_slug": "journal-of-children-and-media",
+      "journal": "Journal of Children and Media",
+      "title": "Evaluating the impact of Work It Out Wombats! on children\u2019s computational thinking and related skills in the United States",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/17482798.2026.2705209",
+      "link": "https://doi.org/10.1080/17482798.2026.2705209",
+      "abstract": "Computational thinking (CT) and related skills are important for children\u2019s development and future success. CT can promote problem-solving and social-emotional learning (e.g. task persistence and frustration tolerance). Widely accessible educational media present opportunities for fostering the development of these skills in young children, especially those in historically underserved communities. Researchers conducted an 8-week randomized controlled trial with 458 children ages 4\u20135 from low-income households in the United States. This study explored whether providing access to educational videos and games for 1.5 hours per week supported children\u2019s CT, problem-solving, and social-emotional learning. Researchers randomly assigned participants to one of two conditions and gave them internet-enabled tablets. Researchers instructed the treatment group to engage with videos, games, and activities from the CT-focused PBS KIDS series Work It Out Wombats! and told those in the control group to use any educational resources for the same period of time. Participants in the treatment condition scored significantly higher on a measure of sequencing skills at post-test, controlling for other pre-test assessments and demographics. We found no other significant group differences on post-test computational thinking, problem-solving, or social-emotional learning skills. We discuss the use of digital media to promote CT and implications for future work.",
+      "authors": [
+        "Emily Relkin",
+        "Claire Christensen",
+        "Megan Silander",
+        "Shari Dubos",
+        "Janna Kook",
+        "Sarah Gerard",
+        "Elizabeth Hunt",
+        "Erika Gaylor",
+        "Mingyue Sun",
+        "Regan Vidiksis"
+      ],
+      "affiliations": [
+        "Education Development Center",
+        "SRI Education"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-24",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "journalism-media",
+        "digital-communication"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "journalism",
+      "journal_slug": "journalism",
+      "journal": "Journalism",
+      "title": "Fake news bargains in stakeholder perspectives and power dynamics: Equivalence framing of South Korean media",
+      "published_date": "2026-07-30",
+      "doi": "10.1177/14648849261474899",
+      "link": "https://doi.org/10.1177/14648849261474899",
+      "abstract": "Fake news debates persist as competing evaluations of the same information problem coexist within news discourse. This study examines how fake-news response discourse is shaped by stakeholder perspectives and political dynamics in South Korean media. Using a quantitative content analysis of news coverage published between 2017 and 2024, the study analyzes pro- and anti-regulation responses and tests whether regulatory positions vary by ideological orientation, power ownership, and media partisanship. The findings show that pro-regulatory responses dominate the discourse, while stakeholder positions diverge between regulatory and nonregulatory approaches. Logistic regression results further indicate that regulatory attitudes are explained more strongly by power ownership than by ideological orientation, suggesting that shifts in ruling and opposing status shape regulatory debates more than stable ideological divisions. A slight variation, in which partisan media outlets featured politically contrasting actors actively endorsing regulatory stances, did not affect the overall outcomes, although it calls for further attention regarding media\u2019s dual role as a press freedom safeguard and a sectarian stakeholder. These findings show how different regulatory evaluations are embedded in the complicated context of fake news discourse. By demonstrating this pattern in a long-term empirical setting, the study extends equivalence framing beyond experimental contexts and contributes to framing research by showing how enduring political conflict structures interpretations of fake news in journalism.",
+      "authors": [
+        "Mina Park",
+        "Gunho Lee"
+      ],
+      "affiliations": [
+        "Division of Communication and Media, Ewha Womans University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "publisher": "SAGE Publications",
+      "subareas": [
+        "journalism-media"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
       "journal_id": "journalism",
       "journal_slug": "journalism",
       "journal": "Journalism",
@@ -103,6 +900,32 @@
       ],
       "primary_subarea": "journalism-media",
       "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
+    },
+    {
+      "journal_id": "journalism-studies",
+      "journal_slug": "journalism-studies",
+      "journal": "Journalism Studies",
+      "title": "Reworking Journalism at the Digital Periphery: Role Work among Political Creators",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/1461670x.2026.2710136",
+      "link": "https://doi.org/10.1080/1461670x.2026.2710136",
+      "abstract": "Political creators have become central actors in contemporary public communication and increasingly perform functions traditionally associated with journalism. Their growing presence has blurred the boundaries between journalism and its environment, raising questions about how journalistic roles are reworked beyond institutional newsrooms. Journalism studies have responded to these blurred boundaries through research on boundary negotiations, professional norms, and journalistic authority, largely from the perspective of the journalistic center. This article shifts the focus toward the periphery and examines how digitally enabled actors position themselves in relation to journalism and create their roles vis-\u00e0-vis the journalistic center. To conceptualize these peripheral perspectives, the article introduces the concept of role work and explores the concept in an exploratory empirical study. Drawing on 22 qualitative interviews with German political creators, the study shows that creators neither fully adopt nor categorically reject journalistic role models. Instead, they engage in selective, hybrid, and context-sensitive reinterpretations of journalistic values, goals, and practices. These processes of role work are shaped by platform affordances, small-scale production outside newsroom structures, the experienced boundary work of the journalistic center, and close, interactive relationships with audiences.",
+      "authors": [
+        "Paula Nitschke"
+      ],
+      "affiliations": [
+        "Knowledge, and Communication, University of Augsburg"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-18",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "journalism-media"
+      ],
+      "primary_subarea": "journalism-media",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
     },
     {
       "journal_id": "media-and-communication",
@@ -235,6 +1058,86 @@
       ],
       "primary_subarea": "science-environment",
       "first_seen_at": "2026-07-31T04:39:40.392185+00:00"
+    },
+    {
+      "journal_id": "technical-communication-quarterly",
+      "journal_slug": "technical-communication-quarterly",
+      "journal": "Technical Communication Quarterly",
+      "title": "Building DIY Coding Credibility: The Personas, Practices, and Pedagogies of Female AI Tech Influencers on YouTube",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/10572252.2026.2703046",
+      "link": "https://doi.org/10.1080/10572252.2026.2703046",
+      "abstract": "This article explores the instructional design practices of three female artificial intelligence tech influencers (AITIs) who use YouTube to teach coding and professional literacies. Our thematic analysis of nine video transcripts featuring generative AI (GAI) yielded themes centered on influencers\u2019 persona development, flexible instructional methods, opportunities for application, and GAI limitations. We conclude the article by identifying a utilitarian ethical dilemma wherein AITIs avoid overt feminist arguments to reach a broader audience.",
+      "authors": [
+        "Kellie M. Gray",
+        "Niveditha Pookkottuvariam",
+        "Steve Holmes"
+      ],
+      "affiliations": [
+        "Texas Tech University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-22",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "organizational-strategic"
+      ],
+      "primary_subarea": "organizational-strategic",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "text-and-performance-quarterly",
+      "journal_slug": "text-and-performance-quarterly",
+      "journal": "Text and Performance Quarterly",
+      "title": "Grief-time in Wave 1.12.22",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/10462937.2026.2707215",
+      "link": "https://doi.org/10.1080/10462937.2026.2707215",
+      "abstract": "This essay responds to Desir\u00e9e Rowe\u2019s Wave 1.12.22. I read Rowe\u2019s performance as an experiment in grief-time. Through a Black and women of color feminist reading of Rowe\u2019s performance, I demonstrate the utility of grief-time, what it makes visible of our social landscapes, and consider it an equipment for living for other worldings.",
+      "authors": [
+        "Michael Tristano Jr."
+      ],
+      "affiliations": [
+        "Towson University"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-7",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "critical-cultural"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
+    },
+    {
+      "journal_id": "text-and-performance-quarterly",
+      "journal_slug": "text-and-performance-quarterly",
+      "journal": "Text and Performance Quarterly",
+      "title": "Legal fictions and bodily realities: privacy, personhood, and the fall of Roe v. Wade",
+      "published_date": "2026-07-30",
+      "doi": "10.1080/10462937.2026.2705232",
+      "link": "https://doi.org/10.1080/10462937.2026.2705232",
+      "abstract": "This essay reframes the conventional narrative of Roe v. Wade as feminist triumph and Dobbs v. Jackson as its reversal. Drawing on Elizabeth Bell's extension of Victor Turner's social drama model, I position Roe and Dobbs as intensifying performances of patriarchal redress. Roe's feminist progress rested on a constitutional compromise rooted in an exclusionary privacy doctrine. Those rights were secured, and simultaneously rendered vulnerable, from the outset. Bringing performance studies\u2019 attention to embodiment, power, crisis, and redress into conversation with constitutional law, the essay exposes the limits of liberal privacy jurisprudence and the ongoing precarity of reproductive and queer rights.",
+      "authors": [
+        "Diana Woodhouse"
+      ],
+      "affiliations": [
+        "College of Southern Nevada"
+      ],
+      "subjects": [],
+      "volume": null,
+      "issue": null,
+      "pages": "1-16",
+      "publisher": "Informa UK Limited",
+      "subareas": [
+        "critical-cultural"
+      ],
+      "primary_subarea": "critical-cultural",
+      "first_seen_at": "2026-08-03T16:40:31.798722+00:00"
     },
     {
       "journal_id": "communication-education",
@@ -538,928 +1441,9 @@
       ],
       "primary_subarea": "general-communication",
       "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "international-journal-of-communication",
-      "journal_slug": "international-journal-of-communication",
-      "journal": "International Journal of Communication",
-      "title": "Numbers in Crisis: Nongovernmental Organizations, Data, and the Making of Humanitarian News",
-      "published_date": "2026-07-29",
-      "doi": "10.65476/csqq3n86",
-      "link": "https://doi.org/10.65476/csqq3n86",
-      "abstract": "Whereas studies have examined the growing influence and news access of international nongovernmental organizations (NGOs), little is known about how they source and present the data used in information subsidies such as press releases. Drawing on a content analysis of 329 humanitarian NGO press releases and 19 interviews with NGO communicators, United Nations (UN) agencies, and major humanitarian donors, this article reveals that NGOs are locked into relationships of dependency, particularly about quantitative humanitarian data. Rather than producing original data, NGOs frequently recycle or manipulate secondary data, predominantly from UN sources, in a process we term \u201cdata churnalism.\u201d The study also nuances existing accounts of NGO professionalization by highlighting the persistence of limited transparency and weak source attribution in their news practices. We argue that these dependencies risk eroding NGOs\u2019 credibility and shaping humanitarian news agendas with politicized or unreliable information while also identifying one NGO\u2019s independent data model as a potential alternative.",
-      "authors": [
-        "Michael Sunderland",
-        "Daniel Jackson"
-      ],
-      "affiliations": [],
-      "subjects": [],
-      "volume": "20",
-      "issue": null,
-      "pages": "2033-2056",
-      "publisher": "USC Annenberg Press",
-      "subareas": [
-        "general-communication",
-        "intercultural-international"
-      ],
-      "primary_subarea": "general-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "international-journal-of-communication",
-      "journal_slug": "international-journal-of-communication",
-      "journal": "International Journal of Communication",
-      "title": "Voiceless Citizens: Symbolic Annihilation, Media Distrust, and the Search for Belonging Among Palestinian Citizens of Israel",
-      "published_date": "2026-07-29",
-      "doi": "10.65476/cjkavs77",
-      "link": "https://doi.org/10.65476/cjkavs77",
-      "abstract": "This article examines the relationship between media representation and media trust among a national minority in a conflict-ridden democracy. Focusing on Palestinian citizens of Israel, this qualitative study explores how perceptions of symbolic annihilation\u2014persistent underrepresentation and negative stereotyping in mainstream media\u2014shape affective and cognitive distrust. Based on 30 in-depth interviews conducted against the backdrop of the 2023\u20132024 Israel-Gaza war, the study shows that participants experience Israeli media not as neutral information sources, but as hostile institutions that reinforce structural marginalization. Findings reveal a spectrum of distrust, ranging from pragmatic skepticism to deep-seated cynicism, a fractured sense of national belonging, and counter-hegemonic media practices that affirm identity and agency. The study contributes theoretically by reconceptualizing minority media distrust as an identity-based, socially and structurally embedded phenomenon, expanding understanding of the affective and cognitive dimensions of media engagement by comparing these dynamics to other marginalized groups globally (e.g., communities of color in the United States). Implications extend to social cohesion, democratic participation, and the role of media in divided societies navigating active national conflicts.",
-      "authors": [
-        "Nissim Katz",
-        "Alonit Berenson"
-      ],
-      "affiliations": [],
-      "subjects": [],
-      "volume": "20",
-      "issue": null,
-      "pages": "1991-2011",
-      "publisher": "USC Annenberg Press",
-      "subareas": [
-        "general-communication",
-        "intercultural-international"
-      ],
-      "primary_subarea": "general-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "international-journal-of-communication",
-      "journal_slug": "international-journal-of-communication",
-      "journal": "International Journal of Communication",
-      "title": "\u201cOnly the People Save the People?\u201d: Affective Infrastructures and the Polarization of Climate Disaster in Spain",
-      "published_date": "2026-07-29",
-      "doi": "10.65476/eqcazc52",
-      "link": "https://doi.org/10.65476/eqcazc52",
-      "abstract": "Extreme weather events are increasingly becoming polarized political battlefields on digital platforms. This article examines the 2024 Valencia flood crisis (Spain) to analyze how \u201caffective infrastructures\u201d shape public interpretation of climate disasters. Employing a mixed-method approach\u2014integrating national survey data with computational analysis of social media (PLN and Social Network Analysis)\u2014we identify a structural \u201caffective gap.\u201d This gap represents a divergence between citizens\u2019 privately declared helplessness and the performative rage dominating the digital sphere. We trace how the viral slogan \u201cOnly the people save the people\u201d acted as a \u201csticky\u201d sign, mobilizing solidarity while delegitimizing state institutions. The findings demonstrate that digital affective economies do not merely reflect public malaise but actively restructure it. This case offers a critical blueprint for understanding how algorithmic polarization and affective politics converge to challenge institutional trust and social cohesion during climate emergencies.",
-      "authors": [
-        "Antonio Cambra Gonz\u00e1lez"
-      ],
-      "affiliations": [],
-      "subjects": [],
-      "volume": "20",
-      "issue": null,
-      "pages": "2012-2032",
-      "publisher": "USC Annenberg Press",
-      "subareas": [
-        "general-communication",
-        "intercultural-international"
-      ],
-      "primary_subarea": "general-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journal-of-broadcasting-and-electronic-media",
-      "journal_slug": "journal-of-broadcasting-electronic-media",
-      "journal": "Journal of Broadcasting & Electronic Media",
-      "title": "Feeling Informed and Feeling Heard: Recommender Systems Usage and Political Efficacy",
-      "published_date": "2026-07-29",
-      "doi": "10.1080/08838151.2026.2705972",
-      "link": "https://doi.org/10.1080/08838151.2026.2705972",
-      "abstract": "This study explores the relationship between recommender systems (RS) usage and users\u2019 political efficacy, which reflects citizens\u2019 beliefs in their political competence (internal efficacy) and in political systems\u2019 responsiveness (external efficacy). Through a representative Dutch sample (N = 2,930), we analyzed RS usage across seven digital platforms. Examining overall RS usage, we found that frequent users report higher internal efficacy via more perceived exposure to political information and higher external efficacy via higher perceived opinion congruence. Considering platform-specific RS usage, we identified four user groups: RS avoiders, RS for news, RS for trends, and RS for brands. They varied in political information perceptions and internal efficacy, with platform usage controlled. Together, these findings challenge concerns that RS usage deters users from political content yet support the concern that it is linked with opinion-congruent information.",
-      "authors": [
-        "Jin Wan",
-        "Theo B. Araujo",
-        "Natali Helberger",
-        "Claes de Vreese"
-      ],
-      "affiliations": [
-        "University of Amsterdam, Amsterdam, the Netherlands"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-19",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "journalism-media",
-        "digital-communication"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journal-of-social-and-personal-relationships",
-      "journal_slug": "journal-of-social-and-personal-relationships",
-      "journal": "Journal of Social and Personal Relationships",
-      "title": "Too Late to Trust? Chronemic Expectancy Violations, Appraisal, and Romantic Relationship Trust",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/02654075261472148",
-      "link": "https://doi.org/10.1177/02654075261472148",
-      "abstract": "Depending on the timing of a sensitive admission, a dating partner may view it as candor or withholding. Three hundred thirty-three American adults reported on a dating relationship in which one partner disclosed a clinician-diagnosed mental illness during the first year. Using expectancy violations theory (EVT) and the disclosure processes model (DPM), this study examined associations among disclosure timing, timing appraisal, diagnosis stigma, and latent general trust. A bifactor confirmatory factor analysis of the 17-item trust scale revealed a robust general trust factor. After controlling for baseline trust, relationship tenure, and couple composition, negative-late disclosures were associated with lower latent general trust than on-time disclosures (\u03b2 = \u2212.27, p",
-      "authors": [
-        "Fan Wang"
-      ],
-      "affiliations": [
-        "University of Texas at Austin"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "interpersonal-family"
-      ],
-      "primary_subarea": "interpersonal-family",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journal-of-social-and-personal-relationships",
-      "journal_slug": "journal-of-social-and-personal-relationships",
-      "journal": "Journal of Social and Personal Relationships",
-      "title": "\u201cIt\u2019s Just Still Them\u201d: A Qualitative Study Exploring the Experiences of the Intimate Relational Others of Transgender People",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/02654075261472944",
-      "link": "https://doi.org/10.1177/02654075261472944",
-      "abstract": "Research focusing on the intimate relational others (IROs) of transgender people is limited. This study aims to examine the experiences of IROs, especially as they relate to decision-making, relational dynamics, and identity shifts in relationships where a partner comes out as transgender. This study used semi-structured qualitative interviews to examine the experiences of 12 IROs. Reflexive thematic analysis was used to analyze data. IROs were largely unsurprised by their partner\u2019s coming out and reported following the lead of their trans partners about decision-making surrounding coming out to others. IROs acted as a consultant in transition-related decision-making within the relationship and felt protective of their trans partners, especially when they perceived an increasingly hostile environment. IROs reported shifts in their sexual identities that were either related to their partner\u2019s change in identity or facilitated by it. Overall, IROs reported stability in their relationships and highlighted that their relational dynamics and perceptions of their partners remained mostly unchanged. Support for linked lives within the life course perspective and the Gender as Relational model was found. Strengths in the IRO, the trans partner, and the relationship may account for successful navigation of the coming out process.",
-      "authors": [
-        "Simaza Sadek"
-      ],
-      "affiliations": [
-        "Rutgers University School of Social Work"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "interpersonal-family"
-      ],
-      "primary_subarea": "interpersonal-family",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journalism",
-      "journal_slug": "journalism",
-      "journal": "Journalism",
-      "title": "Narratives from the war zone: Trauma experiences among Central-Eastern European correspondents covering the war in Ukraine",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/14648849261474023",
-      "link": "https://doi.org/10.1177/14648849261474023",
-      "abstract": "The study explored the narratives of foreign correspondents from Central-Eastern Europe covering the war in Ukraine. Using in-depth, semi-structured interviews with journalists from Bulgaria, Romania, Hungary, and the Czech Republic (N = 13), this research found that journalists experienced mental health challenges such as insomnia, bad dreams, and depression after returning to their home countries. However, they did not ask and were not offered support from their media organizations. Many expressed skepticism about the effects of the war on their well-being, and even if they experienced behavioral changes, they preferred to talk about these changes with their colleagues and fixers. None of the correspondents followed safety protocols or guidelines while covering the war, and they said their media organizations never provided instructions for war coverage and protective equipment was limited. These narratives reveal the personal and organizational sense-making that can occur after journalists have witnessed traumatic events.",
-      "authors": [
-        "Teodora Trifonova",
-        "Joy Jenkins"
-      ],
-      "affiliations": [
-        "School of Journalism, University of Missouri, Columbia, MO, USA"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "journalism-media"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journalism-and-mass-communication-quarterly",
-      "journal_slug": "journalism-mass-communication-quarterly",
-      "journal": "Journalism & Mass Communication Quarterly",
-      "title": "A Viral War: Threat Perceptions in Light of Social Media News Consumption on the Russo-Ukrainian War",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/10776990261470427",
-      "link": "https://doi.org/10.1177/10776990261470427",
-      "abstract": "This article explores how social media news on the Russo-Ukrainian War shapes people\u2019s perceptions of security through the lens of cultivation theory. Drawing on focus groups ( N = 31), Study 1 shows that Austrian citizens experienced war coverage as immediate but overwhelming, with graphic visuals often triggering anxiety. Study 2, a quota-representative survey ( N = 1,000), finds that frequent exposure to such content heightens Austrians\u2019 perceptions of becoming a victim of this war and makes news appear more emotionally unsettling. Together, we demonstrate that cultivation processes persist in today\u2019s fragmented media environment, with important psychological and societal consequences.",
-      "authors": [
-        "Tam\u00e1s T\u00f3th",
-        "Phelia Weiss",
-        "Kevin Koban",
-        "Ines Katrin Spielvogel",
-        "J\u00f6rg Matthes"
-      ],
-      "affiliations": [
-        "University of Vienna, Austria",
-        "Ludovika University of Public Service, Budapest, Hungary",
-        "Medical University of Vienna, Austria"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "journalism-media"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journalism-and-mass-communication-quarterly",
-      "journal_slug": "journalism-mass-communication-quarterly",
-      "journal": "Journalism & Mass Communication Quarterly",
-      "title": "Constructing the Journalistic Self: Habitus, Subjectivation, and the Politics of Inequality",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/10776990261469067",
-      "link": "https://doi.org/10.1177/10776990261469067",
-      "abstract": "How do journalists make sense of themselves and their work in postcolonial societies marked by enduring race and class inequalities? This article examines how journalists discursively represent newsroom dynamics, paying particular attention to how their subjectivities are formed. Drawing on 27 semi-structured in-depth interviews with current and former journalists in Jamaica, this study aims to understand how subjectivation and habitus, shape the ways in which journalists reproduce or contest inequalities. It also examines the professional subjectivities and ideologies that are revealed in the discourse of Jamaican journalists and how they relate to race and class inequalities. Existing work on journalism and inequality has largely focused on questions of voice, whose perspectives are included or excluded, and on how media institutions perpetuate structural inequalities. The findings reveal that journalists\u2019 own subjectivities, social backgrounds, and internalised dispositions shape the way they see themselves and the work that they do. The study identifies a typology of journalistic subjectivities that emerge within postcolonial contexts: the class-conscious journalist, the racially conscious journalist, and the racially neutral journalist.",
-      "authors": [
-        "Vashan Brown"
-      ],
-      "affiliations": [
-        "The London School of Economics and Political Science, UK"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "journalism-media"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "journalism-and-mass-communication-quarterly",
-      "journal_slug": "journalism-mass-communication-quarterly",
-      "journal": "Journalism & Mass Communication Quarterly",
-      "title": "Navigating Precarity: Gendered Labor Inequalities and Economic Vulnerability Among Women Journalists in Ghana",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/10776990261471553",
-      "link": "https://doi.org/10.1177/10776990261471553",
-      "abstract": "Women journalists in Ghana navigate a precarious professional environment marked by job insecurity, prolonged unpaid labor, and systemic gender discrimination within a patriarchal society. This study, based on in-depth qualitative interviews with 27 journalists, explores how precarious employment conditions shape their careers and personal lives. Ghanaian women face increased workplace exploitation, harassment, and career stagnation under weak labor protections. This study contributes to broader discussions on journalism precarity in the Global South, highlighting the need for locally grounded perspectives that reflect the unique sociopolitical and economic realities shaping women\u2019s experiences in media.",
-      "authors": [
-        "Audrey D. Anchirinah",
-        "Danford Zirugo"
-      ],
-      "affiliations": [
-        "Hubbard School of Journalism and Mass Communication, University of Minnesota\u2013Twin Cities, MN, USA",
-        "School of Journalism and Mass Communication, University of Wisconsin\u2013Madison, USA",
-        "Department of Journalism and Creative Media, College of Communication and Information Sciences, University of Alabama, Tuscaloosa, USA"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "journalism-media"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "media-and-communication",
-      "journal_slug": "media-and-communication",
-      "journal": "Media and Communication",
-      "title": "Building National Research Infrastructure for Digital Platform Observability at Scale",
-      "published_date": "2026-07-29",
-      "doi": "10.17645/mac.12090",
-      "link": "https://doi.org/10.17645/mac.12090",
-      "abstract": "Digital platforms have fundamentally transformed public communication, yet the capacity to study them is increasingly threatened by restricted data access, opaque algorithmic architectures, and complex legal barriers. Addressing these challenges requires a paradigm shift from isolated, project-based solutions toward shared, national-scale research infrastructures. We present the Australian Internet Observatory (AIO) as a case study of a multi-year initiative designed to facilitate digital media platform observability at scale. The AIO integrates access to computational resources, data governance frameworks, and diverse data sourcing methods, ranging from platform-centric API-harvesting to user-focused data donations. The AIO addresses methodological challenges, ethics, the technical skills gap, and the complexities of regulatory compliance. We argue that shared infrastructures function as vital institutional interventions to ensure independent, reproducible, and ethical digital media research in a continuously evolving media environment",
-      "authors": [
-        "Bogdan Mamaev",
-        "Daniel Angus",
-        "Amanda Lawrence",
-        "Richard Sinnott"
-      ],
-      "affiliations": [],
-      "subjects": [],
-      "volume": "14",
-      "issue": null,
-      "pages": null,
-      "publisher": "Cogitatio",
-      "subareas": [
-        "journalism-media",
-        "general-communication"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "media-and-communication",
-      "journal_slug": "media-and-communication",
-      "journal": "Media and Communication",
-      "title": "Fact-Checking With Machines: Journalism Students\u2019 Perceptions of AI and the Ethics of Counterspeech",
-      "published_date": "2026-07-29",
-      "doi": "10.17645/mac.12454",
-      "link": "https://doi.org/10.17645/mac.12454",
-      "abstract": "This article examines how journalism students in Indonesia negotiate the integration of artificial intelligence (AI) into fact-checking and counterspeech practices within journalism education. Drawing on practice theory, the study conceptualizes AI as part of the material dimension of journalistic practice and explores how its use reconfigures the relationships between materials, competence, and meanings. The study draws on elicitation interviews in which students explored conventional and AI-assisted fact-checking and reflected on how each shaped their verification practices. The findings show that students adopt a hybrid approach, using AI to enhance efficiency without replacing established verification routines grounded in mainstream media and official sources. While AI tools highlight time-saving capabilities and assist in generating counterspeech, students continue to rely on traditional methods in situations requiring greater human judgement. This suggests that AI is integrated as a complementary resource rather than a substitute for journalistic judgment. However, AI-assisted fact-checking practices raise concerns about the erosion of critical evaluation skills. More importantly, the findings reveal tensions in the meanings underpinning journalistic practice. Students frame fact-checking and counterspeech as ethical and interpretive activities, emphasizing transparency, responsibility, and authenticity. Overall, the study argues that AI integration reshapes not only the workflows but also the normative foundations of fact-checking and public engagement, highlighting the need for human-centered and ethically grounded journalism education.",
-      "authors": [
-        "Yearry Panji Setianto"
-      ],
-      "affiliations": [],
-      "subjects": [],
-      "volume": "14",
-      "issue": null,
-      "pages": null,
-      "publisher": "Cogitatio",
-      "subareas": [
-        "journalism-media",
-        "general-communication"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "media-culture-and-society",
-      "journal_slug": "media-culture-society",
-      "journal": "Media, Culture & Society",
-      "title": "Shortcuts and scholarship: A cross-generational reflection on AI and academic formation",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/01634437261472373",
-      "link": "https://doi.org/10.1177/01634437261472373",
-      "abstract": "Generative AI is changing not just how academic work gets done, but whether the processes that build genuine understanding are happening at all. This essay, written collaboratively by an early career researcher and a senior scholar in communication and media studies, argues that the real risk is not that AI will replace researchers, but that it will quietly erode the conditions under which researchers are formed, and indeed, what counts as research process. When doctoral students can produce coherent, polished outputs without sustained reading, critical thinking, or sitting with difficulty and uncertainty, something important is lost: the slow, often uncomfortable process through which understanding develops. Drawing on communication theory, critical pedagogy, and political economy, we examine the distinction between AI as a thinking tool and AI as a substitute for thought. We also argue that meaningful change requires institutional reform, not just better pedagogy. The machines are doing exactly what they are designed to do. The question is what we are designing our universities to do.",
-      "authors": [
-        "Aniruddha Jena",
-        "Usha Raman"
-      ],
-      "affiliations": [
-        "School of Management, Indian Institute of Technology, Mandi, Himachal Pradesh, India",
-        "University of Hyderabad, Telangana, India"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "critical-cultural",
-        "journalism-media"
-      ],
-      "primary_subarea": "critical-cultural",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "new-media-and-society",
-      "journal_slug": "new-media-society",
-      "journal": "New Media & Society",
-      "title": "Presumed media influence and support for social media bans: The roles of social and elite-based validation",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/14614448261467611",
-      "link": "https://doi.org/10.1177/14614448261467611",
-      "abstract": "The study examines how presumed influences of social media on young people, as well as perceptions of how widely such beliefs are shared, shape support for social media bans. Extending the Influence of Presumed Influence (IPI) model, we introduce second-order presumed influences, defined as perceptions about how widely others presume media influences, and propose a mechanism of social validation. We additionally examine elite-based validation, referring to perceived beliefs of influential actors (i.e. scientists, politicians, and the media), as well as perceived social norms. Using survey data ( N = 1270) collected in the context of debates about a social media ban for minors under 16 in Switzerland, we find that stronger presumed influences predict support for a ban. While we find no support for social validation, the results point to the relevance of elite-related perceptions, particularly presumed scientific consensus. Perceived social norms of ban support emerge as an additional predictor of regulatory preferences.",
-      "authors": [
-        "Sarah Geber",
-        "Anne Schulz",
-        "Mike S. Sch\u00e4fer",
-        "Thomas N. Friemel"
-      ],
-      "affiliations": [
-        "Department of Communication and Media Research (IKMZ), University of Zurich, Switzerland",
-        "Institute for Media and Communication Studies, University of Mannheim, Germany"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "digital-communication",
-        "journalism-media"
-      ],
-      "primary_subarea": "digital-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "public-opinion-quarterly",
-      "journal_slug": "public-opinion-quarterly",
-      "journal": "Public Opinion Quarterly",
-      "title": "Nonpolitical Identity Signals as Information Shortcuts: Evidence from Three Experiments",
-      "published_date": "2026-07-29",
-      "doi": "10.1093/poq/nfag057",
-      "link": "https://doi.org/10.1093/poq/nfag057",
-      "abstract": "A rich literature has documented how voters navigate the complex information landscape by using heuristics, or \u201cinformation shortcuts,\u201d to help them make sense of the political world. Additionally, a budding line of research argues that our current polarization crisis has extended beyond just the political and now even affects the nonpolitical realm. We submit that voters may be using these nonpolitical identity signals (e.g., a candidate driving a Toyota Prius or eating at Chick-fil-A) as heuristics to make sense of the contemporary political era. Using three original survey experiments, we find that these nonpolitical identity cues are indeed used by voters as partisan heuristics, but only in the absence of political (partisan and issue) informational cues. Furthermore, we also suppress the effect of partisan identification when we provide orthogonal nonpolitical information. These findings show that nonpolitical identity items can be used by citizens as information shortcuts to help citizens navigate the complicated political waters that surround them, but that their effect in light of other pieces of information is minimal.",
-      "authors": [
-        "Levi G Allen",
-        "Wayde Z C Marsh"
-      ],
-      "affiliations": [
-        "Assistant Professor, Department of Political Science, Indiana State University , Terre Haute, IN,",
-        "Assistant Professor, Department of Political Science, University of Tennessee\u2014Knoxville , Knoxville, TN,"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "Oxford University Press (OUP)",
-      "subareas": [
-        "political-communication",
-        "methods"
-      ],
-      "primary_subarea": "political-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "public-understanding-of-science",
-      "journal_slug": "public-understanding-of-science",
-      "journal": "Public Understanding of Science",
-      "title": "\u201cYou can\u2019t challenge the narrative\u201d: Conservative-leaning New Zealanders on power, truth and politics in science",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/09636625261470281",
-      "link": "https://doi.org/10.1177/09636625261470281",
-      "abstract": "Institutions shape ideas and bridge gaps between competing views, but their role in managing tensions within scientific communities is under-researched. This paper uses social cohesion and new institutionalism frameworks to explore conservative New Zealanders\u2019 perspectives that compete with dominant institutional scientific narratives. We conducted semi-structured interviews with conservative-leaning New Zealanders, enquiring about their perspectives on the politics and practice of science in Aotearoa New Zealand. We found a strong belief in the importance of science and a high regard for scientists, provided they maintain objectivity and challenge prevailing ideas, alongside concerns about institutional bias and outspoken scientists being cancelled by institutions. We discuss how these themes undermine social cohesion, with perceived institutional bias eroding vertical cohesion\u2014trust between groups and institutions\u2014and leading to the emergence of parallel alternative institutions that break horizontal cohesion\u2014trust between groups in society.",
-      "authors": [
-        "Alex Beattie",
-        "Natalia Albert",
-        "Shona Riddell"
-      ],
-      "affiliations": [
-        "School of Science in Society, Victoria University of Wellington \u2013 Te Herenga Waka, New Zealand"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "science-environment"
-      ],
-      "primary_subarea": "science-environment",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "science-communication",
-      "journal_slug": "science-communication",
-      "journal": "Science Communication",
-      "title": "Forming Relationships With Scientists Through Film: A Qualitative Study of Viewers\u2019 Trust, Identification, and Value Alignment",
-      "published_date": "2026-07-29",
-      "doi": "10.1177/10755470261460413",
-      "link": "https://doi.org/10.1177/10755470261460413",
-      "abstract": "Drawing on open-ended responses from a national U.S. survey ( N = 630) of viewers of Observer , a documentary film featuring scientists engaged in practices of observation, we examine how audiences explained trust, identification, and perceived value alignment with the film\u2019s characters, most of whom were explicitly identified as scientists. Participants most often cited relational and affective qualities\u2014curiosity, authenticity, attentiveness, and communication style\u2014rather than formal expertise or social identities. Findings distinguish trust, identification, and value alignment as distinct forms of affinity, and illustrate the relational, affective, and experiential reasoning audiences drew on when articulating connection with scientists in this context.",
-      "authors": [
-        "Nicole M. Krause",
-        "Emily L. Howell",
-        "Sarah S. Goodwin"
-      ],
-      "affiliations": [
-        "Science Communication Lab, Berkeley, CA, USA"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "science-environment"
-      ],
-      "primary_subarea": "science-environment",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "annals-of-the-international-communication-association",
-      "journal_slug": "annals-of-the-international-communication-association",
-      "journal": "Annals of the International Communication Association",
-      "title": "Charting the evolution of human\u2013machine communication: a systematic review of 25 years of empirical research",
-      "published_date": "2026-07-28",
-      "doi": "10.1093/anncom/wlag033",
-      "link": "https://doi.org/10.1093/anncom/wlag033",
-      "abstract": "This study systematically examines trends and patterns in human\u2013machine communication (HMC) research from 2000 to 2024. Based on a comprehensive screening of studies published in 28 communication and interdisciplinary journals and 2 foundational books, we analyzed 209 peer-reviewed articles based on their metadata, theoretical frameworks, research methods, technologies of interest, and research themes. The findings show steady growth in HMC scholarship following its formal recognition as a subfield with the establishment of the ICA Interest Group in 2019, continued reliance on social scientific research designs, and increasing interdisciplinary contributions. A BERTopic analysis identified 9 coherent research clusters, reflecting a gradual shift from robot-focused investigations toward a broader range of studies on virtual agents, chatbots, and generative AI. Overall, this review maps HMC\u2019s intellectual trajectory and highlights key directions for future theoretical, methodological, and interdisciplinary development. It also discusses the increasingly ambiguous boundaries of HMC given the growing use of large language models and the convergent spaces between HMC and AI-mediated communication.",
-      "authors": [
-        "Fanjue Liu",
-        "Xiaobei Chen",
-        "Kun Xu"
-      ],
-      "affiliations": [
-        "USC-SJTU Institute of Cultural and Creative Industry, Shanghai Jiao Tong University, Shanghai, China",
-        "College of Journalism and Communications, University of Florida , Gainesville, FL,"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "Oxford University Press (OUP)",
-      "subareas": [
-        "general-communication"
-      ],
-      "primary_subarea": "general-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "chinese-journal-of-communication",
-      "journal_slug": "chinese-journal-of-communication",
-      "journal": "Chinese Journal of Communication",
-      "title": "Fan practices in digital mourning: from continuing bonds to value formation and collective action",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/17544750.2026.2706651",
-      "link": "https://doi.org/10.1080/17544750.2026.2706651",
-      "abstract": "This study investigates value-oriented digital mourning through the case of Hong Kong musician Khalil Fong, focusing on how fan communities transform grief into moral and cultural practices. While existing studies have examined affective expression and collective emotion in online mourning, little attention has been paid to the moral transformation and formation of public-oriented values embedded in these practices. Drawing on 58,376 Weibo comments and 20 in-depth interviews, the research employs a mixed computational\u2013ethnographic approach to explore the emotional, narrative, and moral-practical dimensions of mourning. The findings reveal that fans reconstruct loss into moral emotion, social action, and collective identity through continuing bonds, connective memory, and value-driven practice. In doing so, they convert individual grief into a shared moral imagination and civic participation. The study extends moral elevation theory to digital contexts, demonstrating how platformed co-presence, circulation, and shared mourning practices on social media can foster value co-creation and a sense of collective belonging in Chinese fan communities. By bridging emotion, value, and action, this research contributes to understanding the moral dimension of digital culture and the evolving forms of participatory commemoration in contemporary China.",
-      "authors": [
-        "Xinchun Li",
-        "Gongcheng Lin",
-        "Dandan Ma"
-      ],
-      "affiliations": [
-        "College of Computer Science and Artificial Intelligence, Fudan University",
-        "School of Journalism and Communication, Sun Yat-sen University",
-        "School of Journalism and Information Communication, Huazhong University of Science and Technology"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-22",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "intercultural-international",
-        "journalism-media"
-      ],
-      "primary_subarea": "intercultural-international",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "communication-research",
-      "journal_slug": "communication-research",
-      "journal": "Communication Research",
-      "title": "The Bio-Functional Audience: Shared Physiological Alignment to Narrative Media",
-      "published_date": "2026-07-28",
-      "doi": "10.1177/00936502261472026",
-      "link": "https://doi.org/10.1177/00936502261472026",
-      "abstract": "Communication research into audience responses has traditionally emphasized how individual or group differences create variance in interpretation while overlooking a more fundamental phenomenon: the capacity of the same message to induce similar responses across receivers. We introduce a bio-functional definition of the audience, a temporal collective bound together by the moment-to-moment alignment of its members\u2019 physiological responses. In a large-scale experiment ( N = 198) monitoring eye-tracking, heart rate, and electrodermal activity during a film, we mapped a processing hierarchy in which audience response alignment was strongest for gaze but also extended into downstream autonomic responses. Furthermore, a temporal manipulation of the narrative sequence abolished aligned responses, confirming that the induced audience state is driven by the message content. We conclude that messages function as alignment devices that reduce individual noise and bring distinct individuals into a shared processing state, thus providing a grounded, signal-based definition of the audience as a bio-functional entity.",
-      "authors": [
-        "Ralf Schm\u00e4lzle",
-        "Hee Jung Cho",
-        "Monique Mitchell Turner"
-      ],
-      "affiliations": [
-        "Department of Communication, Michigan State University, East Lansing, MI, USA"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": null,
-      "publisher": "SAGE Publications",
-      "subareas": [
-        "general-communication",
-        "methods",
-        "political-communication"
-      ],
-      "primary_subarea": "general-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "digital-journalism",
-      "journal_slug": "digital-journalism",
-      "journal": "Digital Journalism",
-      "title": "EU Audience Measurement Regulation: Implications for the Media\u2019s Democratic Role",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/21670811.2026.2703602",
-      "link": "https://doi.org/10.1080/21670811.2026.2703602",
-      "abstract": "New EU legislation aims to regulate audience measurement systems for the first time. With these rules, EU policymakers primarily seek to increase transparency, enabling media organisations to better understand the allocation and pricing of advertising revenue on platforms. However, as a long history of research in journalism studies shows, audience measurement systems also play an important role in editorial decision-making. This commentary draws on legal and journalism studies literature to offer a first exploration of the way new EU regulation of audience measurement systems could impact the media\u2019s democratic function. It finds that the regulations\u2019 focus on transparency may exacerbate power inequalities within the media system and between media and platforms, while their financial rationale neglects the impact audience measurement systems have on editorial decision-making. The commentary identifies ways to mitigate these challenges and closes by briefly highlighting new research opportunities that these upcoming EU regulations open up by making more data available on audience measurement systems.",
-      "authors": [
-        "Max van Drunen",
-        "Tom\u00e1s Dodds",
-        "Hannes Cools",
-        "Theresa Josephine Seipp"
-      ],
-      "affiliations": [
-        "Institute for Information Law, University of Amsterdam",
-        "School of Journalism and Mass Communication, University of Wisconsin-Madison",
-        "Amsterdam School of Communication Research, University of Amsterdam"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-14",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "journalism-media",
-        "digital-communication"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "digital-journalism",
-      "journal_slug": "digital-journalism",
-      "journal": "Digital Journalism",
-      "title": "Relying on the Mainstream? Entity Networks in Alternative Media",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/21670811.2026.2705298",
-      "link": "https://doi.org/10.1080/21670811.2026.2705298",
-      "abstract": "Alternative media, characterized by their heterogeneous nature and self-perceived corrective role to legacy media, have gained increasing relevance in shaping public opinion. Despite their influence, large-scale analyses of their referential and actor-related reporting characteristics remain scarce. This exploratory study investigates named entity networks in German alternative and legacy media, focusing on their reporting on the Nord Stream 2 gas pipeline from 2011 to 2022. Using computational methods, we analyze news articles from 37 alternative and 98 legacy outlets, extracting named entities and constructing co-occurrence networks to identify distinct reporting patterns. Our findings challenge assumptions that alternative media inherently diverge from legacy media in their referenced entities. While alternative media exhibit distinctive network structures\u2014such as lower modularity and higher transitivity\u2014they also demonstrate substantial overlap in their choice of entities and patterns of media mentions. These findings suggest that alternative media frequently mention other media, which may reflect resource limitations and reactive reporting tendencies. This study contributes to a deeper understanding of alternative media by highlighting both their unique characteristics and shared practices with legacy media.",
-      "authors": [
-        "Paul Balluff",
-        "Hajo G. Boomgaarden",
-        "Annie Waldherr"
-      ],
-      "affiliations": [
-        "Department of Communication, University of Vienna, Vienna, Austria",
-        "GESIS \u2013 Leibniz Institute for the Social Sciences, Cologne, Germany"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-19",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "journalism-media",
-        "digital-communication"
-      ],
-      "primary_subarea": "journalism-media",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "feminist-media-studies",
-      "journal_slug": "feminist-media-studies",
-      "journal": "Feminist Media Studies",
-      "title": "Beyond a neologism: \u201cyouni nan,\u201d \u201cyouni nv,\u201d and the contested landscape of everyday feminism in China",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/14680777.2026.2709388",
-      "link": "https://doi.org/10.1080/14680777.2026.2709388",
-      "abstract": "This paper examines the women\u2019s neologism youni nan (literally \u201cgreasy men\u201d) as a manifestation of everyday feminism in Chinese social media discourse, focusing on how women engage with and mobilize this term. Based on netnography on Weibo, Rednote, and Douyin, it reveals how women utilize the phrase to address subtle sexism, share their experiences, and foster a sense of collectiveness. Through parodying youni nan, they perform masculinity in ways that deconstruct male superiority, subvert the male gaze, and humorously challenge the \u201csacredness\u201d of patriarchy. However, the emergence of youni nv (literally \u201cgreasy woman\u201d) complicates these practices. Often used in a post-feminist mode, it illustrates how feminist language can be depoliticized and absorbed into misogynistic discourse, raising questions about the efficacy of everyday feminism. A case study of female KOL @gu highlights tensions in debates over youni nv, reflecting the contradictory nature of post-feminist media culture, where feminism and anti-feminism frequently intersect.",
-      "authors": [
-        "Bowen Shan"
-      ],
-      "affiliations": [
-        "Hong Kong Baptist University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-17",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "critical-cultural",
-        "journalism-media"
-      ],
-      "primary_subarea": "critical-cultural",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "feminist-media-studies",
-      "journal_slug": "feminist-media-studies",
-      "journal": "Feminist Media Studies",
-      "title": "Does danmei fiction truly generate feminist impacts? Evidence from Hong Kong fans\u2019 declarative and nondeclarative transformations",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/14680777.2026.2709386",
-      "link": "https://doi.org/10.1080/14680777.2026.2709386",
-      "abstract": "This study engages with the debate over whether danmei fiction truly has feminist impacts. Its objective is to contribute to the debate by i) providing the necessary yet often ignored framing of this debate as but one of the many popular feminist sub-debates on various genres of feminist popular culture, ii) substantiating the sympathetic camp of the danmei debate in a more causally immediate, systematic, and direct manner than current studies do, iii) advancing the understanding of three scantily explored ways through which danmei generates feminist impact (i.e. shipping, non-binarity, and gender equality), and iv) and helping extend the empirical scope of the debate to Hong Kong data. This study also develops a general framework for analyzing popular fiction\u2019s social impact by borrowing from cognitive psychology\u2019s dual process perspective and literary studies\u2019 concept of transformative reading. Our analysis finds that Hong Kong fans of danmei webnovels are led, consciously and unconsciously, by danmei content to take actions with feminist impact. This study\u2019s data were collected from in-depth interviews with 22 Hong Kong fans.",
-      "authors": [
-        "Matthew Ming-Tak Chew",
-        "Yiyuan Zhang"
-      ],
-      "affiliations": [
-        "Lingnan University",
-        "Xi\u2019an International Studies University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-19",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "critical-cultural",
-        "journalism-media"
-      ],
-      "primary_subarea": "critical-cultural",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "feminist-media-studies",
-      "journal_slug": "feminist-media-studies",
-      "journal": "Feminist Media Studies",
-      "title": "Embodied counter discourse: negotiating the limits of pink feminism in chinese digital feminist resistance",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/14680777.2026.2709391",
-      "link": "https://doi.org/10.1080/14680777.2026.2709391",
-      "abstract": "This paper investigates how digital feminist actors in contemporary China strategically subvert and resignify nationalist and patriarchal discourses, repurposing state-sanctioned idioms to expose their gendered contradictions and carve out spaces for critique under authoritarian constraints. Employing a discourse\u2014historical approach of two emblematic cases, the study traces discursive mechanisms such as intertextual irony, parody, and recontextualised appropriation that destabilise official narratives linking women\u2019s sexuality and menstruation to national morality and legitimacy. These interventions position the female body as a discursive battleground: marginalized in regulatory frameworks yet symbolically overloaded with nationalist imperatives. While entangled with pink feminism\u2019s adaptive alignments, such practices generate semantic ruptures that elevate embodied experiences as sites of dignity and justice. Conceptually, the paper introduces embodied counter-discourse to frame these subversive iterations, where corporeality serves as both analytical lens and resistive medium, extending beyond pink feminism\u2019s conciliatory bounds to foster centrifugal critique.",
-      "authors": [
-        "Zhengyu Yang"
-      ],
-      "affiliations": [
-        "University of Westminster Ringgold Standard Institution"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-24",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "critical-cultural",
-        "journalism-media"
-      ],
-      "primary_subarea": "critical-cultural",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "feminist-media-studies",
-      "journal_slug": "feminist-media-studies",
-      "journal": "Feminist Media Studies",
-      "title": "Searching for solidarity: revolutionary dreams and radical social movements",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/14680777.2026.2703973",
-      "link": "https://doi.org/10.1080/14680777.2026.2703973",
-      "abstract": "In Searching for Solidarity: Revolutionary Dreams and Radical Social Movements, Noor Ghazal Aswad offers a theoretically rich and affectively compelling rethinking of solidarity that speaks directl...",
-      "authors": [
-        "Julia Khrebtan-H\u00f6rhager"
-      ],
-      "affiliations": [
-        "Colorado State University Ringgold Standard Institution - Communication Studies"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-3",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "critical-cultural",
-        "journalism-media"
-      ],
-      "primary_subarea": "critical-cultural",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "Cultural Memory, Future Health Promotion, and the Ghosts of Mining Work in Cornwall, England",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2708942",
-      "link": "https://doi.org/10.1080/10410236.2026.2708942",
-      "abstract": "This interpretive commentary began with a question: what remains after the mines close? Living in Cornwall, I have encountered fragments of an unfinished story: memories shared casually on buses, in pubs, and in conversations with residents who carry the traces of mining's past. These stories are rarely told as accounts of health or trauma, but they reveal histories of occupational illness, masculine silence, family loss, and enduring forms of care. Drawing on mnemohistory and the idea of \"ghost archives,\" I explore how Cornwall's mining past continues to shape present health experiences, particularly around male vulnerability, mental health, and help-seeking. Not treating memory as nostalgia, I argue that memories, silences, and everyday narratives are forms of health knowledge. Community storytelling and local archives can create spaces where overlooked experiences are recognized and witnessed. This short piece is an invitation to health communicators: before asking communities to change, we must learn to listen to the ghosts that continue to speak.",
-      "authors": [
-        "Lance Peng"
-      ],
-      "affiliations": [
-        "Falmouth University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-4",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "Framing Depression: A Content Analysis of Responsibility Attribution of Mass Media Coverage in Japan",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2709695",
-      "link": "https://doi.org/10.1080/10410236.2026.2709695",
-      "abstract": "When communicating messages about responsibility for mental health issues, media framing serves as an important source that can change public opinion and attention. This study examines how Japanese national newspapers framed causal and treatment responsibility in the coverage of depression over the past 15 years. Using a content analysis of 363 articles, this study analyzed how Japanese newspapers attribute responsibility for depression at the individual, social network, and societal levels. Results show that Japanese media attribute more causal responsibility to the social network level, and more treatment responsibility to the society level. Findings show that Japanese mass media consider the importance of social network-level factors in shaping health outcomes when framing responsibility. Comparisons between different newspapers in terms of their editorial stance influence how responsibility is framed. A significant difference was found in Yomiuri's right-leaning orientation, which helps explain why it attributed less responsibility for treatment to the societal level than Asahi and Mainichi. Findings hope to help public health practitioners and health journalists deliver more effective health communication and promote fairer access to mental health resources.",
-      "authors": [
-        "Ning Xu",
-        "Yi Xuan Ong"
-      ],
-      "affiliations": [
-        "Hokkaido University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-12",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "Health, media, and communication",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2707566",
-      "link": "https://doi.org/10.1080/10410236.2026.2707566",
-      "abstract": "The handbook of Health, Media, and Communication, is edited by Gert-Jan de Bruijn, professor of Strategic Communication and AI, and professor Heidi Vandebosch, from the Department of Communication ...",
-      "authors": [
-        "Xianzhu Jin",
-        "Rebecca Sihui Chen"
-      ],
-      "affiliations": [
-        "The Hong Kong Polytechnic University"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-2",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "Using Iterative Concept Testing to Identify Key Considerations for Increasing Research Participation Among Older Racial and Ethnic Minorities Through Social Media Advertising",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2706529",
-      "link": "https://doi.org/10.1080/10410236.2026.2706529",
-      "abstract": "The US population is becoming older and more diverse, which puts people at higher risk for developing diseases that are the focus of ongoing research studies. These groups are under-represented in clinical research trials. This study is part of a larger project to expand and diversify older adult participation in Alzheimer's and dementia research studies using theory-based targeted messages. Analyses to identify the most important issues to address in health messaging for specific groups have been published broadly, but less has been written about turning this information into messages that are interpreted as intended by members of the target audience. This manuscript reports on the iterative concept testing approach used to create and refine targeted messages based on the reasoned action approach (RAA) to recruit White male, Black, and Hispanic older adults to sign up for an Alzheimer's and dementia-focused research registry using social media advertising. We conducted 20 focus groups with a total of 185 Hispanic (30.8%), Black (48.1%), and White (21.1%) adults between the ages of 50 and 80-years-old in the United States. Results highlighted key considerations for social media advertising recruitment of these target populations, including the importance of attributing the recruitment message to a reputable source to offset concerns about internet scams, and using racial and ethnically diverse images for targeted messaging was preferred over single race/ethnicity images. These results that extend beyond Alzheimer's and dementia-focused research registries can be generalized to recruitment of these target demographic groups across a variety of medical research contexts.",
-      "authors": [
-        "Erin K. Maloney",
-        "Amy Bleakley",
-        "Shawnika Hull",
-        "Jessica Langbaum"
-      ],
-      "affiliations": [
-        "University of Delaware, Newark, USA",
-        "Rutgers University, New Brunswick, USA",
-        "Banner Alzheimer\u2019s Institute, Phoenix, USA"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-16",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
-    },
-    {
-      "journal_id": "health-communication",
-      "journal_slug": "health-communication",
-      "journal": "Health Communication",
-      "title": "\u201cHIV Lives with Me; I Don\u2019t Live with HIV\u201d: Resilient Narratives of Aging HIV-Positive Same-Gender Loving Black Men in U.S. South",
-      "published_date": "2026-07-28",
-      "doi": "10.1080/10410236.2026.2707304",
-      "link": "https://doi.org/10.1080/10410236.2026.2707304",
-      "abstract": "This study explores the lived experiences of aging HIV-positive same-gender-loving Black men (SGLBM) over the age of 45. Grounded in Mohan Dutta's culture-centered approach to health communication, the research examines how participants navigate the intersecting challenges of race, sexuality, age, class, and HIV status across healthcare, community, and relational contexts. Drawing on focus group conversations, the study highlights the culturally grounded and communicatively constituted strategies such as assertive communication, humor, reframing through language, and collective care that participants use to cultivate resilience and confront stigma. These narratives reveal how aging SGLBM resist dehumanization and marginalization by building community, asserting agency, and creating new frameworks for survival and well-being. By centering their voices and lived realities, this study contributes to more inclusive understandings of resilience and calls for public health strategies and policy reforms that are culturally responsive, intersectional, and equity driven.",
-      "authors": [
-        "Godfried Asante",
-        "Nicholas Giambalvo",
-        "Andrew Spieldenner",
-        "Alex Garner",
-        "Alex Bautista",
-        "Aria Shahbazpour"
-      ],
-      "affiliations": [
-        "San Diego State University",
-        "California State University",
-        "MPact Global"
-      ],
-      "subjects": [],
-      "volume": null,
-      "issue": null,
-      "pages": "1-10",
-      "publisher": "Informa UK Limited",
-      "subareas": [
-        "health-communication"
-      ],
-      "primary_subarea": "health-communication",
-      "first_seen_at": "2026-07-31T03:37:23.343710+00:00"
     }
   ],
   "active_special_issues": [
-    {
-      "source_id": "health-communication-digital-mental-health-2026",
-      "journal_id": "health-communication",
-      "journal": "Health Communication",
-      "title": "Special Issue: Digital Mental Health: The Intersection of Information, Media Technology, Mental Health, and Communicative Processes",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/",
-      "status": "active",
-      "deadline": "2026-07-31",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
-      "snippet": "For a Special Issue on Digital Mental Health: The Intersection of Information, Media Technology, Mental Health, and Communicative Processes Manuscript deadline 31 July 2026 Special Issue Editor(s) Dr. Prof. Wang Jianmin , College of Arts and Media, Tongji University, China Dr. Prof. Robert A. Logan , U.S. National Library of Medicine (National Institutes of Health) retired; Professor emeritus, School of Journalism, U. of Missouri-Columbia U.S. Dr. Prof. Chien-Tu jeff Lai , Shih Hsin University, "
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "journal-of-advertising",
-      "journal": "Journal of Advertising",
-      "title": "Special Issue: Social Change and the Role of Advertising Regulation: New Challenges and Opportunities",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/social-change-and-the-role-of-advertising-regulation/",
-      "status": "active",
-      "deadline": "2026-07-31",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
-      "snippet": "Submissions should follow the manuscript format guidelines for JA found at https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=ujoa20 . The word count should be no longer than 12,000 words for Original Research Articles and Literature Reviews, and 6,000 words for Research Notes (including references, tables, figures, and appendices). The submission deadline is July 31, 2026 All manuscripts should be submitted through the JA Submission Site. The link to the submissio"
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "review-of-communication",
-      "journal": "Review of Communication",
-      "title": "Special Issue: Human-Machine Communication: Perceiving and Interacting with Machine Agents",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/human-machine-communication/",
-      "status": "active",
-      "deadline": "2026-08-01",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
-      "snippet": "All manuscripts should be submitted via the journal\u2019s online submission system. Authors should identify the themed call their paper is responding to by selecting the relevant drop-down option in the system. For formatting and length specifications, please refer to the journal\u2019s instructions for authors."
-    },
     {
       "source_id": "hcr-oup-calls",
       "journal_id": "human-communication-research",
@@ -1471,7 +1455,7 @@
       "deadline": "2026-08-31",
       "confidence": "high",
       "discovered_at": "2026-07-12T19:00:04.777380+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Human Communication Research invites extended abstracts reconsidering the concept of audience in contemporary communication research."
     },
     {
@@ -1485,7 +1469,7 @@
       "deadline": "2026-09-07",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "The optimal length for JAR submissions is 7,000 words, excluding references. Authors are welcome and encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 June 2026. For any questions or inquiries, please contact the entire Guest Editorial Team at the email addresses provided above."
     },
     {
@@ -1499,7 +1483,7 @@
       "deadline": "2026-10-12",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "The length for JAR submissions is 7,000 words, excluding references and web appendices. Authors are encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 July 2026."
     },
     {
@@ -1513,7 +1497,7 @@
       "deadline": "2026-11-01",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "We invite authors to submit a full draft manuscript of 8,000 words (inclusive of the abstract, tables, references, figure captions, endnotes). Full manuscripts must be submitted via ScholarOne, selecting this Special Issue (\u201cRelational Perspectives in Journalism (Studies)\u201d) on the submission system. The cover letter accompanying the submission (max. 400 words) should clearly address the relevance of the proposed article to the theme of the special issue. Please follow the instructions on the jou"
     },
     {
@@ -1527,7 +1511,7 @@
       "deadline": "2026-11-06",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "For a Special Issue on The Emotional Turn in Public Relations Theorizing Manuscript deadline 06 November 2026 Special Issue Editor(s) W. Timothy Coombs , Centre for Crisis and Risk Communication Yan Jin , University of Georgia Augustine Pang , Singapore Management University An-Sofie Claeys , Ghent University Journal information Read the Instructions for Authors on Journal of Public Relations Research View Journal of Public Relations Research on Taylor & Francis Online Submit an article to Journ"
     },
     {
@@ -1541,7 +1525,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Full manuscripts should be submitted through ScholarOne. During submission, authors must select \u201cIntercultural Communication in the Age of Artificial Intelligence: Negotiating Identity, Culture, and Digital Interaction\u201d as the Special Issue title. The Special Issue welcomes diverse forms of scholarship, including: Original empirical research employing qualitative, quantitative, computational, or mixed methods. Conceptual and theoretical papers advancing intercultural communication scholarship. C"
     },
     {
@@ -1555,7 +1539,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Review and Replication word limits: 9,000 words (inclusively) Report word limit: 4,000 words (inclusively) When you submit your paper, please identify whether the manuscript is a review, replication, or report and list the word count on the cover page"
     },
     {
@@ -1569,7 +1553,7 @@
       "deadline": "2027-01-05",
       "confidence": "high",
       "discovered_at": "2026-07-31T05:06:42.768813+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Public Relations Review invites work using non-findings to advance corporate social responsibility and corporate social advocacy research. Guest editors: Amy O\u2019Connor, Hyejoon Rim, Hao Xu, and Luke Capizzo."
     },
     {
@@ -1583,7 +1567,7 @@
       "deadline": "2027-10-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Manuscripts should be prepared according to the International Journal of Strategic Communication author guidelines and submitted via the journal\u2019s online submission system. Manuscripts should be submitted by October 31, 2027. The special issue will be published in 2028. Manuscripts accepted will be published online first."
     },
     {
@@ -1597,7 +1581,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-12T19:08:01.400983+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
     },
     {
@@ -1611,7 +1595,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-31T05:02:04.765724+00:00",
-      "last_seen_at": "2026-07-31T05:06:42.768813+00:00",
+      "last_seen_at": "2026-08-03T16:43:41.046327+00:00",
       "snippet": "The International Journal of Communication accepts proposals for Special Sections and Forums on a standing basis and evaluates them for fit with the journal."
     }
   ]
