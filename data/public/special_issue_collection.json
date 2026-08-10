@@ -1,8 +1,8 @@
 {
-  "run_started_at": "2026-08-03T16:43:41.046327+00:00",
+  "run_started_at": "2026-08-10T15:19:34.924218+00:00",
   "retrieved": 20,
   "stored": 20,
-  "marked_unverified": 2,
+  "marked_unverified": 0,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
@@ -10,6 +10,7 @@
     "hcr-oup-calls",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
+    "nca-calls",
     "tandf-special-issues-api"
   ],
   "authoritative_source_ids": [
@@ -21,15 +22,13 @@
     "jprr-emotional-turn-2026",
     "tandf-special-issues-api"
   ],
-  "empty_source_ids": [],
+  "empty_source_ids": [
+    "nca-calls"
+  ],
   "errors": [
     {
       "source_id": "health-communication-digital-mental-health-2026",
       "error": "Could not fetch https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/: HTTP Error 404: Not Found"
-    },
-    {
-      "source_id": "nca-calls",
-      "error": "publisher returned an access or bot-challenge page"
     },
     {
       "source_id": "sage-communication-cfp-hub",
