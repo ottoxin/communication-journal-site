@@ -22,7 +22,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://academic.oup.com/joc/pages/call-for-special-issues",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -61,7 +61,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://academic.oup.com/jcmc/pages/call-for-papers",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -101,7 +101,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://academic.oup.com/ct/pages/cfp-communication-and-constitution",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -142,7 +142,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://academic.oup.com/hcr/pages/special-issue-call-for-papers-2026",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -181,7 +181,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://academic.oup.com/anncom",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -260,7 +260,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://www.tandfonline.com/journals/rcmm20/about-this-journal",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -572,7 +572,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://www.tandfonline.com/journals/upcp20/about-this-journal",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -611,7 +611,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://journals.sagepub.com/home/crx",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -687,7 +687,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://journals.sagepub.com/home/nms",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -725,7 +725,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://www.tandfonline.com/journals/rics20/about-this-journal",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -1174,7 +1174,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
@@ -1880,7 +1880,7 @@
     "active": true,
     "collect": true,
     "special_issue_monitor": true,
-    "special_issue_checked_on": "2026-07-30",
+    "special_issue_checked_on": "2026-08-10",
     "special_issue_audit_url": "https://think.taylorandfrancis.com/special_issues/the-emotional-turn-in-public-relations-theorizing/",
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
