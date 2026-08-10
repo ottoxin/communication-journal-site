@@ -25,7 +25,7 @@ journals:
     associations: ["ICA"]
     registry_sources: ["current-repo", "ICA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://academic.oup.com/joc/pages/call-for-special-issues
   - id: journal-of-computer-mediated-communication
     title: Journal of Computer-Mediated Communication
@@ -38,7 +38,7 @@ journals:
     associations: ["ICA"]
     registry_sources: ["current-repo", "ICA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://academic.oup.com/jcmc/pages/call-for-papers
   - id: communication-theory
     title: Communication Theory
@@ -51,7 +51,7 @@ journals:
     associations: ["ICA"]
     registry_sources: ["ICA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://academic.oup.com/ct/pages/cfp-communication-and-constitution
   - id: human-communication-research
     title: Human Communication Research
@@ -64,7 +64,7 @@ journals:
     associations: ["ICA"]
     registry_sources: ["current-repo", "ICA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://academic.oup.com/hcr/pages/special-issue-call-for-papers-2026
   - id: annals-of-the-international-communication-association
     title: Annals of the International Communication Association
@@ -76,7 +76,7 @@ journals:
     associations: ["ICA"]
     registry_sources: ["ICA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://academic.oup.com/anncom
   - id: communication-culture-and-critique
     title: Communication, Culture and Critique
@@ -98,7 +98,7 @@ journals:
     associations: ["NCA"]
     registry_sources: ["NCA"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://www.tandfonline.com/journals/rcmm20/about-this-journal
   - id: communication-education
     title: Communication Education
@@ -174,7 +174,7 @@ journals:
     secondary_subareas: ["journalism-media"]
     registry_sources: ["current-repo"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://www.tandfonline.com/journals/upcp20/about-this-journal
   - id: communication-research
     title: Communication Research
@@ -186,7 +186,7 @@ journals:
     secondary_subareas: ["methods", "political-communication"]
     registry_sources: ["current-repo"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://journals.sagepub.com/home/crx
   - id: communication-methods-and-measures
     title: Communication Methods and Measures
@@ -207,7 +207,7 @@ journals:
     secondary_subareas: ["journalism-media"]
     registry_sources: ["SJR-seed"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://journals.sagepub.com/home/nms
   - id: information-communication-and-society
     title: Information, Communication & Society
@@ -219,7 +219,7 @@ journals:
     secondary_subareas: ["political-communication"]
     registry_sources: ["SJR-seed"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://www.tandfonline.com/journals/rics20/about-this-journal
   - id: digital-journalism
     title: Digital Journalism
@@ -325,7 +325,7 @@ journals:
     primary_subarea: health-communication
     registry_sources: ["SJR-seed"]
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/
   - id: journal-of-health-communication
     title: Journal of Health Communication
@@ -482,7 +482,7 @@ journals:
     homepage_url: https://www.tandfonline.com/journals/hprr20
     latest_articles_url: https://www.tandfonline.com/toc/hprr20/current
     special_issue_monitor: true
-    special_issue_checked_on: "2026-07-30"
+    special_issue_checked_on: "2026-08-10"
     special_issue_audit_url: https://think.taylorandfrancis.com/special_issues/the-emotional-turn-in-public-relations-theorizing/
     primary_subarea: organizational-strategic
     registry_sources: ["SJR-seed"]
