@@ -1,5 +1,5 @@
 {
-  "run_started_at": "2026-08-10T15:19:34.924218+00:00",
+  "run_started_at": "2026-08-10T15:39:52.714324+00:00",
   "retrieved": 20,
   "stored": 20,
   "marked_unverified": 0,
@@ -25,18 +25,5 @@
   "empty_source_ids": [
     "nca-calls"
   ],
-  "errors": [
-    {
-      "source_id": "health-communication-digital-mental-health-2026",
-      "error": "Could not fetch https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/: HTTP Error 404: Not Found"
-    },
-    {
-      "source_id": "sage-communication-cfp-hub",
-      "error": "Could not fetch https://journals.sagepub.com/special-issue-calls-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
-    },
-    {
-      "source_id": "wiley-personal-relationships-cfp",
-      "error": "Could not fetch https://onlinelibrary.wiley.com/page/journal/14756811/homepage/call-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
-    }
-  ]
+  "errors": []
 }
