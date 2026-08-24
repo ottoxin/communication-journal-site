@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-17T14:46:15.982834+00:00",
+  "generated_at": "2026-08-24T14:59:45.869461+00:00",
   "site_title": "Communication Journal Monitor",
   "article_count": 4177,
-  "local_only_article_count": 63,
+  "local_only_article_count": 0,
   "public_article_policy": "requires_clean_abstract",
   "journal_count": 70,
-  "active_special_issue_count": 11,
-  "digest_date": "2026-08-17",
+  "active_special_issue_count": 13,
+  "digest_date": "2026-08-24",
   "windows": {
-    "digest_date": "2026-08-17",
-    "new_this_week_start": "2026-08-10",
-    "new_this_week_end": "2026-08-16",
-    "previous_week_start": "2026-08-03",
-    "previous_week_end": "2026-08-09",
-    "late_additions_before": "2026-08-03",
-    "late_additions_first_seen_since": "2026-08-10T00:00:00+00:00"
+    "digest_date": "2026-08-24",
+    "new_this_week_start": "2026-08-17",
+    "new_this_week_end": "2026-08-23",
+    "previous_week_start": "2026-08-10",
+    "previous_week_end": "2026-08-16",
+    "late_additions_before": "2026-08-10",
+    "late_additions_first_seen_since": "2026-08-17T00:00:00+00:00"
   },
   "latest_articles": [
     {
@@ -1438,7 +1438,7 @@
       "deadline": "2026-08-31",
       "confidence": "high",
       "discovered_at": "2026-07-12T19:00:04.777380+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Human Communication Research invites extended abstracts reconsidering the concept of audience in contemporary communication research."
     },
     {
@@ -1452,7 +1452,7 @@
       "deadline": "2026-09-07",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "The optimal length for JAR submissions is 7,000 words, excluding references. Authors are welcome and encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 June 2026. For any questions or inquiries, please contact the entire Guest Editorial Team at the email addresses provided above."
     },
     {
@@ -1466,7 +1466,7 @@
       "deadline": "2026-10-12",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "The length for JAR submissions is 7,000 words, excluding references and web appendices. Authors are encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 July 2026."
     },
     {
@@ -1480,8 +1480,22 @@
       "deadline": "2026-11-01",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "We invite authors to submit a full draft manuscript of 8,000 words (inclusive of the abstract, tables, references, figure captions, endnotes). Full manuscripts must be submitted via ScholarOne, selecting this Special Issue (\u201cRelational Perspectives in Journalism (Studies)\u201d) on the submission system. The cover letter accompanying the submission (max. 400 words) should clearly address the relevance of the proposed article to the theme of the special issue. Please follow the instructions on the jou"
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "journal_id": "western-journal-of-communication",
+      "journal": "Western Journal of Communication",
+      "title": "Special Issue: Conspiracy Rhetoric Twenty-Five Years Later: Conspiring Minds Still Want to Know",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://think.taylorandfrancis.com/special_issues/conspiracy-rhetoric-twenty-five-years-later-conspiring-minds-still-want-to-know/",
+      "status": "active",
+      "deadline": "2026-11-01",
+      "confidence": "high",
+      "discovered_at": "2026-08-24T14:59:24.584920+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
+      "snippet": "We invite completed manuscripts of no more than 9000 words, inclusive of abstract, references, tables, figures, and captions. Manuscripts should be submitted using the journal's online submission system. Please refer to the Western Journal of Communication instructions for authors when formatting your manuscript. All submissions will undergo blind peer review. We anticipate publication in 2027."
     },
     {
       "source_id": "jprr-emotional-turn-2026",
@@ -1494,7 +1508,7 @@
       "deadline": "2026-11-06",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "For a Special Issue on The Emotional Turn in Public Relations Theorizing Manuscript deadline 06 November 2026 Special Issue Editor(s) W. Timothy Coombs , Centre for Crisis and Risk Communication Yan Jin , University of Georgia Augustine Pang , Singapore Management University An-Sofie Claeys , Ghent University Journal information Read the Instructions for Authors on Journal of Public Relations Research View Journal of Public Relations Research on Taylor & Francis Online Submit an article to Journ"
     },
     {
@@ -1508,7 +1522,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Full manuscripts should be submitted through ScholarOne. During submission, authors must select \u201cIntercultural Communication in the Age of Artificial Intelligence: Negotiating Identity, Culture, and Digital Interaction\u201d as the Special Issue title. The Special Issue welcomes diverse forms of scholarship, including: Original empirical research employing qualitative, quantitative, computational, or mixed methods. Conceptual and theoretical papers advancing intercultural communication scholarship. C"
     },
     {
@@ -1522,7 +1536,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Review and Replication word limits: 9,000 words (inclusively) Report word limit: 4,000 words (inclusively) When you submit your paper, please identify whether the manuscript is a review, replication, or report and list the word count on the cover page"
     },
     {
@@ -1536,8 +1550,22 @@
       "deadline": "2027-01-05",
       "confidence": "high",
       "discovered_at": "2026-07-31T05:06:42.768813+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Public Relations Review invites work using non-findings to advance corporate social responsibility and corporate social advocacy research. Guest editors: Amy O\u2019Connor, Hyejoon Rim, Hao Xu, and Luke Capizzo."
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "journal_id": "review-of-communication",
+      "journal": "Review of Communication",
+      "title": "Special Issue: Clarity",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://think.taylorandfrancis.com/special_issues/clarity/",
+      "status": "active",
+      "deadline": "2027-01-31",
+      "confidence": "high",
+      "discovered_at": "2026-08-24T14:59:24.584920+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
+      "snippet": "Papers must not exceed 9,000 words, inclusive of references, tables, and appendices."
     },
     {
       "source_id": "tandf-special-issues-api",
@@ -1550,7 +1578,7 @@
       "deadline": "2027-10-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Manuscripts should be prepared according to the International Journal of Strategic Communication author guidelines and submitted via the journal\u2019s online submission system. Manuscripts should be submitted by October 31, 2027. The special issue will be published in 2028. Manuscripts accepted will be published online first."
     },
     {
@@ -1564,7 +1592,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-12T19:08:01.400983+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
     },
     {
@@ -1578,7 +1606,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-31T05:02:04.765724+00:00",
-      "last_seen_at": "2026-08-17T14:45:46.121728+00:00",
+      "last_seen_at": "2026-08-24T14:59:24.584920+00:00",
       "snippet": "The International Journal of Communication accepts proposals for Special Sections and Forums on a standing basis and evaluates them for fit with the journal."
     }
   ]
