@@ -27,15 +27,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.12396694214876,
+      "value": 5.239669421487603,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S107737141",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 57,
     "latest_published_date": "2026-08-05"
@@ -66,15 +66,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 7.897058823529412,
+      "value": 8.25,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S30594836",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 38,
     "latest_published_date": "2026-05-27"
@@ -106,15 +106,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.7894736842105265,
+      "value": 5.9868421052631575,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S103253184",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 49,
     "latest_published_date": "2026-07-17"
@@ -147,15 +147,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.2,
+      "value": 4.266666666666667,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S195553305",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 36,
     "latest_published_date": "2026-07-26"
@@ -186,15 +186,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.8666666666666667,
+      "value": 3.9444444444444446,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764627845",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 64,
     "latest_published_date": "2026-08-11"
@@ -226,15 +226,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.4316546762589928,
+      "value": 1.474820143884892,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S151949019",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 68,
     "latest_published_date": "2026-06-26"
@@ -265,15 +265,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.6202531645569622,
+      "value": 2.6455696202531644,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S173776643",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 9,
     "latest_published_date": "2026-08-06"
@@ -304,15 +304,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.1621621621621623,
+      "value": 2.1739130434782608,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S68257882",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 12,
     "latest_published_date": "2026-07-29"
@@ -349,9 +349,9 @@
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S42986021",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 5,
     "latest_published_date": "2026-08-11"
@@ -383,15 +383,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.4246575342465753,
+      "value": 0.4177777777777778,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S4318504",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 22,
     "latest_published_date": "2026-08-11"
@@ -422,15 +422,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.7037037037037037,
+      "value": 1.7007299270072993,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S18318442",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-29T10:02:07"
     },
     "paper_count": 13,
     "latest_published_date": "2026-08-11"
@@ -461,15 +461,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.1532846715328466,
+      "value": 1.1357142857142857,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S196029703",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 6,
     "latest_published_date": "2026-07-16"
@@ -506,9 +506,9 @@
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S59699082",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 12,
     "latest_published_date": "2026-08-06"
@@ -539,15 +539,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.523076923076923,
+      "value": 1.5846153846153845,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S99809581",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-29T10:02:07"
     },
     "paper_count": 6,
     "latest_published_date": "2026-07-15"
@@ -577,15 +577,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.710059171597633,
+      "value": 4.723529411764706,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S27211427",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 29,
     "latest_published_date": "2026-08-13"
@@ -616,15 +616,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.121621621621622,
+      "value": 5.173333333333333,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S28604305",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 88,
     "latest_published_date": "2026-08-17"
@@ -654,15 +654,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.735294117647059,
+      "value": 3.764705882352941,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S193040567",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 13,
     "latest_published_date": "2026-07-26"
@@ -692,15 +692,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.747093023255814,
+      "value": 4.863112391930835,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S88603889",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 228,
     "latest_published_date": "2026-08-12"
@@ -730,15 +730,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.4934210526315788,
+      "value": 3.5894909688013135,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S70010600",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 102,
     "latest_published_date": "2026-08-14"
@@ -768,15 +768,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.355140186915888,
+      "value": 5.560185185185185,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764497610",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 63,
     "latest_published_date": "2026-07-28"
@@ -805,15 +805,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.149193548387097,
+      "value": 2.1798418972332017,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S111964278",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 227,
     "latest_published_date": "2026-08-13"
@@ -842,15 +842,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.2883435582822087,
+      "value": 3.3394495412844036,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S119437531",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 82,
     "latest_published_date": "2026-08-09"
@@ -879,15 +879,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.017123287671233,
+      "value": 2.0436241610738257,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S20010350",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 137,
     "latest_published_date": "2026-08-15"
@@ -917,15 +917,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.113861386138614,
+      "value": 2.161764705882353,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S153570774",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 40,
     "latest_published_date": "2026-08-05"
@@ -955,15 +955,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.203947368421052,
+      "value": 4.264516129032258,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S161861253",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 74,
     "latest_published_date": "2026-08-15"
@@ -993,15 +993,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.9854368932038833,
+      "value": 3.033816425120773,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S135539873",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 121,
     "latest_published_date": "2026-08-14"
@@ -1031,15 +1031,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.727272727272727,
+      "value": 3.8202247191011236,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S18522216",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 164,
     "latest_published_date": "2026-08-04"
@@ -1068,15 +1068,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.10869565217391304,
+      "value": 0.13157894736842105,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S191319304",
-      "source_updated_at": "2026-08-18T10:02:14"
+      "source_updated_at": "2026-08-29T10:02:07"
     },
     "paper_count": 123,
     "latest_published_date": "2026-08-14"
@@ -1105,15 +1105,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.5575221238938053,
+      "value": 1.592920353982301,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764848433",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 66,
     "latest_published_date": "2026-08-10"
@@ -1142,15 +1142,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.270783847980997,
+      "value": 5.367058823529412,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764570952",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 197,
     "latest_published_date": "2026-06-03"
@@ -1179,15 +1179,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.5225225225225225,
+      "value": 2.563527653213752,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S108453729",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 246,
     "latest_published_date": "2026-08-13"
@@ -1216,15 +1216,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3548387096774195,
+      "value": 2.3972602739726026,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S27931387",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 124,
     "latest_published_date": "2026-08-14"
@@ -1253,15 +1253,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.3417721518987342,
+      "value": 3.3647798742138364,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S30803906",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 95,
     "latest_published_date": "2026-08-06"
@@ -1290,15 +1290,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.454054054054054,
+      "value": 3.49468085106383,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S124907306",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 94,
     "latest_published_date": "2026-08-11"
@@ -1328,15 +1328,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.946327683615819,
+      "value": 2.9719101123595504,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S46483713",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 53,
     "latest_published_date": "2026-08-13"
@@ -1366,15 +1366,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.4915254237288136,
+      "value": 2.559322033898305,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S97866008",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 36,
     "latest_published_date": "2026-07-29"
@@ -1404,15 +1404,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0701754385964914,
+      "value": 2.087719298245614,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S167406155",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 76,
     "latest_published_date": "2026-08-04"
@@ -1441,15 +1441,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.519061583577713,
+      "value": 4.633431085043989,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S118036144",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 155,
     "latest_published_date": "2026-08-17"
@@ -1478,15 +1478,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.2316258351893095,
+      "value": 2.227571115973742,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S12430390",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 234,
     "latest_published_date": "2026-08-13"
@@ -1515,15 +1515,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.8258064516129033,
+      "value": 1.830188679245283,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S201186940",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 80,
     "latest_published_date": "2026-08-05"
@@ -1552,15 +1552,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.4142857142857144,
+      "value": 1.3835616438356164,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S88239621",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 9,
     "latest_published_date": "2026-08-05"
@@ -1595,9 +1595,9 @@
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S43587112",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 5,
     "latest_published_date": "2026-07-25"
@@ -1626,15 +1626,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.7179487179487178,
+      "value": 1.7388535031847134,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S4210190227",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 20,
     "latest_published_date": "2026-08-09"
@@ -1669,9 +1669,9 @@
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S93133213",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 8,
     "latest_published_date": "2026-07-28"
@@ -1706,9 +1706,9 @@
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764635653",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 4,
     "latest_published_date": "2026-08-02"
@@ -1738,15 +1738,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.8741258741258742,
+      "value": 1.8758620689655172,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S143982487",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 25,
     "latest_published_date": "2026-08-11"
@@ -1775,15 +1775,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 8.126315789473685,
+      "value": 8.275510204081632,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S103311983",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 19,
     "latest_published_date": "2026-08-14"
@@ -1811,15 +1811,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.878260869565217,
+      "value": 4.077586206896552,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S61992289",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 13,
     "latest_published_date": "2026-07-27"
@@ -1848,15 +1848,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.174418604651163,
+      "value": 5.304182509505703,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S193575162",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 52,
     "latest_published_date": "2026-06-01"
@@ -1885,15 +1885,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.534246575342466,
+      "value": 5.662162162162162,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S75775641",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 8,
     "latest_published_date": "2026-08-05"
@@ -1922,15 +1922,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3333333333333335,
+      "value": 2.4565217391304346,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S136172864",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 25,
     "latest_published_date": "2026-08-14"
@@ -1959,15 +1959,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3181818181818183,
+      "value": 2.3258426966292136,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S176497116",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 40,
     "latest_published_date": "2026-08-13"
@@ -1996,15 +1996,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.9423076923076925,
+      "value": 5.076923076923077,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S147855554",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 22,
     "latest_published_date": "2026-07-06"
@@ -2033,15 +2033,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.9423076923076923,
+      "value": 0.9904761904761905,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S164618427",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 10,
     "latest_published_date": "2026-08-06"
@@ -2071,15 +2071,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.1327433628318584,
+      "value": 1.1572052401746724,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S192935290",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 88,
     "latest_published_date": "2026-08-12"
@@ -2108,15 +2108,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3448275862068964,
+      "value": 2.3863636363636362,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764413953",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 51,
     "latest_published_date": "2026-08-01"
@@ -2144,15 +2144,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0689655172413794,
+      "value": 2.056179775280899,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S195343931",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 65,
     "latest_published_date": "2026-07-01"
@@ -2181,15 +2181,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.4511278195488724,
+      "value": 3.485148514851485,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S2764971081",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 33,
     "latest_published_date": "2026-08-17"
@@ -2219,15 +2219,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.8571428571428571,
+      "value": 0.9022222222222223,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S49080740",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 11,
     "latest_published_date": "2026-08-07"
@@ -2257,15 +2257,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.0208333333333333,
+      "value": 1.1041666666666667,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S121442443",
-      "source_updated_at": "2026-08-22T10:02:20"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 29,
     "latest_published_date": "2026-07-19"
@@ -2294,15 +2294,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.9166666666666667,
+      "value": 2.0,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S39920973",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 48,
     "latest_published_date": "2026-07-23"
@@ -2332,15 +2332,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.9658119658119657,
+      "value": 2.0,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S87403961",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-29T10:02:07"
     },
     "paper_count": 12,
     "latest_published_date": "2026-08-10"
@@ -2369,15 +2369,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.3209876543209877,
+      "value": 1.3780487804878048,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S51642650",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 3,
     "latest_published_date": "2026-08-12"
@@ -2405,15 +2405,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.853932584269663,
+      "value": 2.946067415730337,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S174538591",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 104,
     "latest_published_date": "2026-07-01"
@@ -2443,15 +2443,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.2541899441340782,
+      "value": 2.3130193905817173,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S46576051",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 47,
     "latest_published_date": "2026-08-13"
@@ -2481,15 +2481,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.0324324324324323,
+      "value": 1.0423280423280423,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S35909690",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 29,
     "latest_published_date": "2026-07-31"
@@ -2519,15 +2519,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.8692307692307693,
+      "value": 1.8880407124681935,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S26978096",
-      "source_updated_at": "2026-08-23T10:02:26"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 25,
     "latest_published_date": "2026-08-14"
@@ -2557,15 +2557,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.5057471264367814,
+      "value": 2.603448275862069,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S199141608",
-      "source_updated_at": "2026-08-22T10:02:20"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 17,
     "latest_published_date": "2026-07-30"
@@ -2595,15 +2595,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.38202247191011235,
+      "value": 0.39325842696629215,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S33064127",
-      "source_updated_at": "2026-08-22T10:02:20"
+      "source_updated_at": "2026-08-30T10:02:45"
     },
     "paper_count": 10,
     "latest_published_date": "2026-08-13"
@@ -2632,15 +2632,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.510204081632653,
+      "value": 1.5510204081632653,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-08-24",
+      "retrieved_on": "2026-08-31",
       "source_url": "https://openalex.org/S143032485",
-      "source_updated_at": "2026-08-24T10:02:16"
+      "source_updated_at": "2026-08-31T10:02:30"
     },
     "paper_count": 1,
     "latest_published_date": "2026-07-30"

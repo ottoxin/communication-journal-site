@@ -1,35 +1,35 @@
 {
-  "run_started_at": "2026-08-24T14:59:11.593095+00:00",
-  "start_date": "2026-07-28",
-  "end_date": "2026-08-24",
+  "run_started_at": "2026-08-31T20:03:44.920110+00:00",
+  "start_date": "2026-08-04",
+  "end_date": "2026-08-31",
   "journals": [
     {
       "journal_id": "journal-of-communication",
       "title": "Journal of Communication",
       "retrieved": 0,
       "stored": 0,
-      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-07-28%2Cuntil-pub-date%3A2026-08-24%2Ctype%3Ajournal-article%2Cissn%3A0021-9916: HTTP Error 400: Bad Request"
+      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-08-04%2Cuntil-pub-date%3A2026-08-31%2Ctype%3Ajournal-article%2Cissn%3A0021-9916: HTTP Error 400: Bad Request"
     },
     {
       "journal_id": "journal-of-computer-mediated-communication",
       "title": "Journal of Computer-Mediated Communication",
       "retrieved": 0,
       "stored": 0,
-      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-07-28%2Cuntil-pub-date%3A2026-08-24%2Ctype%3Ajournal-article%2Cissn%3A1083-6101: HTTP Error 400: Bad Request"
+      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-08-04%2Cuntil-pub-date%3A2026-08-31%2Ctype%3Ajournal-article%2Cissn%3A1083-6101: HTTP Error 400: Bad Request"
     },
     {
       "journal_id": "communication-theory",
       "title": "Communication Theory",
       "retrieved": 0,
       "stored": 0,
-      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-07-28%2Cuntil-pub-date%3A2026-08-24%2Ctype%3Ajournal-article%2Cissn%3A1050-3293: HTTP Error 400: Bad Request"
+      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-08-04%2Cuntil-pub-date%3A2026-08-31%2Ctype%3Ajournal-article%2Cissn%3A1050-3293: HTTP Error 400: Bad Request"
     },
     {
       "journal_id": "human-communication-research",
       "title": "Human Communication Research",
       "retrieved": 0,
       "stored": 0,
-      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-07-28%2Cuntil-pub-date%3A2026-08-24%2Ctype%3Ajournal-article%2Cissn%3A0360-3989: HTTP Error 400: Bad Request"
+      "error": "Could not fetch https://api.crossref.org/works?rows=100&cursor=%2A&sort=published&order=desc&filter=from-pub-date%3A2026-08-04%2Cuntil-pub-date%3A2026-08-31%2Ctype%3Ajournal-article%2Cissn%3A0360-3989: HTTP Error 400: Bad Request"
     },
     {
       "journal_id": "annals-of-the-international-communication-association",
