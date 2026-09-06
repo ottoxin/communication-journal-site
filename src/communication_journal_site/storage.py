@@ -279,8 +279,16 @@ class StateStore:
             ).fetchall()
         records = [self._row_to_special_issue(row) for row in rows]
         records = [record for record in records if is_plausible_special_issue_title(record.title)]
+        today = today or date.today()
+        for record in records:
+            if not record.deadline or record.status == "closed":
+                continue
+            try:
+                if date.fromisoformat(record.deadline) < today:
+                    record.status = "closed"
+            except ValueError:
+                continue
         if verification_days is not None:
-            today = today or date.today()
             for record in records:
                 if record.status != "active" or not record.last_seen_at:
                     continue

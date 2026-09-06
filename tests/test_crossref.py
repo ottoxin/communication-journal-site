@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
+from urllib.parse import parse_qs, urlparse
 
 from communication_journal_site.crossref import CrossrefClient
 from communication_journal_site.enrichment import MetadataEnricher
@@ -39,6 +40,15 @@ class FakeHttpClient:
         }
 
 
+class RecordingHttpClient(FakeHttpClient):
+    def __init__(self) -> None:
+        self.urls: list[str] = []
+
+    def get_json(self, url: str) -> dict:
+        self.urls.append(url)
+        return super().get_json(url)
+
+
 def test_crossref_normalizes_article_metadata() -> None:
     journal = JournalConfig(
         id="test-journal",
@@ -62,6 +72,26 @@ def test_crossref_normalizes_article_metadata() -> None:
     assert record.volume == "12"
     assert record.issue == "3"
     assert record.pages == "1-20"
+
+
+def test_crossref_cursor_request_does_not_use_incompatible_date_sort() -> None:
+    journal = JournalConfig(
+        id="test-journal",
+        title="Test Journal",
+        issns=["0000-0000"],
+    )
+    http_client = RecordingHttpClient()
+
+    CrossrefClient(http_client=http_client).fetch_journal_records(
+        journal,
+        date(2026, 5, 1),
+        date(2026, 5, 31),
+    )
+
+    query = parse_qs(urlparse(http_client.urls[0]).query)
+    assert query["cursor"] == ["*"]
+    assert "sort" not in query
+    assert "order" not in query
 
 
 def test_openalex_enrichment_stops_after_repeated_service_failures() -> None:
