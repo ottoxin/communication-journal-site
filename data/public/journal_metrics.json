@@ -4,8 +4,8 @@
   "metric_label": "OpenAlex 2-year mean citedness",
   "definition_url": "https://github.com/ourresearch/openalex-docs/blob/main/api-entities/sources/source-object.md#summary_stats",
   "license_url": "https://help.openalex.org/hc/en-us/articles/24397762024087-Pricing",
-  "retrieved_at": "2026-08-31T20:03:44.620823+00:00",
-  "retrieved_on": "2026-08-31",
+  "retrieved_at": "2026-09-07T18:43:32.805427+00:00",
+  "retrieved_on": "2026-09-07",
   "citation_year": 2025,
   "publication_years": [
     2023,
@@ -14,20 +14,20 @@
   "journal_count": 70,
   "journals": {
     "annals-of-the-international-communication-association": {
-      "value": 3.9444444444444446,
+      "value": 3.9782608695652173,
       "openalex_id": "https://openalex.org/S2764627845",
       "source_url": "https://openalex.org/S2764627845",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "2380-8977",
         "2380-8985"
       ]
     },
     "chinese-journal-of-communication": {
-      "value": 2.0,
+      "value": 2.0254237288135593,
       "openalex_id": "https://openalex.org/S87403961",
       "source_url": "https://openalex.org/S87403961",
-      "source_updated_at": "2026-08-29T10:02:07",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1754-4750",
         "1754-4769"
@@ -37,313 +37,313 @@
       "value": 0.8556701030927835,
       "openalex_id": "https://openalex.org/S42986021",
       "source_url": "https://openalex.org/S42986021",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1479-1420",
         "1479-4233"
       ]
     },
     "communication-culture-and-critique": {
-      "value": 1.474820143884892,
+      "value": 1.4892086330935252,
       "openalex_id": "https://openalex.org/S151949019",
       "source_url": "https://openalex.org/S151949019",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1753-9129",
         "1753-9137"
       ]
     },
     "communication-education": {
-      "value": 2.1739130434782608,
+      "value": 2.1810344827586206,
       "openalex_id": "https://openalex.org/S68257882",
       "source_url": "https://openalex.org/S68257882",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "0363-4523",
         "1479-5795"
       ]
     },
     "communication-methods-and-measures": {
-      "value": 3.764705882352941,
+      "value": 3.9714285714285715,
       "openalex_id": "https://openalex.org/S193040567",
       "source_url": "https://openalex.org/S193040567",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1931-2458",
         "1931-2466"
       ]
     },
     "communication-monographs": {
-      "value": 2.6455696202531644,
+      "value": 2.6125,
       "openalex_id": "https://openalex.org/S173776643",
       "source_url": "https://openalex.org/S173776643",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0363-7751",
         "1479-5787"
       ]
     },
     "communication-quarterly": {
-      "value": 1.4848484848484849,
+      "value": 1.492537313432836,
       "openalex_id": "https://openalex.org/S43587112",
       "source_url": "https://openalex.org/S43587112",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0146-3373",
         "1746-4102"
       ]
     },
     "communication-reports": {
-      "value": 1.5510204081632653,
+      "value": 1.5918367346938775,
       "openalex_id": "https://openalex.org/S143032485",
       "source_url": "https://openalex.org/S143032485",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0893-4215",
         "1745-1043"
       ]
     },
     "communication-research": {
-      "value": 5.173333333333333,
+      "value": 5.143790849673203,
       "openalex_id": "https://openalex.org/S28604305",
       "source_url": "https://openalex.org/S28604305",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0093-6502",
         "1552-3810"
       ]
     },
     "communication-studies": {
-      "value": 1.7388535031847134,
+      "value": 1.7707006369426752,
       "openalex_id": "https://openalex.org/S4210190227",
       "source_url": "https://openalex.org/S4210190227",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "1051-0974",
         "1745-1035"
       ]
     },
     "communication-theory": {
-      "value": 5.9868421052631575,
+      "value": 6.12987012987013,
       "openalex_id": "https://openalex.org/S103253184",
       "source_url": "https://openalex.org/S103253184",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1050-3293",
         "1468-2885"
       ]
     },
     "convergence": {
-      "value": 2.3130193905817173,
+      "value": 2.3646408839779007,
       "openalex_id": "https://openalex.org/S46576051",
       "source_url": "https://openalex.org/S46576051",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1354-8565",
         "1748-7382"
       ]
     },
     "critical-studies-in-media-communication": {
-      "value": 0.4177777777777778,
+      "value": 0.4247787610619469,
       "openalex_id": "https://openalex.org/S4318504",
       "source_url": "https://openalex.org/S4318504",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1479-5809",
         "1529-5036"
       ]
     },
     "cyberpsychology-behavior-and-social-networking": {
-      "value": 4.633431085043989,
+      "value": 4.716374269005848,
       "openalex_id": "https://openalex.org/S118036144",
       "source_url": "https://openalex.org/S118036144",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "2152-2715",
         "2152-2723"
       ]
     },
     "digital-journalism": {
-      "value": 5.560185185185185,
+      "value": 5.618181818181818,
       "openalex_id": "https://openalex.org/S2764497610",
       "source_url": "https://openalex.org/S2764497610",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "2167-0811",
         "2167-082X"
       ]
     },
     "discourse-and-society": {
-      "value": 1.1572052401746724,
+      "value": 1.165938864628821,
       "openalex_id": "https://openalex.org/S192935290",
       "source_url": "https://openalex.org/S192935290",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0957-9265",
         "1460-3624"
       ]
     },
     "discourse-context-and-media": {
-      "value": 2.3863636363636362,
+      "value": 2.468926553672316,
       "openalex_id": "https://openalex.org/S2764413953",
       "source_url": "https://openalex.org/S2764413953",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "2211-6958"
       ]
     },
     "environmental-communication": {
-      "value": 2.9719101123595504,
+      "value": 2.991573033707865,
       "openalex_id": "https://openalex.org/S46483713",
       "source_url": "https://openalex.org/S46483713",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1752-4032",
         "1752-4040"
       ]
     },
     "european-journal-of-communication": {
-      "value": 0.9022222222222223,
+      "value": 0.8942731277533039,
       "openalex_id": "https://openalex.org/S49080740",
       "source_url": "https://openalex.org/S49080740",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "0267-3231",
         "1460-3705"
       ]
     },
     "feminist-media-studies": {
-      "value": 1.8880407124681935,
+      "value": 1.9088607594936708,
       "openalex_id": "https://openalex.org/S26978096",
       "source_url": "https://openalex.org/S26978096",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1468-0777",
         "1471-5902"
       ]
     },
     "global-media-and-communication": {
-      "value": 1.1041666666666667,
+      "value": 1.1458333333333333,
       "openalex_id": "https://openalex.org/S121442443",
       "source_url": "https://openalex.org/S121442443",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-05T10:02:51",
       "matched_issns": [
         "1742-7665",
         "1742-7673"
       ]
     },
     "health-communication": {
-      "value": 2.563527653213752,
+      "value": 2.583086053412463,
       "openalex_id": "https://openalex.org/S108453729",
       "source_url": "https://openalex.org/S108453729",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1041-0236",
         "1532-7027"
       ]
     },
     "human-communication-research": {
-      "value": 4.266666666666667,
+      "value": 4.35,
       "openalex_id": "https://openalex.org/S195553305",
       "source_url": "https://openalex.org/S195553305",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0360-3989",
         "1468-2958"
       ]
     },
     "information-communication-and-society": {
-      "value": 3.5894909688013135,
+      "value": 3.6427406199021206,
       "openalex_id": "https://openalex.org/S70010600",
       "source_url": "https://openalex.org/S70010600",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1369-118X",
         "1468-4462"
       ]
     },
     "international-communication-gazette": {
-      "value": 2.0,
+      "value": 2.0357142857142856,
       "openalex_id": "https://openalex.org/S39920973",
       "source_url": "https://openalex.org/S39920973",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1748-0485",
         "1748-0493"
       ]
     },
     "international-journal-of-communication": {
-      "value": 0.13157894736842105,
+      "value": 0.14210526315789473,
       "openalex_id": "https://openalex.org/S191319304",
       "source_url": "https://openalex.org/S191319304",
-      "source_updated_at": "2026-08-29T10:02:07",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1932-8036"
       ]
     },
     "international-journal-of-intercultural-relations": {
-      "value": 2.946067415730337,
+      "value": 3.0112107623318387,
       "openalex_id": "https://openalex.org/S174538591",
       "source_url": "https://openalex.org/S174538591",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0147-1767"
       ]
     },
     "international-journal-of-press-politics": {
-      "value": 4.264516129032258,
+      "value": 4.380645161290323,
       "openalex_id": "https://openalex.org/S161861253",
       "source_url": "https://openalex.org/S161861253",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1940-1612",
         "1940-1620"
       ]
     },
     "international-journal-of-strategic-communication": {
-      "value": 2.4565217391304346,
+      "value": 2.5217391304347827,
       "openalex_id": "https://openalex.org/S136172864",
       "source_url": "https://openalex.org/S136172864",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1553-118X",
         "1553-1198"
       ]
     },
     "journal-of-advertising": {
-      "value": 8.275510204081632,
+      "value": 8.23,
       "openalex_id": "https://openalex.org/S103311983",
       "source_url": "https://openalex.org/S103311983",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "0091-3367",
         "1557-7805"
       ]
     },
     "journal-of-advertising-research": {
-      "value": 4.077586206896552,
+      "value": 4.067226890756302,
       "openalex_id": "https://openalex.org/S61992289",
       "source_url": "https://openalex.org/S61992289",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "0021-8499"
       ]
     },
     "journal-of-applied-communication-research": {
-      "value": 1.7007299270072993,
+      "value": 1.7591240875912408,
       "openalex_id": "https://openalex.org/S18318442",
       "source_url": "https://openalex.org/S18318442",
-      "source_updated_at": "2026-08-29T10:02:07",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0090-9882",
         "1479-5752"
       ]
     },
     "journal-of-broadcasting-and-electronic-media": {
-      "value": 1.8758620689655172,
+      "value": 1.8979591836734695,
       "openalex_id": "https://openalex.org/S143982487",
       "source_url": "https://openalex.org/S143982487",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0883-8151",
         "1550-6878"
@@ -353,224 +353,224 @@
       "value": 5.076923076923077,
       "openalex_id": "https://openalex.org/S147855554",
       "source_url": "https://openalex.org/S147855554",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-05T10:02:51",
       "matched_issns": [
         "1050-6519",
         "1552-4574"
       ]
     },
     "journal-of-children-and-media": {
-      "value": 2.603448275862069,
+      "value": 2.601123595505618,
       "openalex_id": "https://openalex.org/S199141608",
       "source_url": "https://openalex.org/S199141608",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1748-2798",
         "1748-2801"
       ]
     },
     "journal-of-communication": {
-      "value": 5.239669421487603,
+      "value": 5.336065573770492,
       "openalex_id": "https://openalex.org/S107737141",
       "source_url": "https://openalex.org/S107737141",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0021-9916",
         "1460-2466"
       ]
     },
     "journal-of-computer-mediated-communication": {
-      "value": 8.25,
+      "value": 8.228571428571428,
       "openalex_id": "https://openalex.org/S30594836",
       "source_url": "https://openalex.org/S30594836",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1083-6101"
       ]
     },
     "journal-of-family-communication": {
-      "value": 1.3835616438356164,
+      "value": 1.4246575342465753,
       "openalex_id": "https://openalex.org/S88239621",
       "source_url": "https://openalex.org/S88239621",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "1526-7431",
         "1532-7698"
       ]
     },
     "journal-of-health-communication": {
-      "value": 2.3972602739726026,
+      "value": 2.403587443946188,
       "openalex_id": "https://openalex.org/S27931387",
       "source_url": "https://openalex.org/S27931387",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1081-0730",
         "1087-0415"
       ]
     },
     "journal-of-intercultural-communication-research": {
-      "value": 1.3780487804878048,
+      "value": 1.369047619047619,
       "openalex_id": "https://openalex.org/S51642650",
       "source_url": "https://openalex.org/S51642650",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "1747-5759",
         "1747-5767"
       ]
     },
     "journal-of-media-psychology": {
-      "value": 2.087719298245614,
+      "value": 2.0956521739130434,
       "openalex_id": "https://openalex.org/S167406155",
       "source_url": "https://openalex.org/S167406155",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-05T10:02:51",
       "matched_issns": [
         "1864-1105",
         "2151-2388"
       ]
     },
     "journal-of-public-relations-research": {
-      "value": 5.662162162162162,
+      "value": 5.671052631578948,
       "openalex_id": "https://openalex.org/S75775641",
       "source_url": "https://openalex.org/S75775641",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1062-726X",
         "1532-754X"
       ]
     },
     "journal-of-social-and-personal-relationships": {
-      "value": 2.227571115973742,
+      "value": 2.2766884531590414,
       "openalex_id": "https://openalex.org/S12430390",
       "source_url": "https://openalex.org/S12430390",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0265-4075",
         "1460-3608"
       ]
     },
     "journalism": {
-      "value": 2.1798418972332017,
+      "value": 2.211764705882353,
       "openalex_id": "https://openalex.org/S111964278",
       "source_url": "https://openalex.org/S111964278",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1464-8849",
         "1741-3001"
       ]
     },
     "journalism-and-mass-communication-quarterly": {
-      "value": 2.0436241610738257,
+      "value": 2.0733333333333333,
       "openalex_id": "https://openalex.org/S20010350",
       "source_url": "https://openalex.org/S20010350",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1077-6990",
         "2161-430X"
       ]
     },
     "journalism-studies": {
-      "value": 3.3394495412844036,
+      "value": 3.3768996960486324,
       "openalex_id": "https://openalex.org/S119437531",
       "source_url": "https://openalex.org/S119437531",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1461-670X",
         "1469-9699"
       ]
     },
     "language-and-communication": {
-      "value": 2.056179775280899,
+      "value": 2.0898876404494384,
       "openalex_id": "https://openalex.org/S195343931",
       "source_url": "https://openalex.org/S195343931",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "0271-5309"
       ]
     },
     "management-communication-quarterly": {
-      "value": 2.3258426966292136,
+      "value": 2.3043478260869565,
       "openalex_id": "https://openalex.org/S176497116",
       "source_url": "https://openalex.org/S176497116",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0893-3189",
         "1552-6798"
       ]
     },
     "mass-communication-and-society": {
-      "value": 2.161764705882353,
+      "value": 2.1902439024390246,
       "openalex_id": "https://openalex.org/S153570774",
       "source_url": "https://openalex.org/S153570774",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1520-5436",
         "1532-7825"
       ]
     },
     "media-and-communication": {
-      "value": 3.485148514851485,
+      "value": 3.5307125307125307,
       "openalex_id": "https://openalex.org/S2764971081",
       "source_url": "https://openalex.org/S2764971081",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "2183-2439"
       ]
     },
     "media-culture-and-society": {
-      "value": 3.8202247191011236,
+      "value": 3.8694029850746268,
       "openalex_id": "https://openalex.org/S18522216",
       "source_url": "https://openalex.org/S18522216",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0163-4437",
         "1460-3675"
       ]
     },
     "media-psychology": {
-      "value": 2.559322033898305,
+      "value": 2.6440677966101696,
       "openalex_id": "https://openalex.org/S97866008",
       "source_url": "https://openalex.org/S97866008",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1521-3269",
         "1532-785X"
       ]
     },
     "mobile-media-and-communication": {
-      "value": 1.592920353982301,
+      "value": 1.6491228070175439,
       "openalex_id": "https://openalex.org/S2764848433",
       "source_url": "https://openalex.org/S2764848433",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "2050-1579",
         "2050-1587"
       ]
     },
     "new-media-and-society": {
-      "value": 4.863112391930835,
+      "value": 4.948275862068965,
       "openalex_id": "https://openalex.org/S88603889",
       "source_url": "https://openalex.org/S88603889",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1461-4448",
         "1461-7315"
       ]
     },
     "personal-relationships": {
-      "value": 1.830188679245283,
+      "value": 1.8580246913580247,
       "openalex_id": "https://openalex.org/S201186940",
       "source_url": "https://openalex.org/S201186940",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1350-4126",
         "1475-6811"
       ]
     },
     "political-communication": {
-      "value": 4.723529411764706,
+      "value": 4.784883720930233,
       "openalex_id": "https://openalex.org/S27211427",
       "source_url": "https://openalex.org/S27211427",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1058-4609",
         "1091-7675"
@@ -580,105 +580,105 @@
       "value": 0.39325842696629215,
       "openalex_id": "https://openalex.org/S33064127",
       "source_url": "https://openalex.org/S33064127",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1540-5702",
         "1540-5710"
       ]
     },
     "public-opinion-quarterly": {
-      "value": 3.033816425120773,
+      "value": 3.207729468599034,
       "openalex_id": "https://openalex.org/S135539873",
       "source_url": "https://openalex.org/S135539873",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0033-362X",
         "1537-5331"
       ]
     },
     "public-relations-review": {
-      "value": 5.304182509505703,
+      "value": 5.355805243445693,
       "openalex_id": "https://openalex.org/S193575162",
       "source_url": "https://openalex.org/S193575162",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0363-8111",
         "1873-4537"
       ]
     },
     "public-understanding-of-science": {
-      "value": 3.49468085106383,
+      "value": 3.5502645502645502,
       "openalex_id": "https://openalex.org/S124907306",
       "source_url": "https://openalex.org/S124907306",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0963-6625",
         "1361-6609"
       ]
     },
     "quarterly-journal-of-speech": {
-      "value": 1.1357142857142857,
+      "value": 1.1631205673758864,
       "openalex_id": "https://openalex.org/S196029703",
       "source_url": "https://openalex.org/S196029703",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "0033-5630",
         "1479-5779"
       ]
     },
     "review-of-communication": {
-      "value": 1.5846153846153845,
+      "value": 1.676923076923077,
       "openalex_id": "https://openalex.org/S99809581",
       "source_url": "https://openalex.org/S99809581",
-      "source_updated_at": "2026-08-29T10:02:07",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1535-8593"
       ]
     },
     "science-communication": {
-      "value": 3.3647798742138364,
+      "value": 3.361963190184049,
       "openalex_id": "https://openalex.org/S30803906",
       "source_url": "https://openalex.org/S30803906",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1075-5470",
         "1552-8545"
       ]
     },
     "social-media-and-society": {
-      "value": 5.367058823529412,
+      "value": 5.428571428571429,
       "openalex_id": "https://openalex.org/S2764570952",
       "source_url": "https://openalex.org/S2764570952",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "2056-3051"
       ]
     },
     "southern-communication-journal": {
-      "value": 0.6296296296296297,
+      "value": 0.6046511627906976,
       "openalex_id": "https://openalex.org/S2764635653",
       "source_url": "https://openalex.org/S2764635653",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1041-794X",
         "1930-3203"
       ]
     },
     "technical-communication-quarterly": {
-      "value": 0.9904761904761905,
+      "value": 1.0095238095238095,
       "openalex_id": "https://openalex.org/S164618427",
       "source_url": "https://openalex.org/S164618427",
-      "source_updated_at": "2026-08-31T10:02:30",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "1057-2252",
         "1542-7625"
       ]
     },
     "television-and-new-media": {
-      "value": 1.0423280423280423,
+      "value": 1.0476190476190477,
       "openalex_id": "https://openalex.org/S35909690",
       "source_url": "https://openalex.org/S35909690",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-06T10:02:31",
       "matched_issns": [
         "1527-4764",
         "1552-8316"
@@ -688,17 +688,17 @@
       "value": 0.49411764705882355,
       "openalex_id": "https://openalex.org/S59699082",
       "source_url": "https://openalex.org/S59699082",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-04T10:02:58",
       "matched_issns": [
         "1046-2937",
         "1479-5760"
       ]
     },
     "western-journal-of-communication": {
-      "value": 0.7294117647058823,
+      "value": 0.7529411764705882,
       "openalex_id": "https://openalex.org/S93133213",
       "source_url": "https://openalex.org/S93133213",
-      "source_updated_at": "2026-08-30T10:02:45",
+      "source_updated_at": "2026-09-07T10:02:18",
       "matched_issns": [
         "1057-0314",
         "1745-1027"
