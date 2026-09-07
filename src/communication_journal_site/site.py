@@ -383,7 +383,7 @@ def _special_issues_page(config: AppConfig, issues: list[SpecialIssueRecord]) ->
       <p>Verified calls from monitored publisher pages, with deadlines and source links kept visible.</p>
       <aside class="metric-note">
         <p><strong>Separate pipelines:</strong> CFP access limits do not reduce article coverage. Articles are collected independently by ISSN for all {len([journal for journal in config.journals if journal.active])} journals.</p>
-        <p>Automated CFP monitoring now covers all configured Taylor &amp; Francis and SAGE journals, plus the Cogitatio and Wiley titles. OUP and IJoC use dated official-source records; Elsevier and Hogrefe remain qualified gaps.</p>
+        <p>Automated CFP monitoring covers all configured Taylor &amp; Francis journals plus Media and Communication. SAGE, OUP, Wiley, Elsevier, IJoC, and Hogrefe coverage relies on dated checks or qualified gaps.</p>
         <p class="citation-links"><a href="https://github.com/ottoxin/communication-journal-site#call-for-papers-coverage">Coverage methods and exclusions</a></p>
       </aside>
       <label class="search-label search-label--page"><span>Find a call</span><input class="search-input" data-search-input data-search-kind="call" placeholder="Search by journal, topic, or status" aria-label="Filter special issues"></label>

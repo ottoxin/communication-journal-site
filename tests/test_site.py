@@ -97,7 +97,8 @@ def test_build_site_outputs_requested_pages(tmp_path: Path) -> None:
     assert "OpenAlex 2-year mean citedness" in dictionary
     assert "not the Clarivate Journal Impact Factor" in dictionary
     assert "OpenAlex scholarly citation" in dictionary
-    assert "2-year mean citedness 4.81" in dictionary
+    metric = config.journal_metrics["journal-of-communication"]
+    assert f"2-year mean citedness {metric.value:.2f}" in dictionary
     journal_page = tmp_path.joinpath("site/journals/journal-of-communication/index.html").read_text(encoding="utf-8")
     assert "journal-cover-large" in journal_page
     assert "Hidden paper without abstract" not in journal_page

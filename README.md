@@ -96,6 +96,8 @@ Every weekly run fetches active CFP sources, extracts still-open public-entry op
 
 The weekly program is systematic and reproducible, but it is not a claim of publisher-wide CFP completeness. Human audit dates and manual records must be refreshed separately.
 
+Overdue manual CFP audits produce a workflow warning and remain visible as limited coverage in the public status data. They do not fail an otherwise successful automated run. Actual collection failures still fail the workflow after the partial snapshot is saved. Sources blocked on GitHub runners (SAGE and Wiley) and expired direct calls are disabled; Taylor & Francis and Cogitatio automation remains active.
+
 The latest machine-readable CFP run records its successful, authoritative-empty, and failed source IDs under `data/public/special_issue_collection.json`. `data/public/health.json` reports the automated-source count and how many of the 70 registry journals are covered by publisher-level or official journal-level automation. Last-known-good findings are retained when a source fails; a successful authoritative empty refresh can retire a missing finding to `unverified`.
 
 ## Journal dictionary impact metric

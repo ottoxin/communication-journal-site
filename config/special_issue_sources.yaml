@@ -21,7 +21,9 @@ sources:
     verified_on: "2026-07-30"
     review_after: "2026-08-31"
     summary: "Human Communication Research invites extended abstracts reconsidering the concept of audience in contemporary communication research."
-    active: true
+    # The public-entry deadline passed on 2026-08-31. The page remains as an
+    # audit source, but the opportunity is no longer published as open.
+    active: false
   - id: communication-theory-oup-calls
     journal_id: communication-theory
     label: Communication Theory Oxford Academic calls
@@ -33,7 +35,9 @@ sources:
     label: SAGE Communication and Media Studies special-issue calls
     url: https://journals.sagepub.com/special-issue-calls-for-papers?cookieSet=1
     source_type: sage-cfp-hub
-    active: true
+    # GitHub-hosted runners receive HTTP 403. Keep this as a manual audit
+    # source rather than claiming unattended publisher-wide coverage.
+    active: false
   - id: political-communication-taylor-special
     journal_id: political-communication
     label: Taylor and Francis Political Communication special issues
@@ -73,7 +77,9 @@ sources:
     label: Health Communication digital mental health special issue
     url: https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/
     source_type: publisher-page
-    active: true
+    # The public-entry deadline passed on 2026-07-31. Taylor & Francis calls
+    # remain covered by the active publisher API source above.
+    active: false
   - id: jprr-emotional-turn-2026
     journal_id: journal-of-public-relations-research
     label: Journal of Public Relations Research emotional turn special issue
@@ -101,7 +107,9 @@ sources:
     label: Personal Relationships calls for papers
     url: https://onlinelibrary.wiley.com/page/journal/14756811/homepage/call-for-papers?cookieSet=1
     source_type: wiley-cfp-page
-    active: true
+    # The page contained only expired 2024 calls when audited on 2026-08-10
+    # and returns 403 to GitHub-hosted runners.
+    active: false
   - id: elsevier-public-relations-review-null-findings
     journal_id: public-relations-review
     label: Public Relations Review call listed on the official ScienceDirect hub

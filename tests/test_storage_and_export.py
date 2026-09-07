@@ -162,6 +162,28 @@ def test_old_unverified_call_is_not_presented_as_active(tmp_path: Path) -> None:
     assert issue.status == "unverified"
 
 
+def test_expired_unverified_call_is_presented_as_closed(tmp_path: Path) -> None:
+    store = StateStore(tmp_path / "site.db")
+    store.upsert_special_issues(
+        [
+            SpecialIssueRecord(
+                source_id="source-a",
+                journal_id="journal-a",
+                journal_title="Journal A",
+                title="Special Issue on Platforms",
+                source_url="https://example.org/a",
+                status="unverified",
+                deadline="2026-08-31",
+            )
+        ],
+        seen_at="2026-08-31T00:00:00+00:00",
+    )
+
+    issue = store.get_special_issues(today=date(2026, 9, 6))[0]
+
+    assert issue.status == "closed"
+
+
 def test_weekly_windows_match_monday_digest_pattern() -> None:
     windows = compute_weekly_windows(__import__("datetime").date(2026, 6, 1))
     assert windows.new_this_week_start == "2026-05-25"
