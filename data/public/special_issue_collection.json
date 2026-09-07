@@ -1,13 +1,12 @@
 {
-  "run_started_at": "2026-09-07T18:43:46.216539+00:00",
-  "retrieved": 26,
-  "stored": 26,
+  "run_started_at": "2026-09-07T22:17:42.890838+00:00",
+  "retrieved": 25,
+  "stored": 25,
   "marked_unverified": 0,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
-    "hcr-oup-calls",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
     "nca-calls",
@@ -17,7 +16,6 @@
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
-    "hcr-oup-calls",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
     "tandf-special-issues-api"
@@ -25,18 +23,5 @@
   "empty_source_ids": [
     "nca-calls"
   ],
-  "errors": [
-    {
-      "source_id": "health-communication-digital-mental-health-2026",
-      "error": "Could not fetch https://think.taylorandfrancis.com/special_issues/digital-mental-health-the-intersection-of-information-media-technology-mental-health-and-communicative-processes/: HTTP Error 404: Not Found"
-    },
-    {
-      "source_id": "sage-communication-cfp-hub",
-      "error": "Could not fetch https://journals.sagepub.com/special-issue-calls-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
-    },
-    {
-      "source_id": "wiley-personal-relationships-cfp",
-      "error": "Could not fetch https://onlinelibrary.wiley.com/page/journal/14756811/homepage/call-for-papers?cookieSet=1: HTTP Error 403: Forbidden"
-    }
-  ]
+  "errors": []
 }

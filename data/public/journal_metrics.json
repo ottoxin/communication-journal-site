@@ -4,7 +4,7 @@
   "metric_label": "OpenAlex 2-year mean citedness",
   "definition_url": "https://github.com/ourresearch/openalex-docs/blob/main/api-entities/sources/source-object.md#summary_stats",
   "license_url": "https://help.openalex.org/hc/en-us/articles/24397762024087-Pricing",
-  "retrieved_at": "2026-09-07T18:43:32.805427+00:00",
+  "retrieved_at": "2026-09-07T22:14:48.704669+00:00",
   "retrieved_on": "2026-09-07",
   "citation_year": 2025,
   "publication_years": [
