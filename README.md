@@ -166,3 +166,9 @@ The test suite covers configuration, Crossref normalization, storage/deduplicati
 - V1 has no login, admin UI, AI summaries, or AI tagging.
 - Article subareas are journal-based only. If a journal belongs to multiple subareas, every paper appears in each configured subarea.
 - Special-issue scraping is best-effort and source-linked. Findings missing after a successful source refresh become `unverified`; failed sources retain their last-known-good records.
+
+## Digest handoff and verified additions
+
+For the weekly journal digest consumer, run `collect-special-issues`, then `export-public-data --output-dir data/public --flat`. Flat export writes directly to the consumer directory and includes the latest special-issue collection archive, keeping source-health timestamps aligned with the exported calls.
+
+Official-page verification on September 7, 2026 added two CFP-only records: the Nature Portfolio Social Group Dynamics collection (Nature Human Behaviour, Nature Communications, Communications Psychology, Scientific Reports; deadline February 18, 2027), and Group Processes & Intergroup Relations' Intergroup Communication call (deadline December 15, 2026). Both records require a source recheck by September 17, 2026. These additions do not change the article registry or the automated publisher-coverage count.

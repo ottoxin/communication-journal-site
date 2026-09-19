@@ -37,6 +37,15 @@ def test_weekly_parser_supports_strict_mode() -> None:
     assert args.strict is True
 
 
+def test_weekly_arguments_can_export_without_flat_flag(tmp_path) -> None:
+    args = build_parser().parse_args([
+        "run-weekly", "--state-dir", str(tmp_path / "state"),
+        "--output-dir", str(tmp_path / "site"), "--digest-date", "2026-09-19",
+    ])
+    assert cli.cmd_export_public_data(args) == 0
+    assert (tmp_path / "site" / "data" / "health.json").exists()
+
+
 def test_fetch_covers_parser_supports_import_and_strict_mode() -> None:
     args = build_parser().parse_args(
         ["fetch-covers", "--import-dir", "downloads/covers", "--strict"]

@@ -27,18 +27,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.336065573770492,
+      "value": 5.338709677419355,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S107737141",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 58,
-    "latest_published_date": "2026-08-30"
+    "paper_count": 60,
+    "latest_published_date": "2026-09-08"
   },
   {
     "id": "journal-of-computer-mediated-communication",
@@ -66,18 +66,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 8.228571428571428,
+      "value": 8.222222222222221,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S30594836",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 40,
-    "latest_published_date": "2026-09-01"
+    "paper_count": 42,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "communication-theory",
@@ -106,18 +106,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 6.12987012987013,
+      "value": 6.139240506329114,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S103253184",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 50,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 51,
+    "latest_published_date": "2026-09-15"
   },
   {
     "id": "human-communication-research",
@@ -147,15 +147,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.35,
+      "value": 4.55,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S195553305",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 36,
     "latest_published_date": "2026-07-26"
@@ -186,18 +186,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.9782608695652173,
+      "value": 4.096774193548387,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764627845",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 67,
-    "latest_published_date": "2026-08-31"
+    "paper_count": 68,
+    "latest_published_date": "2026-09-08"
   },
   {
     "id": "communication-culture-and-critique",
@@ -226,18 +226,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.4892086330935252,
+      "value": 1.542857142857143,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S151949019",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 68,
-    "latest_published_date": "2026-06-26"
+    "paper_count": 69,
+    "latest_published_date": "2026-09-10"
   },
   {
     "id": "communication-monographs",
@@ -265,15 +265,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.6125,
+      "value": 2.7,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S173776643",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 11,
     "latest_published_date": "2026-09-01"
@@ -304,18 +304,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.1810344827586206,
+      "value": 2.206896551724138,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S68257882",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 16,
-    "latest_published_date": "2026-08-29"
+    "paper_count": 17,
+    "latest_published_date": "2026-09-04"
   },
   {
     "id": "communication-and-critical-cultural-studies",
@@ -343,15 +343,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.8556701030927835,
+      "value": 0.8469387755102041,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S42986021",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 4,
     "latest_published_date": "2026-07-22"
@@ -383,18 +383,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.4247787610619469,
+      "value": 0.45064377682403434,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S4318504",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 30,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 35,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "journal-of-applied-communication-research",
@@ -422,18 +422,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.7591240875912408,
+      "value": 1.8214285714285714,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S18318442",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 16,
-    "latest_published_date": "2026-08-25"
+    "paper_count": 18,
+    "latest_published_date": "2026-09-08"
   },
   {
     "id": "quarterly-journal-of-speech",
@@ -461,15 +461,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.1631205673758864,
+      "value": 1.1830985915492958,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S196029703",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 11,
     "latest_published_date": "2026-09-01"
@@ -500,18 +500,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.49411764705882355,
+      "value": 0.4883720930232558,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S59699082",
-      "source_updated_at": "2026-09-04T10:02:58"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 12,
-    "latest_published_date": "2026-08-06"
+    "paper_count": 13,
+    "latest_published_date": "2026-09-07"
   },
   {
     "id": "review-of-communication",
@@ -539,15 +539,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.6615384615384616,
+      "value": 1.7538461538461538,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S99809581",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 7,
     "latest_published_date": "2026-08-21"
@@ -577,18 +577,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.77906976744186,
+      "value": 4.734463276836158,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S27211427",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 37,
-    "latest_published_date": "2026-08-31"
+    "paper_count": 41,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "communication-research",
@@ -616,18 +616,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.143790849673203,
+      "value": 5.287581699346405,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S28604305",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 93,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 94,
+    "latest_published_date": "2026-09-19"
   },
   {
     "id": "communication-methods-and-measures",
@@ -654,15 +654,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.914285714285714,
+      "value": 4.114285714285714,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S193040567",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 14,
     "latest_published_date": "2026-08-31"
@@ -692,18 +692,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.945402298850575,
+      "value": 5.086083213773314,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S88603889",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 239,
-    "latest_published_date": "2026-09-05"
+    "paper_count": 240,
+    "latest_published_date": "2026-09-12"
   },
   {
     "id": "information-communication-and-society",
@@ -730,18 +730,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.639477977161501,
+      "value": 3.70873786407767,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S70010600",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 114,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 118,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "digital-journalism",
@@ -768,18 +768,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.618181818181818,
+      "value": 5.581497797356828,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764497610",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
-    "paper_count": 67,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 74,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "journalism",
@@ -805,18 +805,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.2098039215686276,
+      "value": 2.250965250965251,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S111964278",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 251,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 259,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "journalism-studies",
@@ -842,18 +842,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.3768996960486324,
+      "value": 3.417910447761194,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S119437531",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 89,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 93,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "journalism-and-mass-communication-quarterly",
@@ -879,18 +879,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.07,
+      "value": 2.115894039735099,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S20010350",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 144,
-    "latest_published_date": "2026-09-05"
+    "paper_count": 146,
+    "latest_published_date": "2026-09-14"
   },
   {
     "id": "mass-communication-and-society",
@@ -917,18 +917,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.1902439024390246,
+      "value": 2.217391304347826,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S153570774",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 49,
-    "latest_published_date": "2026-09-01"
+    "paper_count": 51,
+    "latest_published_date": "2026-09-14"
   },
   {
     "id": "international-journal-of-press-politics",
@@ -955,18 +955,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.380645161290323,
+      "value": 4.410256410256411,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S161861253",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 79,
-    "latest_published_date": "2026-08-26"
+    "paper_count": 80,
+    "latest_published_date": "2026-09-14"
   },
   {
     "id": "public-opinion-quarterly",
@@ -993,18 +993,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.1980676328502415,
+      "value": 3.334928229665072,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S135539873",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 122,
-    "latest_published_date": "2026-08-17"
+    "paper_count": 123,
+    "latest_published_date": "2026-09-11"
   },
   {
     "id": "media-culture-and-society",
@@ -1031,18 +1031,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.8694029850746268,
+      "value": 3.900735294117647,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S18522216",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 168,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 171,
+    "latest_published_date": "2026-09-19"
   },
   {
     "id": "international-journal-of-communication",
@@ -1068,18 +1068,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.1368421052631579,
+      "value": 0.14871794871794872,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S191319304",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
-    "paper_count": 127,
-    "latest_published_date": "2026-08-28"
+    "paper_count": 131,
+    "latest_published_date": "2026-09-14"
   },
   {
     "id": "mobile-media-and-communication",
@@ -1105,18 +1105,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.6491228070175439,
+      "value": 1.728813559322034,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764848433",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 67,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 71,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "social-media-and-society",
@@ -1142,15 +1142,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.423887587822014,
+      "value": 5.482598607888631,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764570952",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 197,
     "latest_published_date": "2026-06-03"
@@ -1179,18 +1179,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.583086053412463,
+      "value": 2.6505139500734214,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S108453729",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 256,
-    "latest_published_date": "2026-09-05"
+    "paper_count": 264,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "journal-of-health-communication",
@@ -1216,18 +1216,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.399103139013453,
+      "value": 2.4598214285714284,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S27931387",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 132,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 133,
+    "latest_published_date": "2026-09-08"
   },
   {
     "id": "science-communication",
@@ -1253,18 +1253,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.376543209876543,
+      "value": 3.4424242424242424,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S30803906",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 100,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 103,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "public-understanding-of-science",
@@ -1290,18 +1290,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.544973544973545,
+      "value": 3.6387434554973823,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S124907306",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 99,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 101,
+    "latest_published_date": "2026-09-15"
   },
   {
     "id": "environmental-communication",
@@ -1328,18 +1328,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.991573033707865,
+      "value": 3.0527777777777776,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S46483713",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 55,
-    "latest_published_date": "2026-08-27"
+    "paper_count": 59,
+    "latest_published_date": "2026-09-14"
   },
   {
     "id": "media-psychology",
@@ -1366,15 +1366,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.6440677966101696,
+      "value": 2.7711864406779663,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S97866008",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 37,
     "latest_published_date": "2026-08-19"
@@ -1404,15 +1404,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0956521739130434,
+      "value": 2.139130434782609,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S167406155",
-      "source_updated_at": "2026-09-05T10:02:51"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 79,
     "latest_published_date": "2026-09-01"
@@ -1441,18 +1441,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.716374269005848,
+      "value": 4.831884057971014,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S118036144",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 157,
-    "latest_published_date": "2026-09-01"
+    "paper_count": 158,
+    "latest_published_date": "2026-09-11"
   },
   {
     "id": "journal-of-social-and-personal-relationships",
@@ -1478,18 +1478,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.2751091703056767,
+      "value": 2.3326133909287257,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S12430390",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 247,
-    "latest_published_date": "2026-08-31"
+    "paper_count": 253,
+    "latest_published_date": "2026-09-19"
   },
   {
     "id": "personal-relationships",
@@ -1515,18 +1515,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.8580246913580247,
+      "value": 1.883435582822086,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S201186940",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 88,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 89,
+    "latest_published_date": "2026-09-06"
   },
   {
     "id": "journal-of-family-communication",
@@ -1552,18 +1552,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.4246575342465753,
+      "value": 1.5810810810810811,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S88239621",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
-    "paper_count": 18,
-    "latest_published_date": "2026-08-26"
+    "paper_count": 19,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "communication-quarterly",
@@ -1589,18 +1589,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.492537313432836,
+      "value": 1.5070422535211268,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S43587112",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 6,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 8,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "communication-studies",
@@ -1626,15 +1626,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.7707006369426752,
+      "value": 1.872611464968153,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S4210190227",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 25,
     "latest_published_date": "2026-08-24"
@@ -1663,18 +1663,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.7529411764705882,
+      "value": 0.7613636363636364,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S93133213",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
-    "paper_count": 9,
-    "latest_published_date": "2026-08-23"
+    "paper_count": 11,
+    "latest_published_date": "2026-09-13"
   },
   {
     "id": "southern-communication-journal",
@@ -1700,18 +1700,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.6046511627906976,
+      "value": 0.5869565217391305,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764635653",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 6,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 9,
+    "latest_published_date": "2026-09-10"
   },
   {
     "id": "journal-of-broadcasting-and-electronic-media",
@@ -1738,18 +1738,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.8911564625850341,
+      "value": 1.9060402684563758,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S143982487",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 29,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 30,
+    "latest_published_date": "2026-09-07"
   },
   {
     "id": "journal-of-advertising",
@@ -1775,18 +1775,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 8.23,
+      "value": 8.524752475247524,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S103311983",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 22,
-    "latest_published_date": "2026-08-27"
+    "paper_count": 23,
+    "latest_published_date": "2026-09-15"
   },
   {
     "id": "journal-of-advertising-research",
@@ -1811,18 +1811,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 4.067226890756302,
+      "value": 4.138211382113822,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S61992289",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 17,
-    "latest_published_date": "2026-09-04"
+    "paper_count": 19,
+    "latest_published_date": "2026-09-10"
   },
   {
     "id": "public-relations-review",
@@ -1848,15 +1848,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.340823970037453,
+      "value": 5.438661710037175,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S193575162",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 60,
     "latest_published_date": "2026-09-01"
@@ -1885,18 +1885,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.706666666666667,
+      "value": 5.582278481012659,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S75775641",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 10,
-    "latest_published_date": "2026-08-31"
+    "paper_count": 13,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "international-journal-of-strategic-communication",
@@ -1922,18 +1922,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.5072463768115942,
+      "value": 2.5594405594405596,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S136172864",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
-    "paper_count": 27,
-    "latest_published_date": "2026-08-20"
+    "paper_count": 31,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "management-communication-quarterly",
@@ -1959,18 +1959,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3043478260869565,
+      "value": 2.3404255319148937,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S176497116",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 43,
-    "latest_published_date": "2026-09-05"
+    "paper_count": 46,
+    "latest_published_date": "2026-09-19"
   },
   {
     "id": "journal-of-business-and-technical-communication",
@@ -1996,18 +1996,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 5.076923076923077,
+      "value": 4.909090909090909,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S147855554",
-      "source_updated_at": "2026-09-05T10:02:51"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 22,
-    "latest_published_date": "2026-07-06"
+    "paper_count": 24,
+    "latest_published_date": "2026-09-18"
   },
   {
     "id": "technical-communication-quarterly",
@@ -2033,15 +2033,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.0095238095238095,
+      "value": 1.0666666666666667,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S164618427",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 11,
     "latest_published_date": "2026-08-24"
@@ -2071,18 +2071,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.165938864628821,
+      "value": 1.173913043478261,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S192935290",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 90,
-    "latest_published_date": "2026-08-20"
+    "paper_count": 91,
+    "latest_published_date": "2026-09-09"
   },
   {
     "id": "discourse-context-and-media",
@@ -2108,15 +2108,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.477272727272727,
+      "value": 2.531073446327684,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764413953",
-      "source_updated_at": "2026-09-05T10:02:51"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 51,
     "latest_published_date": "2026-08-01"
@@ -2144,15 +2144,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0898876404494384,
+      "value": 2.060109289617486,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S195343931",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 68,
     "latest_published_date": "2026-09-01"
@@ -2181,18 +2181,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.5307125307125307,
+      "value": 3.5325301204819275,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S2764971081",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 41,
-    "latest_published_date": "2026-09-03"
+    "paper_count": 48,
+    "latest_published_date": "2026-09-15"
   },
   {
     "id": "european-journal-of-communication",
@@ -2219,18 +2219,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.8942731277533039,
+      "value": 0.9039301310043668,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S49080740",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 12,
-    "latest_published_date": "2026-08-27"
+    "paper_count": 13,
+    "latest_published_date": "2026-09-15"
   },
   {
     "id": "global-media-and-communication",
@@ -2257,18 +2257,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.1458333333333333,
+      "value": 1.183673469387755,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S121442443",
-      "source_updated_at": "2026-09-05T10:02:51"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 29,
-    "latest_published_date": "2026-07-19"
+    "paper_count": 30,
+    "latest_published_date": "2026-09-16"
   },
   {
     "id": "international-communication-gazette",
@@ -2294,18 +2294,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0357142857142856,
+      "value": 2.0470588235294116,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S39920973",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 48,
-    "latest_published_date": "2026-07-23"
+    "paper_count": 49,
+    "latest_published_date": "2026-09-10"
   },
   {
     "id": "chinese-journal-of-communication",
@@ -2332,15 +2332,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.0254237288135593,
+      "value": 2.059322033898305,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S87403961",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T01:28:56"
     },
     "paper_count": 14,
     "latest_published_date": "2026-08-30"
@@ -2369,18 +2369,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.369047619047619,
+      "value": 1.4470588235294117,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S51642650",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 7,
-    "latest_published_date": "2026-09-02"
+    "paper_count": 8,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "international-journal-of-intercultural-relations",
@@ -2405,15 +2405,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 3.0112107623318387,
+      "value": 3.046563192904656,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S174538591",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 109,
     "latest_published_date": "2026-09-01"
@@ -2443,18 +2443,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.3646408839779007,
+      "value": 2.4545454545454546,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S46576051",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 52,
-    "latest_published_date": "2026-08-31"
+    "paper_count": 53,
+    "latest_published_date": "2026-09-16"
   },
   {
     "id": "television-and-new-media",
@@ -2481,18 +2481,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.0476190476190477,
+      "value": 1.0890052356020943,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S35909690",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 33,
-    "latest_published_date": "2026-08-24"
+    "paper_count": 35,
+    "latest_published_date": "2026-09-16"
   },
   {
     "id": "feminist-media-studies",
@@ -2519,18 +2519,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.9063291139240506,
+      "value": 1.9526184538653366,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S26978096",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 31,
-    "latest_published_date": "2026-08-27"
+    "paper_count": 33,
+    "latest_published_date": "2026-09-08"
   },
   {
     "id": "journal-of-children-and-media",
@@ -2557,15 +2557,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 2.595505617977528,
+      "value": 2.668539325842697,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S199141608",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 21,
     "latest_published_date": "2026-09-02"
@@ -2595,18 +2595,18 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 0.39325842696629215,
+      "value": 0.4175824175824176,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S33064127",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
-    "paper_count": 10,
-    "latest_published_date": "2026-08-13"
+    "paper_count": 11,
+    "latest_published_date": "2026-09-17"
   },
   {
     "id": "communication-reports",
@@ -2632,15 +2632,15 @@
     "impact_metric": {
       "metric_id": "openalex-2yr-mean-citedness",
       "label": "OpenAlex 2-year mean citedness",
-      "value": 1.5714285714285714,
+      "value": 1.6122448979591837,
       "citation_year": 2025,
       "publication_years": [
         2023,
         2024
       ],
-      "retrieved_on": "2026-09-06",
+      "retrieved_on": "2026-09-19",
       "source_url": "https://openalex.org/S143032485",
-      "source_updated_at": "2026-09-06T10:02:31"
+      "source_updated_at": "2026-09-19T10:02:40"
     },
     "paper_count": 1,
     "latest_published_date": "2026-07-30"

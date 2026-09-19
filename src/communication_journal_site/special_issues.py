@@ -49,6 +49,7 @@ COMMUNICATION_TERMS = (
 )
 
 SPECIAL_ISSUE_PHRASES = (
+    "special collection",
     "special issue",
     "special section",
     "thematic issue",
@@ -846,7 +847,7 @@ def special_issue_identity_title(title: str) -> str:
     normalized = normalize_whitespace(title).lower()
     normalized = re.sub(r"^(open )?call for (papers|submissions)[:\-\s]+", "", normalized)
     normalized = re.sub(
-        r"\b(call for papers|call for submissions|special issue|special section|thematic issue|theme issue)\b",
+        r"\b(call for papers|call for submissions|special issue|special section|special collection|thematic issue|theme issue)\b",
         " ",
         normalized,
     )

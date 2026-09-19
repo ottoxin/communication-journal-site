@@ -30,8 +30,9 @@ def export_public_data(
     store: StateStore,
     output_dir: str | Path,
     digest_date: date | None = None,
+    flat: bool = False,
 ) -> dict[str, Path]:
-    data_dir = Path(output_dir) / "data"
+    data_dir = Path(output_dir) if flat else Path(output_dir) / "data"
     data_dir.mkdir(parents=True, exist_ok=True)
     all_articles = store.get_all_articles()
     articles = public_articles(all_articles)
@@ -54,6 +55,10 @@ def export_public_data(
         "latest": data_dir / "latest.json",
         "health": data_dir / "health.json",
     }
+    archives = sorted((store.db_path.parent / "archives").glob("collect-special-issues-*.json"))
+    if archives:
+        paths["special_issue_collection"] = data_dir / "special_issue_collection.json"
+        paths["special_issue_collection"].write_text(archives[-1].read_text(encoding="utf-8"), encoding="utf-8")
     _write_jsonl(paths["articles"], article_dicts)
     paths["articles_gzip"].write_bytes(gzip.compress(paths["articles"].read_bytes(), mtime=0))
     _write_json(paths["journals"], journal_dicts)

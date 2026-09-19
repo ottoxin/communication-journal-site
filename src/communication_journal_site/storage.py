@@ -181,6 +181,7 @@ class StateStore:
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(dedupe_key) DO UPDATE SET
                         journal_title = excluded.journal_title,
+                        title = excluded.title,
                         source_url = excluded.source_url,
                         status = excluded.status,
                         deadline = COALESCE(excluded.deadline, special_issues.deadline),

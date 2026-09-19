@@ -189,3 +189,31 @@ def test_weekly_windows_match_monday_digest_pattern() -> None:
     assert windows.new_this_week_start == "2026-05-25"
     assert windows.new_this_week_end == "2026-05-31"
     assert windows.previous_week_start == "2026-05-18"
+
+
+def test_flat_export_includes_matching_collection_archive(tmp_path: Path) -> None:
+    config = load_config()
+    store = StateStore(tmp_path / 'state/site.db')
+    archive_dir = store.db_path.parent / 'archives'
+    archive_dir.mkdir()
+    expected = {'run_started_at': '2026-09-07T12:00:00+00:00', 'errors': []}
+    (archive_dir / 'collect-special-issues-2026-09-07.json').write_text(json.dumps(expected))
+    output = tmp_path / 'public'
+    paths = export_public_data(config, store, output, flat=True)
+    assert paths['special_issues'].parent == output
+    assert not (output / 'data').exists()
+    assert json.loads(paths['special_issue_collection'].read_text()) == expected
+
+
+def test_verified_special_collection_survives_export(tmp_path: Path) -> None:
+    config = load_config()
+    store = StateStore(tmp_path / "site.db")
+    record = SpecialIssueRecord(source_id="nature-collection", journal_id="nature-extra", journal_title="Nature Human Behaviour; Nature Communications", title="Special Collection: Social Group Dynamics", source_url="https://www.nature.com/collections/hcgafgbeej/about-this-collection", status="active", deadline="2099-02-18", confidence="high")
+    from dataclasses import replace
+    store.upsert_special_issues([replace(record, title="Call for Papers: Social Group Dynamics")], seen_at="2099-01-01T00:00:00+00:00")
+    store.upsert_special_issues([record], seen_at="2099-01-02T00:00:00+00:00")
+    paths = export_public_data(config, store, tmp_path / "public", flat=True)
+    rows = [json.loads(line) for line in paths["special_issues"].read_text().splitlines()]
+    assert len(rows) == 1
+    assert rows[0]["title"] == record.title
+    assert rows[0]["status"] == "active"

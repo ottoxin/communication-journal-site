@@ -1,7 +1,7 @@
 {
-  "run_started_at": "2026-09-06T17:54:44.958754+00:00",
-  "retrieved": 25,
-  "stored": 25,
+  "run_started_at": "2026-09-19T14:56:47.616093+00:00",
+  "retrieved": 29,
+  "stored": 29,
   "marked_unverified": 0,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
@@ -9,7 +9,10 @@
     "elsevier-public-relations-review-null-findings",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
+    "nature-digital-skills-data-literacy-2027",
+    "nature-social-group-dynamics-2027",
     "nca-calls",
+    "sage-intergroup-communication-2026",
     "tandf-special-issues-api"
   ],
   "authoritative_source_ids": [
@@ -18,6 +21,9 @@
     "elsevier-public-relations-review-null-findings",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
+    "nature-digital-skills-data-literacy-2027",
+    "nature-social-group-dynamics-2027",
+    "sage-intergroup-communication-2026",
     "tandf-special-issues-api"
   ],
   "empty_source_ids": [

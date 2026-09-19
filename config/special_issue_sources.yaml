@@ -68,8 +68,8 @@ sources:
     url: https://journals.sagepub.com/pb-assets/cmscontent/CTP/20250916%20CAP%E2%80%99s%20Call%20for%20Special%20Issue%20Proposals-1758549680.pdf
     source_type: manual
     title: "Call for Special Issue Proposals"
-    verified_on: "2026-07-30"
-    review_after: "2026-10-13"
+    verified_on: "2026-09-12"
+    review_after: "2026-09-22"
     summary: "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
     active: true
   - id: health-communication-digital-mental-health-2026
@@ -98,8 +98,8 @@ sources:
     url: https://ijoc.org/index.php/ijoc/proposes-section
     source_type: manual
     title: "Standing Call for Special Section and Forum Proposals"
-    verified_on: "2026-07-30"
-    review_after: "2026-10-30"
+    verified_on: "2026-09-12"
+    review_after: "2026-09-22"
     summary: "The International Journal of Communication accepts proposals for Special Sections and Forums on a standing basis and evaluates them for fit with the journal."
     active: true
   - id: wiley-personal-relationships-cfp
@@ -131,3 +131,37 @@ sources:
     url: http://www.wikicfp.com/cfp/rss?cat=communication
     source_type: rss
     active: false
+
+  - id: nature-social-group-dynamics-2027
+    journal_id: aggregator-nature-social-groups
+    label: "Nature Human Behaviour; Nature Communications; Communications Psychology; Scientific Reports"
+    url: https://www.nature.com/collections/hcgafgbeej/about-this-collection
+    source_type: manual
+    title: "Special Collection: Social Group Dynamics"
+    deadline: "2027-02-18"
+    verified_on: "2026-09-12"
+    review_after: "2026-09-22"
+    summary: "Open cross-journal collection on social identities, group behaviour, stereotyping, prejudice, inclusion and exclusion; open to all authors. Verified on the official collection page."
+    active: true
+  - id: nature-digital-skills-data-literacy-2027
+    journal_id: aggregator-nature-digital-literacy
+    label: "Humanities & Social Sciences Communications"
+    url: https://www.nature.com/collections/abjfgicgii/collection-policies
+    source_type: manual
+    title: "Special Collection: Digital skills and data literacy"
+    deadline: "2027-03-25"
+    verified_on: "2026-09-19"
+    review_after: "2026-09-29"
+    summary: "Open call on digital inclusion, critical data literacy, algorithmic governance, surveillance, AI, civic engagement, democratic participation, and media resilience; open to all authors. Verified on the official collection page."
+    active: true
+  - id: sage-intergroup-communication-2026
+    journal_id: aggregator-group-processes-intergroup-relations
+    label: "Group Processes & Intergroup Relations"
+    url: https://journals.sagepub.com/page/gpi/call_for_papers_intergroup_communication
+    source_type: manual
+    title: "Special Issue: Intergroup Communication"
+    deadline: "2026-12-15"
+    verified_on: "2026-09-12"
+    review_after: "2026-09-22"
+    summary: "Open call on intergroup communication, online communication, leader rhetoric, media, memes, hate speech and social identity. Submit manuscripts through the journal portal."
+    active: true

@@ -88,6 +88,7 @@ def build_parser() -> argparse.ArgumentParser:
     export_parser.add_argument("--state-dir", default=None)
     export_parser.add_argument("--output-dir", default=None)
     export_parser.add_argument("--digest-date", default=None)
+    export_parser.add_argument("--flat", action="store_true", help="Write JSON files directly to --output-dir, for a public snapshot consumed by another pipeline.")
     export_parser.set_defaults(func=cmd_export_public_data)
 
     build_parser_ = subparsers.add_parser("build-site", help="Generate static HTML pages.")
@@ -331,7 +332,7 @@ def cmd_export_public_data(args: argparse.Namespace) -> int:
     store = _store(config, args)
     output_dir = _output_dir(config, args)
     digest_date = date.fromisoformat(args.digest_date) if args.digest_date else None
-    paths = export_public_data(config, store, output_dir, digest_date=digest_date)
+    paths = export_public_data(config, store, output_dir, digest_date=digest_date, flat=getattr(args, "flat", False))
     for label, path in paths.items():
         print(f"Wrote {label}: {path}")
     return 0
