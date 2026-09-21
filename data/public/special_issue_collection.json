@@ -1,15 +1,14 @@
 {
-  "run_started_at": "2026-09-14T19:25:45.309632+00:00",
+  "run_started_at": "2026-09-21T19:31:00.267710+00:00",
   "retrieved": 27,
   "stored": 27,
-  "marked_unverified": 1,
+  "marked_unverified": 2,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
     "ijoc-special-section-proposals",
     "jprr-emotional-turn-2026",
-    "nca-calls",
     "tandf-special-issues-api"
   ],
   "authoritative_source_ids": [
@@ -20,8 +19,11 @@
     "jprr-emotional-turn-2026",
     "tandf-special-issues-api"
   ],
-  "empty_source_ids": [
-    "nca-calls"
-  ],
-  "errors": []
+  "empty_source_ids": [],
+  "errors": [
+    {
+      "source_id": "nca-calls",
+      "error": "Could not fetch https://www.natcom.org/publications/nca-journals: HTTP Error 403: Forbidden"
+    }
+  ]
 }
