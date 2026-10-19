@@ -1,8 +1,8 @@
 {
-  "run_started_at": "2026-10-12T22:11:08.922827+00:00",
-  "retrieved": 29,
-  "stored": 29,
-  "marked_unverified": 0,
+  "run_started_at": "2026-10-19T19:58:49.516425+00:00",
+  "retrieved": 26,
+  "stored": 26,
+  "marked_unverified": 4,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
