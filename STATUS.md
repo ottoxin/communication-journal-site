@@ -1,15 +1,15 @@
 # Collection Status
 
-Latest public snapshot: **2026-10-26**<br>
+Latest public snapshot: **2026-11-02**<br>
 Dataset status: **Degraded**
 
 | Measure | Value |
 |---|---:|
-| Public articles | 5012 |
-| Latest publication date | 2026-10-26 |
-| Active special-issue calls | 15 |
-| Upcoming calls | 10 |
-| Calls awaiting verification | 1 |
+| Public articles | 5158 |
+| Latest publication date | 2026-11-02 |
+| Active special-issue calls | 11 |
+| Upcoming calls | 11 |
+| Calls awaiting verification | 3 |
 | Current priority-journal CFP audits | 0/12 |
 | Automated CFP sources | 4 |
 | Publisher-automated journals | 36/70 |
