@@ -1,17 +1,17 @@
 {
-  "status": "degraded",
-  "article_status": "current",
+  "status": "stale",
+  "article_status": "stale",
   "special_issue_status": "current",
-  "checked_on": "2026-09-19",
+  "checked_on": "2026-11-02",
   "article_count": 4585,
   "latest_published_date": "2026-09-19",
   "latest_article_sync": "2026-09-19T14:52:09.273515+00:00",
-  "article_sync_age_days": 0,
-  "latest_special_issue_sync": "2026-09-19T14:56:47.616093+00:00",
+  "article_sync_age_days": 44,
+  "latest_special_issue_sync": "2026-11-03T03:51:41.934381+00:00",
   "special_issue_sync_age_days": 0,
-  "active_special_issue_count": 20,
-  "upcoming_special_issue_count": 8,
-  "unverified_special_issue_count": 0,
+  "active_special_issue_count": 23,
+  "upcoming_special_issue_count": 11,
+  "unverified_special_issue_count": 2,
   "special_issue_priority_journal_count": 12,
   "special_issue_direct_coverage_count": 1,
   "special_issue_audit_coverage_count": 0,
@@ -41,14 +41,14 @@
     "special_issue_collection": "complete"
   },
   "special_issue_run": {
-    "recorded_at": "2026-09-19T14:57:24.458245+00:00",
+    "recorded_at": "2026-11-03T03:51:57.235890+00:00",
     "status": "complete",
-    "active_source_count": 10,
+    "active_source_count": 17,
     "automated_source_count": 4,
-    "verified_source_count": 6,
-    "successful_source_count": 10,
+    "verified_source_count": 13,
+    "successful_source_count": 17,
     "failed_source_count": 0,
-    "finding_count": 29,
+    "finding_count": 36,
     "automated_publisher_journal_count": 36,
     "automated_publisher_journal_ids": [
       "chinese-journal-of-communication",
@@ -92,7 +92,7 @@
       "Cogitatio": 1,
       "Taylor & Francis": 35
     },
-    "manual_journal_count": 2,
-    "next_verified_review_on": "2026-09-22"
+    "manual_journal_count": 3,
+    "next_verified_review_on": "2026-10-30"
   }
 }

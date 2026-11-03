@@ -1,0 +1,99 @@
+{
+  "checked_on": "2026-11-02",
+  "timezone": "America/Chicago",
+  "renewed": [
+    {
+      "id": "communication-public-special-issue-proposals",
+      "url": "https://journals.sagepub.com/pb-assets/cmscontent/CTP/20250916%20CAP%E2%80%99s%20Call%20for%20Special%20Issue%20Proposals-1758549680.pdf",
+      "deadline": null,
+      "verified_on": "2026-11-02",
+      "method": "Official page/PDF opened with web tool"
+    },
+    {
+      "id": "ijoc-special-section-proposals",
+      "url": "https://ijoc.org/index.php/ijoc/proposes-section",
+      "deadline": null,
+      "verified_on": "2026-11-02",
+      "method": "Official page/PDF opened with web tool"
+    },
+    {
+      "id": "nature-social-group-dynamics-2027",
+      "url": "https://www.nature.com/collections/hcgafgbeej/about-this-collection",
+      "deadline": "2027-02-18",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "sage-intergroup-communication-2026",
+      "url": "https://journals.sagepub.com/page/gpi/call_for_papers_intergroup_communication",
+      "deadline": "2026-12-15",
+      "verified_on": "2026-11-02",
+      "method": "Official page/PDF opened with web tool"
+    },
+    {
+      "id": "nature-human-behaviour-across-globe-2027",
+      "url": "https://www.nature.com/collections/hijbjcajec/about-this-collection",
+      "deadline": "2027-04-01",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "nature-collective-climate-action-2027",
+      "url": "https://www.nature.com/collections/hbgfiafhah/how-to-submit",
+      "deadline": "2027-02-15",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "nature-divisive-politics-2026",
+      "url": "https://www.nature.com/collections/jfbdfbhaja/how-to-submit",
+      "deadline": "2026-12-11",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "nature-health-communication-public-engagement-2027",
+      "url": "https://www.nature.com/collections/idjeecbagd",
+      "deadline": "2027-02-14",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "nature-intelligence-surveillance-2027",
+      "url": "https://www.nature.com/collections/hfiahhicfb/how-to-submit",
+      "deadline": "2027-06-09",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "nature-race-biopolitics-2027",
+      "url": "https://www.nature.com/collections/aihfgjijah/how-to-submit",
+      "deadline": "2027-03-05",
+      "verified_on": "2026-11-02",
+      "method": "Official page read in browser"
+    },
+    {
+      "id": "sage-mcs-crosscurrents-ai-2027",
+      "url": "https://journals.sagepub.com/page/mcs/call-for-papers/crosscurrents_special_section",
+      "deadline": "2027-06-01",
+      "verified_on": "2026-11-02",
+      "method": "Official page/PDF opened with web tool"
+    }
+  ],
+  "added": {
+    "id": "nature-political-trust-2027",
+    "url": "https://www.nature.com/collections/ejjcigjgee/how-to-submit",
+    "deadline": "2027-04-28"
+  },
+  "unresolved": [
+    {
+      "id": "elsevier-public-relations-review-null-findings",
+      "reason": "Official detailed call blocked by CAPTCHA; no verification date renewed.",
+      "url": "https://www.sciencedirect.com/special-issue/333881/the-value-of-null-advancing-corporate-social-responsibility-and-corporate-social-advocacy-research-through-non-findings"
+    },
+    {
+      "id": "nature-digital-skills-data-literacy-2027",
+      "reason": "Official policies and submission pages opened, but no current open status or deadline displayed; retained unverified."
+    }
+  ]
+}

@@ -1,21 +1,13 @@
 {
-  "generated_at": "2026-09-19T14:57:31.432208+00:00",
+  "generated_at": "2026-11-03T03:52:17.993309+00:00",
   "site_title": "Communication Journal Monitor",
   "article_count": 4585,
   "local_only_article_count": 2697,
   "public_article_policy": "requires_clean_abstract",
   "journal_count": 70,
-  "active_special_issue_count": 20,
-  "digest_date": "2026-09-19",
-  "windows": {
-    "digest_date": "2026-09-19",
-    "new_this_week_start": "2026-09-12",
-    "new_this_week_end": "2026-09-18",
-    "previous_week_start": "2026-09-05",
-    "previous_week_end": "2026-09-11",
-    "late_additions_before": "2026-09-05",
-    "late_additions_first_seen_since": "2026-09-12T00:00:00+00:00"
-  },
+  "active_special_issue_count": 23,
+  "digest_date": null,
+  "windows": null,
   "latest_articles": [
     {
       "journal_id": "communication-research",
@@ -1451,90 +1443,6 @@
   ],
   "active_special_issues": [
     {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "digital-journalism",
-      "journal": "Digital Journalism",
-      "title": "Special Issue: LLM Sycophancy in Digital Journalism: News Consumption, Public Deliberation, and Governance in the Age of Conversational Agents",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/llm-sycophancy-in-digital-journalism/",
-      "status": "active",
-      "deadline": "2026-09-30",
-      "confidence": "high",
-      "discovered_at": "2026-09-06T17:48:35.118152+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "Proposals should include (a) an extended abstract of 500-750 words (excluding references) and (b) a full list of authors and affiliations, with a brief bio for each author describing previous or current research related to the special issue. Please submit your proposal as a single PDF, with all author names stated on the first page, to the corresponding guest editor, Prof. Xinzhi Zhang (xzzhang2@cityu.edu.hk), by September 30, 2026. Authors of accepted proposals will be notified by October 15, 2"
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "journal-of-advertising-research",
-      "journal": "Journal of Advertising Research",
-      "title": "Special Issue: New Directions in Influencer Research",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/new-directions-in-influencer-research/",
-      "status": "active",
-      "deadline": "2026-10-12",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "The length for JAR submissions is 7,000 words, excluding references and web appendices. Authors are encouraged to make use of online appendices for material useful, but not central, to the paper. Please note the submission window will open on 1 July 2026."
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "communication-quarterly",
-      "journal": "Communication Quarterly",
-      "title": "Special Issue: Older Adult Communication Across Contexts",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/older-adult-communication-across-contexts/",
-      "status": "active",
-      "deadline": "2026-10-15",
-      "confidence": "high",
-      "discovered_at": "2026-09-12T06:52:35.100590+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "We will only consider papers where older adults/aging and communication are the focus of the research project. Papers must report on empirical research, but the scholarly approach taken can be quantitative, qualitative, and/or rhetorical/critical. Requirements for papers in the issue will be consistent with existing CQ submission guidelines. The special issue is expected to be published in Fall 2027, but accepted articles will be published online on a rolling basis before the full special issue "
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "western-journal-of-communication",
-      "journal": "Western Journal of Communication",
-      "title": "Special Issue: How Communication Technology Mediates Death, Dying, and Grief",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/how-communication-technology-mediates-death-dying-and-grief/",
-      "status": "active",
-      "deadline": "2026-10-31",
-      "confidence": "high",
-      "discovered_at": "2026-09-12T06:52:35.100590+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "Prospective contributors interested in submitting a full manuscript to the special issue should submit an extended abstract of 300 - 500 words describing the proposed paper, its central argument or expected findings, sources of data (if applicable), theoretical and/or methodological approach, and relationship to the special issue theme. Empirical papers should also include a brief statement explaining the status of data collection and analysis with a brief timeline detailing data collection and "
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "journalism-studies",
-      "journal": "Journalism Studies",
-      "title": "Special Issue: Relational Perspectives in Journalism (Studies)",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/relational-perspectives/",
-      "status": "active",
-      "deadline": "2026-11-01",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "We invite authors to submit a full draft manuscript of 8,000 words (inclusive of the abstract, tables, references, figure captions, endnotes). Full manuscripts must be submitted via ScholarOne, selecting this Special Issue (\u201cRelational Perspectives in Journalism (Studies)\u201d) on the submission system. The cover letter accompanying the submission (max. 400 words) should clearly address the relevance of the proposed article to the theme of the special issue. Please follow the instructions on the jou"
-    },
-    {
-      "source_id": "tandf-special-issues-api",
-      "journal_id": "western-journal-of-communication",
-      "journal": "Western Journal of Communication",
-      "title": "Special Issue: Conspiracy Rhetoric Twenty-Five Years Later: Conspiring Minds Still Want to Know",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://think.taylorandfrancis.com/special_issues/conspiracy-rhetoric-twenty-five-years-later-conspiring-minds-still-want-to-know/",
-      "status": "active",
-      "deadline": "2026-11-01",
-      "confidence": "high",
-      "discovered_at": "2026-09-06T17:48:35.118152+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "We invite completed manuscripts of no more than 9000 words, inclusive of abstract, references, tables, figures, and captions. Manuscripts should be submitted using the journal's online submission system. Please refer to the Western Journal of Communication instructions for authors when formatting your manuscript. All submissions will undergo blind peer review. We anticipate publication in 2027."
-    },
-    {
       "source_id": "jprr-emotional-turn-2026",
       "journal_id": "journal-of-public-relations-research",
       "journal": "Journal of Public Relations Research",
@@ -1545,8 +1453,22 @@
       "deadline": "2026-11-06",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:39:56.878091+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "For a Special Issue on The Emotional Turn in Public Relations Theorizing Manuscript deadline 06 November 2026 Special Issue Editor(s) W. Timothy Coombs , Centre for Crisis and Risk Communication Yan Jin , University of Georgia Augustine Pang , Singapore Management University An-Sofie Claeys , Ghent University Journal information Read the Instructions for Authors on Journal of Public Relations Research View Journal of Public Relations Research on Taylor & Francis Online Submit an article to Journ"
+    },
+    {
+      "source_id": "nature-divisive-politics-2026",
+      "journal_id": "aggregator-nature-divisive-politics",
+      "journal": "Humanities & Social Sciences Communications",
+      "title": "Special Collection: Divisive politics, polarisation and democratic decline",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/jfbdfbhaja/how-to-submit",
+      "status": "active",
+      "deadline": "2026-12-11",
+      "confidence": "high",
+      "discovered_at": "2026-10-10T19:59:51.544709+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on political polarisation, populism, divisive rhetoric, misinformation, campaigns, platform effects and democratic decline; open to all authors."
     },
     {
       "source_id": "sage-intergroup-communication-2026",
@@ -1559,8 +1481,22 @@
       "deadline": "2026-12-15",
       "confidence": "high",
       "discovered_at": "2026-09-07T22:35:32.208068+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Open call on intergroup communication, online communication, leader rhetoric, media, memes, hate speech and social identity. Submit manuscripts through the journal portal."
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "journal_id": "journal-of-health-communication",
+      "journal": "Journal of Health Communication",
+      "title": "Special Issue: Advancing Research in Immunization Services: Communication Strategies, Innovation, and Equity for Vaccine Confidence and Uptake",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://think.taylorandfrancis.com/special_issues/advancing-research-in-immunization-services-communication-strategies-innovation-and-equity-for-vaccine-confidence-and-uptake/",
+      "status": "active",
+      "deadline": "2026-12-22",
+      "confidence": "high",
+      "discovered_at": "2026-10-10T19:57:51.828626+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "All submissions must follow the Journal of Health Communication submission guidelines. For detailed formatting and submission requirements, visit: https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=uhcm20#preparing-your-paper Review Process: All manuscripts will undergo rigorous double-blind peer review. Timeline Call for Papers Released: Oct 1, 26 Manuscript Submissions Due: Dec 22, 2026 Online Publication Target: Sept 2027"
     },
     {
       "source_id": "tandf-special-issues-api",
@@ -1573,7 +1509,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-09-06T17:48:35.118152+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Timeline The Special Issue is projected for the second half of 2028, i.e. June 2028. The preliminary timeline with relevant contributor deadlines is as follows: Abstract submission deadline: December 31, 2026 Feedback on selection of abstracts: February 28, 2027 Full paper submission deadline: July 31, 2027 Review of full papers: October 31, 2027 Deadline for revised submissions: January 31, 2028 Expected publication date June 2028 Abstracts Contributors are expected to be conversant with metamo"
     },
     {
@@ -1587,7 +1523,7 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Full manuscripts should be submitted through ScholarOne. During submission, authors must select \u201cIntercultural Communication in the Age of Artificial Intelligence: Negotiating Identity, Culture, and Digital Interaction\u201d as the Special Issue title. The Special Issue welcomes diverse forms of scholarship, including: Original empirical research employing qualitative, quantitative, computational, or mixed methods. Conceptual and theoretical papers advancing intercultural communication scholarship. C"
     },
     {
@@ -1601,22 +1537,8 @@
       "deadline": "2026-12-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Review and Replication word limits: 9,000 words (inclusively) Report word limit: 4,000 words (inclusively) When you submit your paper, please identify whether the manuscript is a review, replication, or report and list the word count on the cover page"
-    },
-    {
-      "source_id": "elsevier-public-relations-review-null-findings",
-      "journal_id": "public-relations-review",
-      "journal": "Public Relations Review",
-      "title": "Special Issue: The value of \u2018null\u2019: Advancing corporate social responsibility and corporate social advocacy research through non-findings",
-      "opportunity_type": "call-for-papers",
-      "source_url": "https://www.sciencedirect.com/browse/calls-for-papers",
-      "status": "active",
-      "deadline": "2027-01-05",
-      "confidence": "high",
-      "discovered_at": "2026-07-31T05:06:42.768813+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "Public Relations Review invites work using non-findings to advance corporate social responsibility and corporate social advocacy research. Guest editors: Amy O\u2019Connor, Hyejoon Rim, Hao Xu, and Luke Capizzo."
     },
     {
       "source_id": "tandf-special-issues-api",
@@ -1629,8 +1551,36 @@
       "deadline": "2027-01-31",
       "confidence": "high",
       "discovered_at": "2026-09-06T17:48:35.118152+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Papers must not exceed 9,000 words, inclusive of references, tables, and appendices."
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "journal_id": "journalism-studies",
+      "journal": "Journalism Studies",
+      "title": "Special Issue: Relational Perspectives in Journalism (Studies)",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://think.taylorandfrancis.com/special_issues/relational-perspectives/",
+      "status": "active",
+      "deadline": "2027-02-01",
+      "confidence": "high",
+      "discovered_at": "2026-07-31T03:49:00.346459+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "We invite authors to submit a full draft manuscript of 8,000 words (inclusive of the abstract, tables, references, figure captions, endnotes). Full manuscripts must be submitted via ScholarOne, selecting this Special Issue (\u201cRelational Perspectives in Journalism (Studies)\u201d) on the submission system. The cover letter accompanying the submission (max. 400 words) should clearly address the relevance of the proposed article to the theme of the special issue. Please follow the instructions on the jou"
+    },
+    {
+      "source_id": "nature-health-communication-public-engagement-2027",
+      "journal_id": "aggregator-nature-health-communication",
+      "journal": "npj Digital Public Health",
+      "title": "Special Collection: Health Communications and Public Engagement",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/idjeecbagd",
+      "status": "active",
+      "deadline": "2027-02-14",
+      "confidence": "high",
+      "discovered_at": "2026-10-10T19:59:51.544709+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on digital health communication, public engagement, health literacy, social media campaigns, vaccination and tailored communication for underserved communities."
     },
     {
       "source_id": "tandf-special-issues-api",
@@ -1643,8 +1593,22 @@
       "deadline": "2027-02-15",
       "confidence": "high",
       "discovered_at": "2026-09-06T17:48:35.118152+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Only full-length original articles will be considered. The limit is 9,000 words, inclusive of abstract, references, tables, and figures. All manuscripts should be submitted via the journal\u2019s online submission system. Authors should identify the themed call their paper is responding to by selecting the special issue option in the system."
+    },
+    {
+      "source_id": "nature-collective-climate-action-2027",
+      "journal_id": "aggregator-nature-climate-action",
+      "journal": "npj Climate Action",
+      "title": "Special Collection: From Minds to Society: Linking Individual, Social, and Political Dynamics for Collective Climate Action",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/hbgfiafhah/how-to-submit",
+      "status": "active",
+      "deadline": "2027-02-15",
+      "confidence": "high",
+      "discovered_at": "2026-10-02T14:59:41.530206+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on cognitive processes, social interactions, information environments, policy and collective climate action. Official submission page confirms the open status, deadline and participating journal."
     },
     {
       "source_id": "nature-social-group-dynamics-2027",
@@ -1657,22 +1621,92 @@
       "deadline": "2027-02-18",
       "confidence": "high",
       "discovered_at": "2026-09-07T22:39:36.686628+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Open cross-journal collection on social identities, group behaviour, stereotyping, prejudice, inclusion and exclusion; open to all authors. Verified on the official collection page."
     },
     {
-      "source_id": "nature-digital-skills-data-literacy-2027",
-      "journal_id": "aggregator-nature-digital-literacy",
+      "source_id": "nature-race-biopolitics-2027",
+      "journal_id": "aggregator-nature-race-biopolitics",
       "journal": "Humanities & Social Sciences Communications",
-      "title": "Special Collection: Digital skills and data literacy",
+      "title": "Special Collection: Race, biopolitics and political violence",
       "opportunity_type": "call-for-papers",
-      "source_url": "https://www.nature.com/collections/abjfgicgii/collection-policies",
+      "source_url": "https://www.nature.com/collections/aihfgjijah/how-to-submit",
       "status": "active",
-      "deadline": "2027-03-25",
+      "deadline": "2027-03-05",
       "confidence": "high",
-      "discovered_at": "2026-09-19T14:54:12.384978+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
-      "snippet": "Open call on digital inclusion, critical data literacy, algorithmic governance, surveillance, AI, civic engagement, democratic participation, and media resilience; open to all authors. Verified on the official collection page."
+      "discovered_at": "2026-10-24T14:06:20.421300+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on racialised state violence, surveillance, borders, governance and resistance. Official submission page confirms deadline, open status and journal."
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "journal_id": "journal-of-advertising",
+      "journal": "Journal of Advertising",
+      "title": "Special Issue: Beyond What Meets the Eyes: The Power of Visuals in Advertising Research",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://think.taylorandfrancis.com/special_issues/the-power-of-visuals-in-advertising-research/",
+      "status": "active",
+      "deadline": "2027-04-01",
+      "confidence": "high",
+      "discovered_at": "2026-10-24T14:04:32.512410+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Submissions should follow the manuscript format guidelines for JA found at https://www.tandfonline.com/action/authorSubmission?show=instructions&journalCode=ujoa20 . The word count should be no longer than 12,000 words for Original Research Articles and Literature Reviews, and 6,000 words for Research Notes (including references, tables, figures, and appendices). The submission deadline is April 1, 2027. All manuscripts should be submitted through the JA Submission Site. The link to the submissi"
+    },
+    {
+      "source_id": "nature-human-behaviour-across-globe-2027",
+      "journal_id": "aggregator-nature-global-behaviour",
+      "journal": "Nature Communications; Communications Psychology; Scientific Reports",
+      "title": "Special Collection: Human Behaviour Across the Globe",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/hijbjcajec/about-this-collection",
+      "status": "active",
+      "deadline": "2027-04-01",
+      "confidence": "high",
+      "discovered_at": "2026-09-26T06:05:06.145395+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open cross-journal collection on human beliefs, values, cognition and behaviour across nations and cultures, with particular interest in underrepresented samples; open to all authors."
+    },
+    {
+      "source_id": "nature-political-trust-2027",
+      "journal_id": "aggregator-nature-political-trust",
+      "journal": "Humanities & Social Sciences Communications",
+      "title": "Special Collection: Political trust: trends, crises, and measurement",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/ejjcigjgee/how-to-submit",
+      "status": "active",
+      "deadline": "2027-04-28",
+      "confidence": "high",
+      "discovered_at": "2026-11-03T03:51:41.934381+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on political trust, misinformation, digital platforms, measurement, democratic backsliding and trust in authoritarian or hybrid regimes; official submission page confirms open status and deadline."
+    },
+    {
+      "source_id": "sage-mcs-crosscurrents-ai-2027",
+      "journal_id": "media-culture-and-society",
+      "journal": "Media, Culture & Society",
+      "title": "Special Section: Media & Communication Research Scholarship in the age of AI",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://journals.sagepub.com/page/mcs/call-for-papers/crosscurrents_special_section",
+      "status": "active",
+      "deadline": "2027-06-01",
+      "confidence": "high",
+      "discovered_at": "2026-11-01T05:57:45.782630+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "CrossCurrents invites 3,000\u20134,000-word contributions on generative AI, media and communication scholarship, research training and knowledge production; submit through the journal platform. Official call opened November 1."
+    },
+    {
+      "source_id": "nature-intelligence-surveillance-2027",
+      "journal_id": "aggregator-nature-intelligence-surveillance",
+      "journal": "Humanities & Social Sciences Communications",
+      "title": "Special Collection: The new intelligence age: surveillance, espionage and power",
+      "opportunity_type": "call-for-papers",
+      "source_url": "https://www.nature.com/collections/hfiahhicfb/how-to-submit",
+      "status": "active",
+      "deadline": "2027-06-09",
+      "confidence": "high",
+      "discovered_at": "2026-10-17T09:48:56.747253+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
+      "snippet": "Open collection on surveillance, algorithmic governance, information warfare, disinformation, influence operations, intelligence and democratic accountability. Official submission page verified open to submissions."
     },
     {
       "source_id": "tandf-special-issues-api",
@@ -1685,7 +1719,7 @@
       "deadline": "2027-08-01",
       "confidence": "high",
       "discovered_at": "2026-09-19T14:52:13.738347+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Manuscripts should be prepared according to the Journal of Advertising Research author guidelines and submitted through the journal\u2019s online submission system, with a note designating the submission for this special issue. All submissions will undergo the journal\u2019s standard double-blind review process. Submissions will be considered as they are received and the guest editors may begin the review process and render initial decisions before the submission deadline. Authors submitting earlier in th"
     },
     {
@@ -1699,7 +1733,7 @@
       "deadline": "2027-10-31",
       "confidence": "high",
       "discovered_at": "2026-07-31T03:49:00.346459+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Manuscripts should be prepared according to the International Journal of Strategic Communication author guidelines and submitted via the journal\u2019s online submission system. Manuscripts should be submitted by October 31, 2027. The special issue will be published in 2028. Manuscripts accepted will be published online first."
     },
     {
@@ -1713,7 +1747,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-12T19:08:01.400983+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "Communication and the Public invites scholars to propose a special issue; proposals may be submitted to the journal by email."
     },
     {
@@ -1727,7 +1761,7 @@
       "deadline": null,
       "confidence": "high",
       "discovered_at": "2026-07-31T05:02:04.765724+00:00",
-      "last_seen_at": "2026-09-19T14:56:47.616093+00:00",
+      "last_seen_at": "2026-11-03T03:51:41.934381+00:00",
       "snippet": "The International Journal of Communication accepts proposals for Special Sections and Forums on a standing basis and evaluates them for fit with the journal."
     }
   ]
