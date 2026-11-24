@@ -1,27 +1,32 @@
 {
-  "run_started_at": "2026-11-02T22:54:43.210508+00:00",
-  "retrieved": 26,
-  "stored": 26,
-  "marked_unverified": 2,
+  "run_started_at": "2026-11-24T01:43:10.193114+00:00",
+  "retrieved": 13,
+  "stored": 13,
+  "marked_unverified": 0,
   "successful_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
     "ijoc-special-section-proposals",
-    "jprr-emotional-turn-2026",
-    "nca-calls",
-    "tandf-special-issues-api"
+    "nca-calls"
   ],
   "authoritative_source_ids": [
     "cogitatio-media-communication-future-issues",
     "communication-public-special-issue-proposals",
     "elsevier-public-relations-review-null-findings",
-    "ijoc-special-section-proposals",
-    "jprr-emotional-turn-2026",
-    "tandf-special-issues-api"
+    "ijoc-special-section-proposals"
   ],
   "empty_source_ids": [
     "nca-calls"
   ],
-  "errors": []
+  "errors": [
+    {
+      "source_id": "jprr-emotional-turn-2026",
+      "error": "Could not fetch https://think.taylorandfrancis.com/special_issues/the-emotional-turn-in-public-relations-theorizing/: HTTP Error 404: Not Found"
+    },
+    {
+      "source_id": "tandf-special-issues-api",
+      "error": "Could not fetch https://think.taylorandfrancis.com/wp-json/wp/v2/special_issues?per_page=100&page=5&_fields=id%2Cslug%2Clink%2Ctitle%2Cmeta%2Cspecial_issues: The read operation timed out"
+    }
+  ]
 }
